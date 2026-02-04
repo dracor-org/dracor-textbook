@@ -1,7 +1,7 @@
 ---
 title: "Front-end: Navigating DraCor"
 substitutions:
-  chap_title: "Front-End"
+  chap_title: "Front-end"
 author: "Antonio Rojas Castro"
 date: "2026-02-01"
 description: "This chapter explains how to use the DraCor front-end from the home page to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
