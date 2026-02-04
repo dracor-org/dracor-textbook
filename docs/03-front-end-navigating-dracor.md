@@ -194,7 +194,19 @@ To DO
 
 ## 9. Glossary
 
-
+| Term | Definition |
+| --- | --- |
+| Front-end | The user-facing web interface of DraCor. |
+| Play ID (slug) | A stable identifier for a play (visible in the header/URL and in corpus tables). |
+| Segment | A unit of segmentation used by the interface to structure co-occurrence and navigation. |
+| Co-occurrence network | A network where characters are linked if they appear in the same unit (for example, a scene or act), as stated by the interface. |
+| Network size | The number of speaking characters/entities in a play. |
+| Network diameter | The highest value among all shortest distances between two nodes. |
+| Network density | A value between 0 and 1 indicating how many of all possible connections between nodes are realised. |
+| Clustering coefficient | A value between 0 and 1 determined by the ratio of possible “triangles” in a network to actually connected triplets. |
+| Average path length | The average of all shortest path lengths between pairs of nodes in a connected network. |
+| Maximum degree | The highest number of direct connections held by any single node (often shown with the character’s name). |
+| personGrp | A group character (collective role) distinguished from individual persons. |
 
 ## 10. Next Steps
 
