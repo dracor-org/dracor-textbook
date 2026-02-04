@@ -4,8 +4,6 @@ The **DraCor Textbook** is a curated, pedagogically structured Open Educational 
 
 The textbook is **currently under construction**. The first volume (*Book 1: Core Content*) is planned for release in **May/June 2026**. It introduces core concepts, methods, and tools for working with DraCor, including corpus building, TEI encoding, exploration via the web front end, API-based access, and local infrastructure. A second volume dedicated to advanced case studies is planned for a later development phase.
 
-### Documentation and Development
-
 The development of the DraCor Textbook is fully open. Editorial guidelines, chapter templates, terminology conventions, and the ongoing discussion of scope and structure are documented in the project’s GitHub repository and wiki. These materials evolve alongside the textbook and reflect the collaborative editorial process.
 
 ### Contact and Collaboration
