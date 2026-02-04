@@ -14,6 +14,7 @@ license: "CC BY 4.0"
 ```{warning}
 This chapter is a **draft**. It has not yet been proofread or formally reviewed.  
 Content, terminology, and examples may change.
+```
 
 ```{admonition} Chapter metadata
 :class: tip
@@ -22,11 +23,11 @@ Content, terminology, and examples may change.
 **Version:** 0.3 (2026-02-04)  
 **Review status:** Not yet reviewed  
 **Planned reviewers:** DraCorOS editorial team
-
+```
 
 ```{note}
 **How to use this chapter:** We work entirely in the DraCor web interface. We begin on the home page, move to a corpus page, and then explain each play tab (Network, Speech distribution, Full text, Downloads, Tools). Our goal is to make exploratory browsing precise enough that others can reproduce what we saw.
-````
+```
 
 ## 1. Overview
 
