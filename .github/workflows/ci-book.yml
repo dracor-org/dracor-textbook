@@ -23,5 +23,5 @@ jobs:
 
       - name: Verify Jupyter Book builds (no deploy)
         run: |
-          jupyter-book clean . --all
-          jupyter-book build . --all
+          jupyter-book clean docs --all
+          jupyter-book build docs --all
