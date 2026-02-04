@@ -1,5 +1,6 @@
 title: "DraCor Textbook"
 author: "DraCorOS Team"
+copyright: "2026"
 only_build_toc_files: true
 
 repository:
@@ -17,6 +18,10 @@ sphinx:
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
+    extra_footer: |
+    <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+    <p>Suggested citation: <em>[Chapter Title]</em> from the <em>DraCor Textbook</em> by <em>[Author Names]</em> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+
 
 bibtex_bibfiles:
   - references.bib
