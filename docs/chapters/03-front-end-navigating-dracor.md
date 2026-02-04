@@ -15,7 +15,6 @@ license: "CC BY 4.0"
 This chapter is a **draft**. It has not yet been proofread or formally reviewed.  
 Content, terminology, and examples may change.
 
-```markdown
 ```{admonition} Chapter metadata
 :class: tip
 
