@@ -3,7 +3,7 @@ author: "DraCorOS Team"
 only_build_toc_files: true
 
 repository:
-  url: https://github.com/arojascastro/dracor-textbook
+  url: https://github.com/dracor-org/dracor-textbook
   path_to_book: .
   branch: main
 
