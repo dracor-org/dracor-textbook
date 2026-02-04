@@ -50,7 +50,7 @@ When you write down an observation, include the corpus and play ID (from the URL
 
 ### Example 1. Starting from the home page (selecting a corpus)
 
-On the DraCor home page we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple strata: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
+On the DraCor home page we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
 
 ```{figure} ../images/front-end/home-page.png
 ---
