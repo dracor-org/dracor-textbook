@@ -1,5 +1,5 @@
 ---
-title: "Front-End: Navigating DraCor"
+title: "Front-end: Navigating DraCor"
 substitutions:
   chap_title: "Front-End"
 author: "Antonio Rojas Castro"

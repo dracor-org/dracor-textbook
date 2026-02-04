@@ -2,4 +2,4 @@ format: jb-book
 root: docs/index
 chapters:
   - file: docs/chapters/03-front-end-navigating-dracor
-    title: "3. Front-End: Navigating DraCor"
+    title: "3. Front-end: Navigating DraCor"
