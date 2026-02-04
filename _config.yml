@@ -11,17 +11,15 @@ repository:
 html:
   use_repository_button: true
   use_issues_button: true
-  favicon: _static/figures/favicon.png
-  logo: _static/figures/logo.png
 
 sphinx:
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
-    extra_footer: |
-    <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-    <p>Suggested citation: <em>[Chapter Title]</em> from the <em>DraCor Textbook</em> by <em>[Author Names]</em> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-
+    html_theme_options:
+      extra_footer: |
+        <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>.</p>
+        <p>Suggested citation: <em>[Chapter Title]</em> from the <em>DraCor Textbook</em> by <em>[Author Names]</em> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
 
 bibtex_bibfiles:
   - references.bib
