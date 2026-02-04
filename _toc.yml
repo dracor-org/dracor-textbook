@@ -1,11 +1,5 @@
 format: jb-book
 root: docs/index
 chapters:
-  - file: docs/syllabus
-    title: "Syllabus"
-  - file: docs/api-basics
-    title: "API Basics"
-  - file: docs/dracor_textbook_chapter_template
-    title: "Chapter Template"
-  - file: docs/03-front-end-navigating-dracor
+  - file: docs/chapters/03-front-end-navigating-dracor
     title: "3. Front-End: Navigating DraCor"
