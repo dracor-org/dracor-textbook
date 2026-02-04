@@ -24,11 +24,12 @@ jobs:
           pip install -r requirements.txt
       - name: Build Jupyter Book (force execute)
         run: |
-          jupyter-book build . --all
+          jupyter-book clean docs --all
+          jupyter-book build docs --all
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _build/html
+          path: docs/_build/html
   deploy:
     needs: build
     environment:

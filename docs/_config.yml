@@ -5,7 +5,7 @@ only_build_toc_files: true
 
 repository:
   url: https://github.com/dracor-org/dracor-textbook
-  path_to_book: .
+  path_to_book: docs
   branch: main
 
 html:
