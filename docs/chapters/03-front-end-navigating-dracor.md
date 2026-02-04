@@ -76,7 +76,7 @@ width: 100%
 
 Play pages share a consistent header layout. In the example used in this chapter (“La vida es sueño”), the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads, and Tools. In the rest of this chapter we explain these five tabs in the same order.
 
-### Tab 1. Network
+#### Tab 1. Network
 
 The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters appear in the same scene or act (segment), they are linked. What we see first is a graph visualisation, which serves as an immediate “visual catch”. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
@@ -103,7 +103,7 @@ width: 100%
 ```
 *Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence).*
 
-### Tab 2. Speech distribution
+#### Tab 2. Speech distribution
 
 The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, Sapogov 1974, Yarkho 1997/2019, Trilcke/Fischer et al. 2017). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation.
 
@@ -117,7 +117,7 @@ width: 100%
 ```
 *Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters.*
 
-### Tab 3. Full text
+#### Tab 3. Full text
 
 The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example, the text is presented with structural markers (for example, Jornada I), with stage directions and speakers, and accompanied by a source note indicating where the text was obtained from and how it was adapted.
 
@@ -131,7 +131,7 @@ width: 100%
 ```
 *Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.*
 
-### Tab 4. Downloads
+#### Tab 4. Downloads
 
 The Downloads tab provides access to different semantic layers of a play in multiple formats. This is the transparency layer of the front-end: it allows us to retrieve artefacts that correspond to what we see in the interface. In the example, network data can be downloaded in common graph exchange formats (CSV, GEXF, GraphML). The tab also offers exports for spoken text (for example, JSON by character and plain TXT), stage directions (with and without speaker names), the character list (CSV/JSON, often including precalculated data), and the full TEI-encoded text.
 
@@ -143,7 +143,7 @@ width: 100%
 ```
 *Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI full text) in multiple formats.*
 
-### Tab 5. Tools
+#### Tab 5. Tools
 
 The Tools tab links the play to external tools and lets us choose which textual layer should be routed to those tools. In the example, we can select the text layer for analysis (Full text in TEI, plain text, spoken text, or stage directions) and then open third-party services such as Voyant Tools or the CLARIN Language Resource Switchboard. The tab also includes an entry point for network analysis via Gephi Lite.
 
