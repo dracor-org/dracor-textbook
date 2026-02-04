@@ -13,6 +13,11 @@ html:
   favicon: _static/figures/favicon.png
   logo: _static/figures/logo.png
 
+sphinx:
+  config:
+    html_logo: _static/figures/logo.png
+    html_favicon: _static/figures/favicon.png
+
 bibtex_bibfiles:
   - references.bib
 
