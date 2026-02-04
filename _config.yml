@@ -10,8 +10,8 @@ repository:
 html:
   use_repository_button: true
   use_issues_button: true
-  favicon: _static/favicon.png
-  logo: _static/logo.png
+  favicon: docs/_static/favicon.png
+  logo: docs/_static/logo.png
 
 bibtex_bibfiles:
   - references.bib
