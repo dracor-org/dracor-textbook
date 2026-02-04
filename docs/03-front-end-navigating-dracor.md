@@ -205,16 +205,3 @@ To DO
 To do
 
 ---
-
-<!-- Contributor Checklist (keep this block) -->
-
-* [X] YAML metadata filled (title, author, date, description, keywords).
-* [X] Learning outcomes are observable (verbs like describe, navigate, interpret).
-* [X] At least 2 exercises with self-checks.
-* [X] Figures and/or short code snippets where helpful.
-* [ ] References added.
-
-```
-
----
-```
