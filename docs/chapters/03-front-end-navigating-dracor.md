@@ -20,7 +20,7 @@ Content, terminology, and examples may change.
 :class: tip
 
 **Author:** Antonio Rojas Castro  
-**Version:** 0.3 (2026-02-04)  
+**Version:** 0.4 (2026-02-10)  
 **Review status:** Not yet reviewed  
 **Planned reviewers:** DraCorOS editorial team
 ```
@@ -175,15 +175,20 @@ width: 100%
 
 **Exercise 1. Identify interface layers (10–15 minutes)**
 Choose one play and write 2–3 sentences per tab explaining what kind of representation it provides (network, distribution, text, exports, external tools).
+
 Self-check: are you describing what is shown, rather than what you think it “means”?
 
 **Exercise 2. Connect Network and Full text (15–20 minutes)**
 Pick one character that appears highly connected in the Network tab. Use the Segments panel in Full text to locate two segments where this character appears with multiple others, and describe what is happening in those passages.
+
 Self-check: can you point to specific segments or headings that support your observation?
 
 **Exercise 3. Transparency via Downloads (10–15 minutes)**
 Download one file that corresponds to a view you used (for example, a network export). Note which semantic layer and which file format you chose, and why it matches your purpose.
+
 Self-check: could someone else retrieve the same file and understand what it represents?
+
+- To Do: interactive exercise (?)
 
 ## 7. Teaching Notes
 
@@ -191,7 +196,7 @@ This chapter works well as a 60–90 minute practical session. A useful rhythm i
 
 ## 8. Further Reading and Resources 
 
-To DO
+- To Do
 
 ## 9. Glossary
 
@@ -212,10 +217,12 @@ To DO
 
 ## 10. Next Steps
 
-* Continue with: Chapter 04 (API) to understand how the front-end relates to programmatic access and reproducible workflows.
+* Continue with: Chapter 4 (API) to understand how the front-end relates to programmatic access and reproducible workflows.
 
 ## 11. References
 
-To do
+- Sapogov 1974
+- Yarkho 1997/2019
+- Trilcke/Fischer et al. 2017
 
 ---
