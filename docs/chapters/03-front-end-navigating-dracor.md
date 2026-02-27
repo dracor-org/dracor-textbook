@@ -13,7 +13,7 @@ license: "CC BY 4.0"
 ```{admonition} How to cite this chapter
 :class: tip
 ```{bibliography}
-:filter: key == "dracor_chapter_research_question_2026"
+:filter: key == "dracor_textbook_ch03_2026"
 :style: apa
 ````
 
