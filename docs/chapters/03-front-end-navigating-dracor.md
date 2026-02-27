@@ -9,17 +9,35 @@ keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech
 license: "CC BY 4.0"
 ---
 
-````{margin}
-```{admonition} How to cite this chapter
-:class: tip
-```{bibliography}
-:filter: key == "dracor_textbook_ch03_2026"
-:style: apa
-```
-````
-````
-
 # Front-end: Navigating DraCor
+
+::::{margin}
+:::{admonition} Questions or feedback
+:class: question-feedback
+
+<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=question&template=question.yml" class="external-link" target="_blank">
+  Ask a question
+</a><br>
+<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=feedback&template=feedback.yml" class="external-link" target="_blank">
+  Give feedback
+</a>
+
+Your feedback helps us improve the textbook.
+:::
+::::
+
+
+::::{margin}
+:::{admonition} Citation
+:class: citation-information
+
+:::{literalinclude} /citation.bib
+:language: bibtex
+:::
+
+Rojas Castro, A. (2026). *Exploring the DraCor Front-End (Chapter 3)*. DraCor Textbook. https://github.com/dracor-org/dracor-textbook
+:::
+::::
 
 ```{warning}
 This chapter is a **draft**. It has not yet been proofread or formally reviewed.  
