@@ -27,7 +27,7 @@ Fisher, Frank; Trilcke, Peer; (2026). *DraCor Textbook*. https://github.com/drac
 ::::
 
 
-## Preface
+# Preface
 
 The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS team. It is conceived as a coherent teaching and learning resource for working with **DraCor’s programmable drama corpora**, with a particular focus on accessibility for learners with little or no prior background in Digital Humanities or programming.
 
