@@ -189,7 +189,7 @@ Download one file that corresponds to a view you used (for example, a network ex
 
 Self-check: could someone else retrieve the same file and understand what it represents?
 
-- To Do: interactive exercise (?)
+Self-test: assessment/03-front-end-assessment
 
 ## 7. Teaching Notes
 
