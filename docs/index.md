@@ -35,7 +35,7 @@ The textbook is **currently under construction**. The first volume (*Book 1: Cor
 
 The development of the DraCor Textbook is fully open. Editorial guidelines, chapter templates, terminology conventions, and the ongoing discussion of scope and structure are documented in the project’s GitHub repository and wiki. These materials evolve alongside the textbook and reflect the collaborative editorial process.
 
-### Contact and Collaboration
+## Contact and Collaboration
 
 Feedback, questions, and contributions are welcome.
 Please use **GitHub Issues** in the project repository to get in touch with the editorial team and to follow or join the development process:
