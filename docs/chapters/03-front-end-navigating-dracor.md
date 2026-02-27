@@ -15,6 +15,8 @@ license: "CC BY 4.0"
 ```{bibliography}
 :filter: key == "dracor_textbook_ch03_2026"
 :style: apa
+```
+````
 ````
 
 # Front-end: Navigating DraCor
