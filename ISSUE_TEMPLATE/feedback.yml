@@ -1,0 +1,72 @@
+name: Feedback
+description: Suggest an improvement to the DraCor Textbook (clarity, structure, exercises, references, UX).
+title: "[Feedback]: "
+labels:
+  - feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the DraCor Textbook. Concrete examples are especially helpful.
+
+  - type: input
+    id: page
+    attributes:
+      label: Page / chapter
+      description: Which page is this about? Paste the URL of the rendered page or the path in the repository.
+      placeholder: "https://dracor-org.github.io/dracor-textbook/... or docs/chapters/01-intro.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Type of feedback
+      options:
+        - Clarify wording / definitions
+        - Add example / illustration
+        - Fix an error / broken link
+        - Improve structure / navigation
+        - Add or improve exercise / self-test
+        - Improve citation / reference
+        - Accessibility / layout issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current behaviour / text
+      description: What is currently there, and what is the issue?
+      placeholder: "The section says ..., but it is unclear because ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: Propose an edit, a new example, or a change in structure.
+      placeholder: "I suggest rewriting as ... / adding an example showing ..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I can open a pull request with the change.
+          required: false
+        - label: I would like a maintainer to implement this.
+          required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links, references, screenshots, or anything else.
+      placeholder: "Any extra information that helps us implement your suggestion."
+    validations:
+      required: false

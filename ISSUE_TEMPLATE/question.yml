@@ -1,0 +1,59 @@
+name: Question
+description: Ask a question about the DraCor Textbook (content, methods, or tooling).
+title: "[Question]: "
+labels:
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your question. Please provide enough context so we can reproduce what you are seeing.
+
+  - type: input
+    id: page
+    attributes:
+      label: Page / chapter
+      description: Which page is this about? Paste the URL of the rendered page or the path in the repository.
+      placeholder: "https://dracor-org.github.io/dracor-textbook/... or docs/chapters/03-front-end-navigating-dracor.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Content (concepts, terminology, interpretation)
+        - Methods (corpus, TEI, networks, metrics)
+        - Code / notebooks (errors, outputs, environment)
+        - Build / Jupyter Book (MyST, citations, TOC, deployment)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Ask your question and describe what you have tried so far.
+      placeholder: "I expected ..., but I see .... I tried ...."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What would be a good answer?
+      description: If you have a preferred format for the answer (short explanation, code snippet, reference), say so.
+      placeholder: "A short explanation with a link to the relevant documentation would be ideal."
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, error messages, or minimal examples (paste logs as text).
+      placeholder: "Paste error output here (no screenshots needed if you can paste text)."
+    validations:
+      required: false
