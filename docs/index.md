@@ -22,7 +22,7 @@ Your feedback helps us improve the textbook.
 :language: bibtex
 :::
 
-Fisher, Frank; Trilcke, Peer; (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
+Fisher, Frank; Trilcke, Peer; Rojas Castro, Antonio; Börner, Ingo; Beine, Julia; Skorinkin, Daniil (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
 :::
 ::::
 
