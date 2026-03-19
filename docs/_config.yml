@@ -25,10 +25,9 @@ sphinx:
       - references.bib
     html_theme_options:
       extra_footer: |
+        <p>The DraCor Textbook has benefited from “DraCorOS. Fostering Open Science in Digital Humanities”.</p> 
+        <p>We acknowledge the OSCARS project, which has received funding from the European Commission’s Horizon Europe Research and Innovation programme under grant agreement Nº. 101129751.</p>
         <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>.</p>
-        <p>This OER was created as part of "Fostering Open Science in Digital Humanities by connecting the 'DraCor' Ecosystem to EOSC" Project.</p> 
-        <p>The project was funded by <a href="https://oscars-project.eu/projects/dracoros-fostering-open-science-digital-humanities-connecting-dracor-ecosystem-eosc" target="_blank" class="external-link">OSCARS</a>.</p>
-        
 parse:
   myst_enable_extensions:
     - colon_fence
