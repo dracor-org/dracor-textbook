@@ -4,7 +4,7 @@ The DraCor Textbook is a curated, pedagogically structured Open Educational Reso
 
 The textbook is published as a Jupyter Book website (GitHub Pages) and is under active development.
 
-## Scope and audience
+## Scope and Audience
 
 This textbook is designed for:
 
@@ -13,7 +13,7 @@ This textbook is designed for:
 - Self-study learners and classroom teaching contexts
 - Learners with no prior programming experience required (core chapters)
 
-## Repository structure
+## Repository Structure
 
 The book source lives in `docs/`:
 
@@ -23,7 +23,7 @@ The book source lives in `docs/`:
 - `docs/references.bib` — shared bibliography (BibTeX)
 - `binder/` — Binder configuration (optional)
 
-## Build locally
+## Build Locally
 
 Prerequisites:
 
@@ -49,7 +49,7 @@ jupyter-book build docs --all
 This work is licensed under CC BY 4.0. To view a copy of this licence, visit:
 [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/).
 
-## Suggested citation
+## Suggested Citation
 
 Rojas Castro, Antonio; Fisher, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (2026). *DraCor Textbook*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook).
 
