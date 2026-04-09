@@ -4,7 +4,7 @@ myst:
   substitutions:
   chap_title: "Front-end"
 author: "Antonio Rojas Castro"
-date: "2026-02-01"
+date: "2026-04-09"
 description: "This chapter explains how to use the DraCor front-end from the home page to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
 keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech distribution", "downloads", "digital humanities"]
 license: "CC BY 4.0"
@@ -22,9 +22,9 @@ Content, terminology, and examples may change.
 :class: tip
 
 **Author:** Antonio Rojas Castro  
-**Version:** 0.4 (2026-02-10)  
-**Review status:** Not yet reviewed  
-**Planned reviewers:** DraCorOS editorial team
+**Version:** 0.5 (2026-04-09)  
+**Review status:** In progress  
+**Reviewers:** Julian Beine
 ```
 
 ```{note}
@@ -37,7 +37,7 @@ The DraCor front-end is the most accessible entry point to DraCor’s drama corp
 
 In this chapter we focus on what each view is for, what it shows, and what we can infer safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
 
-## 2. Pre-requisites
+## 2. Requeriments and Competences
 
 * Web browser and internet access.
 * Basic familiarity with plays (characters, acts/scenes) is helpful.
@@ -56,7 +56,7 @@ After completing this chapter, learners will be able to:
 
 ## 4. Theoretical Background
 
-DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded (for example, the full text in TEI format) or derived (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear in the same scene or act (segment). For this reason, the front-end is best used as a exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
+DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded (for example, the full text in TEI format) or derived (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
 
 ```{admonition} Tip for learners
 When you write down an observation, include the corpus and play ID (from the URL or header) and the tab you used. If the tab offers selectable methods or layers, note the selected option as well.
@@ -94,7 +94,7 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters appear in the same scene or act (segment), they are linked. What we see first is a graph visualisation, which serves as an immediate “visual catch”. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. Important is to notice that silent characters are not assessed and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which serves as an immediate “visual catch”. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
@@ -181,7 +181,7 @@ Choose one play and write 2–3 sentences per tab explaining what kind of repres
 Self-check: are you describing what is shown, rather than what you think it “means”?
 
 **Exercise 2. Connect Network and Full text (15–20 minutes)**
-Pick one character that appears highly connected in the Network tab. Use the Segments panel in Full text to locate two segments where this character appears with multiple others, and describe what is happening in those passages.
+Pick one character that appears highly connected in the Network tab. Use the Segments panel in Full text to locate two segments where this character addresses multiple characters, and describe what is happening in those passages.
 
 Self-check: can you point to specific segments or headings that support your observation?
 
@@ -211,11 +211,11 @@ This chapter works well as a 60–90 minute practical session. A useful rhythm i
 | Front-end | The user-facing web interface of DraCor. |
 | Play ID (slug) | A stable identifier for a play (visible in the header/URL and in corpus tables). |
 | Segment | A unit of segmentation used by the interface to structure co-occurrence and navigation. |
-| Co-occurrence network | A network where characters are linked if they appear in the same unit (for example, a scene or act), as stated by the interface. |
+| Co-occurrence network | Characters are represented as nodes (or vertices), and their co-occurrences as edges. In DraCor characters are linked if they speak in the same segment. If no scene segmentation is available, characters who speak in the same act are linked instead. Silent characters and mere stage presence are not taken into account. |
 | Network size | The number of speaking characters/entities in a play. |
-| Network diameter | The highest value among all shortest distances between two nodes. |
+| Network diameter | The greatest shortest-path distance between any two nodes in the network. In other words, it is the longest of all minimal paths connecting pairs of characters. |
 | Network density | A value between 0 and 1 indicating how many of all possible connections between nodes are realised. |
-| Clustering coefficient | A value between 0 and 1 determined by the ratio of possible “triangles” in a network to actually connected triplets. |
+| Clustering coefficient | A value between 0 and 1 indicating how strongly nodes tend to form triangles, that is, tightly connected local clusters. |
 | Average path length | The average of all shortest path lengths between pairs of nodes in a connected network. |
 | Maximum degree | The highest number of direct connections held by any single node (often shown with the character’s name). |
 | personGrp | A group character (collective role) distinguished from individual persons. |
