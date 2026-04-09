@@ -24,7 +24,7 @@ Content, terminology, and examples may change.
 **Author:** Antonio Rojas Castro  
 **Version:** 0.5 (2026-04-09)  
 **Review status:** In progress  
-**Reviewers:** Julian Beine
+**Reviewers:** Julia Beine
 ```
 
 ```{note}
