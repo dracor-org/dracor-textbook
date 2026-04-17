@@ -121,7 +121,7 @@ width: 100%
 
 #### Tab 2. Speech distribution
 
-The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, Sapogov 1974, Yarkho 2019, Fischer et al. 2017). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation.
+The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye, yarkho2019speech, fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation.
 
 The plot shown in this view uses scene (segment) number on the x-axis and number of characters on the y-axis. Two curves are displayed: one includes all characters, and one restricts the calculation to non-group characters only. Comparing these curves gives a quick sense of how collective roles affect the apparent distribution and how “crowded” different parts of the play are. When we interpret this tab, it is worth keeping track of the selected method, because switching methods can change what the graph emphasises and therefore what comparisons are meaningful.
 
@@ -202,9 +202,9 @@ This chapter works well as a 60–90 minute practical session. A useful rhythm i
 
 ## 8. Further Reading and Resources 
 
-- Algee-Hewitt, Mark. «Distributed Character: Quantitative Models of the English Stage, 1550-1900». New Literary History 48, n.º 4 (2017): 4. https://doi.org/10.1353/nlh.2017.0038.
-- Beine, Julia Jennifer. Chapter 13 How to Figure out a Schemer: Tracing Types of Roman Comedy in Classical Receptions through Digital Methods. Brill, 2025. https://doi.org/10.1163/9789004724280_015.
-- Grandjean, Martin. «GEPHI – Introduction to Network Analysis and Visualization». 2015. https://hal.science/hal-01530435.
+- {cite}`algee-hewitt2017distributed`
+- {cite}`beine2025how`
+- {cite}`grandjean2015gephi`
 
 
 ## 9. Glossary
@@ -230,8 +230,6 @@ This chapter works well as a 60–90 minute practical session. A useful rhythm i
 
 ## 11. References
 
-- Fischer et al. 2017
-- Sapogov 1974
-- Yarkho 2019
-
+```{bibliography}
+```
 ---
