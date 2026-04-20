@@ -224,7 +224,7 @@ For readers interested in deepening their understanding of network analysis in d
 
 ## 10. Next Steps
 
-* Continue with: Chapter 4 (API) to understand how the front-end relates to programmatic access and reproducible workflows.
+* Continue with: [Chapter 4 (API)](04-api-working-with-dracor-programmatically) to understand how the front-end relates to programmatic access and reproducible workflows.
 
 ## 11. References
 
