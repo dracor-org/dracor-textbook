@@ -121,7 +121,7 @@ width: 100%
 
 #### Tab 2. Speech distribution
 
-The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye, yarkho2019speech, fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation.
+The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye`, {cite}`yarkho2019speech`, {cite}`fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation.
 
 The plot shown in this view uses scene (segment) number on the x-axis and number of characters on the y-axis. Two curves are displayed: one includes all characters, and one restricts the calculation to non-group characters only. Comparing these curves gives a quick sense of how collective roles affect the apparent distribution and how “crowded” different parts of the play are. When we interpret this tab, it is worth keeping track of the selected method, because switching methods can change what the graph emphasises and therefore what comparisons are meaningful.
 
