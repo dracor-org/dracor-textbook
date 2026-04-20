@@ -13,7 +13,7 @@ parts:
         title: "4. API: Working with DraCor Programmatically"
         sections:
           - file: assessment/04-api-working-with-dracor_programmatically_assessment
-            title: "Self-test: API. Working with DraCor Programmatically"
+            title: "Self-test: API"
       - file: chapters/05-infrastructure
         title: "5. Infrastructure"
         sections:
