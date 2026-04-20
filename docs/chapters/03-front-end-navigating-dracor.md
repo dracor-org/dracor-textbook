@@ -202,9 +202,7 @@ This chapter works well as a 60–90 minute practical session. A useful rhythm i
 
 ## 8. Further Reading and Resources 
 
-- {cite}`algee-hewitt2017distributed`
-- {cite}`beine2025how`
-- {cite}`grandjean2015gephi`
+For readers interested in deepening their understanding of network analysis in drama, the following works provide complementary perspectives that connect conceptual, methodological, and practical dimensions. Grandjean’s tutorial {cite}`grandjean2015gephi` offers a clear and accessible introduction to network analysis and visualisation using Gephi, explaining fundamental concepts such as nodes, edges, and centrality measures, and thus serving as a practical entry point for experimenting with network data beyond the DraCor interface. Building on such foundations, Algee-Hewitt’s study {cite}`algee-hewitt2017distributed` develops a large-scale, quantitatively grounded account of dramatic character networks, demonstrating how measures such as eigenvector and betweenness centrality can be used to rethink concepts of protagonism and mediation across corpora. More recently, Beine’s contribution {cite}`beine2025how` complements these approaches with a focused case study, showing how dramatic network analysis and count-based methods can be applied to trace specific role types—such as the scheming slave—across Roman comedy and its early modern receptions, with particular attention to operationalisation and comparability.
 
 
 ## 9. Glossary
