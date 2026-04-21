@@ -3,8 +3,7 @@ title: "TEI Encoding: Preparing Texts for Programmable Corpora"
 myst:
   substitutions:
   chap_title: "TEI Encoding"
-author: "Julia Jennifer Beine"
-author: "Daniil Skorinkin"
+authors: "Julia Jennifer Beine; Daniil Skorinkin"
 date: "2026-04-21"
 description: "In this chapter, we introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI)."
 keywords: ["TEI Encoding", "TEI", "XML", "programmable corpora", "DraCor schema"]
@@ -21,8 +20,7 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 
 ```{admonition} Chapter metadata
 :class: tip           
-**Author:** Julia Jennifer Beine
-**Author:** Daniil Skorinkin      
+**Authors:** Julia Jennifer Beine; Daniil Skorinkin      
 **Version:** 0.1 (2026-04-21)      
 **Review status:** not yet reviewed      
 **Planned reviewers:** DraCorOS editorial team of the DraCor Textbook editor team
