@@ -174,7 +174,9 @@ Find:
 Replace with:
 <pb n="fol. A2r"/>
 <pb n="3"/> 
-I want to find all page numbers in the style of “[fol. …, p. …]” in the document. I want to mark up this information as two successive <pb> (“page beginning”) elements in two successive lines. After “fol.”, one or more letters or numbers may follow. I want to keep “fol.” in the <pb> element. After “p.”, one or more numbers may follow. I do not want to keep “p.” in the <pb> element. In the text, the information is always given in square brackets.
+I want to find all page numbers in the style of “[fol. …, p. …]” in the document. I want to mark up this information as two successive <pb> (“page beginning”) elements in two successive lines.
+After “fol.”, one or more letters or numbers may follow. I want to keep “fol.” in the <pb> element. After “p.”, one or more numbers may follow. I do not want to keep “p.” in the <pb> element.
+In the text, the information is always given in square brackets.
 How do I use regular expressions here? Explain the elements of the regular expression in your answer.
 ```
 
