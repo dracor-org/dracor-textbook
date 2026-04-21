@@ -467,12 +467,6 @@ Continue with Chapter 04 on the DraCor API to learn more about TEI processing, o
 
 [^1] This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung`.
 
-[^1] The text passage was taken from {cite}`baillie1789monfort, pp. 313-314`, and the format was slightly adapted for the exercise.
-
-[^1] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
-
-[^1] The text passage was taken from {cite}`pixbeau`, and the format was slightly adapted for the exercise.
-
 [^1] For this glossary, we consulted the Oxford English Dictionary {cite}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
 
 ## Author Contributions
