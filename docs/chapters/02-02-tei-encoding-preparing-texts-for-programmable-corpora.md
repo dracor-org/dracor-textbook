@@ -211,7 +211,7 @@ This example is taken from Molière’s “Le Misanthrope”, Act II, Scene 4, {
 Several things about this are problematic from a DraCor perspective. The `@who` attribute – which identifies the speaking character(s) – is a raw, inconsistent string. Different plays in the Théâtre Classique corpus use different separators between multiple speakers: `/`, `,`, or `_`. The values are in uppercase and may contain diacritics and special characters (e.g. `MADAME D'ARGENT`). There is no preceding `#`, which would make the value a proper XML data pointer – that is, a reference to an `@xml:id` defined elsewhere in the document. Furthermore, the `@stage` attribute does not belong to an `<sp>` element in standard TEI. And the element lacks a TEI namespace declaration.
 
 The relevant fragment of the transformation script deals with precisely these issues:
-```
+```xq
 case element(sp) return
   if( not(exists($node/* except $node/*:speaker)) )
   then comment { 'ERROR: ', serialize($node)}
@@ -232,7 +232,7 @@ case element(sp) return
 ```
 
 **What the script does.** The first check is a validation guard: if an `<sp>` element contains nothing except a `<speaker>` element (i.e. no actual spoken text – no lines, no stage directions), it is clearly malformed in the source. Rather than producing broken output, the script replaces it with an XML comment flagging the error for human review:
-```
+```xq
 if( not(exists($node/* except $node/*:speaker)) )
 then comment { 'ERROR: ', serialize($node)}
 ```
@@ -240,17 +240,17 @@ then comment { 'ERROR: ', serialize($node)}
 This kind of defensive programming is typical of conversion scripts that must handle a large corpus with irregular encoding practices. It ensures that problems are surfaced rather than silently propagated.
 
 When the element is valid, the script constructs a proper DraCor `<sp>` element in the TEI namespace:
-```
+```xq
 element {QName('http://www.tei-c.org/ns/1.0', 'sp')}
 ```
 
 The `QName(...)` call explicitly creates the element in the TEI namespace – something the Théâtre Classique source documents often lack entirely. Next, all existing attributes are taken over into the DraCor TEI file **except** three that are either invalid in standard TEI or need special handling (`@stage`, `@who`, `@type`):
-```
+```xq
 $node/@* except ($node/@stage, $node/@who, $node/@type),
 ```
 
 The `@who` attribute is then rebuilt from scratch. This is the core of the transformation. The script tokenises the original `@who` value by splitting it based on one of the three possible separators (`/`, `,`, `_`), as defined in the variable `$who-tokenize-pattern`:
-```
+```xq
 let $easy := tokenize(
       string-join($node/@who, ' '), $who-tokenize-pattern
     ) ! ('#' || local:translate(.))
@@ -259,7 +259,7 @@ let $easy := tokenize(
 Each resulting token is passed through `local:translate()`, a function that lowercases the string, strips diacritics (converting “é” to “e”, “à” to “a”, and so on), and replaces spaces with hyphens – turning something like `CLITANDRE` into `clitandre`, or `MADAME D'ARGENT` into `madame-d-argent`. A `#` prefix is prepended to each token, making it a proper XML pointer, such as `#clitandre`.
 
 If this parsing yields an empty result – meaning the `@who` attribute was absent or empty in the source – the script falls back to reading the `<speaker>` element and applying the same normalisation to its text content:
-```
+```xq
 else '#' || (normalize-space($node/speaker) => local:translate())
 ```
 
