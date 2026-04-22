@@ -150,7 +150,7 @@ from assessment import DragDropQuiz
 
 quiz = DragDropQuiz()
 quiz.create_matching_quiz(
-    title="Ordnen Sie die Kodierungsstrategien nach Zeitaufwand (von am meisten zu am wenigsten zeitaufwändig):",
+    title="Rank the following encoding strategies from most to least time-consuming:",
     descriptions=[
         "manual encoding in an XML editor",
         "semi-automatic encoding with EzDrama",
@@ -175,7 +175,7 @@ from assessment import DragDropQuiz
 
 quiz = DragDropQuiz()
 quiz.create_matching_quiz(
-    title="Ordnen Sie die Kodierungsstrategien nach Transparenz und Kontrollmöglichkeiten (von am meisten zu am wenigsten transparent/Kontrolle):",
+    title="Rank the following encoding strategies from those that are the most transparent and allow the most direct control in the encoding process to those which are least transparent and allow the least direct control in the encoding process:",
     descriptions=[
         "manual encoding in an XML editor",
         "semi-automatic encoding with EzDrama",
