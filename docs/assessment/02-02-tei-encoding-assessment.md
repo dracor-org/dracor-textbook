@@ -43,7 +43,7 @@ q1 = [
       {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need programming for manual encoding.>"},
       {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need programming for manual encoding.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to know XML/TEI during the manual encoding process itself.>"}
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to know XML/TEI during the manual encoding process itself.>"},
       {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to know XML/TEI during the manual encoding process itself.>"}
     ]
   }
@@ -64,7 +64,7 @@ q2 = [
       {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills for encoding a text with a regular expression transformation script.>"},
       {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": True,  "feedback": "<Correct!>"},
       {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need advanced programming skills for encoding a text with a regular expression transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills for encoding a text with a regular expression transformation script.>"}
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills for encoding a text with a regular expression transformation script.>"},
       {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills and you do not have to have prompting skills for encoding a text with a regular expression transformation script.>"}
     ]
   }
@@ -85,7 +85,7 @@ q3 = [
       {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
       {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
       {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"}
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
       {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills and you do not have to have prompting skills for encoding a text with such a transformation script.>"}
     ]
   }
@@ -106,7 +106,7 @@ q4 = [
       {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not have to know TEI/XML to mark up a text with EzDrama.>"},
       {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need any programming skills to mark up a text with EzDrama.>"},
       {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need any programming skills to mark up a text with EzDrama.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not have to have prompting skills to mark up a text with EzDrama.>"}
     ]
   }
@@ -127,8 +127,8 @@ q5 = [
       {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you only have to know XML/TEI for revising the generated file.>"},
       {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need any programming skills to encode a text with an LLM.>"},
       {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need any programming skills to encode a text with an LLM.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have prompting skills additionally.>"}
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Correct!>"}
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have prompting skills additionally.>"},
+      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"}
     ]
   }
 ]
@@ -140,20 +140,57 @@ display_quiz(q5, max_width=1000)
 
 **You want to encode a corpus of 50 texts from a digital text collection. The format is HTML. Core elements, such as the headings, speaker names, or stage directions, are marked up regularly.**
 
-_Note: The following question still needs to be implemented correctly._
+#### Ranking by time consumption
 
-Rank the following encoding strategies from most to least time-consuming.
-1. manual encoding in an XML editor
-2. semi-automatic encoding with EzDrama
-3. semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)
+:::{code-cell} ipython3
+:tags: [remove-input]
+import sys
+sys.path.append("..")
+from assessment import DragDropQuiz
 
-_Note: The following question still needs to be implemented correctly._
+quiz = DragDropQuiz()
+quiz.create_matching_quiz(
+    title="Rank the following encoding strategies from most to least time-consuming:",
+    descriptions=[
+        "manual encoding in an XML editor",
+        "semi-automatic encoding with EzDrama",
+        "semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)"
+    ],
+    options=["1", "2", "3"],
+    correct_mapping={
+        "manual encoding in an XML editor": "1",
+        "semi-automatic encoding with EzDrama": "2",
+        "semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)": "3"
+    }
+)
+:::
 
-Rank the following encoding strategies from those that are the most transparent and allow the most direct control in the encoding process to those which are least transparent and allow the least direct control in the encoding process.
-1. manual encoding in an XML editor
-2. semi-automatic encoding with EzDrama
-3. semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)
-5. semi-automatic encoding with an LLM.
+#### Ranking by transparency and control
+
+:::{code-cell} ipython3
+:tags: [remove-input]
+import sys
+sys.path.append("..")
+from assessment import DragDropQuiz
+
+quiz = DragDropQuiz()
+quiz.create_matching_quiz(
+    title="Rank the following encoding strategies from those that are the most transparent and allow the most direct control in the encoding process to those which are least transparent and allow the least direct control in the encoding process:",
+    descriptions=[
+        "manual encoding in an XML editor",
+        "semi-automatic encoding with EzDrama",
+        "semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)",
+        "semi-automatic encoding with a Large Language Model (LLM)"
+    ],
+    options=["1", "2", "3", "4"],
+    correct_mapping={
+        "manual encoding in an XML editor": "1",
+        "semi-automatic encoding with EzDrama": "2",
+        "semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)": "3",
+        "semi-automatic encoding with a Large Language Model (LLM)": "4"
+    }
+)
+:::
 
 ### Choosing an Encoding Strategy: Case 2
 
@@ -214,7 +251,7 @@ q1 = [
       {"answer": "<manual encoding in an XML editor>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<semi-automatic encoding with a regular expression transformation script>", "correct": True,  "feedback": "<Correct!>"},
       {"answer": "<semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)>", "correct": False, "feedback": "<Incorrect, as there is no pre-existing markup in XML.>"},
-      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<semi-automatic encoding with a Large Language Model>", "correct": True, "feedback": "<Correct!>"}
     ]
   }
@@ -257,7 +294,7 @@ q1 = [
       {"answer": "<manual encoding in an XML editor>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<semi-automatic encoding with a regular expression transformation script>", "correct": False,  "feedback": "<Incorrect. Note that there are no (layout) markers to distinguish the speaker name, the speech, or the stage directions from one another.>"},
       {"answer": "<semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)>", "correct": False, "feedback": "<Incorrect, as there is no pre-existing markup in XML.>"},
-      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"},
       {"answer": "<semi-automatic encoding with a Large Language Model>", "correct": True, "feedback": "<Correct!>"}
     ]
   }
