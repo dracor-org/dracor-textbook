@@ -361,7 +361,7 @@ Answer:
 
 _Note: The following question still needs to be implemented correctly._
 
-Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem” by Hannah Cowley.[^1] The speaker ID for Laetitia is “laetitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
+Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem” by Hannah Cowley.[^1] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
 <div type="act" n="3">
 <ADD>ACT III.<ADD>
@@ -414,6 +414,58 @@ Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem�
 </div>
 ```
 
+Answer:
+```xml
+<div type="act" n="3">
+<head>ACT III.</head>
+<div type="scene" n="1">
+<head>SCENE I.<stage>Mr. Hardy's.</stage></head>
+<stage>Enter Letitia and Mrs. Racket.</stage>
+<sp who="#mrs-racket">
+<speaker>Mrs. Racket.</speaker>
+<p>Come, prepare, prepare; your Lover is coming.</p>
+</sp>
+<sp who="#letitia">
+<speaker>Letit.</speaker>
+<p>My Lover!—Confess now that my absence at dinner was a severe mortification to him.</p>
+</sp>
+<sp who="#mrs-racket">
+<speaker>Mrs. Rack.</speaker>
+<p>I can't absolutely swear it spoilt his appetite; he eat as if he was hungry, and drank his wine as though he liked it.</p>
+</sp>
+<sp who="#letitia">
+<speaker>Letit.</speaker>
+<p>What was the apology?</p>
+</sp>
+<sp who="#mrs-racket">
+<speaker>Mrs. Rack.</speaker>
+<p>That you were ill;—but I gave him a hint, that your extreme bashfulness could not support his eye.</p>
+</sp>
+<sp who="#letitia">
+<speaker>Letit.</speaker>
+<p>If I comprehend him, aukwardness and bashfulness are the last faults he can pardon in a woman; so expect to see me transform'd into the veriest maukin.</p>
+</sp>
+<sp who="#mrs-racket">
+<speaker>Mrs. Rack.</speaker>
+<p>You persevere then?</p>
+</sp>
+<sp who="#letitia">
+<speaker>Letit.</speaker>
+<p>Certainly. I know the design is a rash one, and the event important;—it either makes Doricourt mine by all the tenderest ties of passion, or deprives me of him for ever; and never to be his wife will afflict me less, than to be his wife and not be belov'd.</p>
+</sp>
+<sp who="#mrs-racket">
+<speaker>Mrs. Rack.</speaker>
+<p>So you wo'n't trust to the good old maxim—"Marry first, and love will follow?"</p>
+</sp>
+<sp who="#letitia">
+<speaker>Letit.</speaker>
+<p>As readily as I would venture my last guinea, that good fortune might follow. The woman that has not touch'd the heart of a man before he leads her to the altar, has scarcely a chance to charm it when possession and security turn their powerful arms against her.—But here he comes.—I'll disappear for a moment.—Don't spare me.</p>
+</sp>
+<stage>Exit Letitia.</stage>
+[...]
+</div>
+</div>
+```
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
 _Note: The following question still needs to be implemented correctly._
