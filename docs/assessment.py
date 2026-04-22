@@ -106,9 +106,9 @@ class DragDropQuiz:
         # Set default feedback messages if none provided
         if feedback_messages is None:
             feedback_messages = {
-                "correct": "Perfekt! Alle {total} Zuordnungen sind korrekt!",
-                "incorrect": "Leider sind keine Zuordnungen korrekt. Versuchen Sie es noch einmal!",
-                "partial": "Teilweise richtig: {correct} von {total} Zuordnungen sind korrekt."
+                "correct": "Perfect! All {total} answers are correct!",
+                "incorrect": "None of the answers are correct. Please try again!",
+                "partial": "Partially correct: {correct} out of {total} answers are correct."
             }
 
         # Convert correct mapping to use indices for easier JavaScript handling
