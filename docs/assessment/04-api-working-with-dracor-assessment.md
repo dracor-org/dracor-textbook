@@ -229,55 +229,46 @@ Student exercise (copy into a notebook, fill in, run):
 
 ```python
 import requests
-import pandas as pd
 
 API_URL = "https://dracor.org/api/v1/"
 corpusname = "ger"
+playname = "lessing-emilia-galotti"
+url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
 
-# TODO: request /corpora/{corpusname}/metadata with Accept: text/csv
-# TODO: read the response into a DataFrame
-# TODO: compute stagePercentage = wordCountStage / wordCountText
+# TODO: send a GET request with a timeout
+# TODO: if status 200, parse the JSON response
 # TODO: print:
-#   - number of rows (plays)
-#   - the median of stagePercentage (ignore missing values)
-#   - the top 3 plays by stagePercentage: play name + yearNormalized + stagePercentage
+#   - the play title
+#   - the normalised year
+#   - the number of speakers
+#   - the average degree (if available)
+# TODO: otherwise, print "Request failed with status code: <status>"
 ```
 
 Self-check:
-- DataFrame has one row per play in GerDraCor.
-- You obtain numeric ratios between 0 and 1 (often a few percent as decimals).
+- You should see basic play metadata for *Emilia Galotti*.
+- The output should contain the title, a year, and at least one network-related value.
 
 ````{admonition} Reference solution (code)
 :class: tip, dropdown
 ```python
 import requests
-import pandas as pd
-from io import StringIO
 
 API_URL = "https://dracor.org/api/v1/"
 corpusname = "ger"
+playname = "lessing-emilia-galotti"
+url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
 
-meta_url = f"{API_URL}corpora/{corpusname}/metadata"
-r = requests.get(meta_url, headers={"Accept": "text/csv"}, timeout=30)
+r = requests.get(url, timeout=15)
 
 if r.status_code != 200:
     print(f"Request failed with status code: {r.status_code}")
 else:
-    df = pd.read_csv(StringIO(r.text))
-    print(f"Rows (plays): {len(df)}")
-
-    df["stagePercentage"] = df["wordCountStage"] / df["wordCountText"]
-    median_val = df["stagePercentage"].dropna().median()
-    print(f"Median stagePercentage: {median_val:.4f}")
-
-    play_col = "name" if "name" in df.columns else ("playName" if "playName" in df.columns else None)
-    year_col = "yearNormalized" if "yearNormalized" in df.columns else None
-
-    top = df.sort_values(by="stagePercentage", ascending=False).head(3)
-    for _, row in top.iterrows():
-        play_val = row[play_col] if play_col else "<unknown-play>"
-        year_val = int(row[year_col]) if year_col and pd.notna(row[year_col]) else "<unknown-year>"
-        print(f"{play_val} ({year_val}) — {row['stagePercentage']:.4f}")
+    data = r.json()
+    print(f"Title: {data.get('title')}")
+    print(f"Year: {data.get('yearNormalized')}")
+    print(f"Speakers: {data.get('numOfSpeakers')}")
+    print(f"Average degree: {data.get('averageDegree')}")
 ```
 ````
 
@@ -286,40 +277,22 @@ Executed reference output:
 ```{code-cell} ipython3
 :tags: [remove-input]
 import requests
-import pandas as pd
-from io import StringIO
 
 API_URL = "https://dracor.org/api/v1/"
 corpusname = "ger"
-
-meta_url = f"{API_URL}corpora/{corpusname}/metadata"
+playname = "lessing-emilia-galotti"
+url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
 
 try:
-    r = requests.get(meta_url, headers={"Accept": "text/csv"}, timeout=30)
+    r = requests.get(url, timeout=15)
     if r.status_code != 200:
         print(f"Request failed with status code: {r.status_code}")
     else:
-        df = pd.read_csv(StringIO(r.text))
-        print(f"Rows (plays): {len(df)}")
-
-        # Compute a ratio between 0 and 1
-        if "wordCountStage" in df.columns and "wordCountText" in df.columns:
-            df["stagePercentage"] = df["wordCountStage"] / df["wordCountText"]
-        else:
-            print("Expected columns wordCountStage and wordCountText not found in metadata CSV.")
-            df["stagePercentage"] = pd.NA
-
-        median_val = df["stagePercentage"].dropna().median()
-        print(f"Median stagePercentage: {median_val:.4f}")
-
-        play_col = "name" if "name" in df.columns else ("playName" if "playName" in df.columns else None)
-        year_col = "yearNormalized" if "yearNormalized" in df.columns else None
-
-        top = df.sort_values(by="stagePercentage", ascending=False).head(3)
-        for _, row in top.iterrows():
-            play_val = row[play_col] if play_col else "<unknown-play>"
-            year_val = int(row[year_col]) if year_col and pd.notna(row[year_col]) else "<unknown-year>"
-            print(f"{play_val} ({year_val}) — {row['stagePercentage']:.4f}")
+        data = r.json()
+        print(f"Title: {data.get('title')}")
+        print(f"Year: {data.get('yearNormalized')}")
+        print(f"Speakers: {data.get('numOfSpeakers')}")
+        print(f"Average degree: {data.get('averageDegree')}")
 except Exception as e:
     print(f"Request failed with error: {e}")
 ```
@@ -331,23 +304,24 @@ Student exercise (copy into a notebook, run). The endpoint is intentionally wron
 ```python
 import requests
 
-url = "https://dracor.org/api/v1/corpora/rus/plays/hamlet"
-r = requests.get(url, timeout=30)
+url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
+r = requests.get(url, timeout=15)
 
 # TODO: if status 200, print the play title from JSON
 # TODO: otherwise, print "Request failed with status code: <status>"
 ```
 
 Self-check:
-- You should get a non-200 status code (typically 404) and print it.
+- You should get a non-200 status code, typically 404.
+- This shows that a play slug only works inside the correct corpus.
 
 ````{admonition} Reference solution (code)
 :class: tip, dropdown
 ```python
 import requests
 
-url = "https://dracor.org/api/v1/corpora/rus/plays/hamlet"
-r = requests.get(url, timeout=30)
+url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
+r = requests.get(url, timeout=15)
 
 if r.status_code == 200:
     data = r.json()
@@ -363,10 +337,10 @@ Executed reference output:
 :tags: [remove-input]
 import requests
 
-url = "https://dracor.org/api/v1/corpora/rus/plays/hamlet"
+url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
 
 try:
-    r = requests.get(url, timeout=30)
+    r = requests.get(url, timeout=15)
     if r.status_code == 200:
         data = r.json()
         print(f"Play title: {data.get('title')}")
@@ -403,7 +377,7 @@ corpusname = "ger"
 playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
-r = requests.get(url, headers={"Accept": "text/csv"}, timeout=30)
+r = requests.get(url, headers={"Accept": "text/csv"}, timeout=15)
 
 if r.status_code != 200:
     print(f"Request failed with status code: {r.status_code}")
@@ -425,7 +399,7 @@ playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
 try:
-    r = requests.get(url, headers={"Accept": "text/csv"}, timeout=30)
+    r = requests.get(url, headers={"Accept": "text/csv"}, timeout=15)
     if r.status_code != 200:
         print(f"Request failed with status code: {r.status_code}")
     else:
