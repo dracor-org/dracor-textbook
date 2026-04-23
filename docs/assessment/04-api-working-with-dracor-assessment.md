@@ -232,7 +232,7 @@ import requests
 import pandas as pd
 
 API_URL = "https://dracor.org/api/v1/"
-corpusname = "cal"  # you may change this, but keep it reasonably small for a quick test
+corpusname = "ger"
 
 # TODO: request /corpora/{corpusname}/metadata with Accept: text/csv
 # TODO: read the response into a DataFrame
@@ -244,7 +244,7 @@ corpusname = "cal"  # you may change this, but keep it reasonably small for a qu
 ```
 
 Self-check:
-- DataFrame has one row per play.
+- DataFrame has one row per play in GerDraCor.
 - You obtain numeric ratios between 0 and 1 (often a few percent as decimals).
 
 ````{admonition} Reference solution (code)
@@ -255,7 +255,7 @@ import pandas as pd
 from io import StringIO
 
 API_URL = "https://dracor.org/api/v1/"
-corpusname = "cal"
+corpusname = "ger"
 
 meta_url = f"{API_URL}corpora/{corpusname}/metadata"
 r = requests.get(meta_url, headers={"Accept": "text/csv"}, timeout=30)
@@ -290,7 +290,7 @@ import pandas as pd
 from io import StringIO
 
 API_URL = "https://dracor.org/api/v1/"
-corpusname = "cal"
+corpusname = "ger"
 
 meta_url = f"{API_URL}corpora/{corpusname}/metadata"
 
@@ -383,8 +383,8 @@ Student exercise (copy into a notebook, fill in, run):
 ```python
 import requests
 
-corpusname = "cal"
-playname = "la-vida-es-sueno"
+corpusname = "ger"
+playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
 # TODO: request CSV using Accept: text/csv
@@ -399,8 +399,8 @@ Self-check:
 ```python
 import requests
 
-corpusname = "cal"
-playname = "la-vida-es-sueno"
+corpusname = "ger"
+playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
 r = requests.get(url, headers={"Accept": "text/csv"}, timeout=30)
@@ -420,8 +420,8 @@ Executed reference output:
 :tags: [remove-input]
 import requests
 
-corpusname = "cal"
-playname = "la-vida-es-sueno"
+corpusname = "ger"
+playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
 try:
