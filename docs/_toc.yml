@@ -2,7 +2,7 @@ format: jb-book
 root: index
 
 parts:
-  - caption: Book 1: Chapters
+  - caption: "Book 1: Chapters"
     chapters:
       - file: chapters/03-front-end-navigating-dracor
         title: "3. Front-end: Navigating DraCor"
