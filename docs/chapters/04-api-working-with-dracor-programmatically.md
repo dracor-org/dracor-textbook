@@ -21,10 +21,10 @@ Content, terminology, and examples may change.
 ```{admonition} Chapter metadata
 :class: tip
 
-**Authors:** Ingo Börner
-**Version:** 0.1 (2026-04-01)
-**Review status:** In Progress
-**Planned reviewers:** Antonio Rojas Castro
+**Authors:** Ingo Börner  
+**Version:** 0.1 (2026-04-01)  
+**Review status:** In Progress  
+**Planned reviewers:** Antonio Rojas Castro  
 ```
 
 ```{note}
