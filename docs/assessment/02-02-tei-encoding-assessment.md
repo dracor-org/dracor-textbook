@@ -521,7 +521,7 @@ Do you see any differences? Reflect on the current state of LLM-powered encoding
 ```{bibliography}
 ```
 
-[^1] The text passage was taken from {cite}`baillie1789monfort, pp. 313-314`, and the format was slightly adapted for the exercise.
+[^1] The text passage was taken from {cite:p}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
 
 [^1] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
 
