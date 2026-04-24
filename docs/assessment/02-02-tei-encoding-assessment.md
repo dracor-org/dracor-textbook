@@ -10,19 +10,19 @@ kernelspec:
   name: python3
 ---
 
-# Assessment: <TEI Encoding>
+# Self-test: TEI Encoding
 
-::::{admonition} Note
+````{admonition} Note
 :class: note
-This assessment helps you check your understanding of the chapter *<TEI Encoding: Preparing Texts for Programmable Corpora>*.
+This assessment helps you check your understanding of the chapter *TEI Encoding: Preparing Texts for Programmable Corpora*.
 
 - There is no grading and nothing is stored.
 - Read the feedback for each option carefully, even if you answered correctly.
 - If you are unsure, return to the relevant section of the chapter (or the interface/tool) and verify what you see.
 
 _Note: the following information needs to be checked._
-Estimated time: <20–30 minutes>.
-::::
+Estimated time: 20–30 minutes.
+````
 
 ## Exercise 1: Encoding Strategy
 
@@ -32,110 +32,110 @@ Estimated time: <20–30 minutes>.
 
 _Note: The answers still need to be shuffled!_
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q1 = [
   {
-    "question": "<manual encoding in an XML editor>",
+    "question": "manual encoding in an XML editor",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need programming for manual encoding.>"},
-      {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need programming for manual encoding.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to know XML/TEI during the manual encoding process itself.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to know XML/TEI during the manual encoding process itself.>"}
+      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming for manual encoding."},
+      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming for manual encoding."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know XML/TEI during the manual encoding process itself."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know XML/TEI during the manual encoding process itself."}
     ]
   }
 ]
 
 display_quiz(q1, max_width=1000)
-:::
+```
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q2 = [
   {
-    "question": "<semi-automatic encoding with a regular expression transformation script>",
+    "question": "semi-automatic encoding with a regular expression transformation script",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills for encoding a text with a regular expression transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": True,  "feedback": "<Correct!>"},
-      {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need advanced programming skills for encoding a text with a regular expression transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills for encoding a text with a regular expression transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have basic programming skills and you do not have to have prompting skills for encoding a text with a regular expression transformation script.>"}
+      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
+      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": True,  "feedback": "Correct!"},
+      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills, but not prompting skills, for this kind of transformation script."}
     ]
   }
 ]
 
 display_quiz(q2, max_width=1000)
-:::
+```
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q3 = [
   {
-    "question": "<semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)>",
+    "question": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills for encoding a text with such a transformation script.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have advanced programming skills and you do not have to have prompting skills for encoding a text with such a transformation script.>"}
+      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script, but not prompting skills."}
     ]
   }
 ]
 
 display_quiz(q3, max_width=1000)
-:::
+```
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q4 = [
   {
-    "question": "<semi-automatic encoding with EzDrama>",
+    "question": "semi-automatic encoding with EzDrama",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not have to know TEI/XML to mark up a text with EzDrama.>"},
-      {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need any programming skills to mark up a text with EzDrama.>"},
-      {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need any programming skills to mark up a text with EzDrama.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not have to have prompting skills to mark up a text with EzDrama.>"}
+      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need to know TEI/XML in order to mark up a text with EzDrama."},
+      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
+      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need prompting skills to mark up a text with EzDrama."}
     ]
   }
 ]
 
 display_quiz(q4, max_width=1000)
-:::
+```
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q5 = [
   {
-    "question": "<semi-automatic encoding with a Large Language Model (LLM)>",
+    "question": "semi-automatic encoding with a Large Language Model (LLM)",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "<knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you only have to know XML/TEI for revising the generated file.>"},
-      {"answer": "<knowledge of XML/TEI necessary, basic programming skills necessary>", "correct": False,  "feedback": "<Incorrect, you do not need any programming skills to encode a text with an LLM.>"},
-      {"answer": "<knowledge of XML/TEI necessary, advanced programming skills necessary>", "correct": False, "feedback": "<Incorrect, you do not need any programming skills to encode a text with an LLM.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary>", "correct": False, "feedback": "<Incorrect, you have to have prompting skills additionally.>"},
-      {"answer": "<knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You mainly need XML/TEI knowledge for evaluating and revising the generated file."},
+      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
+      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. Prompting skills are also needed here."},
+      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": True, "feedback": "Correct!"}
     ]
   }
 ]
 
 display_quiz(q5, max_width=1000)
-:::
+```
 
 ### Choosing an Encoding Strategy: Case 1
 
@@ -143,7 +143,7 @@ display_quiz(q5, max_width=1000)
 
 _Note: The answers still need to be shuffled!_
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 import sys
 sys.path.append("..")
@@ -164,11 +164,11 @@ quiz.create_matching_quiz(
         "semi-automatic encoding with a transformation script (regular expression; R, Python, XSLT, XQuery)": "3"
     }
 )
-:::
+```
 
 _Note: The answers still need to be shuffled!_
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 import sys
 sys.path.append("..")
@@ -191,13 +191,13 @@ quiz.create_matching_quiz(
         "semi-automatic encoding with a Large Language Model (LLM)": "4"
     }
 )
-:::
+```
 
 ### Choosing an Encoding Strategy: Case 2
 
 **You want to encode “De Monfort” by Joanna Baillie. Your text source has no pre-existing markup. The format is TXT.**  
 
-Here is an excerpt from act 1, scene 2:[^1]
+Here is an excerpt from act 1, scene 2:[^baillie]
 
 ```
 SCENE II.
@@ -240,32 +240,32 @@ But do not know the cause.
 MAN. 'Tis very true. God keep you well, my Lord!
 ```
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q1 = [
   {
-    "question": "<Which of the following encoding strategies may be suitable? (Multiple answers are possible.)>",
+    "question": "Which of the following encoding strategies may be suitable? (Multiple answers are possible.)",
     "type": "many_choice",
     "answers": [
-      {"answer": "<manual encoding in an XML editor>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<semi-automatic encoding with a regular expression transformation script>", "correct": True,  "feedback": "<Correct!>"},
-      {"answer": "<semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)>", "correct": False, "feedback": "<Incorrect, as there is no pre-existing markup in XML.>"},
-      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<semi-automatic encoding with a Large Language Model>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "manual encoding in an XML editor", "correct": True, "feedback": "Correct!"},
+      {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": True,  "feedback": "Correct!"},
+      {"answer": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)", "correct": False, "feedback": "Incorrect. There is no pre-existing XML markup in this case."},
+      {"answer": "semi-automatic encoding with EzDrama", "correct": True, "feedback": "Correct!"},
+      {"answer": "semi-automatic encoding with a Large Language Model", "correct": True, "feedback": "Correct!"}
     ]
   }
 ]
 
 display_quiz(q1, max_width=1000)
-:::
+```
 
 ### Choosing an Encoding Strategy: Case 3
 
 **You want to encode “The Belle’s Stratagem” by Hannah Cowley. Your text source has no pre-existing markup. The format is TXT.**
 
-Here is an excerpt from act 3, scene 1:[^1]
+Here is an excerpt from act 3, scene 1:[^cowley]
 
 ```
 ACT III.
@@ -283,26 +283,26 @@ Mrs. Rack. So you wo'n't trust to the good old maxim—"Marry first, and love wi
 Letit. As readily as I would venture my last guinea, that good fortune might follow. The woman that has not touch'd the heart of a man before he leads her to the altar, has scarcely a chance to charm it when possession and security turn their powerful arms against her.—But here he comes.—I'll disappear for a moment.—Don't spare me.
 Exit Letitia.
 ```
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
 
 q1 = [
   {
-    "question": "<Which of the following encoding strategies may be suitable? (Multiple answers are possible.)>",
+    "question": "Which of the following encoding strategies may be suitable? (Multiple answers are possible.)",
     "type": "many_choice",
     "answers": [
-      {"answer": "<manual encoding in an XML editor>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<semi-automatic encoding with a regular expression transformation script>", "correct": False,  "feedback": "<Incorrect. Note that there are no (layout) markers to distinguish the speaker name, the speech, or the stage directions from one another.>"},
-      {"answer": "<semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)>", "correct": False, "feedback": "<Incorrect, as there is no pre-existing markup in XML.>"},
-      {"answer": "<semi-automatic encoding with EzDrama>", "correct": True, "feedback": "<Correct!>"},
-      {"answer": "<semi-automatic encoding with a Large Language Model>", "correct": True, "feedback": "<Correct!>"}
+      {"answer": "manual encoding in an XML editor", "correct": True, "feedback": "Correct!"},
+      {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": False,  "feedback": "Incorrect. There are no layout markers that distinguish speaker names, speeches, and stage directions from one another."},
+      {"answer": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)", "correct": False, "feedback": "Incorrect. There is no pre-existing XML markup in this case."},
+      {"answer": "semi-automatic encoding with EzDrama", "correct": True, "feedback": "Correct!"},
+      {"answer": "semi-automatic encoding with a Large Language Model", "correct": True, "feedback": "Correct!"}
     ]
   }
 ]
 
 display_quiz(q1, max_width=1000)
-:::
+```
 
 ## Exercise 2: Manual Encoding
 
@@ -310,7 +310,7 @@ display_quiz(q1, max_width=1000)
 
 _Note: The following question still needs to be implemented correctly._
 
-Complete the encoding of the following passage from act 1, scene 2 of “De Monfort” by Joanna Baillie.[^1] The play is written in verse.
+Complete the encoding of the following passage from act 1, scene 2 of “De Monfort” by Joanna Baillie.[^baillie] The play is written in verse.
 
 ```xml
 <div type="ADD" n="ADD">
@@ -362,7 +362,7 @@ Answer:
 
 _Note: The following question still needs to be implemented correctly._
 
-Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem” by Hannah Cowley.[^1] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
+Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem” by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
 <div type="act" n="3">
 <ADD>ACT III.<ADD>
@@ -471,7 +471,7 @@ Answer:
 
 _Note: The following question still needs to be implemented correctly._
 
-Encode the following passage from the beginning of act 1, scene 1 of “The Beau Defeated, or The Lucky Younger Brother” by Mary Pix [^1], with EzDrama syntax:
+Encode the following passage from the beginning of act 1, scene 1 of “The Beau Defeated, or The Lucky Younger Brother” by Mary Pix [^pix], with EzDrama syntax:
 ```
 ACT I. SCENE I.
 Enter Mrs. Rich with Betty, her Maid.
@@ -521,8 +521,8 @@ Do you see any differences? Reflect on the current state of LLM-powered encoding
 ```{bibliography}
 ```
 
-[^1] The text passage was taken from {cite:p}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
+[^baillie] The text passage was taken from {cite:p}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
 
-[^1] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
+[^cowley] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
 
-[^1] The text passage was taken from {cite}`pixbeau`, and the format was slightly adapted for the exercise.
+[^pix] The text passage was taken from {cite}`pixbeau`, and the format was slightly adapted for the exercise.
