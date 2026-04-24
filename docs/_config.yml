@@ -36,8 +36,9 @@ parse:
     - substitution
 
 # Execute only assessment pages (chapters are excluded from execution).
-# Jupyter Book config reference: https://jupyter-book.readthedocs.io/v1/content/execute.html
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
+  timeout: 120
+  allow_errors: false
   exclude_patterns:
     - "chapters/*"

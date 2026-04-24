@@ -21,10 +21,10 @@ Content, terminology, and examples may change.
 ```{admonition} Chapter metadata
 :class: tip
 
-**Authors:** Ingo Börner
-**Version:** 0.1 (2026-04-01)
-**Review status:** In Progress
-**Planned reviewers:** Antonio Rojas Castro
+**Authors:** Ingo Börner  
+**Version:** 0.1 (2026-04-01)  
+**Review status:** In Progress  
+**Planned reviewers:** Antonio Rojas Castro  
 ```
 
 ```{note}
@@ -701,7 +701,10 @@ Along the way, we encountered core API concepts — REST, endpoints, HTTP method
 
 ## Exercises
 
-TBD
+```{admonition} Self-test
+:class: tip
+Open the [Self-test: API](../assessment/04-api-working-with-dracor-assessment).
+```
 
 ## Teaching Notes
 
@@ -746,8 +749,13 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 | Bootstrapping (in the API context) | The API provides pre-processed data (e.g. word counts, network metrics) so that research can start at a higher level without re-implementing extraction and calculation steps. |
 | Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
 
+## Next Steps
+
+* Continue with: [Chapter 5. Infrastructure](05-infrastructure) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
+
 ## References
 
 ```{bibliography}
+
 ```
 ---

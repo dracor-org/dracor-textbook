@@ -21,10 +21,10 @@ Content, terminology, and examples may change.
 ```{admonition} Chapter metadata
 :class: tip
 
-**Author:** Ingo Börner
-**Version:** 0.1 (2026-04-01)
-**Review status:** In Progress
-**Planned reviewers:** Antonio Rojas Castro
+**Author:** Ingo Börner  
+**Version:** 0.1 (2026-04-01)  
+**Review status:** In Progress  
+**Planned reviewers:** Antonio Rojas Castro  
 ```
 
 ```{note}
@@ -270,7 +270,10 @@ In this chapter we moved from using DraCor to understanding it. We saw that DraC
 
 ## Exercises
 
-TODO — draft to be developed.
+```{admonition} Self-test
+:class: tip
+Open the [Self-test: Infrastructure](../assessment/05-infrastructure-assessment).
+```
 
 ## Teaching Notes
 

@@ -2,7 +2,7 @@ format: jb-book
 root: index
 
 parts:
-  - caption: Book 1: Chapters
+  - caption: "Book 1: Chapters"
     chapters:
       - file: chapters/03-front-end-navigating-dracor
         title: "3. Front-end: Navigating DraCor"
@@ -12,10 +12,10 @@ parts:
       - file: chapters/04-api-working-with-dracor-programmatically
         title: "4. API: Working with DraCor Programmatically"
         sections:
-          - file: assessment/04-api-working-with-dracor_programmatically_assessment
+          - file: assessment/04-api-working-with-dracor-assessment
             title: "Self-test: API"
       - file: chapters/05-infrastructure
         title: "5. Infrastructure"
         sections:
-          - file: assessment/05-infrastructure
+          - file: assessment/05-infrastructure-assessment
             title: "Self-test: Infrastructure"
