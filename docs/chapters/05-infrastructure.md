@@ -277,7 +277,9 @@ Open the [Self-test: Infrastructure](../assessment/05-infrastructure-assessment)
 
 ## Teaching Notes
 
-TODO — draft to be developed.
+This chapter can be taught as a 60–90 minute conceptual workshop before any technical setup is attempted. A good entry point is to ask students what they normally do not see when they use DraCor: repositories, XML databases, API logic, metrics services, front-end code, contributors, maintenance work, and funding structures. Lecturers can then organise students into small groups and give each group a set of “infrastructure cards” representing components such as TEI files, GitHub repositories, eXist-db, the DraCor API, the Metrics Service, the front-end, the Triple Store, Docker, corpus editors, and users. Students arrange the cards into a data-flow diagram and annotate where interpretation, transformation, or possible failure enters the system. The closing discussion can return to the chapter’s main point: infrastructure is not neutral background, but a socio-technical system that shapes what researchers can see, retrieve, compare, and reproduce.
+
+Lecturers may also teach this chapter as a practical Docker lab, ideally in a 120-minute session or a longer workshop. The instructor should prepare the technical environment carefully in advance and provide a fallback option, such as an instructor-led demonstration, a shared machine, or screenshots of a successful local instance, because Docker setup problems can otherwise dominate the session. Students can work in pairs and keep an “infrastructure log” documenting each command, expected result, actual result, error message, and solution. After starting a local DraCor instance, they should compare one request against `dracor.org` and the same request against `localhost`, then discuss what changes when data and software are under their own control. The final task can be a short reproducibility note: students identify which elements would need to be documented or preserved so that another researcher could repeat their work later, including data version, software image, configuration file, API endpoint, and analysis code.
 
 ## Further Reading and Resources
 

@@ -708,7 +708,9 @@ Open the [Self-test: API](../assessment/04-api-working-with-dracor-assessment).
 
 ## Teaching Notes
 
-TBD
+This chapter works well as a 90-minute practical session in which learners move gradually from guided exploration to independent API use. A useful rhythm is: first, a short instructor-led demonstration of the Swagger UI and one simple endpoint, such as `/corpora`; second, paired work in which students complete an “API request note” for one endpoint, recording the endpoint, required identifiers, parameters, response format, status code, and one possible research use; third, a short comparison round in which pairs explain how their endpoint turns a textual object into structured data. This helps students practise the central logic of the chapter: moving from corpus to play identifiers, reading JSON responses, and understanding the API as the programmatic layer behind the front-end. For beginners, the activity can stay entirely in the browser and Swagger UI; for more advanced groups, the same endpoint can then be called with `curl` or Python.
+
+Lecturers may also use this chapter as a bridge from interface-based exploration to reproducible computational work. In a 90–120 minute lab, students can first call the same DraCor endpoint in three ways: Swagger UI, browser URL, and Python with `requests`. They can then adapt a prepared code cell to retrieve metadata for one corpus, inspect the resulting table, and formulate a small research question, for example about chronology, character counts, or the relation between spoken text and stage directions. The session should include a short debugging phase in pairs, because interpreting errors, status codes, missing identifiers, and malformed URLs is part of learning how APIs work. A useful closing task is to ask each group to write one sentence beginning “The API makes it possible to…”, and one sentence beginning “The API does not solve…”. This keeps the focus on both affordances and limitations, including encoding quality, versioning, and reproducibility.
 
 ## Further Reading and Resources
 
