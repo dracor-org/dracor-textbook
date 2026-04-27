@@ -466,11 +466,11 @@ Continue with [Chapter 04](04-api-working-with-dracor-programmatically) on the D
 
 [^1] For this glossary, we consulted the Oxford English Dictionary {cite}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
 
-## Author Contributions
+## 11. Author Contributions
 
 Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing  
 Daniil Skorinkin – writing – original draft
 
-## AI Usage
+## 12. AI Usage
 
 In chapter 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
