@@ -37,7 +37,7 @@ The DraCor front-end is the most accessible entry point to DraCor’s drama corp
 
 In this chapter we focus on what each view is for, what it shows, and what we can infer safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
 
-## 2. Requeriments and Competences
+## 2. Requirements and Competences
 
 * Web browser and internet access.
 * Basic familiarity with plays (characters, acts/scenes) is helpful.
@@ -198,7 +198,11 @@ Open the [Self-test: Front-end](../assessment/03-front-end-assessment).
 
 ## 7. Teaching Notes
 
-This chapter works well as a 60–90 minute practical session. A useful rhythm is a short guided tour (home page to corpus to play tabs), followed by paired work where learners document one play in a short “Record note” (corpus, play ID, tab, and a brief observation), and a closing discussion on how modelling assumptions (segmentation, inclusion of group characters, chosen method in speech distribution tab) shape what the interface visualises.
+This chapter works well as a 60–90 minute in-person practical session, especially for students encountering DraCor for the first time. A useful structure is to begin with a short guided tour of the interface: home page, corpus page, play page, and the five main tabs (Network, Speech distribution, Full text, Downloads, Tools). The guided part should remain brief, since the aim is not to demonstrate every feature but to help students understand the logic of navigation and documentation. After this introduction, students can work in pairs on one selected play and complete a short “record note” including corpus, play ID, selected tab, chosen method or layer where relevant, and one observation that could be checked by another student. This turns browsing into a reproducible practice and helps learners distinguish between what the interface shows and what they infer from it.
+
+Lecturers may then organise a comparison activity around two or three plays, preferably from different corpora or with visibly different network and speech-distribution patterns. Each pair can report one observation from the Network tab and then verify or contextualise it in the Full text tab, using the Segments panel. This activity helps students see that visualisations are not independent evidence but derived views based on segmentation, encoded speakers, group characters, and selected methods. A final plenary discussion can focus on modelling assumptions: what counts as a connection between characters? What happens when group characters are included or excluded? How does the selected speech-distribution method affect interpretation? What information is gained or lost when we move from text to network or chart?
+
+For a longer session, this chapter can also be used as preparation for Chapters 4 and 5. After exploring the front-end, students can use the Downloads tab to retrieve one file that corresponds to a view they inspected, for example a network file, a character list, spoken text, stage directions, or the TEI source. They should document what semantic layer they downloaded, in which format, and why that format would be useful for further work. This makes the transition from interface-based exploration to API-based or infrastructure-aware work more concrete: students first see a representation in the front-end, then identify the data layer behind it, and finally reflect on how that layer could be reused, analysed, or questioned.
 
 ## 8. Further Reading and Resources 
 
