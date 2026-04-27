@@ -406,21 +406,21 @@ Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.
 
 ```{admonition} Assessment
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment).
+Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-2-manual-encoding).
 ```
 
 ### Exercise 3: Semi-Automatic Encoding with EzDrama
 
 ```{admonition} Assessment
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment).
+Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-3-semi-automatic-encoding-with-ezdrama).
 ```
 
 ### Exercise 4: Encoding with LLMs
 
 ```{admonition} Assessment
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment).
+Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-4-encoding-with-llms).
 ```
 
 ## 6. Teaching Notes
