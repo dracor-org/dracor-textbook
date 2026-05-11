@@ -233,5 +233,6 @@ For readers interested in deepening their understanding of network analysis in d
 ## 11. References
 
 ```{bibliography}
+:filter: docname in docnames
 ```
 ---
