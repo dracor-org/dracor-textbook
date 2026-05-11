@@ -17,7 +17,7 @@ This textbook is designed for:
 
 The book source lives in `docs/`:
 
-- `docs/` — Jupyter Book source (Markdown / notebooks, `_config.yml`, `_toc.yml`, images, etc.)
+- `docs/` — Jupyter Book source (markdown files / notebooks, `_config.yml`, `_toc.yml`, images, etc.)
 - `docs/_static/` — static assets (logo, favicon, etc.)
 - `docs/images/` — images used in chapters (recommended: per-chapter subfolders)
 - `docs/references.bib` — shared bibliography (BibTeX)
@@ -51,6 +51,6 @@ This work is licensed under CC BY 4.0. To view a copy of this licence, visit:
 
 ## Suggested Citation
 
-Rojas Castro, Antonio; Fisher, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (2026). *DraCor Textbook*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook).
+Rojas Castro, Antonio; Fischer, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-[Chapter Title] from the DraCor Textbook by [Author Names] is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+[Author]: [Chapter Title]. In Rojas Castro, Antonio; Fischer, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
