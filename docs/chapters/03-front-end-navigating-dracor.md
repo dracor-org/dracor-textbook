@@ -94,7 +94,7 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. Important is to notice that silent characters are not assessed and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which serves as an immediate “visual catch”. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
