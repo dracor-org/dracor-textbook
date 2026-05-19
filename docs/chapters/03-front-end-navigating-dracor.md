@@ -141,10 +141,10 @@ A key feature of this tab is the Segments panel. It lists segments and shows whi
 ```{figure} ../images/front-end/la-vida-es-sueno-full-text.png
 ---
 alt: "Full text tab with provenance information and a segments navigation panel."
+caption: Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.
 width: 100%
 ---
 ```
-*Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.*
 
 #### Tab 4. Downloads
 
