@@ -230,9 +230,16 @@ For readers interested in deepening their understanding of network analysis in d
 
 * Continue with: [Chapter 4 (API)](04-api-working-with-dracor-programmatically) to understand how the front-end relates to programmatic access and reproducible workflows.
 
-## 11. References
+## 11. AI Use Declaration
+
+The author used ChatGPT to receive feedback on the structure, language and editorial consistency of this chapter. The author reviewed, revised and approved the final text. No AI-generated output was used without human revision.
+
+## 12. Author Contributions
+
+Antonio Rojas Castro: conceptualisation, writing: original draft, methodology, visualisation, writing: review and editing.
+
+## 13. References
 
 ```{bibliography}
 :filter: docname in docnames
 ```
----
