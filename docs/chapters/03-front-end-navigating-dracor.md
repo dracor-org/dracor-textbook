@@ -99,12 +99,12 @@ Next to the graph, DraCor summarises network properties in a compact panel. Thes
 - **Segments**: the number of segments used to create co-occurrence links (the unit behind “same scene/act (segment)”).
 - **All-in at segment _n_ (at _x_%)**: the point in the play where the network has accumulated _x_% of its nodes, indicating how quickly the cast becomes present in the segmentation.
 - **Network size**: the number of speaking characters/entities in the play.
-- **Density**: a value between 0 and 1 indicating how many of all possible connections between nodes are realised.
+- **Density**: a value between 0 and 1 indicating how many of all possible edges between nodes are realised.
 - **Diameter**: the highest value among all shortest distances between two nodes.
 - **Average path length**: the average of all shortest path lengths between pairs of nodes in a connected network.
 - **Average clustering coefficient**: a value between 0 and 1 indicating how strongly the network tends to form connected triplets (“triangles”).
-- **Average degree**: the mean number of direct connections per node.
-- **Maximum degree**: the highest number of direct connections held by any single node (often shown with the character’s name).
+- **Average degree**: the mean number of direct edges per node.
+- **Maximum degree**: the highest number of direct edges held by any single node (often shown with the character’s name).
 
 
 The Network tab usually also includes a character list in order of appearance, sometimes with icons indicating sex and group characters (`personGrp`). This list provides a useful bridge to the text views: it invites us to check where and how a character enters the play and whether structural prominence in the network corresponds to frequent co-presence in the segmented text.
