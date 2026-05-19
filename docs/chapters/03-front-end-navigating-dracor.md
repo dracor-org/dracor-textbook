@@ -5,7 +5,7 @@ myst:
   chap_title: "Front-end"
 author: "Antonio Rojas Castro"
 date: "2026-04-09"
-description: "This chapter explains how to use the DraCor front-end from the homepage to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
+description: "This chapter explains how to use the DraCor front-end from the homepage to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads and Tools."
 keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech distribution", "downloads", "Digital Humanities"]
 license: "CC BY 4.0"
 ---
@@ -32,9 +32,9 @@ Content, terminology, and examples may change.
 
 ## 1. Overview
 
-The DraCor front-end is the most accessible entry point to the programmable drama corpora in DraCor. It supports three key activities: discovering corpora and getting a quick statistical overview (homepage), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs). Note that we use the terms “drama” and “play” synonymously.
+The DraCor front-end is the most accessible entry point to the programmable drama corpora in DraCor. It supports three key activities: discovering corpora and getting a quick statistical overview (homepage), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs). In this introductory chapter, we use “play” as the practical term for the individual dramatic texts displayed in DraCor. Where “drama” appears, it refers more generally to dramatic literature as represented in the platform.
 
-In this chapter, we focus on what each view is for, what it shows, and what we can interpretate safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
+In this chapter, we focus on what each view is for, what it shows, and what we can interpret safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
 
 ## 2. Requirements and Competences
 
@@ -54,7 +54,7 @@ After completing this chapter, learners will be able to:
 
 ## 4. Theoretical Background
 
-DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in XML/TEI format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear and speak in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
+DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in TEI/XML format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear and speak in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
 
 ```{admonition} Tip for learners
 When you write down an observation, include the corpus and play ID (from the URL or header) and the tab you used. If the tab offers selectable methods or layers, note the selected option as well.
@@ -71,19 +71,19 @@ On the DraCor homepage, we see corpus cards (for example, for FreDraCor, GerDraC
 alt: "DraCor homepage with corpus cards and summary statistics."
 width: 100%
 ---
-DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text, character speech and stage direction, and a last update indicator). Access date: 19-05-2026.
+DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text, character speech and stage direction, and a last update indicator). Accessed 19 May 2026.
 ```
 
 ### Example 2. The Corpus Page (Searching and Selecting a Play)
 
-A corpus page (example: CalDraCor) presents a searchable play table. Alongside editorial credits and the ID of the last commit, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration, or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
+A corpus page (example: CalDraCor) presents a searchable play table. Alongside editorial credits and the ID of the last commit, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
 
 ```{figure} ../images/front-end/cal-dracor.png
 ---
 alt: "CalDraCor corpus page with a searchable play table and download buttons."
 width: 100%
 ---
-CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID. Access date: 19-05-2026.
+CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID. Accessed 19 May 2026.
 ```
 
 ### Example 3. The Play Page (Header and Tabs)
@@ -114,7 +114,7 @@ The Network tab usually also includes a character list in order of appearance, s
 alt: "Network tab showing a co-occurrence network and a panel of network properties."
 width: 100%
 ---
-Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to generate co-occurrence). Access date: 19-05-2026.
+Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to generate co-occurrence). Accessed 19 May 2026.
 ```
 
 #### Tab 2. Speech Distribution
@@ -128,20 +128,20 @@ The plot shown in this view displays the scene (segment) number on the x-axis an
 alt: "Speech distribution tab with a plot and method selector."
 width: 100%
 ---
-Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters. Access date: 19-05-2026.
+Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters. Accessed 19 May 2026.
 ```
 #### Tab 3. Full Text
 
-The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example below, the text is presented with structural markers (for example, “Jornada I”), with stage directions and speakers attributions, and accompanied by a source note that indicates where the text was obtained from and how it was adapted.
+The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example below, the text is presented with structural markers (for example, “Jornada I”), with stage directions and speaker attributions, and accompanied by a source note that indicates where the text was obtained from and how it was adapted.
 
-A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that is the basis of other views, especially the co-occurrence network. For interpretive work, Full text tab , therefore, is where we turn to if we want to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
+A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that is the basis of other views, especially the co-occurrence network. For interpretive work, Full text tab, therefore, is where we turn to if we want to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-full-text.png
 ---
 alt: "Full text tab with provenance information and a segments navigation panel."
 width: 100%
 ---
-Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in related views. Access date: 19-05-2026.
+Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in related views. Accessed 19 May 2026.
 ```
 
 #### Tab 4. Downloads
@@ -153,21 +153,21 @@ The Downloads tab provides access to different semantic layers of a play in mult
 alt: "Downloads tab showing export options for network data, spoken text, stage directions, characters, and TEI/XML."
 width: 100%
 ---
-Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character list, and full TEI/XML-encoded text) in multiple formats. Access date: 19-05-2026.
+Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character list, and full TEI/XML-encoded text) in multiple formats. Accessed 19 May 2026.
 ```
 
 #### Tab 5. Tools
 
 The Tools tab links the play to external tools and lets us choose which textual layer should be routed to those tools. In the example below, we can select the text layer for analysis (Full text in TEI/XML, plain text, spoken text, or stage directions) and then open third-party services, such as Voyant Tools or the CLARIN Language Resource Switchboard. The tab also includes an entry point for network analysis via Gephi Lite.
 
-The main interpretive point here is that the selected layer shapes the results. Plain text and spoken text are typically more suitable for quick exploratory analyses in general-purpose tools, while TEI/XML-encoded text is better reserved for workflows that are explicitly TEI/XML-compliant. For transparent reporting, it is sufficient to note which layer was selected and which tool was used, so that the external output can be understood as a transformation of a specific DraCor layer rather than as an abstract result detached from its source.
+The main interpretive point here is that the selected layer shapes the results. Plain text and spoken text are typically more suitable for quick exploratory analyses in general-purpose tools, while TEI/XML-encoded text is better reserved for workflows that can process TEI/XML. For transparent reporting, it is sufficient to note which layer was selected and which tool was used, so that the external output can be understood as a transformation of a specific DraCor layer rather than as an abstract result detached from its source.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-tools.png
 ---
 alt: "Tools tab with external tool links and a text-layer selector."
 width: 100%
 ---
-Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis. Access date: 19-05-2026.
+Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis. Accessed 19 May 2026.
 ```
 ## 6. Exercises
 
