@@ -71,9 +71,9 @@ On the DraCor home page we see corpus cards (for example, FreDraCor, GerDraCor, 
 ```{figure} ../images/front-end/home-page.png
 ---
 alt: "DraCor home page with corpus cards and summary statistics."
-caption: DraCor home page. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator).
 width: 100%
 ---
+DraCor home page. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator).
 ```
 
 ### Example 2. The corpus page (searching and selecting a play)
@@ -83,9 +83,9 @@ A corpus page (example: CalDraCor) presents a searchable play table. Alongside e
 ```{figure} ../images/front-end/cal-dracor.png
 ---
 alt: "CalDraCor corpus page with a searchable play table and download buttons."
-caption: CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID.
 width: 100%
 ---
+CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID.
 ```
 
 ### Example 3. The play page (header and tabs)
@@ -114,9 +114,9 @@ The Network tab usually also includes a character list in order of appearance, s
 ```{figure} ../images/front-end/la-vida-es-sueno-network.png
 ---
 alt: "Network tab showing a co-occurrence network and a panel of network properties."
-caption: Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence).
 width: 100%
 ---
+Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence).
 ```
 
 #### Tab 2. Speech distribution
@@ -128,9 +128,9 @@ The plot shown in this view uses scene (segment) number on the x-axis and number
 ```{figure} ../images/front-end/la-vida-es-sueno-speech-distribution.png
 ---
 alt: "Speech distribution tab with a plot and method selector."
-caption: Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters.
 width: 100%
 ---
+Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters.
 ```
 #### Tab 3. Full text
 
@@ -141,9 +141,9 @@ A key feature of this tab is the Segments panel. It lists segments and shows whi
 ```{figure} ../images/front-end/la-vida-es-sueno-full-text.png
 ---
 alt: "Full text tab with provenance information and a segments navigation panel."
-caption: Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.
 width: 100%
 ---
+Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.
 ```
 
 #### Tab 4. Downloads
@@ -153,9 +153,9 @@ The Downloads tab provides access to different semantic layers of a play in mult
 ```{figure} ../images/front-end/la-vida-es-sueno-downloads.png
 ---
 alt: "Downloads tab showing export options for network data, spoken text, stage directions, characters, and TEI/XML."
-caption: Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI/XML full text) in multiple formats.
 width: 100%
 ---
+Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI/XML full text) in multiple formats.
 ```
 
 #### Tab 5. Tools
@@ -167,9 +167,9 @@ The main interpretive point here is that the selected layer shapes the results. 
 ```{figure} ../images/front-end/la-vida-es-sueno-tools.png
 ---
 alt: "Tools tab with external tool links and a text-layer selector."
-caption: Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis.
 width: 100%
 ---
+Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis.
 ```
 ## 6. Exercises
 
