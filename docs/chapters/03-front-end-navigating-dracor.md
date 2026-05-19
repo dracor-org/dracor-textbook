@@ -5,7 +5,7 @@ myst:
   chap_title: "Front-end"
 author: "Antonio Rojas Castro"
 date: "2026-04-09"
-description: "This chapter explains how to use the DraCor front-end from the home page to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
+description: "This chapter explains how to use the DraCor front-end from the homepage to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
 keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech distribution", "downloads", "Digital Humanities"]
 license: "CC BY 4.0"
 ---
@@ -21,21 +21,20 @@ Content, terminology, and examples may change.
 ```{admonition} Chapter metadata
 :class: tip
 
-**Author:** Antonio Rojas Castro  
-**Version:** 0.5 (2026-04-09)  
-**Review status:** In progress  
-**Reviewers:** Julia Beine
+**Version:** 0.6 (2026-05-19)  
+**Review status:** Revised after internal review  
+**Internal reviewer:** Julia Jennifer Beine
 ```
 
 ```{note}
-**How to use this chapter:** We work entirely in the DraCor web interface. We begin on the home page, move to a corpus page, and then explain each play tab (Network, Speech distribution, Full text, Downloads, Tools). Our goal is to make exploratory browsing precise enough that others can reproduce what we saw.
+**How to use this chapter:** We work entirely in the DraCor web interface. We begin on the homepage, move to a corpus page, and then explain each play tab (Network, Speech distribution, Full text, Downloads, Tools). Our goal is to make exploratory browsing precise enough that others may reproduce what we saw.
 ```
 
 ## 1. Overview
 
-The DraCor front-end is the most accessible entry point to the programmable drama corpora in DraCor. It supports three key activities: discovering corpora and getting a quick statistical overview (home page), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs).
+The DraCor front-end is the most accessible entry point to the programmable drama corpora in DraCor. It supports three key activities: discovering corpora and getting a quick statistical overview (homepage), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs). Note that we use the terms “drama” and “play” synonymously.
 
-In this chapter we focus on what each view is for, what it shows, and what we can infer safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
+In this chapter, we focus on what each view is for, what it shows, and what we can infer safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
 
 ## 2. Requirements and Competences
 
@@ -47,7 +46,7 @@ In this chapter we focus on what each view is for, what it shows, and what we ca
 
 After completing this chapter, learners will be able to:
 
-1. Use the DraCor home page to select a corpus and interpret the corpus summary cards.
+1. Use the DraCor homepage to select a corpus and interpret the corpus summary cards.
 2. Navigate a corpus page, search and filter the play list, and identify stable play identifiers.
 3. Explain what each play tab (Network, Speech distribution, Full text, Downloads, Tools) is intended to show.
 4. Interpret the Network and Speech distribution tabs at an introductory level.
@@ -64,16 +63,16 @@ When you write down an observation, include the corpus and play ID (from the URL
 
 ## 5. Practical Examples
 
-### Example 1. Starting from the home page (selecting a corpus)
+### Example 1. Starting from the homepage (selecting a corpus)
 
-On the DraCor home page we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
+On the DraCor homepage we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
 
 ```{figure} ../images/front-end/home-page.png
 ---
-alt: "DraCor home page with corpus cards and summary statistics."
+alt: "DraCor homepage with corpus cards and summary statistics."
 width: 100%
 ---
-DraCor home page. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator).
+DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator).
 ```
 
 ### Example 2. The corpus page (searching and selecting a play)
@@ -196,7 +195,7 @@ Open the [Self-test: Front-end](../assessment/03-front-end-assessment).
 
 ## 7. Teaching Notes
 
-This chapter works well as a 60–90 minute in-person practical session, especially for students encountering DraCor for the first time. A useful structure is to begin with a short guided tour of the interface: home page, corpus page, play page and the five main tabs (Network, Speech distribution, Full text, Downloads, Tools). The guided part should remain brief, since the aim is not to demonstrate every feature but to help students understand the logic of navigation and documentation. After this introduction, students can work in pairs on one selected play and complete a short “record note” including corpus, play ID, selected tab, chosen method or layer where relevant, and one observation that could be checked by another student. This turns browsing into a reproducible practice and helps learners distinguish between what the interface shows and what they infer from it.
+This chapter works well as a 60–90 minute in-person practical session, especially for students encountering DraCor for the first time. A useful structure is to begin with a short guided tour of the interface: homepage, corpus page, play page and the five main tabs (Network, Speech distribution, Full text, Downloads, Tools). The guided part should remain brief, since the aim is not to demonstrate every feature but to help students understand the logic of navigation and documentation. After this introduction, students can work in pairs on one selected play and complete a short “record note” including corpus, play ID, selected tab, chosen method or layer where relevant, and one observation that could be checked by another student. This turns browsing into a reproducible practice and helps learners distinguish between what the interface shows and what they infer from it.
 
 Lecturers may then organise a comparison activity around two or three plays, preferably from different corpora or with visibly different network and speech-distribution patterns. Each pair can report one observation from the Network tab and then verify or contextualise it in the Full text tab, using the Segments panel. This activity helps students see that visualisations are not independent evidence but derived views based on segmentation, encoded speakers, group characters, and selected methods. A final plenary discussion can focus on modelling assumptions: what counts as a connection between characters? What happens when group characters are included or excluded? How does the selected speech-distribution method affect interpretation? What information is gained or lost when we move from text to network or chart?
 
