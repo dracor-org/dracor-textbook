@@ -107,17 +107,17 @@ Next to the graph, DraCor summarises network properties in a compact panel. Thes
 - **Maximum degree**: the highest number of direct edges held by any single node (often shown with the character’s name).
 
 
-The Network tab usually also includes a character list in order of appearance, sometimes with icons indicating sex and group characters (`personGrp`). This list provides a useful bridge to the text views: it invites us to check where and how a character enters the play and whether structural prominence in the network corresponds to frequent co-presence in the segmented text.
+The Network tab usually also includes a character list in order of appearance, sometimes with icons that indicate the sex of a character or mark character groups (marked up in TEI as `<personGrp>`). This list provides a useful bridge to the text views: it invites us to check where and how a character enters the play and whether structural prominence in the network corresponds to frequent co-presence in the segmented text.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-network.png
 ---
 alt: "Network tab showing a co-occurrence network and a panel of network properties."
 width: 100%
 ---
-Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence). Access date: 19-05-2026.
+Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to generate co-occurrence). Access date: 19-05-2026.
 ```
 
-#### Tab 2. Speech distribution
+#### Tab 2. Speech Distribution
 
 The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye`, {cite}`yarkho2019speech`, {cite}`fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation, that is, a way of turning a concept into a measurable procedure.
 
