@@ -99,7 +99,7 @@ The Network tab provides a co-occurrence network for the play. The interface sta
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
 - **Segments**: the number of segments used to derive co-occurrence links (the unit behind “same scene/act (segment)”).
-- **All-in at segment _n_ (at _x_% )**: the point in the play where the network has accumulated _x_% of its nodes, indicating how quickly the cast becomes present in the segmentation.
+- **All-in at segment _n_ (at _x_%)**: the point in the play where the network has accumulated _x_% of its nodes, indicating how quickly the cast becomes present in the segmentation.
 - **Network size**: the number of speaking characters/entities in the play.
 - **Density**: a value between 0 and 1 indicating how many of all possible connections between nodes are realised.
 - **Diameter**: the highest value among all shortest distances between two nodes.
