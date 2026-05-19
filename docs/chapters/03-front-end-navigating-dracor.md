@@ -121,7 +121,7 @@ Network tab. DraCor shows a co-occurrence network and summarises network propert
 
 The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye`, {cite}`yarkho2019speech`, {cite}`fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation, that is, a way of turning a concept into a measurable procedure.
 
-The plot shown in this view uses scene (segment) number on the x-axis and number of characters on the y-axis. Two curves are displayed: one includes all characters, and one restricts the calculation to non-group characters only. Comparing these curves gives a quick sense of how collective roles affect the apparent distribution and how “crowded” different parts of the play are. When we interpret this tab, it is worth keeping track of the selected method, because switching methods can change what the graph emphasises and therefore what comparisons are meaningful.
+The plot shown in this view displays the scene (segment) number on the x-axis and the number of characters on the y-axis. Two curves are displayed: one includes all characters, and one restricts the calculation to non-group characters only. Comparing these curves gives a quick sense of how character groups affect the apparent distribution and how “crowded” different parts of the play are. When we interpret this tab, it is worth keeping track of the selected method, because switching methods can change what the graph emphasises and, therefore, which comparisons are meaningful.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-speech-distribution.png
 ---
@@ -130,7 +130,7 @@ width: 100%
 ---
 Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters. Access date: 19-05-2026.
 ```
-#### Tab 3. Full text
+#### Tab 3. Full Text
 
 The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example, the text is presented with structural markers (for example, Jornada I), with stage directions and speakers, and accompanied by a source note indicating where the text was obtained from and how it was adapted.
 
