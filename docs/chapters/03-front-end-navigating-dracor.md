@@ -90,7 +90,7 @@ width: 100%
 
 ### Example 3. The play page (header and tabs)
 
-Play pages share a consistent header layout. In the example used in this chapter (“La vida es sueño”), the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter we explain these five tabs in the same order.
+Play pages share a consistent header layout. In the example used in this chapter, *La vida es sueño*, the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter we explain these five tabs in the same order.
 
 #### Tab 1. Network
 
