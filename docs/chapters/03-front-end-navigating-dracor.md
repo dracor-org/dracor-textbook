@@ -40,17 +40,16 @@ In this chapter, we focus on what each view is for, what it shows, and what we c
 
 * Web browser and internet access.
 * Basic familiarity with plays (characters, acts/scenes) is helpful.
-* No programming experience required.
 
 ## 3. Learning Outcomes
 
 After completing this chapter, learners will be able to:
 
 1. Use the DraCor homepage to select a corpus and interpret the corpus summary cards.
-2. Navigate a corpus page, search and filter the play list, and identify stable play identifiers.
+2. Navigate a corpus page, search and filter the list of plays, and recognise stable play identifiers.
 3. Explain what each play tab (Network, Speech distribution, Full text, Downloads, Tools) is intended to show.
 4. Interpret the Network and Speech distribution tabs at an introductory level.
-5. Use Full text to contextualise insights from analytical tabs and to check sources and segmentation.
+5. Use the Full text tab to contextualise insights from analytical tabs and to check sources and segmentation.
 6. Use the Downloads tab to retrieve outputs linked to specific semantic layers of a play.
 
 ## 4. Theoretical Background
