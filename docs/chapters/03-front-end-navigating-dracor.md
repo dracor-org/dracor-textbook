@@ -71,12 +71,12 @@ On the DraCor homepage, we see corpus cards (for example, for FreDraCor, GerDraC
 alt: "DraCor homepage with corpus cards and summary statistics."
 width: 100%
 ---
-DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator). Access date: 19-05-2026.
+DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text, character speech and stage direction, and a last update indicator). Access date: 19-05-2026.
 ```
 
-### Example 2. The corpus page (searching and selecting a play)
+### Example 2. The Corpus Page (Searching and Selecting a Play)
 
-A corpus page (example: CalDraCor) presents a searchable play table. Alongside editorial credits and a commit reference, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration, or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
+A corpus page (example: CalDraCor) presents a searchable play table. Alongside editorial credits and the ID of the last commit, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration, or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
 
 ```{figure} ../images/front-end/cal-dracor.png
 ---
@@ -86,9 +86,9 @@ width: 100%
 CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID. Access date: 19-05-2026.
 ```
 
-### Example 3. The play page (header and tabs)
+### Example 3. The Play Page (Header and Tabs)
 
-Play pages share a consistent header layout. In the example used in this chapter, *La vida es sueño*, the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter we explain these five tabs in the same order.
+Play pages share a consistent header layout. In the example used in this chapter, *La vida es sueño* (*Life is a Dream*), the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers, such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter we explain these five tabs in the same order.
 
 #### Tab 1. Network
 
