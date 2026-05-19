@@ -88,15 +88,15 @@ CalDraCor corpus page. The play table can be searched and sorted; corpus-level m
 
 ### Example 3. The Play Page (Header and Tabs)
 
-Play pages share a consistent header layout. In the example used in this chapter, *La vida es sueño* (*Life is a Dream*), the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers, such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter we explain these five tabs in the same order.
+Play pages share a consistent header layout. In the example used in this chapter, *La vida es sueño* (*Life is a Dream*), the header shows the play title, the corpus badge (CalDraCor), a play ID, and external identifiers, such as Wikidata QIDs for the play and author. These identifiers matter because they support unambiguous reference and interlinking across systems. Below the header, the play-level navigation tabs are visible: Network, Speech distribution, Full text, Downloads and Tools. In the rest of this chapter, we explain these five tabs in the same order.
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
-- **Segments**: the number of segments used to derive co-occurrence links (the unit behind “same scene/act (segment)”).
+- **Segments**: the number of segments used to create co-occurrence links (the unit behind “same scene/act (segment)”).
 - **All-in at segment _n_ (at _x_%)**: the point in the play where the network has accumulated _x_% of its nodes, indicating how quickly the cast becomes present in the segmentation.
 - **Network size**: the number of speaking characters/entities in the play.
 - **Density**: a value between 0 and 1 indicating how many of all possible connections between nodes are realised.
