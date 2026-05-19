@@ -132,35 +132,35 @@ Speech distribution tab. The interface offers different operationalisations (sel
 ```
 #### Tab 3. Full Text
 
-The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example, the text is presented with structural markers (for example, Jornada I), with stage directions and speakers, and accompanied by a source note indicating where the text was obtained from and how it was adapted.
+The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example below, the text is presented with structural markers (for example, “Jornada I”), with stage directions and speakers attributions, and accompanied by a source note that indicates where the text was obtained from and how it was adapted.
 
-A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that underlies other views, especially the co-occurrence network. For interpretive work, Full text is therefore the tab we return to when we want to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
+A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that is the basis of other views, especially the co-occurrence network. For interpretive work, Full text tab , therefore, is where we turn to if we want to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-full-text.png
 ---
 alt: "Full text tab with provenance information and a segments navigation panel."
 width: 100%
 ---
-Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views. Access date: 19-05-2026.
+Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in related views. Access date: 19-05-2026.
 ```
 
 #### Tab 4. Downloads
 
-The Downloads tab provides access to different semantic layers of a play in multiple formats. This is the transparency layer of the front-end: it allows us to retrieve artefacts that correspond to what we see in the interface. In the example, network data can be downloaded in common graph exchange formats (CSV, GEXF, GraphML). The tab also offers exports for spoken text (for example, JSON by character and plain TXT), stage directions (with and without speaker names), the character list (CSV/JSON, often including precalculated data), and the full TEI/XML-encoded text.
+The Downloads tab provides access to different semantic layers of a play in multiple formats. This is the transparency layer of the front-end: it allows us to retrieve artefacts that correspond to what we see in the interface. In the example below, network data may be downloaded in common graph exchange formats (CSV, GEXF, GraphML). The tab also offers exports for spoken text (for example, JSON by character and plain TXT), stage directions (with and without speaker names), the character list (CSV/JSON, often including precalculated data), and the full TEI/XML-encoded text.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-downloads.png
 ---
 alt: "Downloads tab showing export options for network data, spoken text, stage directions, characters, and TEI/XML."
 width: 100%
 ---
-Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI/XML full text) in multiple formats. Access date: 19-05-2026.
+Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character list, and full TEI/XML-encoded text) in multiple formats. Access date: 19-05-2026.
 ```
 
 #### Tab 5. Tools
 
-The Tools tab links the play to external tools and lets us choose which textual layer should be routed to those tools. In the example, we can select the text layer for analysis (Full text in TEI/XML, plain text, spoken text, or stage directions) and then open third-party services such as Voyant Tools or the CLARIN Language Resource Switchboard. The tab also includes an entry point for network analysis via Gephi Lite.
+The Tools tab links the play to external tools and lets us choose which textual layer should be routed to those tools. In the example below, we can select the text layer for analysis (Full text in TEI/XML, plain text, spoken text, or stage directions) and then open third-party services, such as Voyant Tools or the CLARIN Language Resource Switchboard. The tab also includes an entry point for network analysis via Gephi Lite.
 
-The main interpretive point here is that the selected layer shapes the results. Plain text and spoken text are typically more suitable for quick exploratory analyses in general-purpose tools, while TEI/XML-encoded text is better reserved for workflows that are explicitly TEI/XML-compliant. For transparent reporting, it is enough to note which layer was selected and which tool was used, so that the external output can be understood as a transformation of a specific DraCor layer rather than as an abstract result detached from its source.
+The main interpretive point here is that the selected layer shapes the results. Plain text and spoken text are typically more suitable for quick exploratory analyses in general-purpose tools, while TEI/XML-encoded text is better reserved for workflows that are explicitly TEI/XML-compliant. For transparent reporting, it is sufficient to note which layer was selected and which tool was used, so that the external output can be understood as a transformation of a specific DraCor layer rather than as an abstract result detached from its source.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-tools.png
 ---
@@ -172,19 +172,19 @@ Tools tab. The interface offers links to external tools and lets us choose which
 ## 6. Exercises
 
 **Exercise 1. Identify interface layers (10–15 minutes)**
-Choose one play and write 2–3 sentences per tab explaining what kind of representation it provides (network, distribution, text, exports, external tools).
+Choose one play and write 2–3 sentences per tab explaining which kind of representation it provides (network, distribution, text, exports, external tools).
 
 Self-check: are you describing what is shown, rather than what you think it “means”?
 
-**Exercise 2. Connect Network and Full text (15–20 minutes)**
-Pick one character that appears highly connected in the Network tab. Use the Segments panel in Full text to locate two segments where this character addresses multiple characters, and describe what is happening in those passages.
+**Exercise 2. Investigate the relation between the Network and Full text tabs (15–20 minutes)**
+Pick one character that appears highly connected in the Network tab. Use the Segments panel in the Full text tab to locate two segments where this character addresses multiple other characters, and describe what is happening in those passages.
 
-Self-check: can you point to specific segments or headings that support your observation?
+Self-check: can you point to specific segments that support your observation?
 
 **Exercise 3. Transparency via Downloads (10–15 minutes)**
 Download one file that corresponds to a view you used (for example, a network export). Note which semantic layer and which file format you chose, and why it matches your purpose.
 
-Self-check: could someone else retrieve the same file and understand what it represents?
+Self-check: could someone else download the same file and understand what it represents?
 
 ```{admonition} Self-test
 :class: tip
@@ -211,7 +211,7 @@ For a longer session, this chapter can also be used as preparation for Chapters 
 
 | Term | Definition |
 | --- | --- |
-| Front-end | The user-facing web interface of DraCor. |
+| Front-end | The web interface of DraCor. |
 | Play ID (slug) | A stable identifier for a play (visible in the header/URL and in corpus tables). |
 | Segment | A unit of segmentation used by the interface to structure co-occurrence and navigation. |
 | Co-occurrence network | Characters are represented as nodes (or vertices), and their co-occurrences as edges. In DraCor characters are linked if they speak in the same segment. If no scene segmentation is available, characters who speak in the same act are linked instead. Silent characters and mere stage presence are not taken into account. |
@@ -221,7 +221,6 @@ For a longer session, this chapter can also be used as preparation for Chapters 
 | Clustering coefficient | A value between 0 and 1 indicating how strongly nodes tend to form triangles, that is, tightly connected local clusters. |
 | Average path length | The average of all shortest path lengths between pairs of nodes in a connected network. |
 | Maximum degree | The highest number of direct connections held by any single node (often shown with the character’s name). |
-| personGrp | A group character (collective role) distinguished from individual persons. |
 
 
 ## 10. Next Steps
