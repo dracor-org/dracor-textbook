@@ -64,14 +64,14 @@ When you write down an observation, include the corpus and play ID (from the URL
 
 ### Example 1. Starting From the Homepage (Selecting a Corpus)
 
-On the DraCor homepage we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
+On the DraCor homepage, we see corpus cards (for example, for FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (marked up in TEI as `<sp>`), and stage directions (marked up in TEI as `<stage>`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and the ID of the last commit in the GitHub repository. Thus, this information helps situate the corpus as a living dataset and helps refer to the specific version used. 
 
 ```{figure} ../images/front-end/home-page.png
 ---
 alt: "DraCor homepage with corpus cards and summary statistics."
 width: 100%
 ---
-DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator).
+DraCor homepage. Corpus cards provide a high-level overview (plays, characters, token counts for text/sp/stage, and a last update indicator). Access date: 19-05-2026.
 ```
 
 ### Example 2. The corpus page (searching and selecting a play)
@@ -83,7 +83,7 @@ A corpus page (example: CalDraCor) presents a searchable play table. Alongside e
 alt: "CalDraCor corpus page with a searchable play table and download buttons."
 width: 100%
 ---
-CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID.
+CalDraCor corpus page. The play table can be searched and sorted; corpus-level metadata can be downloaded as JSON or CSV; each play has a stable ID. Access date: 19-05-2026.
 ```
 
 ### Example 3. The play page (header and tabs)
@@ -114,7 +114,7 @@ The Network tab usually also includes a character list in order of appearance, s
 alt: "Network tab showing a co-occurrence network and a panel of network properties."
 width: 100%
 ---
-Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence).
+Network tab. DraCor shows a co-occurrence network and summarises network properties (including the number of segments used to derive co-occurrence). Access date: 19-05-2026.
 ```
 
 #### Tab 2. Speech distribution
@@ -128,7 +128,7 @@ The plot shown in this view uses scene (segment) number on the x-axis and number
 alt: "Speech distribution tab with a plot and method selector."
 width: 100%
 ---
-Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters.
+Speech distribution tab. The interface offers different operationalisations (selectable methods) and can distinguish group characters from non-group characters. Access date: 19-05-2026.
 ```
 #### Tab 3. Full text
 
@@ -141,7 +141,7 @@ A key feature of this tab is the Segments panel. It lists segments and shows whi
 alt: "Full text tab with provenance information and a segments navigation panel."
 width: 100%
 ---
-Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views.
+Full text tab. The play text is displayed with provenance notes and a segment list that supports navigation and clarifies the segmentation used in derived views. Access date: 19-05-2026.
 ```
 
 #### Tab 4. Downloads
@@ -153,7 +153,7 @@ The Downloads tab provides access to different semantic layers of a play in mult
 alt: "Downloads tab showing export options for network data, spoken text, stage directions, characters, and TEI/XML."
 width: 100%
 ---
-Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI/XML full text) in multiple formats.
+Downloads tab. DraCor provides exports for different semantic layers of a play (network data, spoken text, stage directions, character lists, and TEI/XML full text) in multiple formats. Access date: 19-05-2026.
 ```
 
 #### Tab 5. Tools
@@ -167,7 +167,7 @@ The main interpretive point here is that the selected layer shapes the results. 
 alt: "Tools tab with external tool links and a text-layer selector."
 width: 100%
 ---
-Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis.
+Tools tab. The interface offers links to external tools and lets us choose which text layer (TEI/XML, plain, spoken, stage directions) is used for external analysis. Access date: 19-05-2026.
 ```
 ## 6. Exercises
 
