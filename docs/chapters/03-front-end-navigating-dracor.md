@@ -49,12 +49,12 @@ After completing this chapter, learners will be able to:
 2. Navigate a corpus page, search and filter the list of plays, and recognise stable play identifiers.
 3. Explain what each play tab (Network, Speech distribution, Full text, Downloads, Tools) is intended to show.
 4. Interpret the Network and Speech distribution tabs at an introductory level.
-5. Use the Full text tab to contextualise insights from analytical tabs and to check sources and segmentation.
+5. Use the Full text tab to contextualise insights from the analytical tabs and to check text sources and segmentation.
 6. Use the Downloads tab to retrieve outputs linked to specific semantic layers of a play.
 
 ## 4. Theoretical Background
 
-DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded (for example, the full text in TEI/XML format) or derived (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
+DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in XML/TEI format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear and speak in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
 
 ```{admonition} Tip for learners
 When you write down an observation, include the corpus and play ID (from the URL or header) and the tab you used. If the tab offers selectable methods or layers, note the selected option as well.
@@ -62,7 +62,7 @@ When you write down an observation, include the corpus and play ID (from the URL
 
 ## 5. Practical Examples
 
-### Example 1. Starting from the homepage (selecting a corpus)
+### Example 1. Starting From the Homepage (Selecting a Corpus)
 
 On the DraCor homepage we see corpus cards (for example, FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (`sp`), and stage directions (`stage`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and a commit reference, which helps situate the corpus as a living dataset.
 
