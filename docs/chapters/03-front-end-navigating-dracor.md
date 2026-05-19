@@ -33,7 +33,7 @@ Content, terminology, and examples may change.
 
 ## 1. Overview
 
-The DraCor front-end is the most accessible entry point to DraCor’s drama corpora. It supports three key activities: discovering corpora and getting a quick statistical overview (home page), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs).
+The DraCor front-end is the most accessible entry point to the programmable drama corpora in DraCor. It supports three key activities: discovering corpora and getting a quick statistical overview (home page), browsing a corpus and selecting plays (corpus page), and inspecting a play through a set of tabs that expose text layers and derived analytical views (play page tabs).
 
 In this chapter we focus on what each view is for, what it shows, and what we can infer safely. We treat the interface as a structured reading environment: a way to move from a research question to observations grounded in what is visible and can be downloaded.
 
