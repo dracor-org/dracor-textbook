@@ -6,7 +6,7 @@ myst:
 author: "Antonio Rojas Castro"
 date: "2026-04-09"
 description: "This chapter explains how to use the DraCor front-end from the home page to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads, and Tools."
-keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech distribution", "downloads", "digital humanities"]
+keywords: ["DraCor", "front-end", "play page", "corpus page", "network", "speech distribution", "downloads", "Digital Humanities"]
 license: "CC BY 4.0"
 ---
 
