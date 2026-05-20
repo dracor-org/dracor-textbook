@@ -23,7 +23,7 @@ Content, terminology and examples may change.
 
 **Version:** 0.6 (2026-05-19)  
 **Review status:** Revised after internal review  
-**Internal reviewer:** Julia Jennifer Beine
+**Reviewer:** Julia Jennifer Beine
 ```
 
 ```{note}
