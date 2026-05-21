@@ -92,7 +92,7 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, p. 51-53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
@@ -146,7 +146,7 @@ Full text tab. The play text is displayed with provenance notes and a segment li
 
 #### Tab 4. Downloads
 
-The Downloads tab provides access to different semantic layers of a play in multiple formats. This is the transparency layer of the front-end: it allows us to retrieve artefacts that correspond to what we see in the interface. In the example below, network data may be downloaded in common graph exchange formats (CSV, GEXF, GraphML). The tab also offers exports for spoken text (for example, JSON by character and plain TXT), stage directions (with and without speaker names), the character list (CSV/JSON, often including precalculated data), and the full TEI/XML-encoded text.
+The Downloads tab provides access to different semantic layers of a play in multiple formats. This is the transparency layer of the front-end: it allows us to retrieve data that correspond to what we see in the interface. In the example below, network data may be downloaded in common graph exchange formats (CSV, GEXF, GraphML). The tab also offers exports for spoken text (for example, JSON by character and plain TXT), stage directions (with and without speaker names), the character list (CSV/JSON, often including precalculated data), and the full TEI/XML-encoded text.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-downloads.png
 ---
@@ -181,7 +181,7 @@ Pick one character that appears highly connected in the Network tab. Use the Seg
 
 Self-check: can you point to specific segments that support your observation?
 
-**Exercise 3. Transparency via Downloads (10–15 minutes)**
+**Exercise 3. Downloads and Transparency (10–15 minutes)**
 Download one file that corresponds to a view you used (for example, a network export). Note which semantic layer and which file format you chose, and why it matches your purpose.
 
 Self-check: could someone else download the same file and understand what it represents?
