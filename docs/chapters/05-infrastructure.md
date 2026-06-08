@@ -135,12 +135,12 @@ There are several practical reasons to set up a local DraCor instance:
 - **Independence.** A local instance does not depend on the dracor.org server being available — although its uptime is generally good. You can work offline and without being affected by changes to the production system.
 - **Testing your own corpus.** If you are developing a new corpus of TEI-encoded plays (see Chapter 2), you can load it into a local DraCor to see how it looks in the front-end and how the API processes it — before contributing it to the community.
 - **Working with custom data.** You may want to work with plays that are not (yet) on dracor.org, or with a specific subset of plays for a particular research question.
-- **Controlling the data version.** DraCor corpora are "living corpora" — they change over time as plays are added, corrected, or re-encoded {cite}`boerner_2024_versioning`. The data on dracor.org can change without further notice — corpora are updated, plays added or corrected — and as a user, you do not know when this happens. A local instance lets you work with a specific, known version of the data.
-- **Reproducibility.** If we want to ensure that our research can be reproduced, we need a way to freeze the state of both the data and the software at a specific point in time. As Andrew Piper noted about his own computational analyses in the foreword to his book "Enumerations" addressing the reproducibility challenges, code "works, at least as of today" {cite}`boerner_2023_dockerizing` — but "today" passes. A local DraCor instance, captured as a Docker image, preserves both the data and the infrastructure together, so that the same analysis can be re-run under the same conditions — as demonstrated in {cite}`trilcke2024detecting`, where a Dockerised DraCor environment was used to ensure the reproducibility of a network-analytic study across thousands of plays in a custom "Very Big Drama Corpus" (VeBiDraCor).
+- **Controlling the data version.** DraCor corpora are "living corpora" — they change over time as plays are added, corrected, or re-encoded {cite}`borner2024cls`. The data on dracor.org can change without further notice — corpora are updated, plays added or corrected — and as a user, you do not know when this happens. A local instance lets you work with a specific, known version of the data.
+- **Reproducibility.** If we want to ensure that our research can be reproduced, we need a way to freeze the state of both the data and the software at a specific point in time. As Andrew Piper noted about his own computational analyses in the foreword to his book "Enumerations" addressing the reproducibility challenges, code "works, at least as of today" {cite}`boerner2023dockerizing` — but "today" passes. A local DraCor instance, captured as a Docker image, preserves both the data and the infrastructure together, so that the same analysis can be re-run under the same conditions — as demonstrated in {cite}`trilcke2024detecting`, where a Dockerised DraCor environment was used to ensure the reproducibility of a network-analytic study across thousands of plays in a custom "Very Big Drama Corpus" (VeBiDraCor).
 
 ```{admonition} The reproducibility challenge in CLS
 :class: note
-The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da_2019_computational-case`. Christof Schöch developed a comprehensive framework for "repetitive research" — distinguishing replication, reproduction, revision, and other forms — and concluded that there are "serious and relevant challenges for the field" {cite}`schoech_2023_repetitive-research`. The living nature of DraCor's corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`boerner_2024_versioning`.
+The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da_2019_computational-case`. Christof Schöch developed a comprehensive framework for "repetitive research" — distinguishing replication, reproduction, revision, and other forms — and concluded that there are "serious and relevant challenges for the field" {cite}`schoech_2023_repetitive-research`. The living nature of DraCor's corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`borner2024cls`.
 ```
 
 ### What is Docker?
@@ -162,7 +162,7 @@ This combination of Docker and Compose is what makes sharing and documenting a D
 
 ```{admonition} A transferable skill
 :class: tip
-Containerisation is not unique to DraCor or to digital humanities. It is a core practice in modern software development and "DevOps" — the discipline of managing the deployment and operation of applications {cite}`boerner_2024_versioning`. Understanding Docker here means recognising the same patterns when encountering them in industry contexts or other research infrastructure.
+Containerisation is not unique to DraCor or to digital humanities. It is a core practice in modern software development and "DevOps" — the discipline of managing the deployment and operation of applications {cite}`borner2024cls`. Understanding Docker here means recognising the same patterns when encountering them in industry contexts or other research infrastructure.
 ```
 
 ### Setting up a local DraCor instance
@@ -258,7 +258,7 @@ Everything we learned in Chapter 4 — listing corpora, retrieving plays, gettin
 
 Once we have a local DraCor instance populated with data, we can go one step further: freezing its state and sharing it. The Docker command `docker commit` creates a new image from a running container — essentially taking a snapshot of the populated database. This image can then be published on DockerHub, so that other researchers can download it and have the exact same data and infrastructure available on their machine.
 
-This is what was done for the "Small Worlds" study {cite}`trilcke2024detecting`: the researchers created a "pre-analysis state" image (the populated DraCor with the VeBiDraCor data) and a "post-analysis state" image (the research environment after running the analysis), both published and available for inspection {cite}`boerner_2023_dockerizing`. In this way, a Docker image becomes a *research artifact* — a self-contained, shareable package that documents not just the code and data but the entire environment in which the research was conducted {cite}`boerner_2024_versioning`.
+This is what was done for the "Small Worlds" study {cite}`trilcke2024detecting`: the researchers created a "pre-analysis state" image (the populated DraCor with the VeBiDraCor data) and a "post-analysis state" image (the research environment after running the analysis), both published and available for inspection {cite}`boerner2023dockerizing`. In this way, a Docker image becomes a *research artifact* — a self-contained, shareable package that documents not just the code and data but the entire environment in which the research was conducted {cite}`borner2024cls`.
 
 ### Beyond using: adapting DraCor
 
@@ -323,6 +323,7 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 ## References
 
 ```{bibliography}
+:filter: docname in docnames
 ```
 
 ---

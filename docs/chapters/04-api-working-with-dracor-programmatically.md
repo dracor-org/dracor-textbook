@@ -758,6 +758,6 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 ## References
 
 ```{bibliography}
-
+:filter: docname in docnames
 ```
 ---

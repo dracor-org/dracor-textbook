@@ -2,7 +2,7 @@ format: jb-book
 root: index
 
 parts:
-  - caption: "Book 1: Chapters"
+  - caption: "DraCor Textbook"
     chapters:
       - file: chapters/02-02-tei-encoding-preparing-texts-for-programmable-corpora
         title: "2.2 TEI Encoding: Preparing Texts for Programmable Corpora"

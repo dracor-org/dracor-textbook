@@ -29,9 +29,9 @@ Rojas Castro, Antonio; Fisher, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia
 
 # Preface
 
-The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS team. It is conceived as a coherent teaching and learning resource for working with **DraCor’s programmable drama corpora**, with a particular focus on accessibility for learners with little or no prior background in Digital Humanities or programming.
+The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS team. It is conceived as a coherent teaching and learning resource for working with *programmable drama corpora in DraCor*, with a particular focus on accessibility for learners with little or no prior background in Digital Humanities or programming.
 
-The textbook is **currently under construction**. The first volume (*Book 1: Core Content*) is planned for release in **May/June 2026**. It introduces core concepts, methods, and tools for working with DraCor, including corpus building, TEI encoding, exploration via the web front end, API-based access, and local infrastructure. A second volume dedicated to advanced case studies is planned for a later development phase.
+The textbook is **currently under construction**. The core content are planned for release in **June 2026**. It introduces core concepts, methods, and tools for working with DraCor, including corpus building, TEI encoding, exploration via the web front end, API-based access, and local infrastructure.
 
 The development of the DraCor Textbook is fully open. Editorial guidelines, chapter templates, terminology conventions, and the ongoing discussion of scope and structure are documented in the project’s GitHub repository and wiki. These materials evolve alongside the textbook and reflect the collaborative editorial process.
 

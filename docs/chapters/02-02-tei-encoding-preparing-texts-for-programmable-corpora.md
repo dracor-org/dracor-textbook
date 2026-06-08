@@ -460,6 +460,7 @@ Continue with [Chapter 04](04-api-working-with-dracor-programmatically) on the D
 ## 10. Bibliography
 
 ```{bibliography}
+:filter: docname in docnames
 ```
 
 [^1] This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung`.
