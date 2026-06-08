@@ -52,19 +52,19 @@ After completing this chapter, learners will be able to:
 
 The e**X**tensible **M**arkup **L**anguage (XML) is a method for marking up texts and encoding information. When using XML, so-called markups or encodings are added to a text {cite:p}`vogeler2017xml{p. 128}`. For instance, in the case of dramatic texts, titles, cast lists, character speeches, or stage directions may be marked up as such. This way, markups in XML make the structure of a dramatic text visible and enable the information to be processed digitally {cite:p}`vogeler2017xml{p. 128}`. If multiple texts are marked up following the same encoding schema, they may be processed and analysed similarly. In fact, this feature of XML encoding is what basically makes the DraCor corpora “programmable” {cite}`fischer2019programmable`. We will explain this step by step.
 
-XML is a rather user-friendly format. Markups in XML use the same character system used in the text itself, often Unicode (UTF-8). Therefore, both humans and machines can read XML {cite:p}`vogeler2017xml{p. 128}`. Moreover, XML markups have a very prominent feature you may spot in the following example. In the first picture, you may see the formatted text from the opening of Shakespeare’s “Macbeth”, translated by Dorothea Tieck, and in the second picture, the related XML file {cite}`shakespeare2021ffmacbeth`:
+XML is a rather user-friendly format. Markups in XML use the same character system used in the text itself, often Unicode (UTF-8). Therefore, both humans and machines can read XML {cite:p}`vogeler2017xml{p. 128}`. Moreover, XML markups have a very prominent feature you may spot in the following example. In the first picture, you may see the formatted text from the opening of Shakespeare’s *Macbeth*, translated by Dorothea Tieck, and in the second picture, the related XML file {cite}`shakespeare2021ffmacbeth`:
 
 ```{figure} ../images/tei-encoding/macbeth-formatted.jpg
 ---
-alt: "The formatted text from the opening of Shakespeare’s “Macbeth”."
+alt: "The formatted text from the opening of Shakespeare’s *Macbeth*."
 width: 100%
 ---
 ```
-*The formatted text from the opening of Shakespeare’s “Macbeth” translated by Dorothea Tieck in the DraCor full text view.*
+*The formatted text from the opening of Shakespeare’s *Macbeth* translated by Dorothea Tieck in the DraCor full text view.*
 
 ```{figure} ../images/tei-encoding/macbeth-xml.jpg
 ---
-alt: "The related XML file from the opening of Shakespeare’s “Macbeth”."
+alt: "The related XML file from the opening of Shakespeare’s *Macbeth*."
 width: 100%
 ---
 ```
@@ -82,7 +82,7 @@ In our example above, you may find the following tags: `<div>`, `<head>`, `<stag
 
 The unity of the start-tag, the contained text, and the end-tag is called an **element**. Elements can contain text or other elements. In our example, the first `<sp>` element contains 1 `<speaker>` element as well as 1 `<lg>` that includes 2 `<l>` elements, which themselves contain parts of the dramatic text.
 
-Elements may be further specified by so-called **attributes**, see the following example from Macropedius’ Neo-Latin play “Hecastus” (“Everyman”) {cite}`macropediushecastus`:
+Elements may be further specified by so-called **attributes**, see the following example from Macropedius’ Neo-Latin play *Hecastus* (*Everyman*) {cite}`macropediushecastus`:
 ```xml
 <foreign xml:lang="grc">ὡς τὸν ἔπὶ φακῇ μῦθον</foreign>
 ```
@@ -123,7 +123,7 @@ The basic structure of a DraCor TEI file is as follows. The root element of a Dr
 
 Note that the `<TEI>` element is specified by the `@xmlns` attribute, which defines the default namespace. The namespace indicates a set of XML tags used in the file, in our case, the tags defined in the guidelines of the Text Encoding Initiative {cite}`teiconsortium2026gentle`. 
 
-Regarding the dramatic text, the most frequent elements are `<div>`, `<head>`, `<sp>`, `<speaker>`, `<l>`, `<p>`, and `<stage>`. The `<div>` element contains divisions or segments of the text, such as acts or scenes. Accordingly, it may be specified by the `@type` attribute, e.g. `<div type="scene">`. The `<head>` element contains any type of heading. Regarding character speech, the speaker information is marked up as a `<speaker>` element. The spoken text itself is marked up with `<l>` for “verse line” in poetic dramas, and with `<p>` for “paragraph” in dramas in prose. Both the speaker information and the character speech are marked up as a `<sp>` element, standing for “speech”. Each `<sp>` element is specified by an `@who` attribute that links the speech to a specific character via their speaker ID. The speaker ID is assigned to each character in the `<teiHeader>` element, more precisely, in the `<particDesc>` element. This way, a speech may be attributed to the correct character, even if the speaker information given in the text may be irregular or include typos. For illustration of these common elements, see the following example from Goethe’s “Faust” from GerDraCor {cite}`goethefaust`. 
+Regarding the dramatic text, the most frequent elements are `<div>`, `<head>`, `<sp>`, `<speaker>`, `<l>`, `<p>`, and `<stage>`. The `<div>` element contains divisions or segments of the text, such as acts or scenes. Accordingly, it may be specified by the `@type` attribute, e.g. `<div type="scene">`. The `<head>` element contains any type of heading. Regarding character speech, the speaker information is marked up as a `<speaker>` element. The spoken text itself is marked up with `<l>` for “verse line” in poetic dramas, and with `<p>` for “paragraph” in dramas in prose. Both the speaker information and the character speech are marked up as a `<sp>` element, standing for “speech”. Each `<sp>` element is specified by an `@who` attribute that links the speech to a specific character via their speaker ID. The speaker ID is assigned to each character in the `<teiHeader>` element, more precisely, in the `<particDesc>` element. This way, a speech may be attributed to the correct character, even if the speaker information given in the text may be irregular or include typos. For illustration of these common elements, see the following example from Goethe’s *Faust* from the German Drama Corpus (GerDraCor) {cite}`goethefaust`. 
 ```xml
 <div type="scene">
   <head>Marthens Garten.</head>
@@ -140,7 +140,7 @@ Regarding the dramatic text, the most frequent elements are `<div>`, `<head>`, `
 </div>
 ```
 
-Now we turn to the processing of TEI files. First of all, TEI markups may be parsed, i.e., translated into a specific layout, such as the DraCor full text view (see [Chapter 03](03-front-end-navigating-dracor)). However, we are more interested in how we may process TEI markups in digital analyses. If multiple texts are validating against the same schema, they may be analysed similarly. In the case of DraCor, you may analyse a specific text feature throughout one corpus. For instance, you may analyse all speeches by male characters vs. all speeches by female characters in ItaDraCor or all stage directions in GerDraCor. What is more, as all the DraCor corpora adhere to the same guidelines, you may investigate a text feature or phenomenon not only in one DraCor corpus, but in all DraCor corpora, if relevant to your research question. This is why TEI markups make the DraCor corpora programmable. At the heart of the processing of the DraCor TEI-encoded corpora is the DraCor API {cite}`dracor2026dracorapi, dracor2026dracor`, which allows multiple approaches to the DraCor texts for analyses (see Chapter 04). A snippet of these research possibilities is suggested via the download tab for each drama in the DraCor front-end {cite}`fischerdracororg` (see [Chapter 03](03-front-end-navigating-dracor)). Each file you may download is the result of some kind of TEI processing. After outlining the research potential of TEI files, we will discuss the process of TEI encoding itself.
+Now we turn to the processing of TEI files. First of all, TEI markups may be parsed, i.e., translated into a specific layout, such as the DraCor full text view (see [Chapter 3, “Front-End: Navigating DraCor”](03-front-end-navigating-dracor)). However, we are more interested in how we may process TEI markups in digital analyses. If multiple texts are validating against the same schema, they may be analysed similarly. In the case of DraCor, you may analyse a specific text feature throughout one corpus. For instance, you may analyse all speeches by male characters vs. all speeches by female characters in the Italian Drama Corpus (ItaDraCor) or all stage directions in GerDraCor. What is more, as all the DraCor corpora adhere to the same guidelines, you may investigate a text feature or phenomenon not only in one DraCor corpus, but in all DraCor corpora, if relevant to your research question. This is why TEI markups make the DraCor corpora programmable. At the heart of the processing of the DraCor TEI-encoded corpora is the DraCor API {cite}`dracor2026dracorapi, dracor2026dracor`, which allows multiple approaches to the DraCor texts for analyses (see [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically)). A snippet of these research possibilities is suggested via the download tab for each drama in the DraCor front-end {cite}`fischerdracororg` (see [Chapter 3, “Front-End: Navigating DraCor”](03-front-end-navigating-dracor)). Each file you may download is the result of some kind of TEI processing. After outlining the research potential of TEI files, we will discuss the process of TEI encoding itself.
 
 ### 4.3. TEI Encoding
 
@@ -148,11 +148,11 @@ Now we turn to the processing of TEI files. First of all, TEI markups may be par
 
 The dramatic texts that are encoded for DraCor may come from different sources and in different markup stages. Accordingly, different texts may suggest different encoding strategies.
 
-First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is UDraCor {cite}`tokarskyi2022ff.ukranian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
+First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is the Ukranian Drama Corpus (UDraCor) {cite}`tokarskyi2022ff.ukranian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
 
 Second, an encoder may work with a dramatic text with some basic markup. This markup may be HTML markup when accessing texts on websites. Also, DOCX files may include markup in the form of a certain way of formatting, e.g. when speaker information is given in bold, stage directions in italics, or similar – the given markup can be as basic as that. In this case, the encoder may write a transformation script in a language of their preference, such as Python, R, or similar.
 
-Third, an encoder may assess a dramatic text with advanced markup, such as XML files. In this case, they may also write a transformation script in a language of their preference. If the dramatic text is already available in an XML file, the transformation may be best conducted via an XSLT script (E**X**tensible **S**tylesheet **L**anguage **T**ransformations) or via an  XQuery script (**X**ML **Query** Language). Showcases for this approach are EngDraCor and FreDraCor {cite}`giovannini2024ff.english, milling2021ff.french`.
+Third, an encoder may assess a dramatic text with advanced markup, such as XML files. In this case, they may also write a transformation script in a language of their preference. If the dramatic text is already available in an XML file, the transformation may be best conducted via an XSLT script (E**X**tensible **S**tylesheet **L**anguage **T**ransformations) or via an  XQuery script (**X**ML **Query** Language). Showcases for this approach are the English Drama Corpus (EngDraCor) and the French Drama Corpus (FreDraCor) {cite}`giovannini2024ff.english, milling2021ff.french`.
 
 In the second and third cases, the automatically generated TEI files may be revised in an XML Editor, if necessary. In the Oxygen XML Editor, the DraCor Oxygen Framework may be employed for this step.
 
@@ -160,7 +160,7 @@ In the second and third cases, the automatically generated TEI files may be revi
 Note that to this date, most (semi-)automatic encoding workflows require revising the generated text file. The revision may be supported by version control, i.e. saving the different versions of the text created throughout the encoding process, to be able to track changes, e.g. by using git. Versioning may also support collaborative encoding workflows.
 ```
 
-Given the rapid development of Large Language Models (LLMs), encoders may consider whether and how to use them during the encoding process. For instance, they may be used to write a transformation script. Encoders may also let LLMs encode the dramatic text itself directly. However, they should be aware of the strengths and weaknesses of LLMs and design an evaluation process for texts encoded by LLMs. Moreover, they should be aware of the financial and environmental costs of LLM usage and questions of AI ethics. A showcase for this approach is LacyDraCor {cite}`burnard2026lacy, burnard2026productivity`.
+Given the rapid development of Large Language Models (LLMs), encoders may consider whether and how to use them during the encoding process. For instance, they may be used to write a transformation script. Encoders may also let LLMs encode the dramatic text itself directly. However, they should be aware of the strengths and weaknesses of LLMs and design an evaluation process for texts encoded by LLMs. Moreover, they should be aware of the financial and environmental costs of LLM usage and questions of AI ethics. A showcase for this approach is the Lacy Drama Corpus (LacyDraCor) {cite}`burnard2026lacy, burnard2026productivity`.
 
 In the following sections, we will elaborate on selected scenarios of manual and semi-automatic encoding, especially considering the different markup stages of dramatic texts.
 
@@ -174,7 +174,7 @@ Regular expressions may stand for certain patterns in the text. For example, an 
 
 You may also work with LLMs to get more familiar with regular expressions and the possibilities of the find-and-replace function in the Oxygen XML Editor. E.g., a prompt may look as follows:
 ```
-I mark up a text in the Oxygen XML Editor in XML/TEI. I would like to use the find-and-replace function and regular expressions in the process. The first scenario is:
+I mark up a text in the Oxygen XML Editor in TEI/XML. I would like to use the find-and-replace function and regular expressions in the process. The first scenario is:
 Find:
 [fol. A2r, p. 3]
 Replace with:
@@ -190,7 +190,7 @@ How do I use regular expressions here? Explain the elements of the regular expre
 Be aware that the answers of the LLM may not always work. Thus, a basic understanding of regular expressions is necessary to assess the LLM output.
 ```
 
-When encoding a drama for DraCor in the Oxygen XML Editor, the DraCor Oxygen Framework may be installed as an add-on {cite}`dracor2026oxygen`. It provides templates for DraCor TEI files that include the most common elements, which may be enriched by the encoders. During the encoding process, the Framework also gives information on DraCor-specific markup procedures and related API processing (see [Chapter 04](04-api-working-with-dracor-programmatically)). Furthermore, the text file being encoded is regularly validated against the DraCor schema and sources of validation errors are highlighted. The DraCor Oxygen Framework, therefore, proves useful at all stages of the encoding process, e.g. also when checking a (semi-)automatically generated TEI file.
+When encoding a drama for DraCor in the Oxygen XML Editor, the DraCor Oxygen Framework may be installed as an add-on {cite}`dracor2026oxygen`. It provides templates for DraCor TEI files that include the most common elements, which may be enriched by the encoders. During the encoding process, the Framework also gives information on DraCor-specific markup procedures and related API processing (see [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically)). Furthermore, the text file being encoded is regularly validated against the DraCor schema and sources of validation errors are highlighted. The DraCor Oxygen Framework, therefore, proves useful at all stages of the encoding process, e.g. also when checking a (semi-)automatically generated TEI file.
 
 #### 4.3.3. Semi-Automatic Encoding with a Regular Expression Transformation Script
 
@@ -214,7 +214,7 @@ We will focus on the transformation of the `<sp>` element. A `<sp>` element in a
  </sp>
 ```
 
-This example is taken from Molière’s “Le Misanthrope”, Act II, Scene 4, {cite}`molieremisanthrope` where Clitandre and Acaste speak in unison.
+This example is taken from Molière’s *Le Misanthrope*, Act II, Scene 4, {cite}`molieremisanthrope` where Clitandre and Acaste speak in unison.
 
 Several things about this are problematic from a DraCor perspective. The `@who` attribute – which identifies the speaking character(s) – is a raw, inconsistent string. Different plays in the Théâtre Classique corpus use different separators between multiple speakers: `/`, `,`, or `_`. The values are in uppercase and may contain diacritics and special characters (e.g. `MADAME D'ARGENT`). There is no preceding `#`, which would make the value a proper XML data pointer – that is, a reference to an `@xml:id` defined elsewhere in the document. Furthermore, the `@stage` attribute does not belong to an `<sp>` element in standard TEI. And the element lacks a TEI namespace declaration.
 
@@ -281,7 +281,7 @@ This fallback makes the script robust: even if the structured `@who` attribute i
 </sp>
 ```
 
-The `@who` value is now a space-separated list of `#`-prefixed identifiers, each corresponding to an `@xml:id` defined in the `<particDesc>` section of the TEI header – making the entire document internally consistent and queryable via the DraCor API (see Chapter 04). The script has transformed an informally encoded, inconsistent string into a structured reference.
+The `@who` value is now a space-separated list of `#`-prefixed identifiers, each corresponding to an `@xml:id` defined in the `<particDesc>` section of the TEI header – making the entire document internally consistent and queryable via the DraCor API (see [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically)). The script has transformed an informally encoded, inconsistent string into a structured reference.
 
 It is worth emphasising that `tc2dracor.xq` is a substantial script – not a short helper – that handles not just `<sp>` elements but the entire document structure: it rebuilds the TEI header, maps author metadata via a separate metadata source file (`authors.xml`), assigns DraCor IDs from another mapping file (`ids.xml`), normalises genre terms, repairs miscellaneous encoding errors found in individual source files, and produces output that conforms to the DraCor ODD {cite}`beine2026dracor`. The script is run inside an eXist-db instance, and the entire workflow is documented and reproducible. For a corpus like FreDraCor, which comprises over 1,900 plays, this kind of automated pipeline is a necessity.
 
@@ -393,7 +393,7 @@ The parser also automatically generates the `<teiHeader>` element, including a `
 
 The speaker identifiers (`barnardo`, `francisco`) are generated automatically from the speaker line in the text: lowercased, with punctuation stripped. The `@who` attribute on each `<sp>` element is constructed as a `#`-prefixed reference to the corresponding `@xml:id`, exactly as the encoding conventions of DraCor require. 
 
-Regarding the **limitations of EzDrama**, the conversion is purely rule-based, and like any automated procedure, the resulting XML will need adjustments before it is ready for DraCor. The most common issue is speaker name variation. If a character is referred to as “BARNARDO” in some scenes and “BERNARDO” in others (as actually happens in early editions of “Hamlet”), the parser will generate two separate identifiers and two separate entries in the `<listPerson>` element. These must be resolved to a single identifier manually, or with a simple search-and-replace action in the EzDrama file, before conversion, which is one of the advantages of working in the intermediary format rather than directly in XML. Other elements that typically require manual post-processing include metadata in the `<teiHeader>` element (source descriptions, dates, licence information), the `@sex` attribute on `<person>` elements, and any encoding features that go beyond basic dramatic structure (such as character relations or genre classification).
+Regarding the **limitations of EzDrama**, the conversion is purely rule-based, and like any automated procedure, the resulting XML will need adjustments before it is ready for DraCor. The most common issue is speaker name variation. If a character is referred to as “BARNARDO” in some scenes and “BERNARDO” in others (as actually happens in early editions of *Hamlet*), the parser will generate two separate identifiers and two separate entries in the `<listPerson>` element. These must be resolved to a single identifier manually, or with a simple search-and-replace action in the EzDrama file, before conversion, which is one of the advantages of working in the intermediary format rather than directly in XML. Other elements that typically require manual post-processing include metadata in the `<teiHeader>` element (source descriptions, dates, licence information), the `@sex` attribute on `<person>` elements, and any encoding features that go beyond basic dramatic structure (such as character relations or genre classification).
 
 The EzDrama markup allows several **ways of application**, depending on the encoder’s preference and the regularity of the source text. The first way is fully manually, using any text editor. For users of Notepad++, the EzDrama repository provides a user-defined language file that enables syntax highlighting, visually distinguishing the markers from the text during editing.
 
@@ -433,7 +433,7 @@ Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.
 
 ## 6. Teaching Notes
 
-Lecturers may use this chapter to give a practice-oriented introduction to XML/TEI encoding to their students. Depending on the participants’ level of studies, it may make sense to work through this chapter step by step, including discussion phases between the subchapters.
+Lecturers may use this chapter to give a practice-oriented introduction to TEI/XML encoding to their students. Depending on the participants’ level of studies, it may make sense to work through this chapter step by step, including discussion phases between the subchapters.
 
 Moreover, lecturers may consider continuing with an encoding unit after this introduction, letting their students encode a drama, and, thus, fostering student research {cite}`beine2026einfuhrung`. In that case, lecturers may only discuss the encoding scenarios from this chapter relevant to the text(s) they selected for the subsequent encoding unit.
 
@@ -443,19 +443,19 @@ Another teaching scenario after the present introduction could look as follows. 
 
 To further engage with XML, you may work through specific tutorials {cite}`hawkins2019introduction, w3schoolsxml`. If you would like to engage with TEI more intensively, you may consult more detailed introductions and tutorials {cite}`teiconsortium2026gentle, teiconsortiuminintroducing, teiconsortiumteach, terras2020tei`.
 
-## 8. Glossary[^1]
+## 8. Glossary Entries[^1]
 | Term | Definition |
 | --- | --- |
-| (to) encode / Encoding | In the context of XML/TEI, the verb “encode” refers to the process of adding information to an electronic text, e.g. in the form of XML tags. The noun “encoding” refers to the result of this procedure, e. g. the XML markup in a file. |
+| (to) encode / Encoding | In the context of TEI/XML, the verb “encode” refers to the process of adding information to an electronic text, e.g. in the form of XML tags. The noun “encoding” refers to the result of this procedure, e.g. the XML markup in a file. |
 | HTML | An abbreviation for the “**H**yper**t**ext **Markup** **L**anguage” commonly used on websites. |
 | LLM | An abbreviation for “**L**arge **L**anguage **M**odel”, a type of artificial intelligence that generates text. Large Language Models may serve as the basis of Chatbots. |
-| (to) mark up / markup | In the context of XML/TEI, the noun “markup” refers to the information added to an electronic text in the form of XML tags. The verb “mark up” refers to the process of adding this information to the text. |
+| (to) mark up / markup | In the context of TEI/XML, the noun “markup” refers to the information added to an electronic text in the form of XML tags. The verb “mark up” refers to the process of adding this information to the text. |
 | (to) prompt / prompt | In the context of Artificial Intelligence, the verb “prompt” refers to instructing a Large Language Model in a way that requests a certain form of output by the Large Language Model. The noun “prompt” refers to the instruction. |
 | TEI | An abbreviation for “**T**ext **E**ncoding **I**nitiative” which may refer to that organisation, its encoding guidelines, or files that follow those guidelines. |
 | OCR | An abbreviation for “Optical Character Recognition” that refers to the process of generating machine-readable text from an image of said text, e.g. from a scan. |
 | R | R is a programming language. |
 | Python | Python is a programming language. |
-| Regular expression | Regular expressions consist of one or more characters or symbols through which a text may be searched for certain patterns. In find-and-replace actions or programming scripts, regular expressions may serve as placeholders to address these patterns to encode them in a certain way in XML/TEI. |
+| Regular expression | Regular expressions consist of one or more characters or symbols through which a text may be searched for certain patterns. In find-and-replace actions or programming scripts, regular expressions may serve as placeholders to address these patterns to encode them in a certain way in TEI/XML. |
 | string | A string is any sequence of digital characters. |
 | XML | An abbreviation for “e**X**tensible **M**arkup **L**anguage”, a method for marking up texts and encoding information. |
 | XQuery | An abbreviation for “**X**ML **Query** Language”, a programming language. |
@@ -464,9 +464,18 @@ To further engage with XML, you may work through specific tutorials {cite}`hawki
 
 ## 9. Next Steps
 
-Continue with [Chapter 04](04-api-working-with-dracor-programmatically) on the DraCor API to learn more about TEI processing, or continue with [Chapter 03](03-front-end-navigating-dracor) on the DraCor front-end to engage with the outputs of such TEI processing.
+Continue with [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically) on the DraCor API to learn more about TEI processing, or continue with [Chapter 3, “Front-End: Navigating DraCor”](03-front-end-navigating-dracor) on the DraCor front-end to engage with the outputs of such TEI processing.
 
-## 10. Bibliography
+## 10. AI Use Declaration
+
+In chapter 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
+
+## 11. Author Contributions
+
+Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing  
+Daniil Skorinkin – writing – original draft
+
+## 12. References
 
 ```{bibliography}
 :filter: docname in docnames
@@ -476,11 +485,4 @@ Continue with [Chapter 04](04-api-working-with-dracor-programmatically) on the D
 
 [^1] For this glossary, we consulted the Oxford English Dictionary {cite}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
 
-## 11. Author Contributions
 
-Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing  
-Daniil Skorinkin – writing – original draft
-
-## 12. AI Usage
-
-In chapter 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
