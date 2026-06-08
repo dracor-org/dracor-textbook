@@ -334,7 +334,8 @@ Complete the encoding of the following passage from act 1, scene 2 of *De Monfor
 [...]
 </div>
 ```
-
+````{admonition} Answer
+:class: solution, dropdown
 Answer:  
 ```xml
 <div type="scene" n="2">
@@ -358,6 +359,7 @@ Answer:
 [...]
 </div>
 ```
+````
 ### Manual Encoding: Case 2
 
 _Note: The following question still needs to be implemented correctly._
@@ -415,6 +417,7 @@ Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by
 </div>
 ```
 
+````{admonition} Answer
 Answer:
 ```xml
 <div type="act" n="3">
@@ -467,6 +470,8 @@ Answer:
 </div>
 </div>
 ```
+````
+
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
 _Note: The following question still needs to be implemented correctly._
