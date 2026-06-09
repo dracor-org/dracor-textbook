@@ -195,7 +195,7 @@ quiz.create_matching_quiz(
 
 ### Choosing an Encoding Strategy: Case 2
 
-**You want to encode “De Monfort” by Joanna Baillie. Your text source has no pre-existing markup. The format is TXT.**  
+**You want to encode *De Monfort* by Joanna Baillie. Your text source has no pre-existing markup. The format is TXT.**  
 
 Here is an excerpt from act 1, scene 2:[^baillie]
 
@@ -263,7 +263,7 @@ display_quiz(q1, max_width=1000)
 
 ### Choosing an Encoding Strategy: Case 3
 
-**You want to encode “The Belle’s Stratagem” by Hannah Cowley. Your text source has no pre-existing markup. The format is TXT.**
+**You want to encode *The Belle’s Stratagem* by Hannah Cowley. Your text source has no pre-existing markup. The format is TXT.**
 
 Here is an excerpt from act 3, scene 1:[^cowley]
 
@@ -310,7 +310,7 @@ display_quiz(q1, max_width=1000)
 
 _Note: The following question still needs to be implemented correctly._
 
-Complete the encoding of the following passage from act 1, scene 2 of “De Monfort” by Joanna Baillie.[^baillie] The play is written in verse.
+Complete the encoding of the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
 
 ```xml
 <div type="ADD" n="ADD">
@@ -334,7 +334,8 @@ Complete the encoding of the following passage from act 1, scene 2 of “De Monf
 [...]
 </div>
 ```
-
+````{admonition} Answer
+:class: solution, dropdown
 Answer:  
 ```xml
 <div type="scene" n="2">
@@ -358,11 +359,12 @@ Answer:
 [...]
 </div>
 ```
+````
 ### Manual Encoding: Case 2
 
 _Note: The following question still needs to be implemented correctly._
 
-Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem” by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
+Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
 <div type="act" n="3">
 <ADD>ACT III.<ADD>
@@ -415,6 +417,7 @@ Encode the following passage from act 3, scene 1 of “The Belle’s Stratagem�
 </div>
 ```
 
+````{admonition} Answer
 Answer:
 ```xml
 <div type="act" n="3">
@@ -467,11 +470,13 @@ Answer:
 </div>
 </div>
 ```
+````
+
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
 _Note: The following question still needs to be implemented correctly._
 
-Encode the following passage from the beginning of act 1, scene 1 of “The Beau Defeated, or The Lucky Younger Brother” by Mary Pix [^pix], with EzDrama syntax:
+Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix [^pix], with EzDrama syntax:
 ```
 ACT I. SCENE I.
 Enter Mrs. Rich with Betty, her Maid.
