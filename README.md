@@ -51,6 +51,6 @@ This work is licensed under CC BY 4.0. To view a copy of this licence, visit:
 
 ## Suggested Citation
 
-Rojas Castro, Antonio; Fischer, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; Trilcke, Peer; Fischer, Frank (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-[Author]: [Chapter Title]. In Rojas Castro, Antonio; Fischer, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+[Author]: [Chapter Title]. In Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; Trilcke, Peer; Fischer, Frank (eds.) 2026. *DraCor Textbook. Book 1*. [https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

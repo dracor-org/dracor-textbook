@@ -22,7 +22,7 @@ Your feedback helps us improve the textbook.
 :language: bibtex
 :::
 
-Rojas Castro, Antonio; Fisher, Frank; Trilcke, Peer; Börner, Ingo; Beine, Julia; Skorinkin, Daniil (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
+Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; Trilcke, Peer; Fischer, Frank (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
 :::
 ::::
 
