@@ -41,11 +41,11 @@ q1 = [
     "question": "manual encoding in an XML editor",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": True, "feedback": "Correct!"},
-      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming for manual encoding."},
-      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming for manual encoding."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know XML/TEI during the manual encoding process itself."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know XML/TEI during the manual encoding process itself."}
+      {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of TEI/XML necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming for manual encoding."},
+      {"answer": "knowledge of TEI/XML necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming for manual encoding."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know TEI/XML during the manual encoding process itself."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need to know TEI/XML during the manual encoding process itself."}
     ]
   }
 ]
@@ -62,11 +62,11 @@ q2 = [
     "question": "semi-automatic encoding with a regular expression transformation script",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
-      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": True,  "feedback": "Correct!"},
-      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need advanced programming skills for this kind of transformation script."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills, but not prompting skills, for this kind of transformation script."}
+      {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
+      {"answer": "knowledge of TEI/XML necessary, basic programming skills necessary", "correct": True,  "feedback": "Correct!"},
+      {"answer": "knowledge of TEI/XML necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills, but not prompting skills, for this kind of transformation script."}
     ]
   }
 ]
@@ -83,11 +83,11 @@ q3 = [
     "question": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
-      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
-      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": True, "feedback": "Correct!"},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script, but not prompting skills."}
+      {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of TEI/XML necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of TEI/XML necessary, advanced programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script, but not prompting skills."}
     ]
   }
 ]
@@ -104,11 +104,11 @@ q4 = [
     "question": "semi-automatic encoding with EzDrama",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need to know TEI/XML in order to mark up a text with EzDrama."},
-      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
-      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": True, "feedback": "Correct!"},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need prompting skills to mark up a text with EzDrama."}
+      {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need to know TEI/XML in order to mark up a text with EzDrama."},
+      {"answer": "knowledge of TEI/XML necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
+      {"answer": "knowledge of TEI/XML necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need any programming skills to mark up a text with EzDrama."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, no programming skills necessary", "correct": True, "feedback": "Correct!"},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need prompting skills to mark up a text with EzDrama."}
     ]
   }
 ]
@@ -125,11 +125,11 @@ q5 = [
     "question": "semi-automatic encoding with a Large Language Model (LLM)",
     "type": "multiple_choice",
     "answers": [
-      {"answer": "knowledge of XML/TEI necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You mainly need XML/TEI knowledge for evaluating and revising the generated file."},
-      {"answer": "knowledge of XML/TEI necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
-      {"answer": "knowledge of XML/TEI necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. Prompting skills are also needed here."},
-      {"answer": "knowledge of XML/TEI necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": True, "feedback": "Correct!"}
+      {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You mainly need TEI/XML knowledge for evaluating and revising the generated file."},
+      {"answer": "knowledge of TEI/XML necessary, basic programming skills necessary", "correct": False,  "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
+      {"answer": "knowledge of TEI/XML necessary, advanced programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need programming skills to encode a text with an LLM."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, no programming skills necessary", "correct": False, "feedback": "Incorrect. Prompting skills are also needed here."},
+      {"answer": "knowledge of TEI/XML necessary for evaluation and revision, prompting skills necessary, no programming skills necessary", "correct": True, "feedback": "Correct!"}
     ]
   }
 ]
@@ -195,7 +195,7 @@ quiz.create_matching_quiz(
 
 ### Choosing an Encoding Strategy: Case 2
 
-**You want to encode *De Monfort* by Joanna Baillie. Your text source has no pre-existing markup. The format is TXT.**  
+**You want to encode *De Monfort* by Joanna Baillie. Your text source has no pre-existing markup. The format is `.txt`.**  
 
 Here is an excerpt from act 1, scene 2:[^baillie]
 
