@@ -36,7 +36,7 @@ q1 = [{
     {"answer": "It is the documentation website at https://dracor.org/doc/api", "correct": False,
      "feedback": "Not quite. That is the Swagger UI documentation *about* the API."},
     {"answer": "It is the programmatic interface that returns data (e.g. JSON, CSV, TEI/XML) at https://dracor.org/api/v1/", "correct": True,
-     "feedback": "Correct. The API is the data/service interface, and the front-end is one client of it."},
+     "feedback": "Correct. The API is the data and service interface, and the front-end is one client of it."},
     {"answer": "It is only used for downloading GEXF files for Gephi", "correct": False,
      "feedback": "No. Downloads are only one part. The API provides corpora, plays, text layers, characters, networks, and more."},
     {"answer": "It is a local file repository of TEI documents", "correct": False,
@@ -59,7 +59,7 @@ q2 = [{
     {"answer": "Swagger UI is the API itself", "correct": False,
      "feedback": "No. Swagger UI is documentation and a testing interface, not the API."},
     {"answer": "Swagger UI renders the OpenAPI specification as interactive documentation and lets you try requests", "correct": True,
-     "feedback": "Correct. It is a human-friendly interface to the OpenAPI contract."},
+     "feedback": "Correct. It is a human-friendly interface to the OpenAPI specification."},
     {"answer": "Swagger UI requires authentication for all endpoints", "correct": False,
      "feedback": "No. Public endpoints can be used without authentication."},
     {"answer": "Swagger UI returns TEI/XML only", "correct": False,
@@ -81,7 +81,7 @@ q3 = [{
   "answers": [
     {"answer": "Path parameters come after '?' and query parameters are inside the URL path", "correct": False,
      "feedback": "No. That is inverted."},
-    {"answer": "Path parameters are required parts of the URL (e.g. /corpora/{corpusname}); query parameters are optional key–value pairs after '?' (e.g. ?include=metrics)", "correct": True,
+    {"answer": "Path parameters are required parts of the URL, e.g. `/corpora/{corpusname}`. Query parameters are optional key–value pairs after `?`, e.g. `?include=metrics`.", "correct": True,
      "feedback": "Correct. In DraCor, both types are used."},
     {"answer": "Both are always optional in DraCor", "correct": False,
      "feedback": "No. Path parameters are typically required for play-level endpoints."},
@@ -127,8 +127,8 @@ q5 = [{
   "answers": [
     {"answer": "Add ?format=csv to the URL", "correct": False,
      "feedback": "Not in this case. The chapter explains content negotiation via the Accept header."},
-    {"answer": "Send an HTTP header Accept: text/csv", "correct": True,
-     "feedback": "Correct. This is the standard mechanism for requesting a representation (format) where supported."},
+    {"answer": "Send an HTTP header: `Accept: text/csv`", "correct": True,
+     "feedback": "Correct. This is the standard mechanism for requesting a specific representation, such as CSV, where supported."},
     {"answer": "Replace /api/v1/ with /csv/", "correct": False,
      "feedback": "No. That is not a DraCor convention."},
     {"answer": "CSV is not available via the API", "correct": False,
@@ -172,7 +172,7 @@ url = "https://dracor.org/api/v1/corpora"
 params = {"include": "metrics"}
 
 # TODO: send request with a timeout
-# TODO: check status code (raise_for_status is fine)
+# TODO: check status code
 # TODO: parse JSON to a Python list
 # TODO: print the number of corpora
 # TODO: print the first 5 corpus identifiers and titles: "<name>: <title>"
@@ -299,7 +299,7 @@ except Exception as e:
 
 ## Question 9
 
-Student exercise (copy into a notebook, run). The endpoint is intentionally wrong:
+Student exercise (copy into a notebook, run). The endpoint is intentionally wrong so that you can practise interpreting an error response:
 
 ```python
 import requests
@@ -361,7 +361,7 @@ corpusname = "ger"
 playname = "lessing-emilia-galotti"
 url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
 
-# TODO: request CSV using Accept: text/csv
+# TODO: request CSV using the Accept: text/csv header
 # TODO: print the first 5 non-empty lines of the response
 ```
 
