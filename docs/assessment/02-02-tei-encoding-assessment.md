@@ -413,6 +413,7 @@ Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by
 ```
 
 ````{admonition} Answer
+:class: solution, dropdown
 Answer:
 ```xml
 <div type="act" n="3">
@@ -490,13 +491,14 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 ```
 
 Convert the encoded text to TEI/XML using one of the methods suggested in the EzDrama repository {cite}`dracor2022ff.easy`. Look at the resulting TEI/XML file. Given your current understanding of TEI/XML, does it look correct? Are there things that need to be corrected manually? If so, where would it make more sense to introduce a correction in each case: the EzDrama input, or the TEI/XML output?
-Possible solution:
+````{admonition} Possible solution
+:class: solution, dropdown
 ```txt
 #ACT I. 
 ##SCENE I.
 $Enter Mrs. Rich with Betty, her Maid.
 @Betty.
-WHat's the matter, Madam? What has happen'd to you? What has any body done to you?
+What's the matter, Madam? What has happen'd to you? What has any body done to you?
 @Mrs. Rich.
 An Affront? ... Ah! I die: An affront! ... I faint: I cannot speak. A Chair quickly.
 @Betty.
