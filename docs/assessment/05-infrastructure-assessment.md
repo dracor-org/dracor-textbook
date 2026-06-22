@@ -30,7 +30,7 @@ Estimated time: 10–15 minutes.
 from jupyterquiz import display_quiz
 
 q1 = [{
-  "question": "Why does understanding DraCor's infrastructure matter for research?",
+  "question": "Why does understanding the infrastructure of DraCor matter for research?",
   "type": "multiple_choice",
   "answers": [
     {"answer": "Because it allows researchers to avoid using the API entirely.", "correct": False,
@@ -76,13 +76,13 @@ display_quiz(q2, max_width=1000)
 from jupyterquiz import display_quiz
 
 q3 = [{
-  "question": "Why is DraCor's missing full-text search discussed as an infrastructural example?",
+ "question": "Why is the missing full-text search in DraCor discussed as an infrastructural example?",
   "type": "multiple_choice",
   "answers": [
     {"answer": "Because the lack of search proves that DraCor is technically outdated and should be abandoned.", "correct": False,
      "feedback": "No. This is not presented as a reason to abandon DraCor."},
     {"answer": "Because it shows that infrastructure reflects architectural choices shaped by specific research priorities, especially structural and network analysis.", "correct": True,
-     "feedback": "Correct. The example illustrates how DraCor's design grew out of particular research questions and priorities."},
+     "feedback": "Correct. The example illustrates how the design of DraCor grew out of particular research questions and priorities."},
     {"answer": "Because full-text search is impossible in XML databases such as eXist-db.", "correct": False,
      "feedback": "No. There is no claim that XML databases cannot support search."},
     {"answer": "Because search is available only in local DraCor instances, not at dracor.org.", "correct": False,
@@ -145,7 +145,7 @@ display_quiz(q5, max_width=1000)
 from jupyterquiz import display_quiz
 
 q6 = [{
-  "question": "Why is the Metrics Service presented as an example of a microservice architecture?",
+  "question": "Why is the Metrics Service presented as an example of a microservice?",
   "type": "multiple_choice",
   "answers": [
     {"answer": "Because it stores all TEI files in a separate GitHub repository.", "correct": False,
@@ -194,7 +194,7 @@ q8 = [{
   "question": "What is the difference between a Docker image and a Docker container?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "An image is a running service, whereas a container is the static file stored on DockerHub.", "correct": False,
+    {"answer": "An image is a running service, whereas a container is the static file stored on Docker Hub.", "correct": False,
      "feedback": "No. This reverses the distinction."},
     {"answer": "An image is a read-only template or snapshot, whereas a container is a running instance created from that image.", "correct": True,
      "feedback": "Correct. This is the basic distinction explained in the Docker section."},
@@ -219,7 +219,7 @@ q9 = [{
   "answers": [
     {"answer": "First calculate network metrics manually, then upload the front-end, then create a GitHub issue.", "correct": False,
      "feedback": "No. That is not the workflow described here."},
-    {"answer": "First register the corpus by posting its metadata, then trigger loading of the actual play data.", "correct": True,
+    {"answer": "First register the corpus by posting its metadata, then trigger loading of the play data.", "correct": True,
      "feedback": "Correct. Corpus loading is presented as a two-step process: register, then load."},
     {"answer": "First open the front-end in the browser, then drag and drop TEI files, then restart Docker.", "correct": False,
      "feedback": "No. Loading is described through admin API endpoints, not drag-and-drop through the interface."},
