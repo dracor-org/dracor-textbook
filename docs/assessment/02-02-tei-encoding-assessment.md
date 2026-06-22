@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-# Self-test: TEI Encoding
+# Self-Test: TEI Encoding
 
 ````{admonition} Note
 :class: note

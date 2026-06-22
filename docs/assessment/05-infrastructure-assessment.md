@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-# Self-test: Infrastructure
+# Self-Test: Infrastructure
 
 ````{admonition} Note
 :class: note

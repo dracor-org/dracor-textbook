@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-# Self-test: API
+# Self-Test: API
 
 ````{admonition} Note
 :class: note
