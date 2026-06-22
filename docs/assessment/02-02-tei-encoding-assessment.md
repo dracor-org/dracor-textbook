@@ -20,7 +20,7 @@ This assessment helps you check your understanding of the chapter *TEI Encoding:
 - Read the feedback for each option carefully, even if you answered correctly.
 - If you are unsure, return to the relevant section of the chapter (or the interface/tool) and verify what you see.
 
-_Note: the following information needs to be checked._
+<!-- TODO: the following information needs to be checked. -->
 Estimated time: 20–30 minutes.
 ````
 
@@ -30,7 +30,6 @@ Estimated time: 20–30 minutes.
 
 **Assign the correct characteristics to the following encoding strategies.**
 
-_Note: The answers still need to be shuffled!_
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -141,8 +140,6 @@ display_quiz(q5, max_width=1000)
 
 **You want to encode a corpus of 50 texts from a digital text collection. The format is HTML. Core elements, such as the headings, speaker names, or stage directions, are marked up regularly.**
 
-_Note: The answers still need to be shuffled!_
-
 ```{code-cell} ipython3
 :tags: [remove-input]
 import sys
@@ -165,8 +162,6 @@ quiz.create_matching_quiz(
     }
 )
 ```
-
-_Note: The answers still need to be shuffled!_
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -308,7 +303,7 @@ display_quiz(q1, max_width=1000)
 
 ### Manual Encoding: Case 1
 
-_Note: The following question still needs to be implemented correctly._
+<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Complete the encoding of the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
 
@@ -362,7 +357,7 @@ Answer:
 ````
 ### Manual Encoding: Case 2
 
-_Note: The following question still needs to be implemented correctly._
+<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
@@ -474,7 +469,7 @@ Answer:
 
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
-_Note: The following question still needs to be implemented correctly._
+<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix [^pix], with EzDrama syntax:
 ```
