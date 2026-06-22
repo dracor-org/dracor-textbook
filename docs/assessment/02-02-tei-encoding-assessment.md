@@ -522,7 +522,7 @@ Pick an entire play of your choice that is available to you in plain text and in
 If the play could not be processed in one go, try encoding it in chunks. You can also try different strategies: with / without examples of TEI-encoded drama, with / without explicitly mentioning DraCor, with / without explicitly asking to mark speeches, stage directions, and so on. 
 Do you see any differences? Reflect on the current state of LLM-powered encoding and its limitations. 
 
-## Bibliography
+## References
 ```{bibliography}
 ```
 
