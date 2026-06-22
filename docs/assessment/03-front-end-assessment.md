@@ -35,7 +35,7 @@ q1 = [{
   "answers": [
     {"answer": "Edit TEI files directly in the browser", "correct": False,
      "feedback": "No. The front-end is for browsing and exploring, not editing TEI."},
-    {"answer": "Get a quick overview of a corpus (scale, token counts by layer, last update)", "correct": True,
+    {"answer": "Get a quick overview of a corpus, including its size, textual layers and last update", "correct": True,
      "feedback": "Correct. The cards provide a compact corpus overview and indicate that multiple textual layers exist."},
     {"answer": "Run Gephi analyses without downloading data", "correct": False,
      "feedback": "No. Gephi workflows require exporting network data (or using Gephi Lite), but the cards are not for that."},
@@ -81,7 +81,7 @@ q3 = [{
   "answers": [
     {"answer": "Characters are linked if they speak consecutive lines", "correct": False,
      "feedback": "No. That would be a dialogue adjacency model, not co-occurrence."},
-    {"answer": "Characters are linked if they appear in the same segment (scene/act segment)", "correct": True,
+    {"answer": "Characters are linked if they appear in the same segment, such as a scene or act segment", "correct": True,
      "feedback": "Correct. This is why segmentation choices matter for interpretation."},
     {"answer": "Characters are linked only if they share a Wikidata identifier", "correct": False,
      "feedback": "No. Wikidata linking is external metadata, not a network rule."},
@@ -125,7 +125,7 @@ q5 = [{
   "question": "What is the interpretive use of an 'All-in at segment n (at x%)' indicator?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It tells you when the cast is largely introduced in the segmentation", "correct": True,
+    {"answer": "It tells you at which point all characters have appeared in the segmentation", "correct": True,
      "feedback": "Correct. It is a way to describe how quickly the network accumulates its nodes."},
     {"answer": "It tells you which character has the highest degree", "correct": False,
      "feedback": "No. Maximum degree is reported separately."},
@@ -148,7 +148,7 @@ q6 = [{
   "question": "Why should you note the selected method in the Speech distribution tab when reporting observations?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Because different methods are different operationalisations of 'speech distribution'", "correct": True,
+    {"answer": "Because different methods define and measure speech distribution in different ways", "correct": True,
      "feedback": "Correct. Switching methods can change what the chart emphasises, so comparisons require method transparency."},
     {"answer": "Because the method changes the play ID", "correct": False,
      "feedback": "No. The method affects the chart, not identifiers."},
@@ -217,7 +217,7 @@ q9 = [{
   "question": "What is the key methodological point when using the Tools tab?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "The selected textual layer (TEI / plain / spoken / stage directions) shapes the external results", "correct": True,
+    {"answer": "The selected textual layer, such as TEI, plain text, spoken text or stage directions, shapes the external results", "correct": True,
      "feedback": "Correct. Always record which layer you routed to the external tool."},
     {"answer": "Tools automatically normalises all spellings in the play", "correct": False,
      "feedback": "No. External tools will process whatever layer you provide."},
@@ -233,9 +233,10 @@ display_quiz(q9, max_width=1000)
 ## Question 10
 
 Pick any play in any corpus and write a reproducible “record note” with:
-- corpus name
+- corpus name and corpus ID
 - play ID (slug)
-- which tab you used
+- tab used
+- relevant method, layer or setting, if applicable
 - one observation that can be verified
 
 ```{code-cell} ipython3
@@ -253,7 +254,7 @@ create_answer_box(
 
 ````{admonition} Example answer (for self-check)
 :class: tip, dropdown
-Corpus: CalDraCor (cal)  
+Corpus: Calderón Drama Corpus (CalDraCor, `cal`)
 Play ID: la-vida-es-sueno  
 Tab: Network  
 Observation: The interface constructs edges by co-occurrence within segments; the summary panel reports the number of segments and basic network statistics (density, diameter, clustering), which can be documented alongside the selected play ID.
