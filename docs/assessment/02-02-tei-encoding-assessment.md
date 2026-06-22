@@ -305,7 +305,7 @@ display_quiz(q1, max_width=1000)
 
 <!-- TODO: The following question still needs to be implemented correctly. -->
 
-Complete the encoding of the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
+Complete the encoding by replacing each `<ADD>` placeholder with the correct TEI/XML element, closing tag or text in the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
 
 ```xml
 <div type="ADD" n="ADD">
