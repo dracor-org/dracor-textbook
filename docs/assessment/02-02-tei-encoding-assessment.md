@@ -303,8 +303,6 @@ display_quiz(q1, max_width=1000)
 
 ### Manual Encoding: Case 1
 
-<!-- TODO: The following question still needs to be implemented correctly. -->
-
 Complete the encoding by replacing each `<ADD>` placeholder with the correct TEI/XML element, closing tag or text in the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
 
 ```xml
@@ -356,8 +354,6 @@ Answer:
 ```
 ````
 ### Manual Encoding: Case 2
-
-<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
@@ -469,8 +465,6 @@ Answer:
 ````
 
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
-
-<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix [^pix], with EzDrama syntax:
 ```
