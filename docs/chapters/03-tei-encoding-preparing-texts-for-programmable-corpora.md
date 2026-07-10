@@ -21,7 +21,7 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 ```{admonition} Chapter metadata
 :class: tip           
 **Authors:** Julia Jennifer Beine; Daniil Skorinkin      
-**Version:** 0.2 (2026-06-08)      
+**Version:** 0.3 (2026-07-10)      
 **Review status:** in progress      
 **Planned reviewers:** Antonio Rojas Castro and another member of the DraCorOS editorial team of the DraCor Textbook editorial team
 ```
