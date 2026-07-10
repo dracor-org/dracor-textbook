@@ -14,7 +14,7 @@ kernelspec:
 
 ````{admonition} Note
 :class: note
-This self-test supports Chapter 4 (*API: Working with DraCor Programmatically*). It checks key concepts and basic hands-on skills.
+This self-test supports Chapter 5 (*API: Working with DraCor Programmatically*). It checks key concepts and basic hands-on skills.
 
 - There is no grading and nothing is stored.
 - Multiple-choice questions provide feedback for every option.
