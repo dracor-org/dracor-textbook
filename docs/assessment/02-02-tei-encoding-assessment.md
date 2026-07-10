@@ -493,6 +493,7 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 Convert the encoded text to TEI/XML using one of the methods suggested in the EzDrama repository {cite}`dracor2022ff.easy`. Look at the resulting TEI/XML file. Given your current understanding of TEI/XML, does it look correct? Are there things that need to be corrected manually? If so, where would it make more sense to introduce a correction in each case: the EzDrama input, or the TEI/XML output?
 ````{admonition} Possible solution
 :class: solution, dropdown
+Possible solution:  
 ```txt
 #ACT I. 
 ##SCENE I.
@@ -511,6 +512,7 @@ How, Madam! Not to show respect to such a person as you? Madam Rich; the Widow o
 @Mrs. Rich.
 A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it run back above twenty yards.
 ```
+````
 
 ## Exercise 4: Encoding with LLMs
 
