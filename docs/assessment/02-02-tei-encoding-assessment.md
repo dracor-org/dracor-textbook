@@ -519,8 +519,8 @@ Do you see any differences? Reflect on the current state of LLM-powered encoding
 ```{bibliography}
 ```
 
-[^baillie] The text passage was taken from {cite:p}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
+[^baillie]: The text passage was taken from {cite:t}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
 
-[^cowley] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
+[^cowley]: The text passage was taken from {cite:t}`cowley2024belles`, and the format was slightly adapted for the exercise.
 
-[^pix] The text passage was taken from {cite}`pixbeau`, and the format was slightly adapted for the exercise.
+[^pix]: The text passage was taken from {cite:t}`pixbeau`, and the format was slightly adapted for the exercise.
