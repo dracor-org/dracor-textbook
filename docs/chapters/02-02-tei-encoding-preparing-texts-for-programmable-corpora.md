@@ -28,7 +28,7 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 
 ## 1. Overview
 
-In this chapter, we elaborate on the individual parts of the DraCor corpora, the encoded text files. We introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI). Subsequently, we discuss various methods of supporting and automating the encoding process. Moreover, we show how TEI encoding is central to the concept of programmable corpora.[^1]
+In this chapter, we elaborate on the individual parts of the DraCor corpora, the encoded text files. We introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI). Subsequently, we discuss various methods of supporting and automating the encoding process. Moreover, we show how TEI encoding is central to the concept of programmable corpora.[^background-info]
 
 ## 2. Requirements and Competences
 
@@ -443,8 +443,8 @@ Another teaching scenario after the present introduction could look as follows. 
 
 To further engage with XML, you may work through specific tutorials {cite}`hawkins2019introduction, w3schoolsxml`. If you would like to engage with TEI more intensively, you may consult more detailed introductions and tutorials {cite}`teiconsortium2026gentle, teiconsortiuminintroducing, teiconsortiumteach, terras2020tei`.
 
-## 8. Glossary Entries[^1]
-| Term | Definition |
+## 8. Glossary Entries
+| Term | Definition [^definition-info] |
 | --- | --- |
 | (to) encode / Encoding | In the context of TEI/XML, the verb “encode” refers to the process of adding information to an electronic text, e.g. in the form of XML tags. The noun “encoding” refers to the result of this procedure, e.g. the XML markup in a file. |
 | HTML | An abbreviation for the “**H**yper**t**ext **Markup** **L**anguage” commonly used on websites. |
@@ -481,8 +481,8 @@ Daniil Skorinkin – writing – original draft
 :filter: docname in docnames
 ```
 
-[^1] This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung`.
+[^background-info]: This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung, beine2026einfuhrunga`.
 
-[^1] For this glossary, we consulted the Oxford English Dictionary {cite}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
+[^definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
 
 
