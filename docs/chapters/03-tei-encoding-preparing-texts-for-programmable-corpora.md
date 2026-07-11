@@ -450,13 +450,13 @@ To further engage with XML, you may work through specific tutorials {cite}`hawki
 | HTML | An abbreviation for the “**H**yper**t**ext **Markup** **L**anguage” commonly used on websites. |
 | LLM | An abbreviation for “**L**arge **L**anguage **M**odel”, a type of artificial intelligence that generates text. Large Language Models may serve as the basis of Chatbots. |
 | (to) mark up / markup | In the context of TEI/XML, the noun “markup” refers to the information added to an electronic text in the form of XML tags. The verb “mark up” refers to the process of adding this information to the text. |
-| (to) prompt / prompt | In the context of Artificial Intelligence, the verb “prompt” refers to instructing a Large Language Model in a way that requests a certain form of output by the Large Language Model. The noun “prompt” refers to the instruction. |
-| TEI | An abbreviation for “**T**ext **E**ncoding **I**nitiative” which may refer to that organisation, its encoding guidelines, or files that follow those guidelines. |
 | OCR | An abbreviation for “Optical Character Recognition” that refers to the process of generating machine-readable text from an image of said text, e.g. from a scan. |
-| R | R is a programming language. |
+| (to) prompt / prompt | In the context of Artificial Intelligence, the verb “prompt” refers to instructing a Large Language Model in a way that requests a certain form of output by the Large Language Model. The noun “prompt” refers to the instruction. |
 | Python | Python is a programming language. |
+| R | R is a programming language. |
 | Regular expression | Regular expressions consist of one or more characters or symbols through which a text may be searched for certain patterns. In find-and-replace actions or programming scripts, regular expressions may serve as placeholders to address these patterns to encode them in a certain way in TEI/XML. |
 | string | A string is any sequence of digital characters. |
+| TEI | An abbreviation for “**T**ext **E**ncoding **I**nitiative” which may refer to that organisation, its encoding guidelines, or files that follow those guidelines. |
 | XML | An abbreviation for “e**X**tensible **M**arkup **L**anguage”, a method for marking up texts and encoding information. |
 | XQuery | An abbreviation for “**X**ML **Query** Language”, a programming language. |
 | XSLT | An abbreviation for “E**X**tensible **S**tylesheet **L**anguage **T**ransformations”, a programming language. |
