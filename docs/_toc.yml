@@ -4,23 +4,23 @@ root: index
 parts:
   - caption: "DraCor Textbook"
     chapters:
-      - file: chapters/02-02-tei-encoding-preparing-texts-for-programmable-corpora
-        title: "2.2 TEI Encoding: Preparing Texts for Programmable Corpora"
+      - file: chapters/03-tei-encoding-preparing-texts-for-programmable-corpora
+        title: "3. TEI Encoding: Preparing Texts for Programmable Corpora"
         sections:
-          - file: assessment/02-02-tei-encoding-assessment
+          - file: assessment/03-tei-encoding-assessment
             title: "Self-test: TEI Encoding"
-      - file: chapters/03-front-end-navigating-dracor
-        title: "3. Front-end: Navigating DraCor"
+      - file: chapters/04-front-end-navigating-dracor
+        title: "4. Front-end: Navigating DraCor"
         sections:
-          - file: assessment/03-front-end-assessment
+          - file: assessment/04-front-end-assessment
             title: "Self-test: Front-end"
-      - file: chapters/04-api-working-with-dracor-programmatically
-        title: "4. API: Working with DraCor Programmatically"
+      - file: chapters/05-api-working-with-dracor-programmatically
+        title: "5. API: Working with DraCor Programmatically"
         sections:
           - file: assessment/04-api-working-with-dracor-assessment
             title: "Self-test: API"
-      - file: chapters/05-infrastructure
-        title: "5. Infrastructure"
+      - file: chapters/06-infrastructure
+        title: "6. Infrastructure"
         sections:
           - file: assessment/05-infrastructure-assessment
             title: "Self-test: Infrastructure"
