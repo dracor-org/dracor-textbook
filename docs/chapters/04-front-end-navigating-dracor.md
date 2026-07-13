@@ -198,7 +198,7 @@ This chapter works well as a 60–90 minute in-person practical session, especia
 
 Lecturers may then organise a comparison activity around two or three plays, preferably from different corpora or with visibly different network and speech-distribution patterns. Each pair can report one observation from the Network tab and then verify or contextualise it in the Full text tab, using the Segments panel. This activity helps students see that visualisations are not independent evidence but derived views based on segmentation, encoded speakers, group characters, and selected methods. A final plenary discussion can focus on modelling assumptions: what counts as a connection between characters? What happens when group characters are included or excluded? How does the selected speech-distribution method affect interpretation? What information is gained or lost when we move from text to network or chart?
 
-For a longer session, this chapter can also be used as preparation for Chapters 4 and 5. After exploring the front-end, students can use the Downloads tab to retrieve one file that corresponds to a view they inspected, for example a network file, a character list, spoken text, stage directions, or the TEI/XML source. They should document what semantic layer they downloaded, in which format, and why that format would be useful for further work. This makes the transition from interface-based exploration to API-based or infrastructure-aware work more concrete: students first see a representation in the front-end, then identify the data layer behind it, and finally reflect on how that layer could be reused, analysed or questioned.
+For a longer session, this chapter can also be used as preparation for Chapters 5 and 6. After exploring the front-end, students can use the Downloads tab to retrieve one file that corresponds to a view they inspected, for example a network file, a character list, spoken text, stage directions, or the TEI/XML source. They should document what semantic layer they downloaded, in which format, and why that format would be useful for further work. This makes the transition from interface-based exploration to API-based or infrastructure-aware work more concrete: students first see a representation in the front-end, then identify the data layer behind it, and finally reflect on how that layer could be reused, analysed or questioned.
 
 ## 8. Further Reading and Resources 
 
@@ -225,7 +225,7 @@ For a longer session, this chapter can also be used as preparation for Chapters 
 
 ## 10. Next Steps
 
-* Continue with: [Chapter 4 (API)](04-api-working-with-dracor-programmatically) to understand how the front-end relates to programmatic access and reproducible workflows.
+* Continue with: [Chapter 5 (API)](05-api-working-with-dracor-programmatically) to understand how the front-end relates to programmatic access and reproducible workflows.
 
 ## 11. AI Use Declaration
 
