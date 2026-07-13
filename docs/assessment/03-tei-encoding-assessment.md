@@ -303,8 +303,6 @@ display_quiz(q1, max_width=1000)
 
 ### Manual Encoding: Case 1
 
-<!-- TODO: The following question still needs to be implemented correctly. -->
-
 Complete the encoding by replacing each `<ADD>` placeholder with the correct TEI/XML element, closing tag or text in the following passage from act 1, scene 2 of *De Monfort* by Joanna Baillie.[^baillie] The play is written in verse.
 
 ```xml
@@ -356,8 +354,6 @@ Answer:
 ```
 ````
 ### Manual Encoding: Case 2
-
-<!-- TODO: The following question still needs to be implemented correctly. -->
 
 Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by Hannah Cowley.[^cowley] The speaker ID for Letitia is “letitia”, the one for Mrs. Racket is “mrs-racket”. The play is written in prose.
 ```xml
@@ -470,8 +466,6 @@ Answer:
 
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
-<!-- TODO: The following question still needs to be implemented correctly. -->
-
 Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix [^pix], with EzDrama syntax:
 ```
 ACT I. SCENE I.
@@ -493,6 +487,7 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 Convert the encoded text to TEI/XML using one of the methods suggested in the EzDrama repository {cite}`dracor2022ff.easy`. Look at the resulting TEI/XML file. Given your current understanding of TEI/XML, does it look correct? Are there things that need to be corrected manually? If so, where would it make more sense to introduce a correction in each case: the EzDrama input, or the TEI/XML output?
 ````{admonition} Possible solution
 :class: solution, dropdown
+Possible solution:  
 ```txt
 #ACT I. 
 ##SCENE I.
@@ -511,10 +506,11 @@ How, Madam! Not to show respect to such a person as you? Madam Rich; the Widow o
 @Mrs. Rich.
 A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it run back above twenty yards.
 ```
+````
 
 ## Exercise 4: Encoding with LLMs
 
-Pick an entire play of your choice that is available to you in plain text and in the public domain. As an option, you may visit dracor.org and access the full text of any drama in plain text in the ‘Full text’ tab {cite}`fischerdracororg` (see Chapter 03). Try prompting an LLM of your choice to encode the play in TEI. Assess the results. Was the LLM able to process the whole play? Did it omit anything? Do you notice any obvious hallucinations? Are there any obvious markup errors?  
+Pick an entire play of your choice that is available to you in plain text and in the public domain. As an option, you may visit dracor.org and access the full text of any drama in plain text in the ‘Full text’ tab {cite}`fischerdracororg` (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). Try prompting an LLM of your choice to encode the play in TEI. Assess the results. Was the LLM able to process the whole play? Did it omit anything? Do you notice any obvious hallucinations? Are there any obvious markup errors?  
 
 If the play could not be processed in one go, try encoding it in chunks. You can also try different strategies: with / without examples of TEI-encoded drama, with / without explicitly mentioning DraCor, with / without explicitly asking to mark speeches, stage directions, and so on. 
 Do you see any differences? Reflect on the current state of LLM-powered encoding and its limitations. 
@@ -523,8 +519,8 @@ Do you see any differences? Reflect on the current state of LLM-powered encoding
 ```{bibliography}
 ```
 
-[^baillie] The text passage was taken from {cite:p}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
+[^baillie]: The text passage was taken from {cite:t}`baillie1789monfort{pp. 313–314}`, and the format was slightly adapted for the exercise.
 
-[^cowley] The text passage was taken from {cite}`cowley2024belles`, and the format was slightly adapted for the exercise.
+[^cowley]: The text passage was taken from {cite:t}`cowley2024belles`, and the format was slightly adapted for the exercise.
 
-[^pix] The text passage was taken from {cite}`pixbeau`, and the format was slightly adapted for the exercise.
+[^pix]: The text passage was taken from {cite:t}`pixbeau`, and the format was slightly adapted for the exercise.
