@@ -28,18 +28,18 @@ Content, terminology, and examples may change.
 ```
 
 ```{note}
-**How to use this chapter:** The first part is conceptual — we look at what DraCor is as a system and why understanding infrastructure matters for research. The second part is practical — we set up a local DraCor instance using Docker, load a corpus, and connect it to the API skills from Chapter 4. If Docker is not available on your machine, the conceptual sections still stand on their own.
+**How to use this chapter:** The first part is conceptual — we look at what DraCor is as a system and why understanding infrastructure matters for research. The second part is practical — we set up a local DraCor instance using Docker, load a corpus, and connect it to the API skills from Chapter 5. If Docker is not available on your machine, the conceptual sections still stand on their own.
 ```
 
 ## Overview
 
-In the previous chapters we used DraCor through its front-end (Chapter 3) and its API (Chapter 4). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given — a service available at dracor.org that simply works. In this chapter, we open the box.
+In the previous chapters we used DraCor through its front-end (Chapter 4) and its API (Chapter 5). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given — a service available at dracor.org that simply works. In this chapter, we open the box.
 
 What is DraCor, technically? Not a single application, but a *system* — a set of interconnected services, maintained by a community, funded by research projects, and embedded in a broader European infrastructure landscape. Understanding this matters for at least three reasons. First, it builds *trust*: if we base our research on a system, we should understand what it is and who keeps it running. Second, it enables *adaptation*: knowing the components means we can run DraCor locally, load our own corpora, and tailor it to our research needs. Third, it fosters *critical awareness*: the data and metrics we retrieve through the API are not simply "there" — they are produced by specific software components, from specific encodings, through specific processes. Understanding this makes us better researchers.
 
 ## Pre-requisites
 
-* Familiarity with the DraCor front-end (Chapter 3) and the API (Chapter 4).
+* Familiarity with the DraCor front-end (Chapter 4) and the API (Chapter 5).
 * For the practical sections: [Docker](https://www.docker.com/) installed on your machine.
 * No programming required for the conceptual sections.
 
@@ -64,7 +64,7 @@ We tend not to think about infrastructure when it works — we simply use the fr
 
 A small example: DraCor has no search function. We cannot type a keyword and find all plays that mention "revolution" or all characters named "Maria." For anyone used to modern web applications, this feels like a missing feature — and it is. But it is also a window into the infrastructure. DraCor's core is an XML database (eXist-db) with an API designed around the two entities *corpus* and *play*. Full-text search was never built into this design; what was built in is the ability to extract and serve specific *layers* of a text — spoken text, stage directions, network data. This is a deliberate architectural choice, shaped by the research questions that drove DraCor's development. DraCor grew out of the [DLINA project](https://dlina.github.io/) (Digital Literary Network Analysis), a research initiative by Peer Trilcke and Frank Fischer that focused on extracting and analysing co-presence networks from dramatic texts. In DLINA, there were no full texts — only structural data derived from TEI-encoded plays: acts, scenes, and which characters appear together. Network metrics were calculated from this structural information using tools like dramavis. When DLINA evolved into DraCor, the full TEI-encoded texts were included, but the infrastructure retained its focus on structure — segments, characters, networks, metrics — rather than on full-text search. Understanding infrastructure means understanding choices like these — and, perhaps, contributing to changing them.
 
-On the European level, significant investment goes into building research infrastructures for the humanities. Two major initiatives are [CLARIN](https://www.clarin.eu/), which provides language resources and technology, and [DARIAH](https://www.dariah.eu/), which supports digital research practices in the arts and humanities more broadly. Both are organised as European Research Infrastructure Consortia (ERICs) — long-term, internationally funded organisations that aim to provide sustainable, shared infrastructure across national boundaries. Together with other ERICs, they form the Science Cluster for the Social Sciences and the Humanities ([SSHOC](https://sshopencloud.eu/)). Resources from this broader landscape are directly relevant to working with DraCor: [DARIAH Campus](https://campus.dariah.eu/) provides training materials, the [CLARIN Language Resource Switchboard](https://switchboard.clarin.eu/) allows users to chain tools for working with textual data — and is directly accessible from DraCor's Tools tab (see Chapter 3; {cite}`borner2025cls`) — and the [SSHOC Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the humanities. 
+On the European level, significant investment goes into building research infrastructures for the humanities. Two major initiatives are [CLARIN](https://www.clarin.eu/), which provides language resources and technology, and [DARIAH](https://www.dariah.eu/), which supports digital research practices in the arts and humanities more broadly. Both are organised as European Research Infrastructure Consortia (ERICs) — long-term, internationally funded organisations that aim to provide sustainable, shared infrastructure across national boundaries. Together with other ERICs, they form the Science Cluster for the Social Sciences and the Humanities ([SSHOC](https://sshopencloud.eu/)). Resources from this broader landscape are directly relevant to working with DraCor: [DARIAH Campus](https://campus.dariah.eu/) provides training materials, the [CLARIN Language Resource Switchboard](https://switchboard.clarin.eu/) allows users to chain tools for working with textual data — and is directly accessible from DraCor's Tools tab (see Chapter 4; {cite}`borner2025cls`) — and the [SSHOC Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the humanities. 
 
 DraCor's approach to infrastructure is different. Rather than building a large-scale centralised platform, it grew from the bottom up — from a specific research need (network analysis of drama) to a multi-component system serving a growing community. This trajectory reflects what Tim Sherratt has called "tactical infrastructure":
 
@@ -92,16 +92,16 @@ Let us walk through the main components:
 
 **Corpus repositories on GitHub.** The source data — TEI-encoded play documents and corpus metadata — is curated in GitHub repositories under the [dracor-org](https://github.com/dracor-org) organisation. Each corpus (GerDraCor, RusDraCor, etc.) has its own repository. GitHub provides version control via Git, issue tracking for community discussions, and a transparent development history. This is also where corpus contributors submit new plays or corrections via pull requests. It is worth noting a tension here: DraCor is committed to open science and open source, yet it relies on GitHub — a commercial platform owned by Microsoft — for hosting its code and data. This is a pragmatic choice (GitHub is where the community still is, and its features for collaboration are hard to match), but it means that a core part of the infrastructure depends on a proprietary service. This is not unique to DraCor; it is a widespread dependency in open-source projects and in digital humanities more broadly, and one that the community should remain aware of.
 
-**eXist-db and the DraCor API.** At the core of the system sits [eXist-db](http://exist-db.org), an open-source XML database widely used in digital humanities. The DraCor API is implemented as an eXist-db application ([GitHub repository](https://github.com/dracor-org/dracor-api)), written in [XQuery](https://www.w3.org/TR/xquery/) using the RESTXQ framework. XQuery is a query language designed for XML data — it is the natural choice for working with TEI-encoded texts, though it is uncommon outside the humanities and XML communities. When corpora are loaded into eXist-db, the API's extraction and processing logic parses the TEI documents, extracts metadata, character information, spoken text, stage directions, and other layers, and makes them available through the endpoints we explored in Chapter 4.
+**eXist-db and the DraCor API.** At the core of the system sits [eXist-db](http://exist-db.org), an open-source XML database widely used in digital humanities. The DraCor API is implemented as an eXist-db application ([GitHub repository](https://github.com/dracor-org/dracor-api)), written in [XQuery](https://www.w3.org/TR/xquery/) using the RESTXQ framework. XQuery is a query language designed for XML data — it is the natural choice for working with TEI-encoded texts, though it is uncommon outside the humanities and XML communities. When corpora are loaded into eXist-db, the API's extraction and processing logic parses the TEI documents, extracts metadata, character information, spoken text, stage directions, and other layers, and makes them available through the endpoints we explored in Chapter 5.
 
 ```{admonition} The X technology stack
 :class: note
-DraCor is built on what is sometimes called the "X technology stack" — a set of XML-based technologies common in digital humanities: XML as the data format, TEI as the encoding standard, XSLT for transformations, XQuery for database queries and API logic, RelaxNG for schema validation, and ODD for documenting TEI customisations (see Chapter 2). While this stack is less common in mainstream software development, it is well-suited for working with richly structured textual data in the humanities.
+DraCor is built on what is sometimes called the "X technology stack" — a set of XML-based technologies common in digital humanities: XML as the data format, TEI as the encoding standard, XSLT for transformations, XQuery for database queries and API logic, RelaxNG for schema validation, and ODD for documenting TEI customisations (see Chapter 3). While this stack is less common in mainstream software development, it is well-suited for working with richly structured textual data in the humanities.
 ```
 
 **The Metrics Service.** Network metrics (density, diameter, average path length, etc.) are not computed by the eXist-db application itself but by a separate service — the *Metrics Service*, written in Python ([GitHub repository](https://github.com/dracor-org/dracor-metrics)). During the ingest of a play, the API extracts the co-presence network from the TEI structure and sends it to the Metrics Service, which calculates the network metrics and returns them. These pre-calculated metrics are then stored in the XML database. This is an example of a *microservice* architecture: rather than one monolithic application doing everything, specialised services handle specific tasks and communicate via APIs.
 
-**The front-end.** The web interface at dracor.org is a React application — a JavaScript-based single-page application that communicates with the DraCor API. As we learned in Chapter 4, the front-end is itself an API client: every page, every tab, every download button sends requests to the API and displays the results. The front-end code is maintained in its own [GitHub repository](https://github.com/dracor-org/dracor-frontend).
+**The front-end.** The web interface at dracor.org is a React application — a JavaScript-based single-page application that communicates with the DraCor API. As we learned in Chapter 5, the front-end is itself an API client: every page, every tab, every download button sends requests to the API and displays the results. The front-end code is maintained in its own [GitHub repository](https://github.com/dracor-org/dracor-frontend).
 
 **The Triple Store.** DraCor also generates RDF (Resource Description Framework) representations of plays and their metadata, which are stored in a Triple Store (Apache Jena Fuseki). This provides a SPARQL endpoint for linked data queries — connecting DraCor data to the broader Linked Open Data cloud, including Wikidata. We do not cover SPARQL in this textbook — the linked data layer is currently the least developed part of the DraCor system and still evolving. But it is worth knowing that this component exists and points toward a future in which DraCor data can be queried in relation to external knowledge bases.
 
@@ -133,7 +133,7 @@ The following sections involve working with the *terminal* (also called command 
 There are several practical reasons to set up a local DraCor instance:
 
 - **Independence.** A local instance does not depend on the dracor.org server being available — although its uptime is generally good. You can work offline and without being affected by changes to the production system.
-- **Testing your own corpus.** If you are developing a new corpus of TEI-encoded plays (see Chapter 2), you can load it into a local DraCor to see how it looks in the front-end and how the API processes it — before contributing it to the community.
+- **Testing your own corpus.** If you are developing a new corpus of TEI-encoded plays (see Chapter 3), you can load it into a local DraCor to see how it looks in the front-end and how the API processes it — before contributing it to the community.
 - **Working with custom data.** You may want to work with plays that are not (yet) on dracor.org, or with a specific subset of plays for a particular research question.
 - **Controlling the data version.** DraCor corpora are "living corpora" — they change over time as plays are added, corrected, or re-encoded {cite}`borner2024cls`. The data on dracor.org can change without further notice — corpora are updated, plays added or corrected — and as a user, you do not know when this happens. A local instance lets you work with a specific, known version of the data.
 - **Reproducibility.** If we want to ensure that our research can be reproduced, we need a way to freeze the state of both the data and the software at a specific point in time. As Andrew Piper noted about his own computational analyses in the foreword to his book "Enumerations" addressing the reproducibility challenges, code "works, at least as of today" {cite}`boerner2023dockerizing` — but "today" passes. A local DraCor instance, captured as a Docker image, preserves both the data and the infrastructure together, so that the same analysis can be re-run under the same conditions — as demonstrated in {cite}`trilcke2024detecting`, where a Dockerised DraCor environment was used to ensure the reproducibility of a network-analytic study across thousands of plays in a custom "Very Big Drama Corpus" (VeBiDraCor).
@@ -192,7 +192,7 @@ EXIST_PASSWORD= docker compose up
 
 Setting `EXIST_PASSWORD=` (empty) disables the admin password for the local instance, which is convenient for development. The first time you run this, Docker will download the necessary images — this may take a few minutes.
 
-Once the services are running, we can verify that the API is operational. Note that `http://localhost:8088/api/v1/` is now the base URL for our local API — the equivalent of `https://dracor.org/api/v1/` that we used throughout Chapter 4. Everything we learned there — calling endpoints with `curl`, Python `requests`, or PyDraCor — works the same way with this local URL:
+Once the services are running, we can verify that the API is operational. Note that `http://localhost:8088/api/v1/` is now the base URL for our local API — the equivalent of `https://dracor.org/api/v1/` that we used throughout Chapter 5. Everything we learned there — calling endpoints with `curl`, Python `requests`, or PyDraCor — works the same way with this local URL:
 
 ```bash
 curl http://localhost:8088/api/v1/info
@@ -202,7 +202,7 @@ The front-end is now available at [http://localhost:8088](http://localhost:8088)
 
 ### Loading a corpus
 
-An empty DraCor is not very useful. Let us load a corpus. The DraCor API provides admin endpoints for this purpose — the same endpoints we briefly mentioned in Chapter 4 but did not use, because they require authentication. On the production server, only the administrators have these credentials. On our local instance, however, we set the password ourselves (or left it empty), so we can use these admin endpoints to manage our local DraCor.
+An empty DraCor is not very useful. Let us load a corpus. The DraCor API provides admin endpoints for this purpose — the same endpoints we briefly mentioned in Chapter 5 but did not use, because they require authentication. On the production server, only the administrators have these credentials. On our local instance, however, we set the password ourselves (or left it empty), so we can use these admin endpoints to manage our local DraCor.
 
 Adding a corpus is a two-step process: first, we *register* the corpus by sending its metadata to the API; then, we *trigger the loading* of the actual play data. Let us walk through both steps.
 
@@ -216,7 +216,7 @@ curl -X POST -u admin: -d@- -H 'Content-type: text/xml' \
 http://localhost:8088/api/v1/corpora
 ```
 
-The first `curl` downloads the corpus metadata from GitHub; the pipe (`|`) passes it to the second `curl`, which sends it to our local API. Note the new flags: `-X POST` tells `curl` to use the POST method instead of GET — because we are *creating* a new resource, not just retrieving data (recall the HTTP methods we introduced in Chapter 4). `-u admin:` provides the admin credentials (username "admin", empty password). `-d@-` reads the data from the pipe. `-H 'Content-type: text/xml'` tells the API that we are sending XML data. This is similar to the content negotiation we discussed in Chapter 4, but here we specify the format of what we *send*, not what we want to *receive*.
+The first `curl` downloads the corpus metadata from GitHub; the pipe (`|`) passes it to the second `curl`, which sends it to our local API. Note the new flags: `-X POST` tells `curl` to use the POST method instead of GET — because we are *creating* a new resource, not just retrieving data (recall the HTTP methods we introduced in Chapter 5). `-u admin:` provides the admin credentials (username "admin", empty password). `-d@-` reads the data from the pipe. `-H 'Content-type: text/xml'` tells the API that we are sending XML data. This is similar to the content negotiation we discussed in Chapter 5, but here we specify the format of what we *send*, not what we want to *receive*.
 
 **Step 2: Trigger loading.**
 
@@ -237,7 +237,7 @@ Here, `jq` is an optional command-line tool that formats JSON output for readabi
 
 If we refresh the front-end at [http://localhost:8088](http://localhost:8088), we should also see the corpus with its plays — just as we would on dracor.org.
 
-The same two-step process works for any DraCor-compatible corpus hosted on GitHub. To load GerDraCor, for example, we would use its corpus metadata from the [gerdracor repository](https://github.com/dracor-org/gerdracor). We can also load our own TEI files — if we have encoded plays following the DraCor TEI conventions (see Chapter 2), we can upload them through the admin API.
+The same two-step process works for any DraCor-compatible corpus hosted on GitHub. To load GerDraCor, for example, we would use its corpus metadata from the [gerdracor repository](https://github.com/dracor-org/gerdracor). We can also load our own TEI files — if we have encoded plays following the DraCor TEI conventions (see Chapter 3), we can upload them through the admin API.
 
 In Python with `requests`, we simply set the base URL to our local instance:
 
@@ -252,7 +252,7 @@ from pydracor import DraCorAPI
 dracor = DraCorAPI(host="http://localhost:8088/api/v1")
 ```
 
-Everything we learned in Chapter 4 — listing corpora, retrieving plays, getting metrics, filtering spoken text — works exactly the same way with the local instance.
+Everything we learned in Chapter 5 — listing corpora, retrieving plays, getting metrics, filtering spoken text — works exactly the same way with the local instance.
 
 ### Sharing a research environment
 

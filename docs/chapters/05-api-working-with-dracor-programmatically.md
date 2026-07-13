@@ -42,7 +42,7 @@ In this chapter we learn what an API is, how the DraCor API is structured, and h
 ## Pre-requisites
 
 * Web browser and internet access.
-* Familiarity with the DraCor front-end (Chapter 3) is helpful but not strictly required.
+* Familiarity with the DraCor front-end (Chapter 4) is helpful but not strictly required.
 * No programming experience is needed for the first sections (Examples 1–4), which work entirely in the browser.
 * For the later sections (Examples 5–6), basic willingness to try Python is sufficient. We explain every step.
 
@@ -76,7 +76,7 @@ The DraCor API follows what we might call "pragmatic REST". It adheres to the co
 
 Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across all 600+ plays in GerDraCor, the front-end offers no way to do so.
 
-Without an API, the alternative would be to download the TEI-XML source files from GitHub and write our own scripts to parse them — extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see Chapter 2).
+Without an API, the alternative would be to download the TEI-XML source files from GitHub and write our own scripts to parse them — extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see Chapter 3).
 
 The API changes this by offering pre-built extraction and analysis as endpoints. As argued in the CLS INFRA report "On Programmable Corpora" {cite}`borner2023cls`, APIs for literary corpora serve several functions:
 
@@ -87,7 +87,7 @@ The API changes this by offering pre-built extraction and analysis as endpoints.
 
 ### The front-end as an API client
 
-It is worth emphasising that the DraCor front-end is itself a client of the API. The React-based web application (see the [front-end repository on GitHub](https://github.com/dracor-org/dracor-frontend); for a deeper look at DraCor's technical architecture, see Chapter 5) sends requests to the same endpoints that we will use in this chapter. The Downloads tab on a play page, for example, provides links that resolve to API endpoints: clicking "GEXF" triggers a request to `/api/v1/corpora/{corpusname}/plays/{playname}/networkdata/gexf`. Understanding the API therefore also means understanding what the front-end does behind the scenes. For a detailed mapping of which API endpoints are used by which front-end page and tab, see the overview table in {cite}`borner2023cls` (p. 55).
+It is worth emphasising that the DraCor front-end is itself a client of the API. The React-based web application (see the [front-end repository on GitHub](https://github.com/dracor-org/dracor-frontend); for a deeper look at DraCor's technical architecture, see Chapter 6) sends requests to the same endpoints that we will use in this chapter. The Downloads tab on a play page, for example, provides links that resolve to API endpoints: clicking "GEXF" triggers a request to `/api/v1/corpora/{corpusname}/plays/{playname}/networkdata/gexf`. Understanding the API therefore also means understanding what the front-end does behind the scenes. For a detailed mapping of which API endpoints are used by which front-end page and tab, see the overview table in {cite}`borner2023cls` (p. 55).
 
 ```{admonition} Tip for learners
 If you have the DraCor front-end open alongside this chapter, you can compare what you see in the browser with what the API returns. The front-end URL `https://dracor.org/ger/lessing-emilia-galotti` contains the same identifiers (`ger` and `lessing-emilia-galotti`) that we use in API requests.
@@ -334,7 +334,7 @@ If we are browsing the DraCor front-end and find a play we want to analyse, we c
 - Front-end: `https://dracor.org/ger/lessing-emilia-galotti`
 - API: `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti`
 
-The front-end URL contains the corpus name (`ger`) and the play name (`lessing-emilia-galotti`) in the same order. Converting between the two is straightforward and provides a useful bridge between the exploratory browsing of Chapter 3 and the programmatic access of this chapter.
+The front-end URL contains the corpus name (`ger`) and the play name (`lessing-emilia-galotti`) in the same order. Converting between the two is straightforward and provides a useful bridge between the exploratory browsing of Chapter 4 and the programmatic access of this chapter.
 
 ```python
 # Converting a front-end URL to an API URL
@@ -661,7 +661,7 @@ The current version of PyDraCor (3.0) has a two-layer architecture: a core packa
 
 This was only a brief introduction to PyDraCor. For more examples and the full list of available methods, see the [PyDraCor README on GitHub](https://github.com/dracor-org/pydracor).
 
-PyDraCor can also point to a local DraCor instance, which is relevant for reproducible research setups (see Chapter 5):
+PyDraCor can also point to a local DraCor instance, which is relevant for reproducible research setups (see Chapter 6):
 
 ```python
 dracor = DraCorAPI(host="http://localhost:8088/api/v1")
@@ -688,7 +688,7 @@ The DraCor API moved from version 0 to version 1 in December 2023. All examples 
 :class: warning
 
 - **Data depends on encoding quality.** The API extracts from the TEI source. If the encoding is inconsistent or incomplete (e.g. missing gender attributes on characters), the API results reflect that. The API does not add information that is not in the source.
-- **DraCor is a living system.** Corpora are updated, plays added or corrected. Results from today may differ from results in six months. For reproducible research, consider using a local DraCor instance with pinned data (see Chapter 5).
+- **DraCor is a living system.** Corpora are updated, plays added or corrected. Results from today may differ from results in six months. For reproducible research, consider using a local DraCor instance with pinned data (see Chapter 6).
 - **No search endpoint.** There is currently no way to search across plays by criteria (e.g. "all plays with more than 20 characters"). We must fetch metadata and filter on the client side.
 - **Network metrics are pre-calculated.** They are computed when a play is loaded into the database, based on the segmentation of the text. They are not recalculated on each request.
 ```
@@ -753,7 +753,7 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 
 ## Next Steps
 
-* Continue with: [Chapter 5. Infrastructure](05-infrastructure) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
+* Continue with: [Chapter 6, “Infrastructure”](06-infrastructure) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
 
 ## References
 
