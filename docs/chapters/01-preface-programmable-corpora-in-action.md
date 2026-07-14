@@ -10,7 +10,7 @@ This preface introduces the purpose and scope of the textbook. The following cha
 
 ## 2. Target Audience
 
-```{figure} images/preface/target-audience.png
+```{figure} ../images/preface/target-audience.png
 ---
 alt: "Diagram showing the target audience and possible uses of the DraCor Textbook."
 width: 90%
