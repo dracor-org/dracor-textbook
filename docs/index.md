@@ -27,29 +27,24 @@ Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; 
 ::::
 
 
-# Programmable Corpora in Action
+# Preface: Programmable Corpora in Action
 
-The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike other existing community-driven DraCor resources, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
+The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike the community-driven DraCor Notebooks, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
 ## DraCor and Programmable Corpora
 
-DraCor is a research infrastructure for the collection, curation and computational analysis of drama corpora. A *programmable corpus* is not only a collection of digital texts. It also provides documented interfaces through which texts, metadata and derived data can be retrieved and processed automatically. In DraCor, openly available TEI/XML corpora are connected with a web front-end, an application programming interface (API) and analytical services. This combination supports both direct exploration and reproducible computational research {cite:p}`borner2023cls;borner2025cls`.
+DraCor is a research infrastructure for the collection, curation and computational analysis of drama corpora. A *programmable corpus* is not only a collection of digital texts. It also provides documented interfaces through which texts, metadata and derived data can be retrieved and processed automatically. In DraCor, openly available TEI/XML corpora are connected with a web front-end, an application programming interface (API) and analytical services. This combination supports both direct exploration and reproducible computational research {cite:p}`borner2023cls,borner2025cls`.
 
 This preface introduces the purpose and scope of the textbook. The following chapters explain the individual components and workflows in greater detail, from corpus building and TEI encoding to the front-end, API-based access and local infrastructure.
 
 ## Target Audience
 
-```{mermaid}
-flowchart LR
-    A["MA students in the Humanities"] --> B["Little or no previous<br/>Digital Humanities experience"]
-    A --> C["No previous programming<br/>experience required"]
-    B --> D["DraCor Textbook"]
-    C --> D
-    D --> E["Self-study"]
-    D --> F["Classroom teaching"]
-```
-
-*The textbook is intended primarily for MA students in the Humanities and other learners beginning to work with Digital Humanities methods. It can be used independently or as part of an introductory course.*
+```{figure} images/preface/target-audience.svg
+---
+alt: "Diagram showing the target audience and possible uses of the DraCor Textbook."
+width: 90%
+---
+The DraCor Textbook is designed for learners with little or no prior experience in Digital Humanities or programming and can be used for self-study or classroom teaching.
 
 No previous programming experience is required. Chapters introduce technical concepts gradually and state their specific requirements at the beginning. Readers may follow the textbook sequentially or select individual chapters according to their learning or teaching context.
 
