@@ -1,4 +1,4 @@
-# Programmable Corpora in Action
+# Preface: Programmable Corpora in Action
 
 The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike the community-driven DraCor Notebooks, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
