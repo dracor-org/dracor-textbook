@@ -2,15 +2,15 @@
 
 The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike the community-driven DraCor Notebooks, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
-## DraCor and Programmable Corpora
+## 1. DraCor and Programmable Corpora
 
 DraCor is a research infrastructure for the collection, curation and computational analysis of drama corpora. A *programmable corpus* is not only a collection of digital texts. It also provides documented interfaces through which texts, metadata and derived data can be retrieved and processed automatically. In DraCor, openly available TEI/XML corpora are connected with a web front-end, an application programming interface (API) and analytical services. This combination supports both direct exploration and reproducible computational research {cite:p}`borner2023cls,borner2025cls`.
 
 This preface introduces the purpose and scope of the textbook. The following chapters explain the individual components and workflows in greater detail, from corpus building and TEI encoding to the front-end, API-based access and local infrastructure.
 
-## Target Audience
+## 2. Target Audience
 
-```{figure} images/preface/target-audience.svg
+```{figure} images/preface/target-audience.png
 ---
 alt: "Diagram showing the target audience and possible uses of the DraCor Textbook."
 width: 90%
@@ -20,7 +20,7 @@ The DraCor Textbook is designed for learners with little or no prior experience 
 
 No previous programming experience is required. Chapters introduce technical concepts gradually and state their specific requirements at the beginning. Readers may follow the textbook sequentially or select individual chapters according to their learning or teaching context.
 
-## Exemplary Uses
+## 3. Exemplary Uses
 
 The practical uses introduced in Book 1 correspond to the progression of its chapters:
 
@@ -34,13 +34,13 @@ The practical uses introduced in Book 1 correspond to the progression of its cha
 
 Together, these uses guide learners from the preparation of structured textual data to its exploration, programmatic analysis and reproducible deployment. Each chapter also identifies the modelling choices, data dependencies and technical limitations relevant to its workflow.
 
-## Structure and Development Status
+## 4. Structure and Development Status
 
 Book 1 introduces the core concepts and workflows required to work with DraCor. Book 2 will extend this foundation through research-oriented case studies. The textbook can therefore serve both as a structured introduction and as a starting point for more specialised applications.
 
 The textbook is currently under development. A release candidate for the core content is planned for August 2026. Editorial guidelines, chapter templates and the ongoing development process are documented in the project repository and wiki.
 
-## References
+## 5. References
 
 ```{bibliography}
 :filter: docname in docnames
