@@ -2,7 +2,7 @@
 title: "DraCor Textbook"
 ---
 
-::::{margin}
+
 :::{admonition} Questions or feedback
 :class: question-feedback
 
@@ -15,10 +15,9 @@ title: "DraCor Textbook"
 
 Your feedback helps us improve the textbook.
 :::
-::::
 
 
-::::{margin}
+
 :::{admonition} Citation
 :class: citation-information
 
@@ -28,7 +27,6 @@ Your feedback helps us improve the textbook.
 
 Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; Trilcke, Peer; Fischer, Frank (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
 :::
-::::
 
 
 # DraCor Textbook
