@@ -4,6 +4,8 @@ root: index
 parts:
   - caption: "DraCor Textbook"
     chapters:
+      - file: chapters/01-preface-programmable-corpora-in-action
+        title: "1. Preface: Programmable Corpora in Action"
       - file: chapters/03-tei-encoding-preparing-texts-for-programmable-corpora
         title: "3. TEI Encoding: Preparing Texts for Programmable Corpora"
         sections:
