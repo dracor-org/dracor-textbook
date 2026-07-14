@@ -466,23 +466,25 @@ To further engage with XML, you may work through specific tutorials {cite}`hawki
 
 Continue with [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically) on the DraCor API to learn more about TEI processing, or continue with [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor) on the DraCor front-end to engage with the outputs of such TEI processing.
 
-## 10. AI Use Declaration
+## 10. Footnotes
+ 
+[^background-info]: This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung, beine2026einfuhrunga`.
+
+[^definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
+
+## 11. AI Use Declaration
 
 In chapter 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
 
-## 11. Author Contributions
+## 12. Author Contributions
 
 Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing  
 Daniil Skorinkin – writing – original draft
 
-## 12. References
+## 13. References
 
 ```{bibliography}
 :filter: docname in docnames
 ```
-
-[^background-info]: This chapter is based on courses and training sessions taught by the authors, most prominently during the DraCor Summit 2025 {cite}`beine2025dramatic, beine2026einfuhrung, beine2026einfuhrunga`.
-
-[^definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025prompt, oxfordenglishdictionary2025regular`.
 
 
