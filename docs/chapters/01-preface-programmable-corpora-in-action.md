@@ -45,6 +45,7 @@ alt: "Diagram showing the target audience and possible uses of the DraCor Textbo
 width: 90%
 ---
 The DraCor Textbook is designed for learners with little or no prior experience in Digital Humanities or programming and can be used for self-study or classroom teaching.
+```
 
 No previous programming experience is required. Chapters introduce technical concepts gradually and state their specific requirements at the beginning. Readers may follow the textbook sequentially or select individual chapters according to their learning or teaching context.
 
