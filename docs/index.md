@@ -3,6 +3,15 @@ title: "DraCor Textbook"
 ---
 
 
+# DraCor Textbook
+
+The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource for learning how to work with programmable drama corpora in DraCor.
+
+The textbook introduces corpus building, TEI/XML encoding, exploration through the DraCor front-end, programmatic access through the DraCor API and the infrastructure underlying the platform.
+
+```{tableofcontents}
+```
+
 :::{admonition} Questions or feedback
 :class: question-feedback
 
@@ -28,12 +37,3 @@ Your feedback helps us improve the textbook.
 Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; Trilcke, Peer; Fischer, Frank (2026). *DraCor Textbook*. https://github.com/dracor-org/dracor-textbook
 :::
 
-
-# DraCor Textbook
-
-The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource for learning how to work with programmable drama corpora in DraCor.
-
-The textbook introduces corpus building, TEI/XML encoding, exploration through the DraCor front-end, programmatic access through the DraCor API and the infrastructure underlying the platform.
-
-```{tableofcontents}
-```
