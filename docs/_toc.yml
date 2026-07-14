@@ -17,10 +17,10 @@ parts:
       - file: chapters/05-api-working-with-dracor-programmatically
         title: "5. API: Working with DraCor Programmatically"
         sections:
-          - file: assessment/04-api-working-with-dracor-assessment
+          - file: assessment/05-api-working-with-dracor-assessment
             title: "Self-test: API"
       - file: chapters/06-infrastructure
         title: "6. Infrastructure"
         sections:
-          - file: assessment/05-infrastructure-assessment
+          - file: assessment/06-infrastructure-assessment
             title: "Self-test: Infrastructure"
