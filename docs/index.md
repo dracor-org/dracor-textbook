@@ -27,17 +27,54 @@ Rojas Castro, Antonio; Börner, Ingo; Beine, Julia Jennifer; Skorinkin, Daniil; 
 ::::
 
 
-# Preface
+# Preamble: Programmable Corpora in Action
 
-The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS team. It is conceived as a coherent teaching and learning resource for working with *programmable drama corpora in DraCor*, with a particular focus on accessibility for learners with little or no prior background in Digital Humanities or programming.
+The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike other existing community-driven DraCor resources, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
-The textbook is **currently under construction**. The core content are planned for release in **June 2026**. It introduces core concepts, methods, and tools for working with DraCor, including corpus building, TEI encoding, exploration via the web front end, API-based access, and local infrastructure.
+## DraCor and Programmable Corpora
 
-The development of the DraCor Textbook is fully open. Editorial guidelines, chapter templates, terminology conventions, and the ongoing discussion of scope and structure are documented in the project’s GitHub repository and wiki. These materials evolve alongside the textbook and reflect the collaborative editorial process.
+DraCor is a research infrastructure for the collection, curation and computational analysis of drama corpora. A *programmable corpus* is not only a collection of digital texts. It also provides documented interfaces through which texts, metadata and derived data can be retrieved and processed automatically. In DraCor, openly available TEI/XML corpora are connected with a web front-end, an application programming interface (API) and analytical services. This combination supports both direct exploration and reproducible computational research {cite:p}`borner2023cls;borner2025cls`.
 
-## Contact and Collaboration
+This preamble introduces the purpose and scope of the textbook. The following chapters explain the individual components and workflows in greater detail, from corpus building and TEI encoding to the front-end, API-based access and local infrastructure.
 
-Feedback, questions, and contributions are welcome.
-Please use **GitHub Issues** in the project repository to get in touch with the editorial team and to follow or join the development process:
+## Target Audience
 
-[https://github.com/dracor-org/dracor-textbook](https://github.com/dracor-org/dracor-textbook)
+```{mermaid}
+flowchart LR
+    A["MA students in the Humanities"] --> B["Little or no previous<br/>Digital Humanities experience"]
+    A --> C["No previous programming<br/>experience required"]
+    B --> D["DraCor Textbook"]
+    C --> D
+    D --> E["Self-study"]
+    D --> F["Classroom teaching"]
+```
+
+*The textbook is intended primarily for MA students in the Humanities and other learners beginning to work with Digital Humanities methods. It can be used independently or as part of an introductory course.*
+
+No previous programming experience is required. Chapters introduce technical concepts gradually and state their specific requirements at the beginning. Readers may follow the textbook sequentially or select individual chapters according to their learning or teaching context.
+
+## Exemplary Uses
+
+The practical uses introduced in Book 1 correspond to the progression of its chapters:
+
+<!-- The description of corpus building is based on the current Wiki outline and should be checked against Chapter 2 once the chapter draft is available. -->
+
+- **building a drama corpus:** assembling, transforming and harmonising dramatic texts and metadata as a reusable, openly maintained corpus;
+- **preparing texts in TEI/XML:** encoding the structure and features of dramatic texts according to the DraCor schema, using manual and semi-automatic workflows;
+- **exploring corpora and plays through the front-end:** navigating corpus and play pages, interpreting networks and speech-distribution views, contextualising observations in the full text and retrieving available data layers;
+- **working with DraCor programmatically:** using the interactive API documentation and Python to retrieve texts, metadata, character information and derived metrics, and to extend analysis from individual plays to complete corpora;
+- **working with DraCor as research infrastructure:** understanding how its components interact and using Docker to run a local instance for custom corpora, controlled data versions and reproducible research.
+
+Together, these uses guide learners from the preparation of structured textual data to its exploration, programmatic analysis and reproducible deployment. Each chapter also identifies the modelling choices, data dependencies and technical limitations relevant to its workflow.
+
+## Structure and Development Status
+
+Book 1 introduces the core concepts and workflows required to work with DraCor. Book 2 will extend this foundation through research-oriented case studies. The textbook can therefore serve both as a structured introduction and as a starting point for more specialised applications.
+
+The textbook is currently under development. A release candidate for the core content is planned for August 2026. Editorial guidelines, chapter templates and the ongoing development process are documented in the project repository and wiki.
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
