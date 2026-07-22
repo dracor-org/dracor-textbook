@@ -13,6 +13,16 @@ license link: "https://creativecommons.org/licenses/by/4.0/"
 
 # Preface: Programmable Corpora in Action
 
+```{warning}
+This preface is a **draft**. It has not yet been proofread or formally reviewed. Content, terminology and examples may change.
+```
+```:class: tip
+**Author:** Antonio Rojas Castro  
+**Version:** 0.3 (2026-07-22)  
+**Review status:** in progress  
+**Planned reviewers:** members of the DraCorOS team and the DraCor Textbook editorial team
+````
+
 The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike the community-driven DraCor Notebooks, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
 ## 1. DraCor and Programmable Corpora
