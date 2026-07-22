@@ -5,9 +5,20 @@ title: "DraCor Textbook"
 
 # DraCor Textbook
 
-The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource for learning how to work with programmable drama corpora in DraCor.
+The **DraCor Textbook** is an openly licensed Open Educational Resource (OER) that introduces learners to working with programmable drama corpora in DraCor.
 
-The textbook introduces corpus building, TEI/XML encoding, exploration through the DraCor front-end, programmatic access through the DraCor API and the infrastructure underlying the platform.
+It can be used for self-study or in courses and workshops. It is aimed especially at readers with little or no previous experience in Digital Humanities or programming. Each chapter combines short conceptual explanations with practical examples, exercises, self-tests and notes for instructors. The emphasis is on learning by doing: exploring data, following workflows, checking results and considering how modelling decisions affect interpretation.
+
+The textbook covers:
+
+- building and curating drama corpora;
+- preparing dramatic texts in TEI/XML;
+- exploring corpora and plays through the DraCor front-end;
+- retrieving and processing data through the DraCor API;
+- understanding the infrastructure behind the platform.
+
+The chapters can be read in sequence or used separately, depending on the learner’s or instructor’s needs.
+
 
 ```{tableofcontents}
 ```
@@ -24,7 +35,6 @@ The textbook introduces corpus building, TEI/XML encoding, exploration through t
 
 Your feedback helps us improve the textbook.
 :::
-
 
 
 :::{admonition} Citation
