@@ -20,9 +20,29 @@ The DraCor Textbook is designed for learners with little or no prior experience 
 
 No previous programming experience is required. Chapters introduce technical concepts gradually and state their specific requirements at the beginning. Readers may follow the textbook sequentially or select individual chapters according to their learning or teaching context.
 
-## 3. Exemplary Uses
+## 3. How to Use This Textbook
 
-The practical uses introduced in Book 1 correspond to the progression of its chapters:
+The DraCor Textbook supports two main learning scenarios: independent self-study and guided teaching or training. In both cases, it encourages active learning. Learners are not expected only to read about methods and tools. They are also invited to inspect data, navigate interfaces, encode texts, make API requests, compare results and reflect on the assumptions and limitations of each workflow.
+
+### Self-Study
+
+Learners working independently may follow the DraCor Textbook in sequence or begin with a chapter related to a specific interest. At the beginning of each chapter, the requirements and learning outcomes indicate what prior knowledge is expected and what learners should be able to understand or do after completing it.
+
+The theoretical background introduces the main concepts, while the practical examples show how they are applied. Learners should reproduce these examples where possible and complete the exercises before proceeding to the self-test.
+
+The self-tests are intended for formative feedback rather than grading. Answers are not stored, and the feedback explains why an option is correct or incorrect. When an answer is unclear, learners are encouraged to return to the relevant chapter section, interface or tool and verify the result. The glossary, Further Reading and Resources and Next Steps sections provide additional support for reviewing concepts or continuing with related topics.
+
+### Classroom Teaching and Training
+
+Instructors and trainers may use the textbook as the basis for a complete introductory course or select individual chapters and activities for shorter teaching units. The sequence, pace and level of technical detail can be adapted to the participants’ previous experience and the available teaching time.
+
+The Teaching Notes at the end of each chapter suggest possible session formats, timings, group activities and discussion questions. These may include guided demonstrations, individual or paired exercises, comparisons between plays or corpora and collective reflection on modelling choices. The practical examples can first be presented by the instructor and then repeated or adapted by learners. Self-tests may be completed individually during or after a session and used to identify concepts that require further explanation.
+
+In this scenario, the instructor does not only demonstrate procedures but also supports learners in formulating questions, documenting their decisions and distinguishing between what the data or interface shows and how these observations may be interpreted.
+
+## 4. Exemplary Uses
+
+The practical uses introduced in this Open Educational Resource correspond to the progression of its chapters:
 
 <!-- The description of corpus building is based on the current Wiki outline and should be checked against Chapter 2 once the chapter draft is available. -->
 
@@ -34,13 +54,11 @@ The practical uses introduced in Book 1 correspond to the progression of its cha
 
 Together, these uses guide learners from the preparation of structured textual data to its exploration, programmatic analysis and reproducible deployment. Each chapter also identifies the modelling choices, data dependencies and technical limitations relevant to its workflow.
 
-## 4. Structure and Development Status
+## 5. Development Status
 
-Book 1 introduces the core concepts and workflows required to work with DraCor. Book 2 will extend this foundation through research-oriented case studies. The textbook can therefore serve both as a structured introduction and as a starting point for more specialised applications.
+The DraCor Textbook is currently under development. A release candidate for the core content is planned for August 2026. Editorial guidelines, chapter templates and the ongoing development process are documented in the project repository and wiki.
 
-The textbook is currently under development. A release candidate for the core content is planned for August 2026. Editorial guidelines, chapter templates and the ongoing development process are documented in the project repository and wiki.
-
-## 5. References
+## 6. References
 
 ```{bibliography}
 :filter: docname in docnames
