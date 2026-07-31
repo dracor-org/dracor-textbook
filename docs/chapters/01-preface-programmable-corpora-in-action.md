@@ -16,9 +16,11 @@ license link: "https://creativecommons.org/licenses/by/4.0/"
 ```{warning}
 This preface is a **draft**. It has not yet been proofread or formally reviewed. Content, terminology and examples may change.
 ```
-```:class: tip
+
+```{admonition} Chapter metadata
+:class: tip
 **Author:** Antonio Rojas Castro  
-**Version:** 0.3 (2026-07-22)  
+**Version:** 0.4 (2026-07-31)  
 **Review status:** in progress  
 **Planned reviewers:** members of the DraCorOS team and the DraCor Textbook editorial team
 ````
