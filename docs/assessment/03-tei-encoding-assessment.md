@@ -288,7 +288,7 @@ q1 = [
     "type": "many_choice",
     "answers": [
       {"answer": "manual encoding in an XML editor", "correct": True, "feedback": "Correct!"},
-      {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": False,  "feedback": "Incorrect. There are no layout markers that distinguish speaker names, speeches, and stage directions from one another."},
+      {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": False,  "feedback": "Incorrect. There are no layout markers that sufficiently and thoroughly distinguish speaker names, speeches, and stage directions from one another."},
       {"answer": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)", "correct": False, "feedback": "Incorrect. There is no pre-existing XML markup in this case."},
       {"answer": "semi-automatic encoding with EzDrama", "correct": True, "feedback": "Correct!"},
       {"answer": "semi-automatic encoding with a Large Language Model", "correct": True, "feedback": "Correct!"}
