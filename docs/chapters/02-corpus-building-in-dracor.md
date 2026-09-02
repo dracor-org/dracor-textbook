@@ -7,8 +7,8 @@ authors: "Daniil Skorinkin; Julia Jennifer Beine"
 date: "2026-08-21"
 description: "In this chapter, we describe how the existing corpora in DraCor have been built. In most cases, the corpus building has started by inventorying available online resources while applying certain selection criteria. We elaborate on these selection criteria, illustrated by the resulting DraCor corpora."
 keywords: ["programmable corpora", "corpus building", "corpus archaeology"]
-licence: CC BY 4.0
-licence link: "[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)"
+license: "CC BY 4.0"
+license link: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
 
@@ -168,14 +168,13 @@ Lecturers may select DraCor corpora not discussed in this chapter and ask their 
 
 ## 8. Further Reading and Resources
 
-Readers interested in general approaches to corpus building may read {cite:t} `schoech2017aufbau` as a beginner-friendly introduction. Those who would like to delve into “digital corpus archaeology”, i.e. investigating the history of a digital corpus, may consult {cite:t}`borner2024cls`.
+Readers interested in general approaches to corpus building may read {cite:t}`schoech2017aufbau` as a beginner-friendly introduction. Those who would like to delve into “digital corpus archaeology”, i.e. investigating the history of a digital corpus, may consult {cite:t}`borner2024cls`.
 
 ## 9. Glossary Entries
 
 | Term | Definition[^cb-definition-info] |
 | --- | --- |
 | Corpus | A corpus is a text collection selected based on specific criteria. |
-
 | (to) encode / Encoding | In the context of TEI/XML, the verb “encode” refers to the process of adding information to an electronic text, e.g. in the form of XML tags. The noun “encoding” refers to the result of this procedure, e.g. the XML markup in a file. |
 | HTML | An abbreviation for the “**H**yper**t**ext **Markup** **L**anguage” commonly used on websites. |
 | HTR | An abbreviation for “Handwritten Text Recognition” that refers to the process of generating machine-readable text from an image of a manuscript, e.g. from a scan. |
