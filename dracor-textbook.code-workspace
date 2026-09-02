@@ -2,6 +2,9 @@
     "folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../personal/trabajo/jobsuche/cv/rojas_cv_long_esp"
 		}
 	]
 }
