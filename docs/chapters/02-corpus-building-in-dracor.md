@@ -19,12 +19,11 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 ```
 
 ```{admonition} Chapter metadata
-   :class: tip    
-         
-    **Authors:** Daniil Skorinkin; Julia Jennifer Beine     
-    **Version:** 0.1 (2026-08-21)
-    **Review status:** not yet reviewed      
-    **Planned reviewers:** Antonio Rojas Castro; Frank Fischer
+:class: tip    
+**Authors:** Daniil Skorinkin; Julia Jennifer Beine     
+**Version:** 0.2 (2026-09-02)
+**Review status:** not yet reviewed      
+**Planned reviewers:** Antonio Rojas Castro; Frank Fischer
 ```
 
 ## 1. Overview
