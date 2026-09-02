@@ -19,10 +19,6 @@ The textbook covers:
 
 The chapters can be read in sequence or used separately, depending on the learner’s or instructor’s needs.
 
-
-```{tableofcontents}
-```
-
 :::{admonition} Questions or feedback
 :class: question-feedback
 
