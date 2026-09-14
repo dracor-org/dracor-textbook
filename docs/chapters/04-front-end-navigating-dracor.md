@@ -207,7 +207,7 @@ For a longer session, this chapter can also be used as preparation for Chapters 
 - Beine’s contribution {cite}`beine2025how` presents a focused case study on role types, Roman comedy and early modern reception.
 
 
-## 9. Glossary
+## 9. Glossary Entries
 
 | Term | Definition |
 | --- | --- |
