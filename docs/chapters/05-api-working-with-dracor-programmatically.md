@@ -22,8 +22,8 @@ Content, terminology, and examples may change.
 :class: tip
 
 **Authors:** Ingo Börner  
-**Version:** 0.1 (2026-04-01)  
-**Review status:** In Progress  
+**Version:** 0.2 (2026-09-14)  
+**Review status:** Revised 
 **Planned reviewers:** Antonio Rojas Castro  
 ```
 
