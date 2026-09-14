@@ -18,7 +18,7 @@ license: "CC BY 4.0"
 
 **Authors:** Ingo Börner  
 **Version:** 0.2 (2026-09-14)  
-**Review status:** Revised 
+**Review status:** Revised       
 **Reviewer:** Antonio Rojas Castro  
 ```
 
