@@ -13,17 +13,12 @@ license: "CC BY 4.0"
 
 # Infrastructure
 
-```{warning}
-This chapter is a **draft**. It has not yet been proofread or formally reviewed.
-Content, terminology, and examples may change.
-```
-
 ```{admonition} Chapter metadata
 :class: tip
 
 **Author:** Ingo Börner  
-**Version:** 0.1 (2026-04-01)  
-**Review status:** In Progress  
+**Version:** 0.2 (2026-09-14)  
+**Review status:** Revised  
 **Planned reviewers:** Antonio Rojas Castro  
 ```
 

@@ -13,11 +13,6 @@ license: "CC BY 4.0"
 
 # API: Working with DraCor Programmatically
 
-```{warning}
-This chapter is a **draft**. It has not yet been proofread or formally reviewed.
-Content, terminology, and examples may change.
-```
-
 ```{admonition} Chapter metadata
 :class: tip
 
