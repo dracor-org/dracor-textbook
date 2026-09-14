@@ -2,10 +2,10 @@
 title: "Infrastructure"
 myst:
   substitutions:
-  chap_title: "Infrastructure"
+    chap_title: "Infrastructure"
 author: "Ingo Börner"
-date: "2026-04-01"
-description: "This chapter explores DraCor as a research infrastructure: its components, its community, and its place in the European DH landscape. We then set up a local DraCor instance using Docker, load a corpus, and connect it to the tools we learned in previous chapters."
+date: "2026-09-14"
+description: "This chapter explores DraCor as a research infrastructure: its components, its community and its place in the European Digital Humanities landscape. We then set up a local DraCor instance using Docker, load a corpus and connect it to the tools we learned in previous chapters."
 keywords: ["DraCor", "Docker", "infrastructure", "reproducibility", "eXist-db", "XQuery", "containers", "tactical infrastructure", "CLS INFRA"]
 license: "CC BY 4.0"
 ---
@@ -26,19 +26,19 @@ license: "CC BY 4.0"
 **How to use this chapter:** The first part is conceptual — we look at what DraCor is as a system and why understanding infrastructure matters for research. The second part is practical — we set up a local DraCor instance using Docker, load a corpus, and connect it to the API skills from Chapter 5. If Docker is not available on your machine, the conceptual sections still stand on their own.
 ```
 
-## Overview
+## 1. Overview
 
 In the previous chapters we used DraCor through its front-end (Chapter 4) and its API (Chapter 5). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given — a service available at dracor.org that simply works. In this chapter, we open the box.
 
 What is DraCor, technically? Not a single application, but a *system* — a set of interconnected services, maintained by a community, funded by research projects, and embedded in a broader European infrastructure landscape. Understanding this matters for at least three reasons. First, it builds *trust*: if we base our research on a system, we should understand what it is and who keeps it running. Second, it enables *adaptation*: knowing the components means we can run DraCor locally, load our own corpora, and tailor it to our research needs. Third, it fosters *critical awareness*: the data and metrics we retrieve through the API are not simply "there" — they are produced by specific software components, from specific encodings, through specific processes. Understanding this makes us better researchers.
 
-## Pre-requisites
+## 2. Requirements and Competences
 
 * Familiarity with the DraCor front-end (Chapter 4) and the API (Chapter 5).
 * For the practical sections: [Docker](https://www.docker.com/) installed on your machine.
 * No programming required for the conceptual sections.
 
-## Learning Outcomes
+## 3. Learning Outcomes
 
 After completing this chapter, learners will be able to:
 
@@ -49,49 +49,47 @@ After completing this chapter, learners will be able to:
 5. Set up a local DraCor instance using Docker.
 6. Load a corpus into a local DraCor instance and use it with the API.
 
-## Theoretical Background
+## 4. Theoretical Background
 
-### What is a research infrastructure?
+### 4.1. What Is a Research Infrastructure?
 
 The term "infrastructure" often evokes images of large-scale systems — servers, data centres, networks. But in the humanities, infrastructure is something both more modest and more interesting. In this chapter, when we speak of *research infrastructure*, we mean primarily the technical systems — the software components, services, and data stores — that make a platform like DraCor work. But we will also see that infrastructure cannot be separated from the people who build and maintain it: the developers, editors, and community of contributors without whom the technical system would quickly become unusable.
 
 We tend not to think about infrastructure when it works — we simply use the front-end, call the API, download a file. It becomes visible when something breaks, when we need to understand where a value comes from, or when we want to adapt the system for our own purposes. This chapter is about making the infrastructure visible — not because it is broken, but because understanding it makes us better users and more critical researchers.
 
-A small example: DraCor has no search function. We cannot type a keyword and find all plays that mention "revolution" or all characters named "Maria." For anyone used to modern web applications, this feels like a missing feature — and it is. But it is also a window into the infrastructure. DraCor's core is an XML database (eXist-db) with an API designed around the two entities *corpus* and *play*. Full-text search was never built into this design; what was built in is the ability to extract and serve specific *layers* of a text — spoken text, stage directions, network data. This is a deliberate architectural choice, shaped by the research questions that drove DraCor's development. DraCor grew out of the [DLINA project](https://dlina.github.io/) (Digital Literary Network Analysis), a research initiative by Peer Trilcke and Frank Fischer that focused on extracting and analysing co-presence networks from dramatic texts. In DLINA, there were no full texts — only structural data derived from TEI-encoded plays: acts, scenes, and which characters appear together. Network metrics were calculated from this structural information using tools like dramavis. When DLINA evolved into DraCor, the full TEI-encoded texts were included, but the infrastructure retained its focus on structure — segments, characters, networks, metrics — rather than on full-text search. Understanding infrastructure means understanding choices like these — and, perhaps, contributing to changing them.
+A small example: DraCor has no search function. We cannot type a keyword and find all plays that mention "revolution" or all characters named "Maria." For anyone used to modern web applications, this feels like a missing feature — and it is. But it is also a window into the infrastructure. The core of DraCor is an XML database (eXist-db) with an API designed around the two entities *corpus* and *play*. Full-text search was never built into this design; what was built in is the ability to extract and serve specific *layers* of a text — spoken text, stage directions, network data. This is a deliberate architectural choice, shaped by the research questions that drove DraCor's development. DraCor grew out of the [DLINA project](https://dlina.github.io/) (Digital Literary Network Analysis), a research initiative by Peer Trilcke and Frank Fischer that focused on extracting and analysing co-presence networks from dramatic texts. In DLINA, there were no full texts — only structural data derived from TEI-encoded plays: acts, scenes, and which characters appear together. Network metrics were calculated from this structural information using tools like dramavis. When DLINA evolved into DraCor, the full TEI-encoded texts were included, but the infrastructure retained its focus on structure — segments, characters, networks, metrics — rather than on full-text search. Understanding infrastructure means understanding choices like these — and, perhaps, contributing to changing them.
 
-On the European level, significant investment goes into building research infrastructures for the humanities. Two major initiatives are [CLARIN](https://www.clarin.eu/), which provides language resources and technology, and [DARIAH](https://www.dariah.eu/), which supports digital research practices in the arts and humanities more broadly. Both are organised as European Research Infrastructure Consortia (ERICs) — long-term, internationally funded organisations that aim to provide sustainable, shared infrastructure across national boundaries. Together with other ERICs, they form the Science Cluster for the Social Sciences and the Humanities ([SSHOC](https://sshopencloud.eu/)). Resources from this broader landscape are directly relevant to working with DraCor: [DARIAH Campus](https://campus.dariah.eu/) provides training materials, the [CLARIN Language Resource Switchboard](https://switchboard.clarin.eu/) allows users to chain tools for working with textual data — and is directly accessible from DraCor's Tools tab (see Chapter 4; {cite}`borner2025cls`) — and the [SSHOC Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the humanities. 
+On the European level, significant investment goes into building research infrastructures for the humanities. Two major initiatives are [CLARIN](https://www.clarin.eu/), which provides language resources and technology, and [DARIAH](https://www.dariah.eu/), which supports digital research practices in the arts and humanities more broadly. Both are organised as European Research Infrastructure Consortia (ERICs) — long-term, internationally funded organisations that aim to provide sustainable, shared infrastructure across national boundaries. Together with other ERICs, they form the Science Cluster for the Social Sciences and the Humanities ([SSHOC](https://sshopencloud.eu/)). Resources from this broader landscape are directly relevant to working with DraCor: [DARIAH Campus](https://campus.dariah.eu/) provides training materials, the [CLARIN Language Resource Switchboard](https://switchboard.clarin.eu/) allows users to chain tools for working with textual data — and is directly accessible from DraCor's Tools tab (see Chapter 4; {cite}`borner2025cls`) — and the [SSH Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the humanities. 
 
-DraCor's approach to infrastructure is different. Rather than building a large-scale centralised platform, it grew from the bottom up — from a specific research need (network analysis of drama) to a multi-component system serving a growing community. This trajectory reflects what Tim Sherratt has called "tactical infrastructure":
+The approach of DraCor to infrastructure is different. Rather than building a large-scale centralised platform, it grew from the bottom up — from a specific research need (network analysis of drama) to a multi-component system serving a growing community. This trajectory reflects what Tim Sherratt called “tactical infrastructure” in [“Towards a Manifesto for Tactical DH Research Infrastructure”](https://www.youtube.com/watch?v=FL5pP2ysjU4):
 
-> "The perception of infrastructure as a series of big machines really obscures the emergence of ... a bottom-up infrastructure ... the tools, the methodologies, the expertise, a network of people, data and code."[^sherratt]
-
-[^sherratt]: Sherratt, T. (2015) "Towards A Manifesto for Tactical DH Research Infrastructure." YouTube, https://www.youtube.com/watch?v=FL5pP2ysjU4.
+> “The perception of infrastructure as a series of big machines really obscures the emergence of ... a bottom-up infrastructure ... the tools, the methodologies, the expertise, a network of people, data and code.”
 
 The [CLS INFRA project](https://clsinfra.io) adopted this concept of tactical infrastructures as the foundation of its approach to building infrastructure for Computational Literary Studies. Rather than creating a single centralised platform, the project aimed for "a tactical infrastructure as an ecosystem of API-enabled 'Programmable Corpora'" — distributed, open, and built around the actual practices of researchers {cite}`borner2023cls`. DraCor is the prototype that realises this vision.
 
-CLS INFRA identified three core challenges facing the field's resources: *dispersion* (data scattered across projects and platforms), *heterogeneity* (different formats, standards, and conventions), and *instability* (for example, corpora that change over time). The infrastructural responses to these challenges — a distributed architecture, workflows for homogenisation, and versioning techniques — are embodied in DraCor's design {cite}`borner2023cls`. And our missing search function? It is a reminder that tactical infrastructure serves the needs it grew from — network analysis, structural analysis — and has not yet grown to serve all needs equally. That is neither a failure nor permanent; it is simply where the infrastructure is today — and an invitation. In an open-source, community-driven project like DraCor, the absence of a feature is not a closed door but an open one: if the community identifies a need, it can propose, discuss, and contribute to implementing it. This points to another dimension of infrastructure that goes beyond technology and community: *governance* — the question of how decisions about the infrastructure's future direction are made, who sets priorities, and how the needs of a diverse user base are balanced against the resources available for development.
+CLS INFRA identified three core challenges facing the field's resources: *dispersion* (data scattered across projects and platforms), *heterogeneity* (different formats, standards, and conventions), and *instability* (for example, corpora that change over time). The infrastructural responses to these challenges — a distributed architecture, workflows for homogenisation, and versioning techniques — are embodied in the design of DraCor {cite}`borner2023cls`. And our missing search function? It is a reminder that tactical infrastructure serves the needs it grew from — network analysis, structural analysis — and has not yet grown to serve all needs equally. That is neither a failure nor permanent; it is simply where the infrastructure is today — and an invitation. In an open-source, community-driven project like DraCor, the absence of a feature is not a closed door but an open one: if the community identifies a need, it can propose, discuss, and contribute to implementing it. This points to another dimension of infrastructure that goes beyond technology and community: *governance* — the question of how decisions about the infrastructure's future direction are made, who sets priorities, and how the needs of a diverse user base are balanced against the resources available for development.
 
-### DraCor as a system: the components
+### 4.2. DraCor as a System: The Components
 
 Whether we want to work *with* DraCor — using it for our research — or work *on* DraCor — contributing to its development, adapting it for new corpora or new research questions — it helps to understand how the system works on the inside. DraCor is not a single application but a multi-component system. For a detailed technical description of all components, see {cite}`borner2023cls`. The following diagram, adapted from {cite}`borner2023cls`, shows how the components fit together:
 
 ```{figure} ../images/infrastructure/dracor-infrastructure-drawing.png
 ---
-alt: "Diagram of the DraCor system architecture showing corpus repositories, eXist-db with the API and storage, the Metrics Service, the Front-end, and the Triple Store."
+alt: "Diagram of the DraCor system architecture showing corpus repositories, eXist-db with the API and storage, the Metrics Service, the front-end and the Triple Store."
 width: 100%
 ---
+Overview of the DraCor system. Corpus data flows from GitHub repositories into the eXist-db database, where the API provides access. The Metrics Service computes network metrics and the Triple Store holds RDF representations accessible via SPARQL.
 ```
-*Overview of the DraCor system. Corpus data flows from GitHub repositories into the eXist-db database, where the API provides access. The Metrics Service computes network metrics, and the Triple Store holds RDF representations accessible via SPARQL.*
 
 Let us walk through the main components:
 
-**Corpus repositories on GitHub.** The source data — TEI-encoded play documents and corpus metadata — is curated in GitHub repositories under the [dracor-org](https://github.com/dracor-org) organisation. Each corpus (GerDraCor, RusDraCor, etc.) has its own repository. GitHub provides version control via Git, issue tracking for community discussions, and a transparent development history. This is also where corpus contributors submit new plays or corrections via pull requests. It is worth noting a tension here: DraCor is committed to open science and open source, yet it relies on GitHub — a commercial platform owned by Microsoft — for hosting its code and data. This is a pragmatic choice (GitHub is where the community still is, and its features for collaboration are hard to match), but it means that a core part of the infrastructure depends on a proprietary service. This is not unique to DraCor; it is a widespread dependency in open-source projects and in digital humanities more broadly, and one that the community should remain aware of.
+**Corpus repositories on GitHub.** The source data — TEI-encoded play documents and corpus metadata — is curated in GitHub repositories under the [dracor-org](https://github.com/dracor-org) organisation. Each corpus (GerDraCor, RusDraCor, etc.) has its own repository. GitHub provides version control via Git, issue tracking for community discussions, and a transparent development history. This is also where corpus contributors submit new plays or corrections via pull requests. It is worth noting a tension here: DraCor is committed to open science and open source, yet it relies on GitHub — a commercial platform owned by Microsoft — for hosting its code and data. This is a pragmatic choice (GitHub is where the community still is, and its features for collaboration are hard to match), but it means that a core part of the infrastructure depends on a proprietary service. This is not unique to DraCor; it is a widespread dependency in open-source projects and in Digital Humanities more broadly, and one that the community should remain aware of.
 
-**eXist-db and the DraCor API.** At the core of the system sits [eXist-db](http://exist-db.org), an open-source XML database widely used in digital humanities. The DraCor API is implemented as an eXist-db application ([GitHub repository](https://github.com/dracor-org/dracor-api)), written in [XQuery](https://www.w3.org/TR/xquery/) using the RESTXQ framework. XQuery is a query language designed for XML data — it is the natural choice for working with TEI-encoded texts, though it is uncommon outside the humanities and XML communities. When corpora are loaded into eXist-db, the API's extraction and processing logic parses the TEI documents, extracts metadata, character information, spoken text, stage directions, and other layers, and makes them available through the endpoints we explored in Chapter 5.
+**eXist-db and the DraCor API.** At the core of the system sits [eXist-db](http://exist-db.org), an open-source XML database widely used in Digital Humanities. The DraCor API is implemented as an eXist-db application ([GitHub repository](https://github.com/dracor-org/dracor-api)), written in [XQuery](https://www.w3.org/TR/xquery/) using the RESTXQ framework. XQuery is a query language designed for XML data — it is the natural choice for working with TEI-encoded texts, though it is uncommon outside the humanities and XML communities. When corpora are loaded into eXist-db, the extraction and processing logic of the API parses the TEI documents, extracts metadata, character information, spoken text, stage directions, and other layers, and makes them available through the endpoints we explored in Chapter 5.
 
 ```{admonition} The X technology stack
 :class: note
-DraCor is built on what is sometimes called the "X technology stack" — a set of XML-based technologies common in digital humanities: XML as the data format, TEI as the encoding standard, XSLT for transformations, XQuery for database queries and API logic, RelaxNG for schema validation, and ODD for documenting TEI customisations (see Chapter 3). While this stack is less common in mainstream software development, it is well-suited for working with richly structured textual data in the humanities.
+DraCor is built on what is sometimes called the "X technology stack" — a set of XML-based technologies common in Digital Humanities: XML as the data format, TEI as the encoding standard, XSLT for transformations, XQuery for database queries and API logic, RELAX NG for schema validation, and ODD for documenting TEI customisations (see Chapter 3). While this stack is less common in mainstream software development, it is well-suited for working with richly structured textual data in the humanities.
 ```
 
 **The Metrics Service.** Network metrics (density, diameter, average path length, etc.) are not computed by the eXist-db application itself but by a separate service — the *Metrics Service*, written in Python ([GitHub repository](https://github.com/dracor-org/dracor-metrics)). During the ingest of a play, the API extracts the co-presence network from the TEI structure and sends it to the Metrics Service, which calculates the network metrics and returns them. These pre-calculated metrics are then stored in the XML database. This is an example of a *microservice* architecture: rather than one monolithic application doing everything, specialised services handle specific tasks and communicate via APIs.
@@ -102,7 +100,7 @@ DraCor is built on what is sometimes called the "X technology stack" — a set o
 
 **Reuse of the technology stack.** The DraCor system is not limited to drama. The same technology stack has been adapted for other domains: [EcoCor](https://ecocor.org) applies it to texts relevant for ecocriticism, and an [ELTeC corpus explorer](https://eltec.clsinfra.io) uses it for the European Literary Text Collection (prose). Adapting DraCor for a new domain requires working with the XQuery code — a step beyond what this textbook covers, but one that the open-source nature of the project makes possible.
 
-### The ecosystem: people and community
+### 4.3. The Ecosystem: People and Community
 
 Infrastructure is not only technology — it is also the people who build, maintain, and use it. DraCor is maintained by a core team of editors and technical leads, and each corpus has its own editors and contributors — scholars who curate the TEI-encoded plays, often as part of their own research.[^credits]
 
@@ -112,7 +110,7 @@ Infrastructure development in the humanities is inherently interdisciplinary, re
 
 DraCor is explicitly an open-source project — everybody is welcome to contribute. Community interaction happens through several channels: GitHub (for issues, pull requests, and technical discussions), a Mattermost server hosted by the University of Potsdam (for informal communication), social media (primarily Bluesky), and an email list. This community dimension is not incidental; it is what allows the corpora to grow organically, following the "natural growth" principle that Aaron Swartz described and that the Programmable Corpora concept embraces {cite}`borner2023cls`.
 
-## Hands-on: Running DraCor Locally
+## 5. Practical Examples: Running DraCor Locally
 
 In the previous sections we looked at DraCor from the outside — its components, its community, its place in the European infrastructure landscape. Now we turn to practice. Because DraCor is open source and its services are published as Docker images, we are not limited to using the production instance at dracor.org. We can run the entire system on our own machine — the same API, the same front-end, the same metrics service — and use it for our own purposes: testing a corpus we are building, working with custom data, or simply exploring how the system works from the inside.
 
@@ -123,7 +121,7 @@ The following sections involve working with the *terminal* (also called command 
 [^dind]: An alternative approach, used at the [ExploreCor training school](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies), is to work inside a Docker container that provides a complete Linux environment with JupyterLab — a "Docker in Docker" setup that gives all participants the same working environment regardless of their operating system. See the [dracor-explorecor repository](https://github.com/dracor-org/dracor-explorecor).
 ```
 
-### Why run DraCor locally?
+### 5.1. Why Run DraCor Locally?
 
 There are several practical reasons to set up a local DraCor instance:
 
@@ -135,32 +133,32 @@ There are several practical reasons to set up a local DraCor instance:
 
 ```{admonition} The reproducibility challenge in CLS
 :class: note
-The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da_2019_computational-case`. Christof Schöch developed a comprehensive framework for "repetitive research" — distinguishing replication, reproduction, revision, and other forms — and concluded that there are "serious and relevant challenges for the field" {cite}`schoech_2023_repetitive-research`. The living nature of DraCor's corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`borner2024cls`.
+The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da_2019_computational-case`. Christof Schöch developed a comprehensive framework for "repetitive research" — distinguishing replication, reproduction, revision, and other forms — and concluded that there are "serious and relevant challenges for the field" {cite}`schoech_2023_repetitive-research`. The living nature of DraCor corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`borner2024cls`.
 ```
 
-### What is Docker?
+### 5.2. What Is Docker?
 
-We have mentioned Docker several times now — as the technology behind DraCor's local deployment, and as the mechanism that made the VeBiDraCor study reproducible. But what is it, exactly?
+We have mentioned Docker several times now — as the technology behind the local deployment of DraCor, and as the mechanism that made the VeBiDraCor study reproducible. But what is it, exactly?
 
 Docker is a tool for creating and running *containers* — lightweight, portable environments that bundle an application together with everything it needs to run: its code, its libraries, its configuration. A container is like a self-contained package: if it runs on one machine, it will run on another, regardless of what operating system or software is installed on the host.
 
-This is different from simply downloading and running code. If we tried to install DraCor's components manually — eXist-db, the XQuery application, the Python Metrics Service, the React front-end, the Triple Store — we would need to manage numerous dependencies, configure services to communicate with each other, and resolve conflicts with other software on our machine. The XML database eXist-db alone, for example, requires a specific version of Java — and managing Java versions across different applications is a well-known source of frustration. Docker abstracts all of this away: each container carries its own dependencies, so we do not need to install Java, Python, or Node.js on our system.
+This is different from simply downloading and running code. If we tried to install the components of DraCor manually — eXist-db, the XQuery application, the Python Metrics Service, the React front-end, the Triple Store — we would need to manage numerous dependencies, configure services to communicate with each other, and resolve conflicts with other software on our machine. The XML database eXist-db alone, for example, requires a specific version of Java — and managing Java versions across different applications is a well-known source of frustration. Docker abstracts all of this away: each container carries its own dependencies, so we do not need to install Java, Python, or Node.js on our system.
 
 Two key concepts:
 
-- An **image** is a snapshot of an application and everything it needs — frozen in a file that can be shared and reused. DraCor publishes images for its services on [DockerHub](https://hub.docker.com/u/dracor): `dracor/api`, `dracor/frontend`, `dracor/metrics`, and `dracor/fuseki`.
+- An **image** is a snapshot of an application and everything it needs — frozen in a file that can be shared and reused. DraCor publishes images for its services on [Docker Hub](https://hub.docker.com/u/dracor): `dracor/api`, `dracor/frontend`, `dracor/metrics`, and `dracor/fuseki`.
 - A **container** is what happens when we run an image — a live, working copy of the application. We can start, stop, and inspect containers.
 
 Docker Compose allows us to define and run multiple containers together — think of it as a blueprint that specifies which services to start, how they connect, and in what order. This is exactly what we need for DraCor, since the system consists of several services that need to communicate with each other.
 
-This combination of Docker and Compose is what makes sharing and documenting a DraCor setup so lightweight. Since the images are already published on DockerHub, all we need to share is the Compose file — a small text file that contains all the information needed to start and orchestrate the services. Anyone with Docker installed can take that file, run `docker compose up`, and have the same system running on their machine. This also means that any adaptations we make to our local setup — adding a service, changing a configuration — are documented in the Compose file itself rather than in our memory.
+This combination of Docker and Compose is what makes sharing and documenting a DraCor setup so lightweight. Since the images are already published on Docker Hub, all we need to share is the Compose file — a small text file that contains all the information needed to start and orchestrate the services. Anyone with Docker installed can take that file, run `docker compose up`, and have the same system running on their machine. This also means that any adaptations we make to our local setup — adding a service, changing a configuration — are documented in the Compose file itself rather than in our memory.
 
 ```{admonition} A transferable skill
 :class: tip
-Containerisation is not unique to DraCor or to digital humanities. It is a core practice in modern software development and "DevOps" — the discipline of managing the deployment and operation of applications {cite}`borner2024cls`. Understanding Docker here means recognising the same patterns when encountering them in industry contexts or other research infrastructure.
+Containerisation is not unique to DraCor or to Digital Humanities. It is a core practice in modern software development and "DevOps" — the discipline of managing the deployment and operation of applications {cite}`borner2024cls`. Understanding Docker here means recognising the same patterns when encountering them in industry contexts or other research infrastructure.
 ```
 
-### Setting up a local DraCor instance
+### 5.3. Setting Up a Local DraCor Instance
 
 The [DraCor API repository on GitHub](https://github.com/dracor-org/dracor-api) contains everything we need to run DraCor locally.[^docker-notebook] The following steps assume that Docker is installed and running on your machine. On macOS and Linux, installation is usually straightforward. On Windows, Docker requires the Windows Subsystem for Linux (WSL 2) to be enabled, which can be an additional hurdle — consult the [Docker documentation](https://docs.docker.com/desktop/install/windows-install/) if you encounter issues.
 
@@ -168,7 +166,7 @@ The [DraCor API repository on GitHub](https://github.com/dracor-org/dracor-api) 
 
 **Step 1: Clone the repository.**
 
-We need a local copy of the DraCor API code. For this, we use [Git](https://git-scm.com/) — a version control system that tracks changes to files over time. Git is widely used in software development and in digital humanities for managing both code and data (DraCor's corpora are also managed with Git). If Git is not yet installed on your system, see the official installation guide.[^git-install] The command `git clone` creates a local copy of a repository on your machine. The `cd` command enters the newly created folder:
+We need a local copy of the DraCor API code. For this, we use [Git](https://git-scm.com/) — a version control system that tracks changes to files over time. Git is widely used in software development and in Digital Humanities for managing both code and data (the corpora of DraCor are also managed with Git). If Git is not yet installed on your system, see the official installation guide.[^git-install] The command `git clone` creates a local copy of a repository on your machine. The `cd` command enters the newly created folder:
 
 [^git-install]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git 
 
@@ -195,7 +193,7 @@ curl http://localhost:8088/api/v1/info
 
 The front-end is now available at [http://localhost:8088](http://localhost:8088). It looks the same as dracor.org — but it is running entirely on your machine, and it is empty: no corpora are loaded yet.
 
-### Loading a corpus
+### 5.4. Loading a Corpus
 
 An empty DraCor is not very useful. Let us load a corpus. The DraCor API provides admin endpoints for this purpose — the same endpoints we briefly mentioned in Chapter 5 but did not use, because they require authentication. On the production server, only the administrators have these credentials. On our local instance, however, we set the password ourselves (or left it empty), so we can use these admin endpoints to manage our local DraCor.
 
@@ -215,7 +213,7 @@ The first `curl` downloads the corpus metadata from GitHub; the pipe (`|`) passe
 
 **Step 2: Trigger loading.**
 
-Next, we tell the API to load the play data from the corpus's GitHub repository:
+Next, we tell the API to load the play data from the GitHub repository of the corpus:
 
 ```bash
 curl -X POST -u admin: -H 'Content-type: application/json' \
@@ -249,47 +247,39 @@ dracor = DraCorAPI(host="http://localhost:8088/api/v1")
 
 Everything we learned in Chapter 5 — listing corpora, retrieving plays, getting metrics, filtering spoken text — works exactly the same way with the local instance.
 
-### Sharing a research environment
+### 5.5. Sharing a Research Environment
 
-Once we have a local DraCor instance populated with data, we can go one step further: freezing its state and sharing it. The Docker command `docker commit` creates a new image from a running container — essentially taking a snapshot of the populated database. This image can then be published on DockerHub, so that other researchers can download it and have the exact same data and infrastructure available on their machine.
+Once we have a local DraCor instance populated with data, we can go one step further: freezing its state and sharing it. The Docker command `docker commit` creates a new image from a running container — essentially taking a snapshot of the populated database. This image can then be published on Docker Hub, so that other researchers can download it and have the exact same data and infrastructure available on their machine.
 
 This is what was done for the "Small Worlds" study {cite}`trilcke2024detecting`: the researchers created a "pre-analysis state" image (the populated DraCor with the VeBiDraCor data) and a "post-analysis state" image (the research environment after running the analysis), both published and available for inspection {cite}`borner2023dockerizing`. In this way, a Docker image becomes a *research artifact* — a self-contained, shareable package that documents not just the code and data but the entire environment in which the research was conducted {cite}`borner2024cls`.
 
-### Beyond using: adapting DraCor
+### 5.6. Beyond Using: Adapting DraCor
 
-In this chapter, we loaded existing DraCor corpora into a local instance. But the open-source nature of the system also makes it possible to go further: adapting the DraCor technology stack for entirely different collections of texts. Projects like [EcoCor](https://ecocor.org) (Prose Corpora for Ecocriticism) and the [ELTeC corpus explorer](https://eltec.clsinfra.io) (European Literary Text Collection Corpora of Novels) have done exactly this — reusing DraCor's eXist-db application, API, and front-end for their own purposes. Adapting DraCor at this level involves working with the XQuery code and the TEI customisation, which is beyond the scope of this textbook. But knowing that it is possible — and that the codebase is open for it — is part of understanding DraCor as infrastructure: not a fixed product, but a platform that can evolve with the needs of the research community.
+In this chapter, we loaded existing DraCor corpora into a local instance. But the open-source nature of the system also makes it possible to go further: adapting the DraCor technology stack for entirely different collections of texts. Projects like [EcoCor](https://ecocor.org) (Prose Corpora for Ecocriticism) and the [ELTeC corpus explorer](https://eltec.clsinfra.io) (European Literary Text Collection Corpora of Novels) have done exactly this — reusing the eXist-db application, API and front-end of DraCor for their own purposes. Adapting DraCor at this level involves working with the XQuery code and the TEI customisation, which is beyond the scope of this textbook. But knowing that it is possible — and that the codebase is open for it — is part of understanding DraCor as infrastructure: not a fixed product, but a platform that can evolve with the needs of the research community.
 
-## Summary
-
-In this chapter we moved from using DraCor to understanding it. We saw that DraCor is a multi-component research infrastructure — an eXist-db application at the core, surrounded by microservices like the Metrics Service, a front-end, and a community of editors and developers who keep it alive. We situated it within the broader landscape of European DH infrastructure and the CLS INFRA project's vision of "tactical infrastructure." And we made it practical: by running DraCor locally with Docker, we gained independence from the production server, the ability to work with our own corpora, and a foundation for reproducible research.
-
-## Exercises
+## 6. Exercises
 
 ```{admonition} Self-test
 :class: tip
-Open the [Self-test: Infrastructure](../assessment/05-infrastructure-assessment).
+Open the [Self-test: Infrastructure](../assessment/06-infrastructure-assessment).
 ```
 
-## Teaching Notes
+## 7. Teaching Notes
 
 This chapter can be taught as a 60–90 minute conceptual workshop before any technical setup is attempted. A good entry point is to ask students what they normally do not see when they use DraCor: repositories, XML databases, API logic, metrics services, front-end code, contributors, maintenance work, and funding structures. Lecturers can then organise students into small groups and give each group a set of “infrastructure cards” representing components such as TEI files, GitHub repositories, eXist-db, the DraCor API, the Metrics Service, the front-end, the Triple Store, Docker, corpus editors, and users. Students arrange the cards into a data-flow diagram and annotate where interpretation, transformation, or possible failure enters the system. The closing discussion can return to the chapter’s main point: infrastructure is not neutral background, but a socio-technical system that shapes what researchers can see, retrieve, compare, and reproduce.
 
 Lecturers may also teach this chapter as a practical Docker lab, ideally in a 120-minute session or a longer workshop. The instructor should prepare the technical environment carefully in advance and provide a fallback option, such as an instructor-led demonstration, a shared machine, or screenshots of a successful local instance, because Docker setup problems can otherwise dominate the session. Students can work in pairs and keep an “infrastructure log” documenting each command, expected result, actual result, error message, and solution. After starting a local DraCor instance, they should compare one request against `dracor.org` and the same request against `localhost`, then discuss what changes when data and software are under their own control. The final task can be a short reproducibility note: students identify which elements would need to be documented or preserved so that another researcher could repeat their work later, including data version, software image, configuration file, API endpoint, and analysis code.
 
-## Further Reading and Resources
+## 8. Further Reading and Resources
 
 - DraCor API repository and setup instructions: [https://github.com/dracor-org/dracor-api](https://github.com/dracor-org/dracor-api)
 - Reproducible research with Docker notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks/blob/main/reproducible-research-with-docker/reproducible-research-with-docker.ipynb)
 - Docker documentation: [https://docs.docker.com/](https://docs.docker.com/)
-- Sherratt, T. (2015) "Towards A Manifesto for Tactical DH Research Infrastructure." [YouTube](https://www.youtube.com/watch?v=FL5pP2ysjU4)
+- Sherratt, T. (2015). “Towards a Manifesto for Tactical DH Research Infrastructure.” [YouTube](https://www.youtube.com/watch?v=FL5pP2ysjU4)
 - DARIAH Campus: [https://campus.dariah.eu/](https://campus.dariah.eu/)
-- SSHOC Open Marketplace: [https://marketplace.sshopencloud.eu/](https://marketplace.sshopencloud.eu/)
+- SSH Open Marketplace: [https://marketplace.sshopencloud.eu/](https://marketplace.sshopencloud.eu/)
 
-## AI Disclaimer
-
-This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor and CLS infrastructure was used to retrieve relevant passages and verify factual claims. A summary of the CLS INFRA project proposal and strategic roadmap, generated with the assistance of an LLM, was used as source material. All content was reviewed and edited by the author.
-
-## Glossary
+## 9. Glossary Entries
 
 | Term | Definition |
 | --- | --- |
@@ -300,11 +290,11 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 | Microservice | A small, specialised service that handles a specific task and communicates with other services via APIs. The DraCor Metrics Service is an example. |
 | Docker | A platform for building and running containers — lightweight, portable environments that bundle an application with its dependencies. |
 | Container | A running instance of a Docker image — an isolated environment containing an application and everything it needs to run. |
-| Image | A read-only template (blueprint) from which Docker containers are created. DraCor images are published on DockerHub. |
+| Image | A read-only template (blueprint) from which Docker containers are created. DraCor images are published on Docker Hub. |
 | Docker Compose | A tool for defining and running multi-container applications. DraCor uses it to orchestrate its services. |
 | Living corpus | A corpus that changes over time — plays are added, corrected, or re-encoded. This creates challenges for reproducibility. |
 | DevOps | A set of practices combining software development and IT operations, often involving containerisation and automated deployment. |
-| Git | A distributed version control system that tracks changes to files over time. DraCor's corpora and code are managed with Git. |
+| Git | A distributed version control system that tracks changes to files over time. The corpora and code of DraCor are managed with Git. |
 | GitHub | A web-based platform for hosting Git repositories. DraCor uses it for code, corpora, and community collaboration. Owned by Microsoft. |
 | Repository | A project folder managed by Git, containing files and their full change history. |
 | Terminal (command line) | A text-based interface for running commands on a computer. Called Terminal on macOS, and PowerShell or Command Prompt on Windows. |
@@ -313,9 +303,21 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 | RDF (Resource Description Framework) | A standard for representing data as linked triples (subject–predicate–object), used for connecting data to the Linked Open Data cloud. |
 | Open source | Software whose source code is publicly available and can be freely used, modified, and distributed. DraCor is an open-source project. |
 | ERIC (European Research Infrastructure Consortium) | A legal framework for establishing and operating European research infrastructures. CLARIN and DARIAH are ERICs. |
-| DockerHub | A cloud-based registry for sharing Docker images. DraCor publishes its service images there. |
+| Docker Hub | A cloud-based registry for sharing Docker images. DraCor publishes its service images there. |
 
-## References
+## 10. Next Steps
+
+Having explored the infrastructure of DraCor, readers can continue with Chapter 7, which discusses the DraCor Textbook as a living and collaborative resource. They may also experiment with a local instance by loading a small corpus and repeating an API request from Chapter 5.
+
+## 11. AI Use Declaration
+
+This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor and CLS infrastructure was used to retrieve relevant passages and verify factual claims. A summary of the CLS INFRA project proposal and strategic roadmap, generated with the assistance of an LLM, was used as source material. All content was reviewed and edited by the author.
+
+## 12. Author Contributions
+
+Ingo Börner – Conceptualisation, Methodology, Software, Writing – original draft, Writing – review and editing.
+
+## 13. References
 
 ```{bibliography}
 :filter: docname in docnames
