@@ -31,7 +31,7 @@ Content, terminology, and examples may change.
 **How to use this chapter:** We begin with the interactive API documentation in the browser, then progressively move towards programmatic access using Python. Each section introduces general API concepts through concrete DraCor examples. If you are not (yet) comfortable with programming, the first sections work entirely in the browser.
 ```
 
-## Overview
+## 1. Overview
 
 In the previous chapter we explored DraCor through its web fron-end — browsing corpora, inspecting plays tab by tab, and downloading files. Everything we saw there is powered by the DraCor API (Application Programming Interface). The API is the programmatic backbone of DraCor: the front-end sends requests to the API and displays the results. When we clicked on a GEXF download in the Downloads tab, we were — without knowing it — calling the API endpoint `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/networkdata/gexf`.
 
@@ -39,14 +39,14 @@ The API is also at the core of the "Programmable Corpora" concept that motivates
 
 In this chapter we learn what an API is, how the DraCor API is structured, and how to use it — first through the interactive documentation in the browser, then programmatically with Python. Along the way, we introduce general API concepts (requests, parameters, responses, status codes) through concrete DraCor examples. By the end of the chapter, we will be able to retrieve and analyse data from DraCor at a scale that the front-end alone cannot support using DraCor's own Python API Wrapper "PyDraCor".
 
-## Pre-requisites
+## 2. Requirements and Competences
 
 * Web browser and internet access.
 * Familiarity with the DraCor front-end (Chapter 4) is helpful but not strictly required.
 * No programming experience is needed for the first sections (Examples 1–4), which work entirely in the browser.
 * For the later sections (Examples 5–6), basic willingness to try Python is sufficient. We explain every step.
 
-## Learning Outcomes
+## 3. Learning Outcomes
 
 After completing this chapter, learners will be able to:
 
@@ -58,9 +58,9 @@ After completing this chapter, learners will be able to:
 6. Use PyDraCor to simplify programmatic access to DraCor data.
 7. Retrieve and analyse corpus-level data using the API (e.g. metadata as a Pandas DataFrame).
 
-## Theoretical Background
+## 4. Theoretical Background
 
-### What is an API?
+### 4.1. What is an API?
 
 An API (Application Programming Interface) is a structured way for one piece of software to request data or services from another. Rather than navigating a website manually — clicking links, reading pages — an API allows us to send a precisely formatted request to a server and receive a precisely formatted response. The server exposes specific *endpoints* (URLs), each of which provides access to a particular resource or function.
 
@@ -72,7 +72,7 @@ Most modern web APIs, including the DraCor API, follow the REST (Representationa
 
 The DraCor API follows what we might call "pragmatic REST". It adheres to the core principles that Fielding laid out — resource-oriented design, stateless interactions, standard HTTP methods — but it occasionally departs from REST conventions where practicality demands it. For example, it places format information in the URL path (e.g. `/networkdata/csv` versus `/networkdata/gexf`) rather than relying solely on HTTP content negotiation — the mechanism by which a client and server agree on the format of the data to be exchanged. In a "pure" REST API, we would request the same URL and specify the desired format in a header (like saying "I would like this in CSV, please"), but in DraCor, the format is simply part of the URL itself, which makes it easier to share and bookmark specific formats. To return to our library analogy: in a "pure" REST scenario, we would hand the librarian a call number and attach a separate note saying "photocopy, please"; in DraCor, the call number itself already says "photocopy" — the format is written on the slip from the start. This makes endpoints more discoverable — the URL itself tells us what we are getting — even if a REST purist might prefer a different approach (cf. {cite}`masse2011rest`).
 
-### Why an API for literary corpora?
+### 4.2. Why an API for literary corpora?
 
 Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across all 600+ plays in GerDraCor, the front-end offers no way to do so.
 
@@ -85,7 +85,7 @@ The API changes this by offering pre-built extraction and analysis as endpoints.
 - **Lowering technical barriers.** We can obtain network metrics as a CSV file — openable in Excel — without writing a single line of code, simply by calling the appropriate endpoint.
 - **Bootstrapping research.** Instead of starting from raw XML, we start from pre-processed, structured data. The API lets us decide at which level our research process begins {cite}`fischer2019programmable`.
 
-### The front-end as an API client
+### 4.3. The front-end as an API client
 
 It is worth emphasising that the DraCor front-end is itself a client of the API. The React-based web application (see the [front-end repository on GitHub](https://github.com/dracor-org/dracor-frontend); for a deeper look at DraCor's technical architecture, see Chapter 6) sends requests to the same endpoints that we will use in this chapter. The Downloads tab on a play page, for example, provides links that resolve to API endpoints: clicking "GEXF" triggers a request to `/api/v1/corpora/{corpusname}/plays/{playname}/networkdata/gexf`. Understanding the API therefore also means understanding what the front-end does behind the scenes. For a detailed mapping of which API endpoints are used by which front-end page and tab, see the overview table in {cite}`borner2023cls` (p. 55).
 
@@ -93,9 +93,9 @@ It is worth emphasising that the DraCor front-end is itself a client of the API.
 If you have the DraCor front-end open alongside this chapter, you can compare what you see in the browser with what the API returns. The front-end URL `https://dracor.org/ger/lessing-emilia-galotti` contains the same identifiers (`ger` and `lessing-emilia-galotti`) that we use in API requests.
 ```
 
-## Hands-on: The DraCor API
+## 5. Practical Examples: The DraCor API
 
-### Exploring the API documentation (Swagger UI)
+### 5.1. Exploring the API documentation (Swagger UI)
 
 Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://dracor.org/doc/api](https://dracor.org/doc/api).[^openapi-yaml]
 
@@ -140,7 +140,7 @@ The public endpoints of the DraCor API support four main capabilities:
 In the following examples, we explore these capabilities step by step, starting with the simplest request and building up to corpus-level analysis.
 ```
 
-### The first request: listing corpora
+### 5.2. The first request: listing corpora
 
 Let us make our first API request. We want to find out which drama corpora are available in DraCor. In the Swagger UI, the first public endpoint listed is `/info`, which returns information about the API version and the underlying infrastructure. This is useful for documentation purposes, but the more interesting starting point is the second endpoint: **`/corpora`**, described as "List available corpora."
 
@@ -239,7 +239,7 @@ Let us walk through this code line by line:
 
 If this is your first encounter with Python: congratulations, you have just read your first program. It does exactly what we did before in the Swagger UI and the browser — sends a request to the API and displays the result — but now in a form that can be extended, repeated, and automated. We will build on this pattern in the later sections of this chapter.
 
-### From corpus to play: the identifier flow
+### 5.3. From corpus to play: the identifier flow
 
 Now that we have a list of corpora, we want to look at a specific corpus and find a play. The DraCor API is organised around two core entities — **corpora** and **plays** — and navigating between them requires understanding how identifiers flow from one request to the next.
 
@@ -354,7 +354,7 @@ This short example introduces some useful Python string manipulation:
 - `corpusname, playname = parts[0], parts[1]` assigns the first and second elements of the list to two variables. In Python, `parts[0]` means "the first item" (indexing starts at 0).
 - The `f"..."` syntax is a formatted string (or "f-string"): the expressions inside `{corpusname}` and `{playname}` are replaced with the values of those variables, producing the final API URL.
 
-### What data can we get for a play?
+### 5.4. What data can we get for a play?
 
 Once we have navigated to a specific play, a range of endpoints branch off from the play path. There is no single endpoint that returns everything about a play — instead, different endpoints provide different types of data. The following table summarises the most important play-level endpoints:
 
@@ -415,7 +415,7 @@ https://dracor.org/api/v1/corpora/ger/plays/schiller-wilhelm-tell/metrics
 
 The third example uses a **query parameter** on the `/spoken-text` endpoint: `?sex=FEMALE` filters the spoken text to include only lines spoken by female characters. This endpoint also supports filtering by `role` and by character relations (e.g. `?relation=siblings`), although these more advanced filters depend on what is encoded in the source TEI of each corpus.
 
-### Research at scale: corpus metadata analysis
+### 5.5. Research at scale: corpus metadata analysis
 
 So far, everything we have done with Python could also be done in the Swagger UI or the browser — we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the Swagger UI can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end — we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
 
@@ -573,7 +573,7 @@ This pattern — iterating over plays and calling an endpoint for each one — i
 The iteration pattern above raises a question of API design. To get character data for all plays in a corpus, we make one request per play — potentially hundreds of requests. This is what API designers call a "chatty" approach: many small, precise requests. The alternative would be a "chunky" approach: a single endpoint that returns all character data for an entire corpus in one response. The DraCor API tends towards the chunky style in some places — for example, the `/corpora/{corpusname}` endpoint returns corpus metadata *and* a list of all plays in one response. This is convenient but can lead to *overfetching*: we receive more data than we need. The `/metadata` endpoint we used earlier is another example — it returns detailed data for every play at once, which is why it can be slow for large corpora. There is no single right answer; both styles have trade-offs, and the DraCor API uses a pragmatic mix of both.
 ```
 
-### Using PyDraCor (and rdracor)
+### 5.6. Using PyDraCor (and rdracor)
 
 In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process by wrapping API calls into functions (reusable blocks of code, as we have seen) and *classes* — blueprints for creating objects that bundle data and functionality together. For example, a `Play` class might hold a play's metadata and offer methods like `.get_spoken_text()` — that feel native to the programming language.
 
@@ -693,26 +693,20 @@ The DraCor API moved from version 0 to version 1 in December 2023. All examples 
 - **Network metrics are pre-calculated.** They are computed when a play is loaded into the database, based on the segmentation of the text. They are not recalculated on each request.
 ```
 
-## Summary
-
-In this chapter we have moved from browsing the DraCor front-end to working with the API programmatically. We started by exploring the interactive documentation in the Swagger UI, learned how identifiers flow from one request to the next, and made our first requests in the browser. We then progressed to `curl` and Python, where we loaded corpus metadata into a table, calculated and plotted ratios across hundreds of plays, and iterated over a corpus to aggregate character-level data. Finally, we saw how PyDraCor wraps all of this into a more concise, object-oriented interface.
-
-Along the way, we encountered core API concepts — REST, endpoints, HTTP methods, status codes, path and query parameters, JSON, content negotiation, and schemas — not as abstract theory, but through concrete interaction with the DraCor API. These concepts transfer to any REST API we may encounter in the future.
-
-## Exercises
+## 6. Exercises
 
 ```{admonition} Self-test
 :class: tip
 Open the [Self-test: API](../assessment/04-api-working-with-dracor-assessment).
 ```
 
-## Teaching Notes
+## 7. Teaching Notes
 
 This chapter works well as a 90-minute practical session in which learners move gradually from guided exploration to independent API use. A useful rhythm is: first, a short instructor-led demonstration of the Swagger UI and one simple endpoint, such as `/corpora`; second, paired work in which students complete an “API request note” for one endpoint, recording the endpoint, required identifiers, parameters, response format, status code, and one possible research use; third, a short comparison round in which pairs explain how their endpoint turns a textual object into structured data. This helps students practise the central logic of the chapter: moving from corpus to play identifiers, reading JSON responses, and understanding the API as the programmatic layer behind the front-end. For beginners, the activity can stay entirely in the browser and Swagger UI; for more advanced groups, the same endpoint can then be called with `curl` or Python.
 
 Lecturers may also use this chapter as a bridge from interface-based exploration to reproducible computational work. In a 90–120 minute lab, students can first call the same DraCor endpoint in three ways: Swagger UI, browser URL, and Python with `requests`. They can then adapt a prepared code cell to retrieve metadata for one corpus, inspect the resulting table, and formulate a small research question, for example about chronology, character counts, or the relation between spoken text and stage directions. The session should include a short debugging phase in pairs, because interpreting errors, status codes, missing identifiers, and malformed URLs is part of learning how APIs work. A useful closing task is to ask each group to write one sentence beginning “The API makes it possible to…”, and one sentence beginning “The API does not solve…”. This keeps the focus on both affordances and limitations, including encoding quality, versioning, and reproducibility.
 
-## Further Reading and Resources
+## 8. Further Reading and Resources
 
 - DraCor API documentation (Swagger UI): [https://dracor.org/doc/api](https://dracor.org/doc/api)
 - Henny Sluyter-Gäthje's API tutorial notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks)
@@ -721,11 +715,8 @@ Lecturers may also use this chapter as a bridge from interface-based exploration
 - Massé, Mark. *REST API Design Rulebook*. O'Reilly Media, 2011. A practical guide to REST API design principles and conventions.
 - ExploreCor: Using Programmable Corpora in Computational Literary Studies (CLS INFRA Training School). [DARIAH Campus](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies)
 
-## AI Disclaimer
 
-This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was transcribed and used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor — in particular the CLS INFRA reports D7.1 {cite}`borner2023cls`, D7.2 {cite}`sluyter-gathje2023cls`, and D7.4 {cite}`borner2025cls` — was used to retrieve relevant passages and verify factual claims. The model also assisted with summarization, spelling and grammar checking, code explaination and testing, as well as formatting for MyST Markdown. All content was reviewed and edited by the author.
-
-## Glossary
+## 9. Glossary Entries
 
 | Term | Definition |
 | --- | --- |
@@ -751,11 +742,19 @@ This chapter was drafted with the assistance of a large language model (Claude, 
 | Bootstrapping (in the API context) | The API provides pre-processed data (e.g. word counts, network metrics) so that research can start at a higher level without re-implementing extraction and calculation steps. |
 | Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
 
-## Next Steps
+## 10. Next Steps
 
 * Continue with: [Chapter 6, “Infrastructure”](06-infrastructure) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
 
-## References
+## 11. AI Use Declaration
+
+This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was transcribed and used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor — in particular the CLS INFRA reports D7.1 {cite}`borner2023cls`, D7.2 {cite}`sluyter-gathje2023cls`, and D7.4 {cite}`borner2025cls` — was used to retrieve relevant passages and verify factual claims. The model also assisted with summarization, spelling and grammar checking, code explaination and testing, as well as formatting for MyST Markdown. All content was reviewed and edited by the author.
+
+## 12. Authors Contributions
+
+Ingo Börner – Conceptualisation, Methodology, Software, Writing – original draft, Writing – review and editing.
+
+## 13. References
 
 ```{bibliography}
 :filter: docname in docnames
