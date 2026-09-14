@@ -22,7 +22,7 @@ Content, terminology and examples may change.
 :class: tip
 
 **Version:** 0.6 (2026-05-19)  
-**Review status:** Revised after internal review  
+**Review status:** Revised  
 **Reviewer:** Julia Jennifer Beine
 ```
 
