@@ -4,7 +4,7 @@ myst:
   substitutions:
    chap_title: "Preface"
 authors: "Antonio Rojas Castro"
-date: "2026-07-21"
+date: "2026-09-15"
 description: "This preface introduces the DraCor Textbook as an Open Educational Resource (OER), explains the concept of programmable corpora, outlines its target audiences and learning scenarios, and presents the main ways in which the textbook can be used for self-study and instructor-guided teaching."
 keywords: ["DraCor Textbook", "programmable corpora", "Open Educational Resource", "active learning", "self-study", "Digital Humanities"]
 license: "CC BY 4.0"
@@ -20,10 +20,10 @@ This preface is a **draft**. It has not yet been proofread or formally reviewed.
 ```{admonition} Chapter metadata
 :class: tip
 **Author:** Antonio Rojas Castro  
-**Version:** 0.4 (2026-07-31)  
+**Version:** 0.5 (2026-09-15)  
 **Review status:** in progress  
 **Planned reviewers:** members of the DraCorOS team and the DraCor Textbook editorial team
-````
+```
 
 The **DraCor Textbook** is a curated, pedagogically structured Open Educational Resource (OER) developed by the DraCorOS and DraCor Textbook editorial teams. It provides a coherent introduction to working with programmable drama corpora in DraCor. Unlike the community-driven DraCor Notebooks, the textbook follows an explicit learning sequence and combines conceptual explanations with practical tasks, exercises and guidance for teaching.
 
@@ -79,11 +79,7 @@ The practical uses introduced in this Open Educational Resource correspond to th
 
 Together, these uses guide learners from the preparation of structured textual data to its exploration, programmatic analysis and reproducible deployment. Each chapter also identifies the modelling choices, data dependencies and technical limitations relevant to its workflow.
 
-## 5. Development Status
-
-The DraCor Textbook is currently under development. A release candidate for the core content is planned for August 2026. Editorial guidelines, chapter templates and the ongoing development process are documented in the project repository and wiki.
-
-## 6. References
+## 5. References
 
 ```{bibliography}
 :filter: docname in docnames
