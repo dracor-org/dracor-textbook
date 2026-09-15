@@ -50,7 +50,7 @@ After completing this chapter, learners will be able to:
 
 ## 4. Theoretical Background
 
-DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in TEI/XML format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they appear and speak in the same scene or act (segment). For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
+DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in TEI/XML format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they speak in the same segment; if scene segmentation is unavailable, the act is used as the segment. For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
 
 ```{admonition} Tip for learners
 When you write down an observation, include the corpus and play ID (from the URL or header) and the tab you used. If the tab offers selectable methods or layers, note the selected option as well.
@@ -184,7 +184,7 @@ Self-check: could someone else download the same file and understand what it rep
 
 ```{admonition} Self-test
 :class: tip
-Open the [Self-test: Front-end](../assessment/03-front-end-assessment).
+Open the [Self-test: Front-end](../assessment/04-front-end-assessment).
 ```
 
 
