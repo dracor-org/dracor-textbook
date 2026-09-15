@@ -16,7 +16,7 @@ license: "CC BY 4.0"
 ```{admonition} Chapter metadata
 :class: tip
 
-**Author:** Antonio Rojas Castro
+**Author:** Antonio Rojas Castro   
 **Version:** 0.6 (2026-05-19)  
 **Review status:** Revised  
 **Reviewer:** Julia Jennifer Beine
