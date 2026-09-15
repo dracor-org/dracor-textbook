@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-# Self-Test: TEI Encoding
+# Self-Test: Corpus Building in DraCor
 
 ````{admonition} Note
 :class: note
@@ -65,7 +65,7 @@ q2 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q2, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -84,7 +84,7 @@ q3 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q3, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -103,7 +103,7 @@ q4 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q4, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -122,7 +122,7 @@ q5 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q5, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -141,7 +141,7 @@ q6 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q6, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -160,7 +160,7 @@ q7 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q7, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -179,7 +179,7 @@ q8 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q8, max_width=1000)
 ```
 
 ## Exercise 2: Selection Criteria in Corpus Building
@@ -223,7 +223,7 @@ q2 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q2, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -243,7 +243,7 @@ q3 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q3, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -263,7 +263,7 @@ q4 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q4, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -283,7 +283,7 @@ q5 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q5, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -303,7 +303,7 @@ q6 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q6, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -323,7 +323,7 @@ q7 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q7, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -343,7 +343,7 @@ q8 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q8, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -363,7 +363,7 @@ q9 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q9, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -383,7 +383,7 @@ q10 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q10, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -403,7 +403,7 @@ q11 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q11, max_width=1000)
 ```
 
 ```{code-cell} ipython3
@@ -423,5 +423,5 @@ q12 = [
   }
 ]
 
-display_quiz(q1, max_width=1000)
+display_quiz(q12, max_width=1000)
 ```
