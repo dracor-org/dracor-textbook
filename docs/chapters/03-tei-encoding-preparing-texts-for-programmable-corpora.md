@@ -59,20 +59,20 @@ XML is a rather user-friendly format. Markups in XML use the same character syst
 alt: "The formatted text from the opening of Shakespeare’s *Macbeth*."
 width: 100%
 ---
+The formatted text from the opening of Shakespeare’s *Macbeth* translated by Dorothea Tieck in the DraCor full text view.
 ```
-*The formatted text from the opening of Shakespeare’s *Macbeth* translated by Dorothea Tieck in the DraCor full text view.*
 
 ```{figure} ../images/tei-encoding/macbeth-xml.jpg
 ---
 alt: "The related XML file from the opening of Shakespeare’s *Macbeth*."
 width: 100%
 ---
+The XML file on which the DraCor full text view is based.
 ```
-*The XML file on which the DraCor full text view is based.*
 
 As you may see, XML markups are enclosed in angle brackets to distinguish them from the text being encoded:
 ```xml
-<markup>text<markup>
+<markup>text</markup>
 ```
 In the markup area, so-called **tags** are given. There is always a start-tag (`<tag>`) and an end-tag (`</tag>`):
 ```xml
@@ -140,7 +140,7 @@ Regarding the dramatic text, the most frequent elements are `<div>`, `<head>`, `
 </div>
 ```
 
-Now we turn to the processing of TEI files. First of all, TEI markups may be parsed, i.e., translated into a specific layout, such as the DraCor full text view (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). However, we are more interested in how we may process TEI markups in digital analyses. If multiple texts are validating against the same schema, they may be analysed similarly. In the case of DraCor, you may analyse a specific text feature throughout one corpus. For instance, you may analyse all speeches by male characters vs. all speeches by female characters in the Italian Drama Corpus (ItaDraCor) or all stage directions in GerDraCor. What is more, as all the DraCor corpora adhere to the same guidelines, you may investigate a text feature or phenomenon not only in one DraCor corpus, but in all DraCor corpora, if relevant to your research question. This is why TEI markups make the DraCor corpora programmable. At the heart of the processing of the DraCor TEI-encoded corpora is the DraCor API {cite}`dracor2026dracorapi, dracor2026dracor`, which allows multiple approaches to the DraCor texts for analyses (see [Chapter 5, “API: Working with DraCor Programmatically”](05-api-working-with-dracor-programmatically)). A snippet of these research possibilities is suggested via the download tab for each drama in the DraCor front-end {cite}`fischerdracororg` (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). Each file you may download is the result of some kind of TEI processing. After outlining the research potential of TEI files, we will discuss the process of TEI encoding itself.
+Now we turn to the processing of TEI files. First of all, TEI/XML files may be parsed and processed, for example transformed into a specific presentation such as the DraCor full text view (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). However, we are more interested in how we may process TEI markups in digital analyses. If multiple texts are validating against the same schema, they may be analysed similarly. In the case of DraCor, you may analyse a specific text feature throughout one corpus. For instance, you may analyse all speeches by male characters vs. all speeches by female characters in the Italian Drama Corpus (ItaDraCor) or all stage directions in GerDraCor. What is more, as all the DraCor corpora adhere to the same guidelines, you may investigate a text feature or phenomenon not only in one DraCor corpus, but in all DraCor corpora, if relevant to your research question. This is why TEI markups make the DraCor corpora programmable. At the heart of the processing of the DraCor TEI-encoded corpora is the DraCor API {cite}`dracor2026dracorapi, dracor2026dracor`, which allows multiple approaches to the DraCor texts for analyses (see [Chapter 5, “API: Working with DraCor Programmatically”](05-api-working-with-dracor-programmatically)). A snippet of these research possibilities is suggested via the download tab for each drama in the DraCor front-end {cite}`fischerdracororg` (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). Each file you may download is the result of some kind of TEI processing. After outlining the research potential of TEI files, we will discuss the process of TEI encoding itself.
 
 ### 4.3. TEI Encoding
 
@@ -148,7 +148,7 @@ Now we turn to the processing of TEI files. First of all, TEI markups may be par
 
 The dramatic texts that are encoded for DraCor may come from different sources and in different markup stages. Accordingly, different texts may suggest different encoding strategies.
 
-First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is the Ukranian Drama Corpus (UDraCor) {cite}`tokarskyi2022ff.ukranian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
+First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is the Ukrainian Drama Corpus (UDraCor) {cite}`tokarskyi2022ff.ukranian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
 
 Second, an encoder may work with a dramatic text with some basic markup. This markup may be HTML markup when accessing texts on websites. Also, DOCX files may include markup in the form of a certain way of formatting, e.g. when speaker information is given in bold, stage directions in italics, or similar – the given markup can be as basic as that. In this case, the encoder may write a transformation script in a language of their preference, such as Python, R, or similar.
 
@@ -295,8 +295,8 @@ As of 2026, a modern LLM is typically smart enough to convert the plain text of 
 alt: "Prompting Claude Sonnet 4.6 to encode a plain text of a play in DraCor TEI."
 width: 100%
 ---
+Example: Prompting Claude Sonnet 4.6 {cite}`anthropic2026introducingsonnet` to encode a plain text of a play in DraCor-style TEI/XML.
 ```
-*Example: Prompting Claude Sonnet 4.6 {cite}`anthropic2026introducingsonnet` to encode a plain text of a play in DraCor-style TEI/XML.*
 
 Given a prompt that explains the desired encoding conventions and a sample of the text, a large language model, such as Claude {cite}`anthropic2026introducingopus`, GPT {cite}`openai2026gpt53`, Gemini {cite}`googledeepmind2026gemini`, or Mistral {cite}`mistralai2025introducing`, can produce output that correctly identifies speakers, speech, stage directions, and structural divisions (acts, scenes). 
 ```{figure} ../images/tei-encoding/llm-prompt-2.png
@@ -304,8 +304,8 @@ Given a prompt that explains the desired encoding conventions and a sample of th
 alt: "Claude Sonnet 4.6 outputting a play in DraCor TEI."
 width: 100%
 ---
+Example: Claude Sonnet 4.6 {cite}`anthropic2026introducingsonnet` outputting DraCor-style TEI/XML of a Ukrainian play.
 ```
-*Example: Claude Sonnet 4.6 {cite}`anthropic2026introducingsonnet` outputting DraCor-style TEI/XML of a Ukrainian play.*
 
 Three significant **challenges** remain with this approach. First, there are size limitations. LLM input and especially output windows are bounded, and a full-length play (which can run to tens of thousands of words) may not fit in a single prompt-response cycle. This can be addressed by processing the play in chunks – feeding it to the model act by act or scene by scene, via the API or manually through a web interface – but this introduces the challenge of reassembling the chunks into a single coherent document. Second, and more fundamentally, the LLM is regenerating the entire text together with the markup, which means every word of the play passes through the model’s generative process. This creates the risk of hallucinations (invented text that was not in the original) and omissions (lines or passages silently omitted). Mitigating this requires systematic post-encoding control: aligning and comparing the generated encoded text against the original text to verify that nothing has been added, removed, or altered. These control procedures are essential – an encoding method that occasionally fabricates or omits dramatic dialogue is not acceptable for a scholarly corpus. Third, this approach may not work well when encoding texts in low-resource languages. Because low-resource languages remain underrepresented in LLM training and evaluation, the success of LLM-based encoding workflows in high-resource languages should not be assumed to generalise to low-resource settings (cf. {cite}`jadhav2025limitations`).
 
@@ -317,8 +317,8 @@ Between the extremes of simple regular expression scripts and full TEI file gene
 alt: "A model mock play as plain text, with EzDrama"
 width: 100%
 ---
+A model ‘mock play’ in three forms: plain text, plain text with EzDrama, and the auto-generated TEI/XML (the latter cropped at the bottom).
 ```
-*A model ‘mock play’ in three forms: plain text, plain text with EzDrama, and the auto-generated TEI/XML (the latter cropped at the bottom).*
 
 The core advantage of EzDrama is that its syntax is simpler and more compact than TEI/XML. Where TEI/XML requires opening and closing tags, namespace declarations, nested element hierarchies, and careful attention to well-formedness, EzDrama uses a handful of single-character markers (“#”, “@”, “$”, “%”, “~”) at the beginning of the respective line. The format is reminiscent of Markdown or YAML – familiar to anyone who has written a README file in a GitHub repository. Because the markup is flat (line-based rather than hierarchically nested), it is robust against the kinds of errors that plague manual XML editing: a missing closing tag, a mismatched element name, or an unescaped ampersand.
 
@@ -405,30 +405,30 @@ The third way is with the help of an LLM. One of the practical advantages of EzD
 
 ### Exercise 1: Encoding Strategy
 
-```{admonition} Assessment
+```{admonition} Self-test
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-1-encoding-strategy).
+Open the [Assessment: TEI Encoding](../assessment/03-tei-encoding-assessment.md#exercise-1-encoding-strategy).
 ```
 
 ### Exercise 2: Manual Encoding
 
-```{admonition} Assessment
+```{admonition} Self-test
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-2-manual-encoding).
+Open the [Assessment: TEI Encoding](../assessment/03-tei-encoding-assessment.md#exercise-2-manual-encoding).
 ```
 
 ### Exercise 3: Semi-Automatic Encoding with EzDrama
 
-```{admonition} Assessment
+```{admonition} Self-test
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-3-semi-automatic-encoding-with-ezdrama).
+Open the [Assessment: TEI Encoding](../assessment/03-tei-encoding-assessment.md#exercise-3-semi-automatic-encoding-with-ezdrama).
 ```
 
 ### Exercise 4: Encoding with LLMs
 
-```{admonition} Assessment
+```{admonition} Self-test
 :class: tip
-Open the [Assessment: TEI Encoding](../assessment/02-02-tei-encoding-assessment.md#exercise-4-encoding-with-llms).
+Open the [Assessment: TEI Encoding](../assessment/03-tei-encoding-assessment.md#exercise-4-encoding-with-llms).
 ```
 
 ## 6. Teaching Notes
@@ -464,7 +464,7 @@ To further engage with XML, you may work through specific tutorials {cite}`hawki
 
 ## 9. Next Steps
 
-Continue with [Chapter 4, “API: Working with DraCor Programmatically”](04-api-working-with-dracor-programmatically) on the DraCor API to learn more about TEI processing, or continue with [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor) on the DraCor front-end to engage with the outputs of such TEI processing.
+Continue with [Chapter 5, “API: Working with DraCor Programmatically”](05-api-working-with-dracor-programmatically) on the DraCor API to learn more about TEI processing, or continue with [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor) on the DraCor front-end to engage with the outputs of such TEI processing.
 
 ## 10. AI Use Declaration
 
