@@ -756,5 +756,5 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 ```{bibliography}
 :filter: docname in docnames
 ```
----
+
 ## 14. Footnotes
