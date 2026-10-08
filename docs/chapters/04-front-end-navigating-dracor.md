@@ -88,7 +88,7 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, p. 51-53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, p. 51–53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
@@ -115,7 +115,7 @@ Network tab. DraCor shows a co-occurrence network and summarises network propert
 
 #### Tab 2. Speech Distribution
 
-The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite}`sapogov1974nekotorye`, {cite}`yarkho2019speech`, {cite}`fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation, that is, a way of turning a concept into a measurable procedure.
+The Speech distribution tab visualises how speech is distributed across the play. In the example shown, the interface offers multiple methods, selectable via radio buttons (for example, {cite:alp}`sapogov1974nekotorye`; {cite:alp}`yarkho2019speech`; {cite:alp}`fischer2017network`). This is a useful design choice because it makes clear that “speech distribution” is not a single universal measure but an operationalisation, that is, a way of turning a concept into a measurable procedure.
 
 The plot shown in this view displays the scene (segment) number on the x-axis and the number of characters on the y-axis. Two curves are displayed: one includes all characters, and one restricts the calculation to non-group characters only. Comparing these curves gives a quick sense of how character groups affect the apparent distribution and how “crowded” different parts of the play are. When we interpret this tab, it is worth keeping track of the selected method, because switching methods can change what the graph emphasises and, therefore, which comparisons are meaningful.
 
