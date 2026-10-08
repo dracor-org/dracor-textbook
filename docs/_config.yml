@@ -18,6 +18,7 @@ sphinx:
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
+    bibtex_reference_style: author_year
     bibtex_bibfiles:
       - references.bib
     html_theme_options:
