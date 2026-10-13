@@ -183,7 +183,7 @@ Self-check:
 - You should see 5 lines like `ger: German Drama Corpus` (exact titles vary).
 
 ````{admonition} Reference solution (code)
-:class: tip, dropdown
+:class: tip dropdown
 ```python
 import requests
 
@@ -250,7 +250,7 @@ Self-check:
 - The output should contain the title, a year, and at least one network-related value.
 
 ````{admonition} Reference solution (code)
-:class: tip, dropdown
+:class: tip dropdown
 ```python
 import requests
 
@@ -316,7 +316,7 @@ Self-check:
 - This shows that a play slug only works inside the correct corpus.
 
 ````{admonition} Reference solution (code)
-:class: tip, dropdown
+:class: tip dropdown
 ```python
 import requests
 
@@ -369,7 +369,7 @@ Self-check:
 - You should see a header row (CSV column names), then character rows.
 
 ````{admonition} Reference solution (code)
-:class: tip, dropdown
+:class: tip dropdown
 ```python
 import requests
 
