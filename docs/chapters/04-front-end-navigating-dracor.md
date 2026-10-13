@@ -2,7 +2,7 @@
 title: "Front-end: Navigating DraCor"
 myst:
   substitutions:
-  chap_title: "Front-end"
+    chap_title: "Front-end"
 author: "Antonio Rojas Castro"
 date: "2026-04-09"
 description: "This chapter explains how to use the DraCor front-end from the homepage to corpora and individual plays, with a tab-by-tab guide to Network, Speech distribution, Full text, Downloads and Tools."
@@ -60,7 +60,7 @@ When you write down an observation, include the corpus and play ID (from the URL
 
 ### Example 1. Starting From the Homepage (Selecting a Corpus)
 
-On the DraCor homepage, we see corpus cards (for example, for FreDraCor, GerDraCor, EngDraCor, RusDraCor) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (marked up in TEI as `<sp>`), and stage directions (marked up in TEI as `<stage>`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and the ID of the last commit in the GitHub repository {cite:p}`borner2024cls{pp. 7–12}`. Thus, this information helps situate the corpus as a living dataset and helps refer to the specific version used. 
+On the DraCor homepage, we see corpus cards (for example, for the French Drama Corpus (FreDraCor), German Drama Corpus (GerDraCor), English Drama Corpus (EngDraCor) and Russian Drama Corpus (RusDraCor)) that summarise each corpus at a glance. The cards combine a quick sense of scale (how many plays and characters a corpus contains) with token counts for different textual layers. These layer-specific counts are a useful reminder that drama is represented in multiple dimensions: running text, spoken text (marked up in TEI as `<sp>`), and stage directions (marked up in TEI as `<stage>`) can behave differently across corpora, depending on editorial practice and encoding. The cards also display a “last update” timestamp and the ID of the last commit in the GitHub repository {cite:p}`borner2024cls{pp. 7–12}`. Thus, this information helps situate the corpus as a living dataset and helps refer to the specific version used. 
 
 ```{figure} ../images/front-end/home-page.png
 ---
@@ -72,7 +72,7 @@ DraCor homepage. Corpus cards provide a high-level overview (plays, characters, 
 
 ### Example 2. The Corpus Page (Searching and Selecting a Play)
 
-A corpus page (example: CalDraCor) presents a searchable play table. Alongside editorial credits and the ID of the last commit, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
+A corpus page (example: Calderón Drama Corpus, CalDraCor) presents a searchable play table. Alongside editorial credits and the ID of the last commit, the interface typically offers corpus-level metadata downloads (for example, JSON and CSV). The play table itself is the most practical entry point for reproducible selection: it lets us search, sort, and identify each play by a stable play ID. When we move from browsing to documentation (for teaching, for collaboration or for later analysis), the play ID is more reliable than a title alone, especially across corpora with variant spellings or multiple versions.
 
 ```{figure} ../images/front-end/cal-dracor.png
 ---
@@ -88,7 +88,7 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, p. 51–53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, 51–53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
@@ -130,7 +130,7 @@ Speech distribution tab. The interface offers different operationalisations (sel
 
 The Full text tab provides a readable play text with navigation support, and it is also where provenance is made visible. In the example below, the text is presented with structural markers (for example, “Jornada I”), with stage directions and speaker attributions, and accompanied by a source note that indicates where the text was obtained from and how it was adapted.
 
-A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that is the basis of other views, especially the co-occurrence network. For interpretive work, Full text tab, therefore, is where we turn to if we want to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
+A key feature of this tab is the Segments panel. It lists segments and shows which characters are present in each segment. This panel serves both as navigation and as an explicit representation of the segmentation that is the basis of other views, especially the co-occurrence network. For interpretive work, we therefore turn to the Full text tab to contextualise a pattern observed elsewhere: peaks in speech distribution or unexpectedly central characters in the network become more meaningful when we can locate the relevant passages quickly.
 
 ```{figure} ../images/front-end/la-vida-es-sueno-full-text.png
 ---
@@ -173,7 +173,7 @@ Choose one play and write 2–3 sentences per tab explaining which kind of repre
 Self-check: are you describing what is shown, rather than what you think it “means”?
 
 **Exercise 2. Investigate the relation between the Network and Full text tabs (15–20 minutes)**
-Pick one character that appears highly connected in the Network tab. Use the Segments panel in the Full text tab to locate two segments where this character addresses multiple other characters, and describe what is happening in those passages.
+Pick one character that appears highly connected in the Network tab. Use the Segments panel in the Full text tab to locate two segments where this character and several other characters speak, and describe what is happening in those passages.
 
 Self-check: can you point to specific segments that support your observation?
 
@@ -229,7 +229,7 @@ The author used ChatGPT to receive feedback on the structure, language and edito
 
 ## 12. Author Contributions
 
-Antonio Rojas Castro: conceptualisation, writing: original draft, methodology, visualisation, writing: review and editing.
+Antonio Rojas Castro: conceptualisation, writing – original draft, methodology, visualisation, writing – review and editing.
 
 ## 13. References
 
