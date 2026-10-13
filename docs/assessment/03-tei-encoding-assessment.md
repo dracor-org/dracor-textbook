@@ -246,7 +246,7 @@ q1 = [
     "answers": [
       {"answer": "manual encoding in an XML editor", "correct": True, "feedback": "Correct!"},
       {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": True,  "feedback": "Correct!"},
-      {"answer": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)", "correct": False, "feedback": "Incorrect. There is no pre-existing XML markup in this case."},
+      {"answer": "transformation of an already structured XML/HTML source", "correct": False, "feedback": "Incorrect. This source is plain text, without pre-existing XML/HTML structure. Python or R can still be used to process it, for example with regular expressions."},
       {"answer": "semi-automatic encoding with EzDrama", "correct": True, "feedback": "Correct!"},
       {"answer": "semi-automatic encoding with a Large Language Model", "correct": True, "feedback": "Correct!"}
     ]
@@ -258,7 +258,7 @@ display_quiz(q1, max_width=1000)
 
 ### Choosing an Encoding Strategy: Case 3
 
-**You want to encode *The Belle’s Stratagem* by Hannah Cowley. Your text source has no pre-existing markup. The format is TXT.**
+**You want to encode *The Belle’s Stratagem* by Hannah Cowley. Your text source has no pre-existing markup. The format is `.txt`.**
 
 Here is an excerpt from act 3, scene 1:[^cowley]
 
@@ -289,7 +289,7 @@ q1 = [
     "answers": [
       {"answer": "manual encoding in an XML editor", "correct": True, "feedback": "Correct!"},
       {"answer": "semi-automatic encoding with a regular expression transformation script", "correct": False,  "feedback": "Incorrect. There are no layout markers that sufficiently and thoroughly distinguish speaker names, speeches, and stage directions from one another."},
-      {"answer": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)", "correct": False, "feedback": "Incorrect. There is no pre-existing XML markup in this case."},
+      {"answer": "transformation of an already structured XML/HTML source", "correct": False, "feedback": "Incorrect. This source is plain text, without pre-existing XML/HTML structure. Python or R can still be used to process it, for example with regular expressions."},
       {"answer": "semi-automatic encoding with EzDrama", "correct": True, "feedback": "Correct!"},
       {"answer": "semi-automatic encoding with a Large Language Model", "correct": True, "feedback": "Correct!"}
     ]
@@ -328,7 +328,7 @@ Complete the encoding by replacing each `<ADD>` placeholder with the correct TEI
 </div>
 ```
 ````{admonition} Answer
-:class: solution, dropdown
+:class: solution dropdown
 Answer:  
 ```xml
 <div type="scene" n="2">
@@ -409,7 +409,7 @@ Encode the following passage from act 3, scene 1 of *The Belle’s Stratagem* by
 ```
 
 ````{admonition} Answer
-:class: solution, dropdown
+:class: solution dropdown
 Answer:
 ```xml
 <div type="act" n="3">
@@ -466,7 +466,7 @@ Answer:
 
 ## Exercise 3: Semi-Automatic Encoding with EzDrama
 
-Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix [^pix], with EzDrama syntax:
+Encode the following passage from the beginning of act 1, scene 1 of *The Beau Defeated, or The Lucky Younger Brother* by Mary Pix, using EzDrama syntax.[^pix]
 ```
 ACT I. SCENE I.
 Enter Mrs. Rich with Betty, her Maid.
@@ -486,7 +486,7 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 
 Convert the encoded text to TEI/XML using one of the methods suggested in the EzDrama repository {cite}`dracor2022ff.easy`. Look at the resulting TEI/XML file. Given your current understanding of TEI/XML, does it look correct? Are there things that need to be corrected manually? If so, where would it make more sense to introduce a correction in each case: the EzDrama input, or the TEI/XML output?
 ````{admonition} Possible solution
-:class: solution, dropdown
+:class: solution dropdown
 Possible solution:  
 ```txt
 #ACT I. 
@@ -510,13 +510,14 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 
 ## Exercise 4: Encoding with LLMs
 
-Pick an entire play of your choice that is available to you in plain text and in the public domain. As an option, you may visit dracor.org and access the full text of any drama in plain text in the ‘Full text’ tab {cite}`fischerdracororg` (see [Chapter 4, “Front-End: Navigating DraCor”](04-front-end-navigating-dracor)). Try prompting an LLM of your choice to encode the play in TEI. Assess the results. Was the LLM able to process the whole play? Did it omit anything? Do you notice any obvious hallucinations? Are there any obvious markup errors?  
+Pick an entire play of your choice that is available to you in plain text and in the public domain. As an option, you may visit dracor.org and access the full text of any drama in plain text in the ‘Full text’ tab {cite}`fischerdracororg` (see [Chapter 4, “Front-end: Navigating DraCor”](../chapters/04-front-end-navigating-dracor)). Try prompting an LLM of your choice to encode the play in TEI. Assess the results. Was the LLM able to process the whole play? Did it omit anything? Do you notice any obvious hallucinations? Are there any obvious markup errors?  
 
 If the play could not be processed in one go, try encoding it in chunks. You can also try different strategies: with / without examples of TEI-encoded drama, with / without explicitly mentioning DraCor, with / without explicitly asking to mark speeches, stage directions, and so on. 
 Do you see any differences? Reflect on the current state of LLM-powered encoding and its limitations. 
 
 ## References
 ```{bibliography}
+:filter: docname in docnames
 ```
 
 ## Footnotes
