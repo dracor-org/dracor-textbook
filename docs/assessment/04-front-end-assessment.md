@@ -81,7 +81,7 @@ q3 = [{
   "answers": [
     {"answer": "Characters are linked if they speak consecutive lines", "correct": False,
      "feedback": "No. That would be a dialogue adjacency model, not co-occurrence."},
-    {"answer": "Characters are linked if they appear in the same segment, such as a scene or act segment", "correct": True,
+    {"answer": "Characters are linked if they speak in the same segment, such as a scene or act segment", "correct": True,
      "feedback": "Correct. This is why segmentation choices matter for interpretation."},
     {"answer": "Characters are linked only if they share a Wikidata identifier", "correct": False,
      "feedback": "No. Wikidata linking is external metadata, not a network rule."},
@@ -171,7 +171,7 @@ q7 = [{
   "question": "Which feature of the Full text tab most directly reveals the segmentation used for derived views?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "The Segments panel listing segments and present characters", "correct": True,
+    {"answer": "The Segments panel listing segments and speaking characters", "correct": True,
      "feedback": "Correct. It makes the segmentation explicit and helps you contextualise network/distribution patterns."},
     {"answer": "The play title in the header", "correct": False,
      "feedback": "No. Titles identify the play but do not show segmentation."},
@@ -253,7 +253,7 @@ create_answer_box(
 ```
 
 ````{admonition} Example answer (for self-check)
-:class: tip, dropdown
+:class: tip dropdown
 Corpus: Calderón Drama Corpus (CalDraCor, `cal`)
 Play ID: la-vida-es-sueno  
 Tab: Network  
