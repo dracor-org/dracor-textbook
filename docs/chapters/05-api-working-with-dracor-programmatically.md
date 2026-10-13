@@ -5,8 +5,8 @@ myst:
     chap_title: "API"
 author: "Ingo Börner"
 date: "2026-04-01"
-description: "This chapter introduces the DraCor API as the programmatic interface to the drama corpora of DraCor. Starting from the interactive Swagger UI documentation, we explore the identifier system of the API, learn to read JSON responses and progress from browser-based exploration to Python scripting with requests and PyDraCor."
-keywords: ["DraCor", "API", "REST", "JSON", "PyDraCor", "Swagger", "OpenAPI", "Programmable Corpora"]
+description: "This chapter introduces the DraCor API as the programmatic interface to the drama corpora of DraCor. Starting from the interactive API documentation, we explore the identifier system of the API, learn to read JSON responses and progress from browser-based exploration to Python scripting with requests and PyDraCor."
+keywords: ["DraCor", "API", "REST", "JSON", "PyDraCor", "Scalar", "OpenAPI", "Programmable Corpora"]
 license: "CC BY 4.0"
 ---
 
@@ -46,7 +46,7 @@ In this chapter we learn what an API is, how the DraCor API is structured and ho
 After completing this chapter, learners will be able to:
 
 1. Explain what a REST API is and why DraCor provides one.
-2. Use the Swagger UI to explore and test the DraCor API documentation.
+2. Use the interactive API documentation to explore the DraCor API and test requests.
 3. Navigate the DraCor API using the identifier flow (corpora → corpus → play).
 4. Read an API response in JSON and interpret HTTP status codes.
 5. Make API requests using the browser, the terminal with `curl`, and Python (`requests`).
@@ -90,35 +90,44 @@ If you have the DraCor front-end open alongside this chapter, you can compare wh
 
 ## 5. Practical Examples: The DraCor API
 
-### 5.1. Exploring the API Documentation (Swagger UI)
+### 5.1. Exploring the API Documentation
 
-Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://dracor.org/doc/api](https://dracor.org/doc/api).[^openapi-yaml]
+Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website, accessible at [https://dracor.org/doc/api](https://dracor.org/doc/api).[^openapi-yaml] DraCor uses [Scalar](https://scalar.com), an open-source tool, to turn the specification into this website.[^swagger-ui]
 
 [^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
 
+[^swagger-ui]: Scalar is one of several tools that render OpenAPI specifications. Another widely used one is [Swagger UI](https://swagger.io/tools/swagger-ui/), which DraCor used for its API documentation until version 3 of the front-end. Because both tools display the same specification, what we learn here carries over to the documentation of many other APIs.
+
 ```{admonition} Important distinction
 :class: warning
-The Swagger UI is the *documentation about* the API — it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
+The documentation website at `https://dracor.org/doc/api` is *about* the API — it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
 ```
 
-Think of the OpenAPI specification as a *contract*: the developers of DraCor declare "we offer these endpoints, and if you use them the right way, you will get back data in this form." This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why tools like PyDraCor can be generated automatically from it.
+Think of the OpenAPI specification as a *contract*: the developers of DraCor declare "we offer these endpoints, and if you use them the right way, you will get back data in this form." This contract is both human-readable (through the documentation website) and machine-readable (the underlying YAML file), which is why tools like PyDraCor can be generated automatically from it.
 
-When we open the Swagger UI, we see the API endpoints grouped by *tags*: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints — these are the ones that return data without requiring authentication. The admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
+The documentation page opens with a short introduction to the API. It also lists **example pairs** of corpus and play identifiers, which we will come back to in Section 5.3. Below the introduction, two boxes show the *server* — the base URL to which all requests are sent — and a selection of *client libraries* for which the documentation can generate code examples (Shell, Python, Node.js and others).
 
-```{figure} ../images/api/openapi-spec.png
+```{figure} ../images/api/scalar-overview.png
 ---
-alt: "Swagger UI showing the DraCor API with public endpoints listed: /info, /corpora, /corpora/{corpusname}, and more."
+alt: "The DraCor API documentation: a search field, the Modern/Classic layout switch, version information, an introduction to the API, and a table of example pairs of corpusname and playname (e.g. ger and lessing-emilia-galotti, rus and gogol-revizor)."
 width: 100%
 ---
-The DraCor API documentation in Swagger UI at [dracor.org/doc/api](https://dracor.org/doc/api). The public endpoints are listed with their HTTP method (GET), path and a short description.
+The DraCor API documentation at [dracor.org/doc/api](https://dracor.org/doc/api). The introduction describes the API and lists example pairs of corpus and play identifiers. The buttons in the top right switch between the *Classic* layout used in this chapter and a *Modern* layout with a sidebar.
 ```
 
-```{figure} ../images/api/openapi-spec-smaller.png
+```{admonition} Two layouts
+:class: tip
+The documentation offers two layouts. The *Classic* layout, which we use throughout this chapter, lists all endpoints on one long page. The *Modern* layout adds a sidebar for navigation and updates the URL in the address bar as we scroll, which makes it easy to share a link to a specific endpoint. Both layouts show the same content, and the documentation remembers our choice.
+```
+
+Further down, the API endpoints are grouped by *tags*: **Public**, **DTS**, **Wikidata**, **Admin**, and **Webhook**, each with a short description. For this chapter, we focus on the **Public** endpoints — these are the ones that return data without requiring authentication. The Admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints] At the very bottom, a section called **Models** describes the data structures that the endpoints return.
+
+```{figure} ../images/api/scalar-endpoint-groups.png
 ---
-alt: "Swagger UI overview showing all endpoint groups: public, admin, DTS, wikidata, and webhook."
+alt: "The endpoint groups of the DraCor API documentation, collapsed: Public, DTS, Wikidata, Admin and Webhook, each with a one-line description, followed by the Models section."
 width: 100%
 ---
-Overview of all endpoint groups in the Swagger UI. The public endpoints at the top are the focus of this chapter; the admin, DTS, Wikidata and webhook groups serve more specialised purposes.
+Overview of all endpoint groups (here collapsed). The Public endpoints at the top are the focus of this chapter; the DTS, Wikidata, Admin and Webhook groups serve more specialised purposes.
 ```
 
 [^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite}`borner2025cls`. The Wikidata-tagged endpoints, although also using GET, support cross-corpora queries such as finding characters across different corpora via Wikidata identifiers. Both are beyond the scope of this chapter.
@@ -137,48 +146,58 @@ In the following examples, we explore these capabilities step by step, starting 
 
 ### 5.2. The First Request: Listing Corpora
 
-Let us make our first API request. We want to find out which drama corpora are available in DraCor. In the Swagger UI, the first public endpoint listed is `/info`, which returns information about the API version and the underlying infrastructure. This is useful for documentation purposes, but the more interesting starting point is the second endpoint: **`/corpora`**, described as "List available corpora."
+Let us make our first API request. We want to find out which drama corpora are available in DraCor. In the API documentation, the first public endpoint listed is `/info`, which returns information about the API version and the underlying infrastructure. This is useful for documentation purposes, but the more interesting starting point is the second endpoint: **`/corpora`**, described as "List available corpora."
 
-In the Swagger UI, each endpoint is displayed as a collapsible box. To the left of the endpoint path, we see a coloured badge showing the HTTP method — in this case **GET**. GET is the HTTP method for retrieving data, and it is the method we use for virtually all public DraCor API requests. Importantly, GET requests do not change anything on the server: we can experiment freely without risk.
+Each endpoint is displayed as a collapsible box. To the left of the endpoint path, we see a coloured badge showing the HTTP method — in this case **GET**. GET is the HTTP method for retrieving data, and it is the method we use for virtually all public DraCor API requests. Importantly, GET requests do not change anything on the server: we can experiment freely without risk.
+
+```{figure} ../images/api/scalar-endpoint-public.png
+---
+alt: "The Public group of the DraCor API documentation, listing endpoints such as GET /info, GET /corpora, GET /corpora/{corpusname} and GET /corpora/{corpusname}/plays/{playname}, each with a short description."
+width: 100%
+---
+The public endpoints of the DraCor API. Each row shows the HTTP method (GET), the path of the endpoint and a short description. Clicking on a row expands it.
+```
 
 When we click on the `/corpora` box to expand it, we see several sections:
 
-```{figure} ../images/api/swaggerui-corpora-endpoint.png
+```{figure} ../images/api/scalar-corpora-endpoint.png
 ---
-alt: "Swagger UI with the /corpora endpoint expanded, showing Parameters (include query parameter), Responses (200 status code, application/json), and an Example Value with a JSON object for the German Drama Corpus."
+alt: "The /corpora endpoint expanded: on the left the query parameter include and the 200 response; in the middle an example response, a JSON array beginning with the German Drama Corpus; on the right a curl code example; a Test Request button in the endpoint header."
 width: 100%
 ---
-The `/corpora` endpoint expanded in Swagger UI. We can see the query parameter `include`, the expected response (status code 200, media type `application/json`) and an example value showing a corpus object.
+The `/corpora` endpoint expanded. On the left, we see the query parameter `include` and the expected response (status code 200). In the middle, an example response shows a list of corpus objects. On the right, a code example shows how to send the same request with `curl`.
 ```
 
-1. **Parameters.** The `/corpora` endpoint accepts one optional *query parameter* called `include`. If we set it to `metrics`, the response will contain additional statistical information about each corpus (number of plays, characters, word counts). Query parameters are appended to the URL after a `?` — for example: `https://dracor.org/api/v1/corpora?include=metrics`.
+1. **Query Parameters.** The `/corpora` endpoint accepts one optional *query parameter* called `include`. Its only allowed value is `metrics`: if we set it, the response will contain additional statistical information about each corpus (number of plays, characters, word counts). Query parameters are appended to the URL after a `?` — for example: `https://dracor.org/api/v1/corpora?include=metrics`.
 
 2. **Responses.** This section shows the possible HTTP status codes. If everything goes well, we receive a **200 OK** response. The response format (or *media type*) is `application/json` — meaning the data comes back as JSON (JavaScript Object Notation), the standard data format for web APIs.
 
-3. **Example value.** Before even executing a request, we can see what a typical response looks like. In this case, it is a JSON *array* — a list of objects, each representing one corpus. Each corpus object contains fields like `name` (the short identifier, e.g. `"ger"`), `title` (e.g. `"German Drama Corpus"`), and a link to the GitHub repository.
+3. **Example response.** Before even sending a request, we can see what a typical response looks like. In this case, it is a JSON *array* — a list of objects, each representing one corpus. Each corpus object contains fields like `name` (the short identifier, e.g. `"ger"`), `title` (e.g. `"German Drama Corpus"`), and a link to the GitHub repository.
 
-4. **Schema.** Clicking on the "Schema" tab shows a more formal description of the response structure, including which fields are mandatory (marked with a red asterisk).
+4. **Schema.** Clicking on the status code **200** in the Responses section opens a more formal description of the response structure: the name and type of each field, and which fields are always present (marked as *required*).[^show-schema]
 
-```{figure} ../images/api/swaggerui-corpora-endpoint-schema-displayed.png
+[^show-schema]: The "Show Schema" checkbox above the example response shows the same information in its raw, machine-readable form (JSON Schema).
+
+```{figure} ../images/api/scalar-corpora-endpoint-schema.png
 ---
-alt: "Swagger UI showing the /corpora endpoint in 'Try it out' mode with the Schema view expanded, displaying the CorpusInCorpora object structure and CorpusMetrics fields."
+alt: "The /corpora endpoint with the 200 response expanded on the left. It reads 'array of CorpusInCorpora' and lists the fields acronym, name, title and uri (marked as required), commit, description, licence, licenceUrl, metrics (of type CorpusMetrics) and repository, each with its type."
 width: 100%
 ---
-The `/corpora` endpoint after clicking “Try it out” and selecting the Schema view. The response schema shows the `CorpusInCorpora` object with its fields (`name`, `title`, `description`, etc.) and the nested `CorpusMetrics` object (when `include=metrics` is set).
+The `/corpora` endpoint with the 200 response expanded. The response is an array of `CorpusInCorpora` objects. Each field is listed with its type; `name`, `title`, `acronym` and `uri` are marked as required. The nested `metrics` object (of type `CorpusMetrics`) is only included when `include=metrics` is set.
 ```
 
-To actually execute the request, we click **"Try it out"**, optionally set the `include` parameter to `metrics`, and click **"Execute"**. The Swagger UI then shows us three things:
+To actually send the request, we click the **"Test Request"** button in the header of the endpoint. This opens a request window (the *API client*). On the left, we see the request we are about to send. The `include` parameter is already set to `metrics` — we could untick it to send the request without the parameter. When we click **"Send"**, the API client shows us:
 
-- The **`curl` command** — a command-line instruction that performs the same request.
-- The **request URL** — the full URL that was called (e.g. `https://dracor.org/api/v1/corpora?include=metrics`).
-- The **server response** — the actual JSON data returned by the API, along with response headers.
+- The **status** of the response — here **200 OK** — and how long the request took.
+- The **response body** — the actual JSON data returned by the API. The request and response headers are available in collapsible sections above it.
+- In the **Code Snippet** section at the bottom left, the **`curl` command** that performs the same request. It contains the full request URL (e.g. `https://dracor.org/api/v1/corpora?include=metrics`).
 
-```{figure} ../images/api/swaggerui-corpora-endpoint-after-execution-numbered.png
+```{figure} ../images/api/scalar-corpora-test-request-numbered.png
 ---
-alt: "Swagger UI after executing the /corpora endpoint, with numbered annotations: (1) include parameter set to metrics, (2) curl command, (3) request URL, (4) server response with the name field highlighted — here the Alsatian Drama Corpus with the corpusname 'als'."
+alt: "The API client after sending a request to the /corpora endpoint, with numbered annotations: (1) the include query parameter set to metrics, (2) the generated curl command in the Code Snippet section, (3) the status 200 OK, (4) the response body with the name field highlighted — here the Alsatian Drama Corpus with the corpusname 'als'."
 width: 100%
 ---
-The `/corpora` endpoint after execution. (1) The query parameter `include` is set to `metrics`. (2) The generated `curl` command. (3) The request URL. (4) The server response body — note the highlighted `name` field, which provides the corpus identifier (`corpusname`) needed for subsequent requests.
+The `/corpora` endpoint after sending a test request. (1) The query parameter `include` is set to `metrics`. (2) The generated `curl` command with the full request URL. (3) The status of the response: 200 OK. (4) The response body — note the highlighted `name` field, which provides the corpus identifier (`corpusname`) needed for subsequent requests.
 ```
 
 ```{admonition} What is JSON?
@@ -190,18 +209,17 @@ The `name` field in each corpus object is the **identifier** — the "corpusname
 
 #### Four Ways to Make the Same Request
 
-The Swagger UI is the most accessible way to explore the API, but it is not the only way. After executing a request, the Swagger UI shows us the request URL. We can use this URL in several ways, each progressively closer to programmatic research:
+The API documentation is the most accessible way to explore the API, but it is not the only way. The `curl` command in the Code Snippet section contains the full request URL. We can use this URL in several ways, each progressively closer to programmatic research:
 
-**1. Swagger UI** — click-based, visual, no code needed.
+**1. The API documentation** — click-based, visual, no code needed.
 
 **2. Browser address bar** — copy the request URL (e.g. `https://dracor.org/api/v1/corpora`) and paste it into the browser. We see the raw JSON response directly.
 
-**3. `curl` in a terminal** — the Swagger UI generates a `curl` command that we can run in a terminal:
+**3. `curl` in a terminal** — the API documentation generates a `curl` command that we can run in a terminal:
 
 ```bash
-curl -X 'GET' \
-  'https://dracor.org/api/v1/corpora?include=metrics' \
-  -H 'accept: application/json'
+curl 'https://dracor.org/api/v1/corpora?include=metrics' \
+  --header 'Accept: application/json'
 ```
 
 With `curl`, we can also inspect the response headers — metadata about the response, such as the content type and server information. Just as a TEI document has a header (metadata about the text) and a body (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
@@ -210,7 +228,7 @@ With `curl`, we can also inspect the response headers — metadata about the res
 curl -v 'https://dracor.org/api/v1/corpora'
 ```
 
-The Swagger UI also displays response headers in a separate box after executing a request.
+The API client in the documentation also displays the response headers, in the collapsible section "Response Headers" after sending a request.
 
 **4. Python with `requests`** — the bridge to programmatic research:
 
@@ -227,12 +245,12 @@ for corpus in corpora:
 Let us walk through this code line by line:
 
 - `import requests` — we import the `requests` library, a widely used Python package for making HTTP requests. It is not part of the standard library of Python, so it may need to be installed first with `pip install requests`.
-- `requests.get(...)` — this sends a GET request to the URL we provide, just like the Swagger UI or `curl` does. The `params={"include": "metrics"}` part adds the query parameter `?include=metrics` to the URL. The result is stored in the variable `response`.
+- `requests.get(...)` — this sends a GET request to the URL we provide, just like the API documentation or `curl` does. The `params={"include": "metrics"}` part adds the query parameter `?include=metrics` to the URL. The result is stored in the variable `response`.
 - `response.json()` — this parses the JSON data from the response body and converts it into Python data structures. JSON objects become Python **dictionaries** (key-value pairs accessed with `dict['key']`) and JSON arrays become Python **lists**. So the array of corpus objects returned by the API becomes a list of dictionaries, which we store in the variable `corpora`.
 - `for corpus in corpora:` — this loop iterates over each item in the list. In each iteration, `corpus` is a dictionary representing one corpus.
 - `print(f"{corpus['name']}: {corpus['title']}")` — for each corpus, we access the values of the fields `name` (the corpusname identifier) and `title` (the full name) and print them.
 
-If this is your first encounter with Python: congratulations, you have just read your first program. It does exactly what we did before in the Swagger UI and the browser — sends a request to the API and displays the result — but now in a form that can be extended, repeated, and automated. We will build on this pattern in the later sections of this chapter.
+If this is your first encounter with Python: congratulations, you have just read your first program. It does exactly what we did before in the API documentation and the browser — sends a request to the API and displays the result — but now in a form that can be extended, repeated, and automated. We will build on this pattern in the later sections of this chapter.
 
 ### 5.3. From Corpus to Play: The Identifier Flow
 
@@ -244,15 +262,15 @@ The endpoint `/corpora/{corpusname}` retrieves information about a single corpus
 
 If we choose the English Drama Corpus, the request URL becomes: `https://dracor.org/api/v1/corpora/eng`.
 
-```{figure} ../images/api/swaggerui-corpora-corpusname-endpoint.png
+```{figure} ../images/api/scalar-corpora-corpusname-endpoint.png
 ---
-alt: "Swagger UI showing the /corpora/{corpusname} endpoint with the required path parameter corpusname, an examples dropdown (German Drama Corpus selected, value 'ger'), and the response section showing a 200 response with an example JSON object and a 404 'Unknown corpus' status."
+alt: "The /corpora/{corpusname} endpoint expanded: the path parameter corpusname of type string, marked as required, with an Examples link and a description linking to the /corpora endpoint; the responses 200 and 404 'Unknown corpus'; an example response object with fields such as name, title and plays."
 width: 100%
 ---
-The `/corpora/{corpusname}` endpoint. The path parameter `corpusname` is required (marked with a red asterisk). The description explains where to get valid values and the examples dropdown offers pre-filled corpus identifiers. Note also the 404 “Unknown corpus” response at the bottom — we get this when supplying an invalid corpus name.
+The `/corpora/{corpusname}` endpoint. The path parameter `corpusname` is marked as *required*. The description explains where to get valid values, and the "Examples" link lists example corpus identifiers. Note also the 404 “Unknown corpus” response — we get this when supplying an invalid corpus name.
 ```
 
-In the Swagger UI, the parameter section shows a description: "Short name of the corpus as provided in the `name` property of the result objects from the `/corpora` endpoint." In other words, the output of our previous request (the `name` field) becomes the input of this request. This pattern — **the output of one request feeds as input into the next** — is not specific to DraCor but fundamental to working with REST APIs in general. Most APIs organise their resources hierarchically, and navigating that hierarchy means using identifiers obtained from one response to construct the next request. Once we grasp this pattern, we can apply it to any API we encounter.
+In the API documentation, the parameter section shows a description: "Short name of the corpus as provided in the `name` property of the result objects from the `/corpora` endpoint." (Clicking on `/corpora` in this description takes us back to that endpoint.) In other words, the output of our previous request (the `name` field) becomes the input of this request. This pattern — **the output of one request feeds as input into the next** — is not specific to DraCor but fundamental to working with REST APIs in general. Most APIs organise their resources hierarchically, and navigating that hierarchy means using identifiers obtained from one response to construct the next request. Once we grasp this pattern, we can apply it to any API we encounter.
 
 The response this time is not an array but a single JSON **object**. It contains corpus-level metadata (title, description, repository link) and, importantly, a field called `plays` — an array of play objects, each with its own metadata including a `name` field (the play identifier, or "slug").
 
@@ -260,12 +278,14 @@ The response this time is not an array but a single JSON **object**. It contains
 
 To retrieve data about a specific play, we use the endpoint `/corpora/{corpusname}/plays/{playname}`. This endpoint has **two required path parameters**: the corpus name and the play name. Both must be valid, and the play must belong to the specified corpus.
 
-```{figure} ../images/api/swaggerui-corpora-corpusname-plays-playname-endpoint-example-values-of-parameters.png
+When we click "Test Request" for this endpoint, the API client already fills in both path parameters with a matching pair: the corpus `ger` and the play `lessing-emilia-galotti`. Each parameter also has a dropdown with example values — one corpus identifier from each of seven corpora, and one play from each of these corpora. We can also type in a value of our own ("Add value").
+
+```{figure} ../images/api/scalar-play-endpoint-examples.png
 ---
-alt: "Swagger UI showing the /corpora/{corpusname}/plays/{playname} endpoint with Russian Drama Corpus selected as corpusname and the playname examples dropdown open, highlighting Gogol: Revizor (RusDraCor)."
+alt: "The API client for the /corpora/{corpusname}/plays/{playname} endpoint. Under Variables, corpusname is set to ger and playname to lessing-emilia-galotti. The playname dropdown is open and lists lessing-emilia-galotti, aeschylus-persae, goldoni-il-servitore-di-due-padroni, seneca-medea, gogol-revizor, hamlet and munoz-refugio, followed by 'Add value'."
 width: 100%
 ---
-The play endpoint with its two required path parameters. Here, the corpus name is set to the Russian Drama Corpus (`rus`) and the play-name dropdown shows example values from different corpora. The examples are not filtered by the selected corpus, so we must take care to choose a play that actually belongs to the corpus we specified.
+The API client for the play endpoint with its two required path parameters. Both are pre-filled with a matching pair (`ger` and `lessing-emilia-galotti`). The open dropdown shows the example play names, one from each of seven corpora. The two dropdowns are independent of each other: the play-name list is not filtered by the selected corpus.
 ```
 
 The full identifier flow is therefore a three-step cascade:
@@ -276,7 +296,7 @@ The full identifier flow is therefore a three-step cascade:
 
 What happens if we get the identifiers wrong? Every API response includes an HTTP **status code** — a three-digit number that tells us what happened. So far, all our requests returned **200 OK**, meaning the request was successful. But if we request `https://dracor.org/api/v1/corpora/rus/plays/hamlet`, we receive a **404 Not Found** error — because *Hamlet* is not in the Russian Drama Corpus. A play identifier only works within its own corpus.
 
-The Swagger UI allows us to freely combine example values from different corpora (as we saw in the screenshot above), which can easily lead to such mismatches. We should always verify that the play we are requesting belongs to the corpus we specified.
+Because the two dropdowns in the API client are independent, it is easy to produce such a mismatch: we can select the corpus `rus` and the play `hamlet` without any warning. The introduction of the API documentation therefore lists the example pairs that belong together, and the description of the `playname` parameter links to this list. We should always verify that the play we are requesting belongs to the corpus we specified.
 
 To return to our library analogy: status codes are like the librarian's responses. "Here is your book" (200 OK), "We don't have that book" (404 Not Found), "I don't understand what you are asking for" (400 Bad Request), or "Our catalogue system is currently down, please come back later" (500 Internal Server Error).
 
@@ -286,16 +306,16 @@ Status codes are grouped by their first digit, which tells us the category of th
 - **4xx — Client error.** Something is wrong with *our* request — a typo in the URL, a missing parameter, or a resource that does not exist. Common codes: **400 Bad Request**, **404 Not Found**.
 - **5xx — Server error.** The server encountered a problem — this is not our fault. Common code: **500 Internal Server Error**.
 
-We do not need to memorise all status codes. The key insight is: if the first digit is 2, we are fine; if it is 4, we should check our request; if it is 5, the problem is on the server side. For each endpoint, the DraCor OpenAPI specification lists the possible status codes and their meaning — we can see them in the Responses section of the Swagger UI. This is a good place to check if something goes wrong with a request.
+We do not need to memorise all status codes. The key insight is: if the first digit is 2, we are fine; if it is 4, we should check our request; if it is 5, the problem is on the server side. For each endpoint, the DraCor OpenAPI specification lists the possible status codes and their meaning — we can see them in the Responses section of each endpoint in the API documentation. This is a good place to check if something goes wrong with a request.
 
 [^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
 
-```{figure} ../images/api/swaggerui-corpora-corpusname-plays-playname-404.png
+```{figure} ../images/api/scalar-play-endpoint-404.png
 ---
-alt: "Swagger UI showing a 404 error after requesting hamlet in the Russian Drama Corpus. The corpusname is set to 'rus' and the playname to 'hamlet', resulting in a 404 Not Found response."
+alt: "The API client after requesting hamlet in the Russian Drama Corpus. The corpusname is set to 'rus' and the playname to 'hamlet'; the response status reads '404 Not Found'; the Code Snippet shows the curl command for https://dracor.org/api/v1/corpora/rus/plays/hamlet."
 width: 100%
 ---
-A 404 Not Found error in action. The corpus name is set to the Russian Drama Corpus (`rus`), but the play name `hamlet` (from ShakeDraCor) does not exist in this corpus.
+A 404 Not Found error in action. The corpus name is set to the Russian Drama Corpus (`rus`), but the play name `hamlet` (from ShakeDraCor) does not exist in this corpus. The Code Snippet at the bottom shows the URL that was requested.
 ```
 
 In Python, we can check the status code of a response and react accordingly:
@@ -394,7 +414,7 @@ The network data endpoints illustrate a practical approach to **content negotiat
 
 ```{admonition} How to find out what an endpoint returns
 :class: tip
-Rather than memorising the table above, we recommend learning to read the **schema** in the Swagger UI. For each endpoint, the response section shows both an example value and a formal schema describing the structure and types of all fields. The schema is the most reliable guide to what data is available from a given endpoint. For a comprehensive overview of all data points ("features") returned by the DraCor API — organised by corpus, play, segment, and character — see the feature tables in {cite}`borner2023cls{pp. 37–44}`, with updates in {cite}`borner2025cls`.
+Rather than memorising the table above, we recommend learning to read the **schema** in the API documentation. For each endpoint, the documentation shows both an example response and — when we click on the status code in the Responses section — a formal schema describing the structure and types of all fields. The schema is the most reliable guide to what data is available from a given endpoint. For a comprehensive overview of all data points ("features") returned by the DraCor API — organised by corpus, play, segment, and character — see the feature tables in {cite}`borner2023cls{pp. 37–44}`, with updates in {cite}`borner2025cls`.
 ```
 
 Rather than walking through each endpoint individually, let us see some of them in action. The following URLs can be pasted directly into a browser to retrieve different types of data for Schiller's *Wilhelm Tell* in GerDraCor:
@@ -410,7 +430,7 @@ The third example uses a **query parameter** on the `/spoken-text` endpoint: `?s
 
 ### 5.5. Research at Scale: Corpus Metadata Analysis
 
-So far, everything we have done with Python could also be done in the Swagger UI or the browser — we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the Swagger UI can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end — we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
+So far, everything we have done with Python could also be done in the API documentation or the browser — we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the API documentation can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end — we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
 
 [^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite}`sluyter-gathje2023cls`.
 
@@ -699,13 +719,13 @@ Open the [Self-test: API](../assessment/05-api-working-with-dracor-programmatica
 
 ## 7. Teaching Notes
 
-This chapter works well as a 90-minute practical session in which learners move gradually from guided exploration to independent API use. A useful rhythm is: first, a short instructor-led demonstration of the Swagger UI and one simple endpoint, such as `/corpora`; second, paired work in which students complete an “API request note” for one endpoint, recording the endpoint, required identifiers, parameters, response format, status code, and one possible research use; third, a short comparison round in which pairs explain how their endpoint turns a textual object into structured data. This helps students practise the central logic of the chapter: moving from corpus to play identifiers, reading JSON responses, and understanding the API as the programmatic layer behind the front-end. For beginners, the activity can stay entirely in the browser and Swagger UI; for more advanced groups, the same endpoint can then be called with `curl` or Python.
+This chapter works well as a 90-minute practical session in which learners move gradually from guided exploration to independent API use. A useful rhythm is: first, a short instructor-led demonstration of the interactive API documentation and one simple endpoint, such as `/corpora`; second, paired work in which students complete an “API request note” for one endpoint, recording the endpoint, required identifiers, parameters, response format, status code, and one possible research use; third, a short comparison round in which pairs explain how their endpoint turns a textual object into structured data. This helps students practise the central logic of the chapter: moving from corpus to play identifiers, reading JSON responses, and understanding the API as the programmatic layer behind the front-end. For beginners, the activity can stay entirely in the browser and the API documentation; for more advanced groups, the same endpoint can then be called with `curl` or Python.
 
-Lecturers may also use this chapter as a bridge from interface-based exploration to reproducible computational work. In a 90–120 minute lab, students can first call the same DraCor endpoint in three ways: Swagger UI, browser URL, and Python with `requests`. They can then adapt a prepared code cell to retrieve metadata for one corpus, inspect the resulting table, and formulate a small research question, for example about chronology, character counts, or the relation between spoken text and stage directions. The session should include a short debugging phase in pairs, because interpreting errors, status codes, missing identifiers, and malformed URLs is part of learning how APIs work. A useful closing task is to ask each group to write one sentence beginning “The API makes it possible to…”, and one sentence beginning “The API does not solve…”. This keeps the focus on both affordances and limitations, including encoding quality, versioning, and reproducibility.
+Lecturers may also use this chapter as a bridge from interface-based exploration to reproducible computational work. In a 90–120 minute lab, students can first call the same DraCor endpoint in three ways: the API documentation, browser URL, and Python with `requests`. They can then adapt a prepared code cell to retrieve metadata for one corpus, inspect the resulting table, and formulate a small research question, for example about chronology, character counts, or the relation between spoken text and stage directions. The session should include a short debugging phase in pairs, because interpreting errors, status codes, missing identifiers, and malformed URLs is part of learning how APIs work. A useful closing task is to ask each group to write one sentence beginning “The API makes it possible to…”, and one sentence beginning “The API does not solve…”. This keeps the focus on both affordances and limitations, including encoding quality, versioning, and reproducibility.
 
 ## 8. Further Reading and Resources
 
-- DraCor API documentation (Swagger UI): [https://dracor.org/doc/api](https://dracor.org/doc/api)
+- DraCor API documentation: [https://dracor.org/doc/api](https://dracor.org/doc/api)
 - Henny Sluyter-Gäthje's API tutorial notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks)
 - Spadini, Elena and Peter Dängeli. "Introduction to APIs (for DH)." Presentation at the RESED Workshop, Zurich, January 2026.
 - Hall, Mark. "Introduction to APIs." DARIAH Campus, 2021. [https://campus.dariah.eu/resources/hosted/introduction-to-apis](https://campus.dariah.eu/resources/hosted/introduction-to-apis)
@@ -727,7 +747,7 @@ Lecturers may also use this chapter as a bridge from interface-based exploration
 | JSON (JavaScript Object Notation) | A lightweight data format using key-value pairs and arrays, widely used in API responses. |
 | Path parameter | A variable part of the URL that identifies a specific resource (e.g. `{corpusname}`). |
 | Query parameter | A key-value pair appended after `?` in the URL to filter or modify the response. |
-| OpenAPI / Swagger | A standard for describing REST APIs; Swagger UI renders the specification as interactive documentation. |
+| OpenAPI | A standard for describing REST APIs in a machine-readable file. Tools such as Scalar or Swagger UI render the specification as interactive documentation. |
 | API wrapper | A programming library that simplifies working with an API from a specific programming language. |
 | Content negotiation | The mechanism by which a client and server agree on the format of the response data. |
 | MIME type (Internet media type) | A standardised label that identifies the format of data (e.g. `application/json`, `text/csv`, `text/plain`). Used in the `Accept` header to request a specific format. |
