@@ -583,18 +583,18 @@ For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdrac
 pip install pydracor
 ```
 
-Its main classes — `DraCor`, `Corpus` and `Play` — mirror the structure of the API itself. Let us walk through them step by step.
+Its main classes — `DraCorAPI`, `Corpus` and `Play` — mirror the structure of the API itself. Let us walk through them step by step.
 
 #### Getting Started
 
 ```python
-from pydracor import DraCor
+from pydracor import DraCorAPI
 
 # Initialise — points to dracor.org by default
-dracor = DraCor()
+dracor = DraCorAPI()
 ```
 
-Here, `DraCor()` creates an *object* — an instance of the `DraCor` class. This object, which we store in the variable `dracor`, knows how to communicate with the DraCor API. We no longer need to construct URLs or manage requests ourselves.
+Here, `DraCorAPI()` creates an *object* — an instance of the `DraCorAPI` class. This object, which we store in the variable `dracor`, knows how to communicate with the DraCor API. We no longer need to construct URLs or manage requests ourselves.
 
 #### Listing Corpora and Getting a Corpus
 
@@ -646,7 +646,7 @@ plays_after_1800 = [p for p in corpus.plays if p.year_normalized > 1800]
 
 # Get metadata as a DataFrame
 import pandas as pd
-metadata = corpus.metadata()
+metadata = corpus.get_metadata()
 metadata_df = pd.DataFrame([m.to_dict() for m in metadata])
 ```
 
@@ -661,7 +661,7 @@ This was only a brief introduction to PyDraCor. For more examples and the full l
 PyDraCor can also point to a local DraCor instance, which is relevant for reproducible research setups (see Chapter 6):
 
 ```python
-dracor = DraCor(host="http://localhost:8088/api/v1")
+dracor = DraCorAPI(host="http://localhost:8088/api/v1")
 ```
 
 #### rdracor for R
