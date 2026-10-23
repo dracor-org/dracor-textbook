@@ -22,10 +22,12 @@ The chapters can be read in sequence or used separately, depending on the learne
 :::{admonition} Questions or feedback
 :class: question-feedback
 
-<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=question&template=question.yml" class="external-link" target="_blank">
+<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=question&amp;template=question.yml"
+   class="external-link" target="_blank" rel="noopener noreferrer">
   Ask a question
 </a><br>
-<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=feedback&template=feedback.yml" class="external-link" target="_blank">
+<a href="https://github.com/dracor-org/dracor-textbook/issues/new?labels=feedback&amp;template=feedback.yml"
+   class="external-link" target="_blank" rel="noopener noreferrer">
   Give feedback
 </a>
 
