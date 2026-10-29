@@ -12,6 +12,8 @@ kernelspec:
 
 # Self-Test: API
 
+**Author:** Antonio Rojas Castro
+
 ````{admonition} Note
 :class: note
 This self-test supports Chapter 5 (*API: Working with DraCor Programmatically*). It checks key concepts and basic hands-on skills.

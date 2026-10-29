@@ -12,6 +12,8 @@ kernelspec:
 
 # Self-Test: Infrastructure
 
+**Author:** Antonio Rojas Castro
+
 ````{admonition} Note
 :class: note
 This self-test helps you check your understanding of *Infrastructure*.
