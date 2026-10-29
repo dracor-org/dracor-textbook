@@ -272,7 +272,7 @@ The full identifier flow is therefore a three-step cascade:
 
 1. **`/corpora`** → returns a list of corpora; find the `name` field (e.g. `"ger"`)
 2. **`/corpora/ger`** → returns corpus details including plays; find the `name` field of a play (e.g. `"lessing-emilia-galotti"`)
-3. **`/corpora/ger/plays/lessing-emilia-galotti`** → returns metadata and network metrics for that play
+3. **`/corpora/ger/plays/lessing-emilia-galotti`** → returns metadata, characters and segments for that play
 
 What happens if we get the identifiers wrong? Every API response includes an HTTP **status code** — a three-digit number that tells us what happened. So far, all our requests returned **200 OK**, meaning the request was successful. But if we request `https://dracor.org/api/v1/corpora/rus/plays/hamlet`, we receive a **404 Not Found** error — because *Hamlet* is not in the Russian Drama Corpus. A play identifier only works within its own corpus.
 
@@ -355,7 +355,7 @@ Once we have navigated to a specific play, a range of endpoints branch off from 
 
 | Endpoint suffix | What it returns | Format(s) |
 |---|---|---|
-| *(none)* | Play metadata and network metrics | JSON |
+| *(none)* | Play metadata, characters and segments | JSON |
 | `/tei` | Full TEI/XML source document | XML |
 | `/txt` | Plain text of the play | plain text |
 | `/characters` | List of characters with metadata | JSON or CSV |
@@ -670,7 +670,7 @@ dracor = DraCorAPI(host="http://localhost:8088/api/v1")
 
 ```r
 library(rdracor)
-metadata <- get_corpus_metadata("ger")
+metadata <- get_dracor("ger")
 plot(metadata$yearNormalized, metadata$wordCountStage / metadata$wordCountText)
 ```
 
@@ -694,7 +694,7 @@ The DraCor API moved from version 0 to version 1 in December 2023. All examples 
 
 ```{admonition} Self-test
 :class: tip
-Open the [Self-test: API](../assessment/05-api-working-with-dracor-programmatically-assessment).
+Open the [Self-test: API](../assessment/05-api-working-with-dracor-assessment).
 ```
 
 ## 7. Teaching Notes
