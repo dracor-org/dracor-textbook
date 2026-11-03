@@ -8,6 +8,8 @@ scikit-learn>=1.5,<2
 nbclient>=0.10,<1
 jupyter-cache>=1.0,<2
 jupyter-book>=1.0,<2
+sphinx-book-theme==1.1.4
+pydata-sphinx-theme==0.15.4
 jupyterquiz>=2.0
 ipywidgets>=8.0
 widgetsnbextension>=4.0
