@@ -17,7 +17,7 @@ license: "CC BY 4.0"
 :class: tip
 
 **Author:** Antonio Rojas Castro   
-**Version:** 0.6 (2026-05-19)  
+**Version:** 0.7 (2026-11-09)  
 **Review status:** Revised  
 **Reviewer:** Julia Jennifer Beine
 ```
@@ -50,7 +50,7 @@ After completing this chapter, learners will be able to:
 
 ## 4. Theoretical Background
 
-DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in TEI/XML format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab describes a co-occurrence rule: characters are linked if they speak in the same segment; if scene segmentation is unavailable, the act is used as the segment. For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
+DraCor presents drama as structured data. The front-end does not simply display a text: it renders several layers that are either encoded in the text itself (in TEI/XML format) or generated from this encoding (for example, co-occurrence networks). This matters for interpretation. Each tab corresponds to a specific representation of the text, and the visualisations we see depend on modelling assumptions. In particular, the Network tab links characters referenced in `<sp who>` within the same segment; if scene segmentation is unavailable, the act is used as the segment. For this reason, the front-end is best used as an exploratory environment: we can quickly form hypotheses, but we should make our observations traceable by noting which corpus and play we inspected, and which tab produced a given view.
 
 ```{admonition} Tip for learners
 When you write down an observation, include the corpus and play ID (from the URL or header) and the tab you used. If the tab offers selectable methods or layers, note the selected option as well.
@@ -88,13 +88,13 @@ Play pages share a consistent header layout. In the example used in this chapter
 
 #### Tab 1. Network
 
-The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. The interface states the modelling rule explicitly: if characters speak in the same scene or act (segment), they are linked. If there is no scene segmentation, characters that speak in the same act are linked {cite:p}`borner2023cls{pp. 7–12, 51–53}`. It is important to note that silent characters are not counted and that mere presence on stage is not evaluated. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
+The Network tab provides a co-occurrence network for the play. A network consists of nodes that represent the characters and edges that represent co-occurrences. Characters are linked when they are referenced in `<sp who>` within the same scene or act (segment). If there is no scene segmentation, the act is used as the segment {cite:p}`borner2023cls{pp. 7–12, 51–53}`. Characters referenced in `<sp who>` can be included even if they do not actually speak. Mere presence on stage, without such a reference, is not sufficient for inclusion. What we see first is a graph visualisation, which provides an immediate visual overview. This image is not only illustrative; it is also a reminder that the network is a specific representation of interaction derived from segmentation choices.
 
 Next to the graph, DraCor summarises network properties in a compact panel. These values help us describe the network beyond what the eye can capture:
 
 - **Segments**: the number of segments used to create co-occurrence links (the unit behind “same scene/act (segment)”).
-- **All-in at segment _n_ (at _x_%)**: the point in the play where the network has accumulated _x_% of its nodes, indicating how quickly the cast becomes present in the segmentation.
-- **Network size**: the number of speaking characters/entities in the play.
+- **All-in at segment _n_ (at _x_%)**: the first segment by which all characters referenced in `<sp who>` have appeared at least once. They do not need to appear together. The percentage is calculated by dividing _n_ by the total number of segments and multiplying by 100. For example, segment 21 out of 23 gives approximately 91%.
+- **Network size**: the number of nodes representing characters or character groups in the network.
 - **Density**: a value between 0 and 1 indicating how many of all possible edges between nodes are realised.
 - **Diameter**: the highest value among all shortest distances between two nodes.
 - **Average path length**: the average of all shortest path lengths between pairs of nodes in a connected network.
@@ -210,8 +210,9 @@ For a longer session, this chapter can also be used as preparation for Chapters 
 | Front-end | The web interface of DraCor. |
 | Play ID (slug) | A stable identifier for a play (visible in the header/URL and in corpus tables). |
 | Segment | A unit of segmentation used by the interface to structure co-occurrence and navigation. |
-| Co-occurrence network | Characters are represented as nodes (or vertices), and their co-occurrences as edges. In DraCor characters are linked if they speak in the same segment. If no scene segmentation is available, characters who speak in the same act are linked instead. Silent characters and mere stage presence are not taken into account. |
-| Network size | The number of speaking characters/entities in a play. |
+| Co-occurrence network | A network in which nodes represent characters or character groups. In DraCor, characters are linked when they are referenced in `<sp who>` within the same segment. If scene segmentation is unavailable, the act is used instead. Mere stage presence does not establish a connection. |
+| Network size | The number of nodes representing characters or character groups in the network. |
+| All-in index | The first segment by which all characters referenced in `<sp who>` have appeared at least once. Its relative position is expressed as a percentage of the total number of segments. |
 | Network diameter | The greatest shortest-path distance between any two nodes in the network. In other words, it is the longest of all minimal paths connecting pairs of characters. |
 | Network density | A value between 0 and 1 indicating how many of all possible connections between nodes are realised. |
 | Clustering coefficient | A value between 0 and 1 indicating how strongly nodes tend to form triangles, that is, tightly connected local clusters. |
