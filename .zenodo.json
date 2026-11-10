@@ -2,7 +2,7 @@
   "title": "DraCor Textbook",
   "upload_type": "publication",
   "publication_type": "book",
-  "description": "<p>The DraCor Textbook is a curated, pedagogically structured Open Educational Resource (OER) for working with the programmable drama corpora of DraCor. Book 1 covers corpus building, TEI encoding, the DraCor front-end, the DraCor API and the DraCor infrastructure.</p><p>The textbook was developed as part of DraCorOS, a project funded through the OSCARS cascading grants.</p><p>Online edition: <a href=\"https://dracor-org.github.io/dracor-textbook/\">https://dracor-org.github.io/dracor-textbook/</a></p>",
+  "description": "<p>The DraCor Textbook is a curated, pedagogically structured Open Educational Resource (OER) for working with the programmable drama corpora of DraCor. This book covers corpus building, TEI encoding, the DraCor front-end, the DraCor API and the DraCor infrastructure.</p><p>The DraCor Textbook was developed as part of DraCorOS, a project funded through the OSCARS cascading grants.</p><p>Online edition: <a href=\"https://dracor-org.github.io/dracor-textbook/\">https://dracor-org.github.io/dracor-textbook/</a></p>",
   "creators": [
     {
       "name": "Rojas Castro, Antonio",

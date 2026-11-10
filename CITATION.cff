@@ -4,7 +4,7 @@ title: "DraCor Textbook"
 abstract: >-
   The DraCor Textbook is a curated, pedagogically structured Open Educational
   Resource (OER) for working with the programmable drama corpora of DraCor.
-  Book 1 covers corpus building, TEI encoding, the DraCor front-end, the
+  This book covers corpus building, TEI encoding, the DraCor front-end, the
   DraCor API and the DraCor infrastructure.
 authors:
   - family-names: "Rojas Castro"
