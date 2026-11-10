@@ -311,7 +311,7 @@ Lecturers may also teach this chapter as a practical Docker lab, ideally in a 12
 
 ## 10. Next Steps
 
-This chapter concludes Book 1 of the DraCor Textbook. Readers may continue by experimenting with a local instance: load a small corpus and repeat an API request from Chapter 5. To share such an instance with others, they can put their own DraCor online on the EOSC EU Node, as described in section 5.5. Comments, corrections and suggestions for the textbook are welcome in its [GitHub repository](https://github.com/dracor-org/dracor-textbook).
+This chapter concludes the current version of the DraCor Textbook. Readers may continue by experimenting with a local instance: load a small corpus and repeat an API request from Chapter 5. To share such an instance with others, they can put their own DraCor online on the EOSC EU Node, as described in section 5.5. Comments, corrections and suggestions for the textbook are welcome in its [GitHub repository](https://github.com/dracor-org/dracor-textbook).
 
 ## 11. AI Use Declaration
 
