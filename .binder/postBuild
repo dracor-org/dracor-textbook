@@ -1,0 +1,17 @@
+#!/bin/bash
+# Open Markdown files (the textbook chapters) as notebooks via jupytext.
+# Written into the environment, not the home directory, which may be
+# replaced by persistent storage at launch.
+set -euo pipefail
+SETTINGS_DIR="${NB_PYTHON_PREFIX:-$(python -c 'import sys; print(sys.prefix)')}/share/jupyter/lab/settings"
+mkdir -p "$SETTINGS_DIR"
+cat > "$SETTINGS_DIR/overrides.json" <<'JSON'
+{
+  "@jupyterlab/docmanager-extension:plugin": {
+    "defaultViewers": {
+      "markdown": "Jupytext Notebook",
+      "myst": "Jupytext Notebook"
+    }
+  }
+}
+JSON
