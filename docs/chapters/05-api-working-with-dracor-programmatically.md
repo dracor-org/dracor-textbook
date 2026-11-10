@@ -38,8 +38,8 @@ In this chapter we learn what an API is, how the DraCor API is structured and ho
 
 * Web browser and internet access.
 * Familiarity with the DraCor front-end (Chapter 4) is helpful but not strictly required.
-* No programming experience is needed for the first sections (Examples 1–4), which work entirely in the browser.
-* For the later sections (Examples 5–6), basic willingness to try Python is sufficient. We explain every step.
+* No programming experience is needed to explore the API in the browser (sections 5.1–5.4). These sections also include short Python snippets, which you can skip.
+* From section 5.5 onwards, a basic willingness to try Python is enough. We explain every step.
 
 ## 3. Learning Outcomes
 
@@ -69,7 +69,7 @@ The DraCor API follows what we might call "pragmatic REST". It adheres to the co
 
 ### 4.2. Why an API for Literary Corpora?
 
-Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across all 600+ plays in GerDraCor, the front-end offers no way to do so.
+Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in GerDraCor, the front-end offers no way to do so.
 
 Without an API, the alternative would be to download the TEI/XML source files from GitHub and write our own scripts to parse them — extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see Chapter 3).
 
@@ -480,7 +480,7 @@ In the first example, `len()` gives us the number of rows (plays), and `.columns
 
 ```{admonition} A note on performance
 :class: warning
-The `/metadata` endpoint returns data for *all* plays in a corpus in a single response. For large corpora like FreDraCor (several thousand plays), this can be slow. This is a known trade-off in the DraCor API design — convenient for quick analyses but costly for large datasets.
+The `/metadata` endpoint returns data for *all* plays in a corpus in a single response. For large corpora like FreDraCor (almost 2,000 plays), this can be slow. This is a known trade-off in the DraCor API design — convenient for quick analyses but costly for large datasets.
 ```
 
 #### Example Analysis: Stage Directions over Time
@@ -523,11 +523,16 @@ This follows the same pattern as before: we divide two columns to create a new r
 
 Some analyses require data that is not in the metadata table. For example, if we want to know how many words are spoken by male versus female characters across an entire corpus, we need to look at individual characters. The metadata table tells us *how many* speakers of each gender a play has, but not *how much* each of them speaks.
 
-The `/characters` endpoint returns a list of characters for a single play, including fields like `numOfWords` (the number of words spoken), `numOfSpeechActs`, `sex` (MALE, FEMALE, or UNKNOWN), and network metrics. To aggregate this across a whole corpus, we iterate over all plays:
+The `/characters` endpoint returns a list of characters for a single play, including fields like `numOfWords` (the number of words spoken), `numOfSpeechActs`, `sex` (MALE, FEMALE, UNKNOWN, or `null` if no value is encoded), and network metrics. To aggregate this across a whole corpus, we iterate over all plays.
+
+Because this loop sends one request per play, we use a small corpus here: the German Shakespeare Drama Corpus (`gersh`, 38 plays), which takes less than a minute. The same code works for GerDraCor (`ger`), but with nearly 800 plays it sends nearly 800 requests and takes several minutes, or longer when the server is busy.
 
 ```python
+API_URL = "https://dracor.org/api/v1/"
+corpusname = "gersh"  # German Shakespeare Drama Corpus, 38 plays
+
 # Get the list of plays in the corpus
-corpus_data = requests.get(API_URL + "corpora/" + corpusname).json()
+corpus_data = requests.get(API_URL + "corpora/" + corpusname, timeout=60).json()
 
 # Counters for words spoken by male and female characters
 words_male = 0
@@ -537,7 +542,7 @@ words_female = 0
 for play in corpus_data["plays"]:
     # Build the URL for the characters endpoint
     url = API_URL + "corpora/" + corpusname + "/plays/" + play["name"] + "/characters"
-    response = requests.get(url)
+    response = requests.get(url, timeout=60)
     response.raise_for_status()
     characters = response.json()
 
@@ -571,7 +576,7 @@ The iteration pattern above raises a question of API design. To get character da
 
 ### 5.6. Using PyDraCor (and rdracor)
 
-In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process by wrapping API calls into functions (reusable blocks of code, as we have seen) and *classes* — blueprints for creating objects that bundle data and functionality together. For example, a `Play` class might hold a play's metadata and offer methods like `.get_spoken_text()` — that feel native to the programming language.
+In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process. It wraps API calls into functions (reusable blocks of code, as we have seen) and *classes* that feel native to the programming language. A class is a blueprint for creating objects that bundle data and functionality together: for example, a `Play` class might hold a play's metadata and offer methods like `.get_spoken_text()`.
 
 For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdracor** for R {cite}`sluyter-gathje2023cls`.
 
@@ -632,7 +637,7 @@ response.raise_for_status()
 text = response.text
 ```
 
-The PyDraCor version is shorter and reads more naturally — `play.get_spoken_text(sex="FEMALE")` is immediately understandable — while the `requests` version makes the underlying HTTP mechanics visible.
+The PyDraCor version is shorter: PyDraCor handles URL construction, HTTP requests, and JSON parsing behind the scenes, and `play.get_spoken_text(sex="FEMALE")` is immediately understandable. The `requests` version, in turn, makes the underlying HTTP mechanics visible.
 
 #### Metrics and Metadata
 
@@ -651,8 +656,6 @@ metadata_df = pd.DataFrame([m.to_dict() for m in metadata])
 ```
 
 `metrics.average_degree` shows how PyDraCor makes API data feel like native Python: instead of navigating a dictionary (`data["averageDegree"]`), we access a property on an object. The filtering example uses a Python *list comprehension* — a compact way of writing a loop that selects items matching a condition.
-
-Compared to the raw `requests` approach, PyDraCor handles URL construction, HTTP requests, and JSON parsing behind the scenes. The code reads more naturally: `play.get_spoken_text(sex="FEMALE")` is immediately understandable, whereas the equivalent raw URL (`https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/spoken-text?sex=FEMALE`) requires more effort to construct and parse.
 
 PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is auto-generated from the DraCor OpenAPI specification, helping it remain in sync with the API. The main `pydracor` package then wraps this core with convenience functions {cite}`borner2025cls`.
 
