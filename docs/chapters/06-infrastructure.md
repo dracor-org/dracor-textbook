@@ -98,7 +98,7 @@ DraCor is built on what is sometimes called the "X technology stack" — a set o
 
 **The Triple Store.** DraCor also generates RDF (Resource Description Framework) representations of plays and their metadata, which are stored in a Triple Store (Apache Jena Fuseki). This provides a SPARQL endpoint for linked data queries — connecting DraCor data to the broader Linked Open Data cloud, including Wikidata. We do not cover SPARQL in this textbook — the linked data layer is currently the least developed part of the DraCor system and still evolving. But it is worth knowing that this component exists and points toward a future in which DraCor data can be queried in relation to external knowledge bases.
 
-**Reuse of the technology stack.** The DraCor system is not limited to drama. The same technology stack has been adapted for other domains: [EcoCor](https://ecocor.org) applies it to texts relevant for ecocriticism, and an [ELTeC corpus explorer](https://eltec.clsinfra.io) uses it for the European Literary Text Collection (prose). Adapting DraCor for a new domain requires working with the XQuery code — a step beyond what this textbook covers, but one that the open-source nature of the project makes possible.
+**Reuse of the technology stack.** The DraCor system is not limited to drama. The same technology stack has been adapted for other domains: [EcoCor](https://ecocor.org) applies it to texts relevant for ecocriticism, and an [ELTeC corpus explorer](https://eltec.clscor.io) uses it for the European Literary Text Collection (prose). Adapting DraCor for a new domain requires working with the XQuery code — a step beyond what this textbook covers, but one that the open-source nature of the project makes possible.
 
 ### 4.3. The Ecosystem: People and Community
 
@@ -125,7 +125,7 @@ The following sections involve working with the *terminal* (also called command 
 
 There are several practical reasons to set up a local DraCor instance:
 
-- **Independence.** A local instance does not depend on the dracor.org server being available — although its uptime is generally good. You can work offline and without being affected by changes to the production system.
+- **Independence.** A local instance does not depend on the dracor.org server being available — although its uptime is generally good. Once the Docker images and the corpus data have been downloaded, you can work offline, without being affected by changes to the production system.
 - **Testing your own corpus.** If you are developing a new corpus of TEI-encoded plays (see Chapter 3), you can load it into a local DraCor to see how it looks in the front-end and how the API processes it — before contributing it to the community.
 - **Working with custom data.** You may want to work with plays that are not (yet) on dracor.org, or with a specific subset of plays for a particular research question.
 - **Controlling the data version.** DraCor corpora are "living corpora" — they change over time as plays are added, corrected, or re-encoded {cite}`borner2024cls`. The data on dracor.org can change without further notice — corpora are updated, plays added or corrected — and as a user, you do not know when this happens. A local instance lets you work with a specific, known version of the data.
@@ -133,7 +133,7 @@ There are several practical reasons to set up a local DraCor instance:
 
 ```{admonition} The reproducibility challenge in CLS
 :class: note
-The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da_2019_computational-case`. Christof Schöch developed a comprehensive framework for "repetitive research" — distinguishing replication, reproduction, revision, and other forms — and concluded that there are "serious and relevant challenges for the field" {cite}`schoech_2023_repetitive-research`. The living nature of DraCor corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`borner2024cls`.
+The question of reproducibility in Computational Literary Studies has received increasing attention. Nan Z. Da's critique of CLS in 2019 pointed out cases where results could not be reproduced {cite}`da2019computational`. Christof Schöch considers Da's paper highly problematic, but notes that it points to "serious and relevant challenges for the field of CLS", above all the difficulty of reproducing work in the field {cite}`schoech2023repetitive{p. 379}`. He developed a comprehensive framework for "repetitive research" that distinguishes replication, reproduction, revision, and other forms. The living nature of DraCor corpora adds another dimension: even with the same code, results may change if the underlying data has been updated. For a detailed discussion and practical solutions, see {cite}`borner2024cls`.
 ```
 
 ### 5.2. What Is Docker?
@@ -151,7 +151,7 @@ Two key concepts:
 
 Docker Compose allows us to define and run multiple containers together — think of it as a blueprint that specifies which services to start, how they connect, and in what order. This is exactly what we need for DraCor, since the system consists of several services that need to communicate with each other.
 
-This combination of Docker and Compose is what makes sharing and documenting a DraCor setup so lightweight. Since the images are already published on Docker Hub, all we need to share is the Compose file — a small text file that contains all the information needed to start and orchestrate the services. Anyone with Docker installed can take that file, run `docker compose up`, and have the same system running on their machine. This also means that any adaptations we make to our local setup — adding a service, changing a configuration — are documented in the Compose file itself rather than in our memory.
+This combination of Docker and Compose is what makes sharing and documenting a DraCor setup so lightweight. Since the images are already published on Docker Hub, all we need to share is the Compose file — a small text file that contains all the information needed to start and orchestrate the services. Anyone with Docker installed can take that file, run `docker compose up`, and have the same system running on their machine. This only works reliably if the Compose file specifies exact image versions (for example `dracor/api:1.4.1` rather than `dracor/api:latest`); otherwise, `docker compose up` downloads whatever version is current at the time, and the result may differ from the original setup. This also means that any adaptations we make to our local setup — adding a service, changing a configuration — are documented in the Compose file itself rather than in our memory.
 
 ```{admonition} A transferable skill
 :class: tip
@@ -191,7 +191,7 @@ Once the services are running, we can verify that the API is operational. Note t
 curl http://localhost:8088/api/v1/info
 ```
 
-The front-end is now available at [http://localhost:8088](http://localhost:8088). It looks the same as dracor.org — but it is running entirely on your machine, and it is empty: no corpora are loaded yet.
+The front-end is now available at [http://localhost:8088](http://localhost:8088). It is the same software as on dracor.org, although the `compose.yml` in the repository may refer to newer versions than those currently running on dracor.org. It runs entirely on your machine, and it is empty: no corpora are loaded yet.
 
 ### 5.4. Loading a Corpus
 
@@ -251,11 +251,13 @@ Everything we learned in Chapter 5 — listing corpora, retrieving plays, gettin
 
 Once we have a local DraCor instance populated with data, we can go one step further: freezing its state and sharing it. The Docker command `docker commit` creates a new image from a running container — essentially taking a snapshot of the populated database. This image can then be published on Docker Hub, so that other researchers can download it and have the exact same data and infrastructure available on their machine.
 
+Note that `docker commit` captures a single container. For DraCor, this is the `api` container, whose eXist-db database holds the corpus data. The other services — the front-end, the metrics service and the Fuseki triple store — are not part of the snapshot, and Fuseki keeps its data in a separate Docker volume, which `docker commit` never includes. To share the complete environment, we therefore push the committed image to Docker Hub and share a Compose file that refers to it in place of the original `dracor/api` image and specifies the exact versions of all other images. Running `docker compose up` with this file then downloads all images from Docker Hub, including our snapshot.
+
 This is what was done for the "Small Worlds" study {cite}`trilcke2024detecting`: the researchers created a "pre-analysis state" image (the populated DraCor with the VeBiDraCor data) and a "post-analysis state" image (the research environment after running the analysis), both published and available for inspection {cite}`borner2023dockerizing`. In this way, a Docker image becomes a *research artifact* — a self-contained, shareable package that documents not just the code and data but the entire environment in which the research was conducted {cite}`borner2024cls`.
 
 ### 5.6. Beyond Using: Adapting DraCor
 
-In this chapter, we loaded existing DraCor corpora into a local instance. But the open-source nature of the system also makes it possible to go further: adapting the DraCor technology stack for entirely different collections of texts. Projects like [EcoCor](https://ecocor.org) (Prose Corpora for Ecocriticism) and the [ELTeC corpus explorer](https://eltec.clsinfra.io) (European Literary Text Collection Corpora of Novels) have done exactly this — reusing the eXist-db application, API and front-end of DraCor for their own purposes. Adapting DraCor at this level involves working with the XQuery code and the TEI customisation, which is beyond the scope of this textbook. But knowing that it is possible — and that the codebase is open for it — is part of understanding DraCor as infrastructure: not a fixed product, but a platform that can evolve with the needs of the research community.
+In this chapter, we loaded existing DraCor corpora into a local instance. But the open-source nature of the system also makes it possible to go further: adapting the DraCor technology stack for entirely different collections of texts. Projects like [EcoCor](https://ecocor.org) (Prose Corpora for Ecocriticism) and the [ELTeC corpus explorer](https://eltec.clscor.io) (European Literary Text Collection Corpora of Novels) have done exactly this — reusing the eXist-db application, API and front-end of DraCor for their own purposes. Adapting DraCor at this level involves working with the XQuery code and the TEI customisation, which is beyond the scope of this textbook. But knowing that it is possible — and that the codebase is open for it — is part of understanding DraCor as infrastructure: not a fixed product, but a platform that can evolve with the needs of the research community.
 
 ## 6. Exercises
 
@@ -307,7 +309,7 @@ Lecturers may also teach this chapter as a practical Docker lab, ideally in a 12
 
 ## 10. Next Steps
 
-Having explored the infrastructure of DraCor, readers can continue with Chapter 7, which discusses the DraCor Textbook as a living and collaborative resource. They may also experiment with a local instance by loading a small corpus and repeating an API request from Chapter 5.
+This chapter concludes Book 1 of the DraCor Textbook. Readers may continue by experimenting with a local instance: load a small corpus and repeat an API request from Chapter 5. Comments, corrections and suggestions for the textbook are welcome in its [GitHub repository](https://github.com/dracor-org/dracor-textbook).
 
 ## 11. AI Use Declaration
 
