@@ -253,6 +253,8 @@ Note that `docker commit` captures a single container. For DraCor, this is the `
 
 This is what was done for the "Small Worlds" study {cite}`trilcke2024detecting`: the researchers created a "pre-analysis state" image (the populated DraCor with the VeBiDraCor data) and a "post-analysis state" image (the research environment after running the analysis), both published and available for inspection {cite}`borner2023dockerizing`. In this way, a Docker image becomes a *research artifact* — a self-contained, shareable package that documents not just the code and data but the entire environment in which the research was conducted {cite}`borner2024cls`.
 
+A local instance, however, is yours alone: co-authors, students or reviewers cannot access it. To put your own DraCor online, you can use the Cloud Container Platform of the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/), a node of the European Open Science Cloud (EOSC). Researchers log in with their institutional account and receive credits for computing resources, without an application or a budget; a standard DraCor fits into the smallest container size. The repository [dracor-eosc-eu-node-deploy](https://github.com/dracor-org/dracor-eosc-eu-node-deploy) provides the configuration files, a step-by-step guide, and instructions for a coding agent that guides you through the deployment {cite}`borner2026cloud`. Note that loading a corpus this way gives you its current state; such an instance is useful for teaching, demos or sharing a custom corpus, but it does not by itself freeze data and software for reproducibility.
+
 ### 5.6. Beyond Using: Adapting DraCor
 
 In this chapter, we loaded existing DraCor corpora into a local instance. But the open-source nature of the system also makes it possible to go further: adapting the DraCor technology stack for entirely different collections of texts. Projects like [EcoCor](https://ecocor.org) (Prose Corpora for Ecocriticism) and the [ELTeC corpus explorer](https://eltec.clscor.io) (European Literary Text Collection Corpora of Novels) have done exactly this — reusing the eXist-db application, API and front-end of DraCor for their own purposes. Adapting DraCor at this level involves working with the XQuery code and the TEI customisation, which is beyond the scope of this textbook. But knowing that it is possible — and that the codebase is open for it — is part of understanding DraCor as infrastructure: not a fixed product, but a platform that can evolve with the needs of the research community.
@@ -274,6 +276,8 @@ Lecturers may also teach this chapter as a practical Docker lab, ideally in a 12
 
 - DraCor API repository and setup instructions: [https://github.com/dracor-org/dracor-api](https://github.com/dracor-org/dracor-api)
 - Reproducible research with Docker notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks/blob/main/reproducible-research-with-docker/reproducible-research-with-docker.ipynb)
+- Running your own DraCor on the EOSC EU Node, step-by-step guide: [dracor-eosc-eu-node-deploy on GitHub](https://github.com/dracor-org/dracor-eosc-eu-node-deploy/blob/main/docs/guide-eosc-eu-node.md)
+- Börner, I. (2026). “The Cloud, the Credits and a Coding Agent: Your Own DraCor on the EOSC EU Node.” [DraCor Blog](https://blog.dracor.org/posts/cloud-credits-coding-agent-own-dracor-eosc-eu-node/)
 - Docker documentation: [https://docs.docker.com/](https://docs.docker.com/)
 - Sherratt, T. (2015). “Towards a Manifesto for Tactical DH Research Infrastructure.” [YouTube](https://www.youtube.com/watch?v=FL5pP2ysjU4)
 - DARIAH Campus: [https://campus.dariah.eu/](https://campus.dariah.eu/)
@@ -307,7 +311,7 @@ Lecturers may also teach this chapter as a practical Docker lab, ideally in a 12
 
 ## 10. Next Steps
 
-This chapter concludes Book 1 of the DraCor Textbook. Readers may continue by experimenting with a local instance: load a small corpus and repeat an API request from Chapter 5. Comments, corrections and suggestions for the textbook are welcome in its [GitHub repository](https://github.com/dracor-org/dracor-textbook).
+This chapter concludes Book 1 of the DraCor Textbook. Readers may continue by experimenting with a local instance: load a small corpus and repeat an API request from Chapter 5. To share such an instance with others, they can put their own DraCor online on the EOSC EU Node, as described in section 5.5. Comments, corrections and suggestions for the textbook are welcome in its [GitHub repository](https://github.com/dracor-org/dracor-textbook).
 
 ## 11. AI Use Declaration
 
