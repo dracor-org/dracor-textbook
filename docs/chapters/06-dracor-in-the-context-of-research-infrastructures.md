@@ -319,6 +319,8 @@ This chapter concludes Book 1 of the DraCor Textbook. Readers may continue by ex
 
 This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor and CLS infrastructure was used to retrieve relevant passages and verify factual claims. A summary of the CLS INFRA project proposal and strategic roadmap, generated with the assistance of an LLM, was used as source material. All content was reviewed and edited by the author. The revision for version 0.3 was carried out with a coding agent (Claude Code, Anthropic), which proposed changes, tested the Docker setup and the corpus-loading commands, and checked references against their sources; each change was approved by the author.
 
+The self-test for this chapter was created by Antonio Rojas Castro with the assistance of AI, based on the chapter content.
+
 ## 12. Author Contributions
 
 Ingo Börner – Conceptualisation, Methodology, Software, Writing – original draft, Writing – review and editing.  
