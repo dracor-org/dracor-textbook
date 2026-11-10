@@ -34,7 +34,7 @@ q1 = [{
   "type": "multiple_choice",
   "answers": [
     {"answer": "It is the documentation website at https://dracor.org/doc/api", "correct": False,
-     "feedback": "Not quite. That is the Swagger UI documentation *about* the API."},
+     "feedback": "Not quite. That is the interactive documentation *about* the API."},
     {"answer": "It is the programmatic interface that returns data (e.g. JSON, CSV, TEI/XML) at https://dracor.org/api/v1/", "correct": True,
      "feedback": "Correct. The API is the data and service interface, and the front-end is one client of it."},
     {"answer": "It is only used for downloading GEXF files for Gephi", "correct": False,
@@ -53,17 +53,17 @@ display_quiz(q1, max_width=1000)
 from jupyterquiz import display_quiz
 
 q2 = [{
-  "question": "What is the most accurate statement about Swagger UI for DraCor?",
+  "question": "What is the most accurate statement about the interactive API documentation of DraCor (built with Scalar)?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Swagger UI is the API itself", "correct": False,
-     "feedback": "No. Swagger UI is documentation and a testing interface, not the API."},
-    {"answer": "Swagger UI renders the OpenAPI specification as interactive documentation and lets you try requests", "correct": True,
+    {"answer": "The API documentation is the API itself", "correct": False,
+     "feedback": "No. The API documentation is documentation and a testing interface, not the API."},
+    {"answer": "It renders the OpenAPI specification as interactive documentation and lets you send test requests", "correct": True,
      "feedback": "Correct. It is a human-friendly interface to the OpenAPI specification."},
-    {"answer": "Swagger UI requires authentication for all endpoints", "correct": False,
+    {"answer": "It requires authentication for all endpoints", "correct": False,
      "feedback": "No. Public endpoints can be used without authentication."},
-    {"answer": "Swagger UI returns TEI/XML only", "correct": False,
-     "feedback": "No. Swagger UI shows endpoints that return JSON, CSV, XML, and plain text (depending on endpoint)."}
+    {"answer": "It returns TEI/XML only", "correct": False,
+     "feedback": "No. The documentation shows endpoints that return JSON, CSV, XML, and plain text (depending on endpoint)."}
   ]
 }]
 display_quiz(q2, max_width=1000)
