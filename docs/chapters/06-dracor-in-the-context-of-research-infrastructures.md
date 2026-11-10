@@ -17,7 +17,7 @@ license: "CC BY 4.0"
 :class: tip
 
 **Author:** Ingo Börner  
-**Version:** 0.2 (2026-09-14)  
+**Version:** 0.3 (2026-11-10)  
 **Review status:** Revised  
 **Reviewer:** Antonio Rojas Castro  
 ```
