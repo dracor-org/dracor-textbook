@@ -22,10 +22,6 @@ license: "CC BY 4.0"
 **Reviewer:** Antonio Rojas Castro  
 ```
 
-```{note}
-**How to use this chapter:** We begin with the interactive API documentation in the browser, then progressively move towards programmatic access using Python. Each section introduces general API concepts through concrete DraCor examples. If you are not (yet) comfortable with programming, the first sections work entirely in the browser.
-```
-
 ## 1. Overview
 
 In the previous chapter we explored DraCor through its web front-end — browsing corpora, inspecting plays tab by tab and downloading files. Everything we saw there is powered by the DraCor API (Application Programming Interface). The API is the programmatic backbone of DraCor: the front-end sends requests to the API and displays the results. When we clicked on a GEXF download in the Downloads tab, we were — without knowing it — calling the API endpoint `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/networkdata/gexf`.

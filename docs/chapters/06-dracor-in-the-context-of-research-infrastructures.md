@@ -22,15 +22,13 @@ license: "CC BY 4.0"
 **Reviewer:** Antonio Rojas Castro  
 ```
 
-```{note}
-**How to use this chapter:** The first part is conceptual — we look at what DraCor is as a system and why understanding infrastructure matters for research. The second part is practical — we set up a local DraCor instance using Docker, load a corpus, and connect it to the API skills from Chapter 5. If Docker is not available on your machine, the conceptual sections still stand on their own.
-```
-
 ## 1. Overview
 
 In the previous chapters we used DraCor through its front-end (Chapter 4) and its API (Chapter 5). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given — a service available at dracor.org that simply works. In this chapter, we open the box.
 
 What is DraCor, technically? Not a single application, but a *system* — a set of interconnected services, maintained by a community, funded by research projects, and embedded in a broader European infrastructure landscape. Understanding this matters for at least three reasons. First, it builds *trust*: if we base our research on a system, we should understand what it is and who keeps it running. Second, it enables *adaptation*: knowing the components means we can run DraCor locally, load our own corpora, and tailor it to our research needs. Third, it fosters *critical awareness*: the data and metrics we retrieve through the API are not simply "there" — they are produced by specific software components, from specific encodings, through specific processes. Understanding this makes us better researchers.
+
+The first part of the chapter is conceptual; the second part is practical: we set up a local DraCor instance with Docker, load a corpus, and connect it to the API skills from Chapter 5.
 
 ## 2. Requirements and Competences
 
