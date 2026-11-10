@@ -33,7 +33,7 @@ q1 = [{
   "question": "In the DraCor context, what does the API primarily do?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It is the documentation website at https://dracor.org/doc/api", "correct": False,
+    {"answer": "It is the documentation website at https://swagger.dracor.org", "correct": False,
      "feedback": "Not quite. That is the Swagger UI documentation *about* the API."},
     {"answer": "It is the programmatic interface that returns data (e.g. JSON, CSV, TEI/XML) at https://dracor.org/api/v1/", "correct": True,
      "feedback": "Correct. The API is the data and service interface, and the front-end is one client of it."},

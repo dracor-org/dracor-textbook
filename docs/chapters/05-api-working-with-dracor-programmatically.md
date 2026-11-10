@@ -92,7 +92,9 @@ If you have the DraCor front-end open alongside this chapter, you can compare wh
 
 ### 5.1. Exploring the API Documentation (Swagger UI)
 
-Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://dracor.org/doc/api](https://dracor.org/doc/api).[^openapi-yaml]
+Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://swagger.dracor.org](https://swagger.dracor.org).[^openapi-yaml]
+
+The DraCor front-end also links to an API documentation page at [dracor.org/doc/api](https://dracor.org/doc/api). From version 3 of the front-end, this page uses a different tool, [Scalar](https://scalar.com), which renders the same OpenAPI specification in a different layout. The Swagger UI at swagger.dracor.org remains available, and this chapter uses it throughout.
 
 [^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
 
@@ -110,7 +112,7 @@ When we open the Swagger UI, we see the API endpoints grouped by *tags*: **publi
 alt: "Swagger UI showing the DraCor API with public endpoints listed: /info, /corpora, /corpora/{corpusname}, and more."
 width: 100%
 ---
-The DraCor API documentation in Swagger UI at [dracor.org/doc/api](https://dracor.org/doc/api). The public endpoints are listed with their HTTP method (GET), path and a short description.
+The DraCor API documentation in Swagger UI at [swagger.dracor.org](https://swagger.dracor.org). The public endpoints are listed with their HTTP method (GET), path and a short description.
 ```
 
 ```{figure} ../images/api/openapi-spec-smaller.png
@@ -708,7 +710,7 @@ Lecturers may also use this chapter as a bridge from interface-based exploration
 
 ## 8. Further Reading and Resources
 
-- DraCor API documentation (Swagger UI): [https://dracor.org/doc/api](https://dracor.org/doc/api)
+- DraCor API documentation (Swagger UI): [https://swagger.dracor.org](https://swagger.dracor.org)
 - Henny Sluyter-Gäthje's API tutorial notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks)
 - Spadini, Elena and Peter Dängeli. "Introduction to APIs (for DH)." Presentation at the RESED Workshop, Zurich, January 2026.
 - Hall, Mark. "Introduction to APIs." DARIAH Campus, 2021. [https://campus.dariah.eu/resources/hosted/introduction-to-apis](https://campus.dariah.eu/resources/hosted/introduction-to-apis)
