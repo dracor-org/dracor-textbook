@@ -26,8 +26,8 @@ parts:
         sections:
           - file: assessment/05-api-working-with-dracor-assessment
             title: "Self-test: API"
-      - file: chapters/06-infrastructure
-        title: "6. Infrastructure"
+      - file: chapters/06-dracor-in-the-context-of-research-infrastructures
+        title: "6. DraCor in the Context of Research Infrastructures"
         sections:
-          - file: assessment/06-infrastructure-assessment
+          - file: assessment/06-dracor-in-the-context-of-research-infrastructures-assessment
             title: "Self-test: Infrastructure"

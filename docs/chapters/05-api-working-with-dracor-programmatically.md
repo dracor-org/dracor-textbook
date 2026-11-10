@@ -746,7 +746,7 @@ Lecturers may also use this chapter as a bridge from interface-based exploration
 
 ## 10. Next Steps
 
-* Continue with: [Chapter 6, “Infrastructure”](06-infrastructure) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
+* Continue with: [Chapter 6, “DraCor in the Context of Research Infrastructures”](06-dracor-in-the-context-of-research-infrastructures) to understand the main components that build the infrastructure of DraCor, and how to run it locally with Docker.
 
 ## 11. AI Use Declaration
 

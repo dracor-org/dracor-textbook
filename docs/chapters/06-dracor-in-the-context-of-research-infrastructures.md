@@ -1,8 +1,8 @@
 ---
-title: "Infrastructure"
+title: "DraCor in the Context of Research Infrastructures"
 myst:
   substitutions:
-    chap_title: "Infrastructure"
+    chap_title: "DraCor in the Context of Research Infrastructures"
 author: "Ingo Börner"
 date: "2026-09-14"
 description: "This chapter explores DraCor as a research infrastructure: its components, its community and its place in the European Digital Humanities landscape. We then set up a local DraCor instance using Docker, load a corpus and connect it to the tools we learned in previous chapters."
@@ -11,7 +11,7 @@ license: "CC BY 4.0"
 ---
 
 
-# Infrastructure
+# DraCor in the Context of Research Infrastructures
 
 ```{admonition} Chapter metadata
 :class: tip
@@ -263,7 +263,7 @@ In this chapter, we loaded existing DraCor corpora into a local instance. But th
 
 ```{admonition} Self-test
 :class: tip
-Open the [Self-test: Infrastructure](../assessment/06-infrastructure-assessment).
+Open the [Self-test: Infrastructure](../assessment/06-dracor-in-the-context-of-research-infrastructures-assessment).
 ```
 
 ## 7. Teaching Notes
