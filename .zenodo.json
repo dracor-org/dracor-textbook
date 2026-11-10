@@ -4,12 +4,30 @@
   "publication_type": "book",
   "description": "<p>The DraCor Textbook is a curated, pedagogically structured Open Educational Resource (OER) for working with the programmable drama corpora of DraCor. Book 1 covers corpus building, TEI encoding, the DraCor front-end, the DraCor API and the DraCor infrastructure.</p><p>The textbook was developed as part of DraCorOS, a project funded through the OSCARS cascading grants.</p><p>Online edition: <a href=\"https://dracor-org.github.io/dracor-textbook/\">https://dracor-org.github.io/dracor-textbook/</a></p>",
   "creators": [
-    {"name": "Rojas Castro, Antonio", "orcid": "0000-0002-8916-4997"},
-    {"name": "Börner, Ingo", "orcid": "0000-0001-8294-2541"},
-    {"name": "Beine, Julia Jennifer", "orcid": "0000-0001-8979-8706"},
-    {"name": "Skorinkin, Daniil", "orcid": "0000-0002-1845-9974"},
-    {"name": "Trilcke, Peer", "orcid": "0000-0002-1421-4320"},
-    {"name": "Fischer, Frank", "orcid": "0000-0003-2419-6629"}
+    {
+      "name": "Rojas Castro, Antonio",
+      "orcid": "0000-0002-8916-4997"
+    },
+    {
+      "name": "Börner, Ingo",
+      "orcid": "0000-0001-8294-2541"
+    },
+    {
+      "name": "Beine, Julia Jennifer",
+      "orcid": "0000-0001-8979-8706"
+    },
+    {
+      "name": "Skorinkin, Daniil",
+      "orcid": "0000-0002-1845-9974"
+    },
+    {
+      "name": "Trilcke, Peer",
+      "orcid": "0000-0002-1421-4320"
+    },
+    {
+      "name": "Fischer, Frank",
+      "orcid": "0000-0003-2419-6629"
+    }
   ],
   "access_right": "open",
   "license": "cc-by-4.0",
@@ -22,10 +40,14 @@
     "TEI"
   ],
   "language": "eng",
-  "grants": [{"id": "10.13039/501100000780::101129751"}],
-  "communities": [{"identifier": "dracor"}],
-  "related_identifiers": [
-    {"identifier": "https://dracor-org.github.io/dracor-textbook/", "relation": "isAlternateIdentifier", "resource_type": "publication-book"},
-    {"identifier": "https://oscars-project.eu/projects/dracoros-fostering-open-science-digital-humanities-connecting-dracor-ecosystem-eosc", "relation": "isPartOf"}
+  "grants": [
+    {
+      "id": "10.13039/501100000780::101129751"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "dracor"
+    }
   ]
 }
