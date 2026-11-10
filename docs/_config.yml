@@ -21,7 +21,17 @@ sphinx:
     bibtex_reference_style: author_year
     bibtex_bibfiles:
       - references.bib
+    # These html_theme_options replace the ones Jupyter Book generates from
+    # `repository`, `html` and `launch_buttons`, so they are repeated here.
     html_theme_options:
+      repository_url: https://github.com/dracor-org/dracor-textbook
+      repository_branch: main
+      path_to_docs: docs
+      use_repository_button: true
+      use_issues_button: true
+      launch_buttons:
+        binderhub_url: https://binder.eu-2.notebooks.open-science-cloud.ec.europa.eu
+        notebook_interface: jupyterlab
       extra_footer: |
         <p>The DraCor Textbook has benefited from “DraCorOS. Fostering Open Science in Digital Humanities”.</p> 
         <p>We acknowledge the OSCARS project, which has received funding from the European Commission’s Horizon Europe Research and Innovation programme under grant agreement Nº. 101129751.</p>

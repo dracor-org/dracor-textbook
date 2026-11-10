@@ -1,0 +1,5 @@
+# Environment for running the chapter code on Binder (not for building the book)
+requests
+pandas
+pydracor
+jupytext
