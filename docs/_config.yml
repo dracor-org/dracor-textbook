@@ -15,6 +15,8 @@ html:
 sphinx:
   extra_extensions:
     - sphinxcontrib.bibtex
+  local_extensions:
+    launch_buttons_extra: _ext/
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
