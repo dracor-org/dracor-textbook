@@ -12,16 +12,16 @@ kernelspec:
 
 # Self-Test: Infrastructure
 
-````{admonition} Note
+::::{admonition} Note
 :class: note
-This self-test helps you check your understanding of *Infrastructure*.
+This self-test helps you check your understanding of the chapter *DraCor in the Context of Research Infrastructures*.
 
 - There is no grading and nothing is stored.
 - Read the feedback for each option carefully, including when you answered correctly.
-- If you are unsure, return to the relevant section and verify the answer.
+- If you are unsure, return to the relevant section of the chapter.
 
-Estimated time: 10–15 minutes.
-````
+Estimated time: 15–20 minutes.
+::::
 
 ## Question 1
 
@@ -30,17 +30,17 @@ Estimated time: 10–15 minutes.
 from jupyterquiz import display_quiz
 
 q1 = [{
-  "question": "Why does understanding the infrastructure of DraCor matter for research?",
+  "question": "How does the chapter characterise the way DraCor became an infrastructure?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Because it allows researchers to avoid using the API entirely.", "correct": False,
-     "feedback": "Not quite. The point is not to avoid the API, but to understand the system behind it and gain trust, adaptability, and critical awareness."},
-    {"answer": "Because it helps build trust, enables adaptation, and fosters critical awareness of how data and metrics are produced.", "correct": True,
-     "feedback": "Correct. These are the three main reasons given in the overview section."},
-    {"answer": "Because only developers are allowed to use DraCor responsibly.", "correct": False,
-     "feedback": "No. This material is aimed at learners and researchers, not only developers."},
-    {"answer": "Because infrastructure mainly concerns server hardware, which humanists usually need to administer.", "correct": False,
-     "feedback": "No. Infrastructure is presented here as a socio-technical system, not just hardware administration."}
+    {"answer": "As a tactical infrastructure that grew bottom-up from a specific research need into a multi-component system.", "correct": True,
+     "feedback": "Correct. DraCor grew from network analysis of drama; CLS INFRA adopted this idea of tactical infrastructure (section 4.1)."},
+    {"answer": "As a European Research Infrastructure Consortium (ERIC), like CLARIN and DARIAH.", "correct": False,
+     "feedback": "No. The chapter contrasts DraCor with the large, centrally organised ERICs."},
+    {"answer": "As a commercial platform that was later opened to researchers.", "correct": False,
+     "feedback": "No. DraCor is an open-source project from the start, maintained by researchers."},
+    {"answer": "As a single application that was designed completely before it was built.", "correct": False,
+     "feedback": "No. DraCor is a system of several components that evolved over time."}
   ]
 }]
 display_quiz(q1, max_width=1000)
@@ -53,17 +53,17 @@ display_quiz(q1, max_width=1000)
 from jupyterquiz import display_quiz
 
 q2 = [{
-  "question": "How is DraCor characterised here from a technical perspective?",
+  "question": "DraCor has no full-text search. What does the chapter take this as an example of?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "As a single monolithic web application with one database and no external services.", "correct": False,
-     "feedback": "No. DraCor is presented as more than a single application."},
-    {"answer": "As a system of interconnected services maintained by a community and embedded in a broader infrastructure landscape.", "correct": True,
-     "feedback": "Correct. This captures the core definition of DraCor as infrastructure."},
-    {"answer": "As a front-end visualisation tool that only displays data generated elsewhere.", "correct": False,
-     "feedback": "Too narrow. The front-end is only one component of the overall system."},
-    {"answer": "As a local desktop program used mainly for TEI editing.", "correct": False,
-     "feedback": "No. DraCor is not described as a desktop TEI editor."}
+    {"answer": "Of how an infrastructure reflects the needs it grew from: the API is designed around corpus and play, for extracting structured data rather than searching.", "correct": True,
+     "feedback": "Correct. The missing search is a window into the design of the infrastructure, and an invitation to develop it further (section 4.1)."},
+    {"answer": "Of a technical limitation of XML databases, which cannot search text.", "correct": False,
+     "feedback": "No. eXist-db can search text; full-text search was simply not part of DraCor's design."},
+    {"answer": "Of a legal restriction on the texts.", "correct": False,
+     "feedback": "No. The corpora are openly licensed; the reason lies in the design of the system."},
+    {"answer": "Of a bug that will be fixed in the next version.", "correct": False,
+     "feedback": "No. It is not a bug but a consequence of what the system was built for."}
   ]
 }]
 display_quiz(q2, max_width=1000)
@@ -71,25 +71,39 @@ display_quiz(q2, max_width=1000)
 
 ## Question 3
 
+Match each component of the DraCor system with its role (section 4.2).
+
 ```{code-cell} ipython3
 :tags: [remove-input]
-from jupyterquiz import display_quiz
+import sys
+sys.path.append("..")
+from assessment import DragDropQuiz
 
-q3 = [{
- "question": "Why is the missing full-text search in DraCor discussed as an infrastructural example?",
-  "type": "multiple_choice",
-  "answers": [
-    {"answer": "Because the lack of search proves that DraCor is technically outdated and should be abandoned.", "correct": False,
-     "feedback": "No. This is not presented as a reason to abandon DraCor."},
-    {"answer": "Because it shows that infrastructure reflects architectural choices shaped by specific research priorities, especially structural and network analysis.", "correct": True,
-     "feedback": "Correct. The example illustrates how the design of DraCor grew out of particular research questions and priorities."},
-    {"answer": "Because full-text search is impossible in XML databases such as eXist-db.", "correct": False,
-     "feedback": "No. There is no claim that XML databases cannot support search."},
-    {"answer": "Because search is available only in local DraCor instances, not at dracor.org.", "correct": False,
-     "feedback": "Incorrect. The point is that search was not built into the core design being discussed."}
-  ]
-}]
-display_quiz(q3, max_width=1000)
+quiz = DragDropQuiz()
+quiz.create_matching_quiz(
+    title="Components of the DraCor system",
+    descriptions=[
+        "Corpus repositories on GitHub",
+        "eXist-db with the DraCor API",
+        "Metrics Service",
+        "Front-end",
+        "Triple Store",
+    ],
+    options=[
+        "Hold the TEI source files under version control",
+        "Stores the plays and answers API requests, written in XQuery",
+        "Calculates the network metrics of each play, written in Python",
+        "React application in the browser that calls the API",
+        "Holds RDF data and offers a SPARQL endpoint",
+    ],
+    correct_mapping={
+        "Corpus repositories on GitHub": "Hold the TEI source files under version control",
+        "eXist-db with the DraCor API": "Stores the plays and answers API requests, written in XQuery",
+        "Metrics Service": "Calculates the network metrics of each play, written in Python",
+        "Front-end": "React application in the browser that calls the API",
+        "Triple Store": "Holds RDF data and offers a SPARQL endpoint",
+    },
+)
 ```
 
 ## Question 4
@@ -99,17 +113,17 @@ display_quiz(q3, max_width=1000)
 from jupyterquiz import display_quiz
 
 q4 = [{
-  "question": "Which statement best matches the explanation of tactical infrastructure?",
+  "question": "When are the network metrics of a play (for example density or diameter) calculated?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It is a centralised platform imposed from above and designed before researchers define their needs.", "correct": False,
-     "feedback": "No. That is the opposite of the tactical approach described here."},
-    {"answer": "It is an infrastructure that grows bottom-up from concrete research needs, tools, practices, people, and code.", "correct": True,
-     "feedback": "Correct. This summarises tactical infrastructure and its relevance for DraCor and CLS INFRA."},
-    {"answer": "It is a military metaphor used to describe secure server management.", "correct": False,
-     "feedback": "No. The term is used conceptually, not in a military or security sense."},
-    {"answer": "It refers only to temporary prototypes that should never become sustainable infrastructures.", "correct": False,
-     "feedback": "Not quite. The term is used for a bottom-up ecosystem, not merely a temporary prototype."}
+    {"answer": "When the play is loaded: the API sends the network to the Metrics Service, and the results are stored in the database.", "correct": True,
+     "feedback": "Correct. The metrics are pre-calculated during the ingest and then served by the API."},
+    {"answer": "Each time someone requests the /metrics endpoint.", "correct": False,
+     "feedback": "No. The metrics are calculated once, when the play is loaded, and then stored."},
+    {"answer": "In the browser, by the front-end.", "correct": False,
+     "feedback": "No. The front-end only displays the metrics it receives from the API."},
+    {"answer": "By the corpus editors, who enter them in the TEI files.", "correct": False,
+     "feedback": "No. The TEI files contain the play; the metrics are computed from its structure."}
   ]
 }]
 display_quiz(q4, max_width=1000)
@@ -122,17 +136,17 @@ display_quiz(q4, max_width=1000)
 from jupyterquiz import display_quiz
 
 q5 = [{
-  "question": "What is the role of eXist-db in the DraCor system?",
+  "question": "You analysed a corpus on dracor.org a year ago. Why might you not get the same results today?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It is the core XML database in which the DraCor API is implemented as an eXist-db application written in XQuery.", "correct": True,
-     "feedback": "Correct. eXist-db is the core database, and the API logic is implemented there in XQuery."},
-    {"answer": "It is a graphical front-end for editing TEI documents in the browser.", "correct": False,
-     "feedback": "No. That is not how eXist-db is described here."},
-    {"answer": "It is the Python service that calculates network metrics.", "correct": False,
-     "feedback": "No. That role belongs to the separate Metrics Service."},
-    {"answer": "It is the RDF triple store used for SPARQL queries.", "correct": False,
-     "feedback": "Incorrect. The triple store is a separate component."}
+    {"answer": "Because DraCor corpora are living corpora: plays are added, corrected or re-encoded, without notice to users.", "correct": True,
+     "feedback": "Correct. This is why controlling the data version matters for reproducibility (section 5.1)."},
+    {"answer": "Because the API deletes old data after one year.", "correct": False,
+     "feedback": "No. Nothing is deleted on a schedule; the corpora change as they are curated."},
+    {"answer": "Because results on dracor.org are randomised.", "correct": False,
+     "feedback": "No. The same data and software give the same results; the data, however, may have changed."},
+    {"answer": "Because only the front-end changes, never the data.", "correct": False,
+     "feedback": "No. Both the software and the data can change."}
   ]
 }]
 display_quiz(q5, max_width=1000)
@@ -145,17 +159,17 @@ display_quiz(q5, max_width=1000)
 from jupyterquiz import display_quiz
 
 q6 = [{
-  "question": "Why is the Metrics Service presented as an example of a microservice?",
+  "question": "What is the difference between a Docker image and a container?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Because it stores all TEI files in a separate GitHub repository.", "correct": False,
-     "feedback": "No. GitHub repositories are discussed elsewhere, but that is not what makes the Metrics Service a microservice."},
-    {"answer": "Because it is a specialised external service that calculates network metrics and communicates with the rest of the system via APIs.", "correct": True,
-     "feedback": "Correct. This component illustrates how specialised services can handle specific tasks within a larger system."},
-    {"answer": "Because it replaces the front-end whenever the React application is unavailable.", "correct": False,
-     "feedback": "No. The Metrics Service does not replace the front-end."},
-    {"answer": "Because it runs inside the user's browser as part of the single-page application.", "correct": False,
-     "feedback": "Incorrect. The service is separate from the browser-based front-end."}
+    {"answer": "An image is a frozen snapshot of an application and everything it needs; a container is a running copy of an image.", "correct": True,
+     "feedback": "Correct (section 5.2)."},
+    {"answer": "An image is a screenshot of the front-end; a container is the database.", "correct": False,
+     "feedback": "No. Both terms refer to software packaging, not to parts of DraCor."},
+    {"answer": "There is no difference; both words mean the same.", "correct": False,
+     "feedback": "No. You start a container from an image, and you can run several containers from the same image."},
+    {"answer": "A container is a file on Docker Hub; an image runs on your computer.", "correct": False,
+     "feedback": "It is the other way round: images are published on Docker Hub, containers run on your computer."}
   ]
 }]
 display_quiz(q6, max_width=1000)
@@ -168,17 +182,17 @@ display_quiz(q6, max_width=1000)
 from jupyterquiz import display_quiz
 
 q7 = [{
-  "question": "What is one major reason for running DraCor locally with Docker?",
+  "question": "You want a colleague to run exactly the same DraCor setup as you. What do you share, given that the images are published on Docker Hub?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It is the only way to use the DraCor API at all.", "correct": False,
-     "feedback": "No. The public API at dracor.org can already be used without a local setup."},
-    {"answer": "It allows researchers to work with a controlled version of the data and software, which supports reproducibility.", "correct": True,
-     "feedback": "Correct. The key advantages include version control, independence from the production server, and reproducibility."},
-    {"answer": "It automatically adds full-text search to all corpora.", "correct": False,
-     "feedback": "No. Local deployment is not presented as a solution to that feature gap."},
-    {"answer": "It removes the need for TEI-encoded source texts.", "correct": False,
-     "feedback": "Incorrect. Local DraCor still depends on DraCor-compatible TEI data."}
+    {"answer": "A Compose file that specifies exact image versions.", "correct": True,
+     "feedback": "Correct. With exact versions (for example dracor/api:1.4.1 instead of latest), docker compose up starts the same system elsewhere (section 5.2)."},
+    {"answer": "A Compose file that uses the tag latest for all images.", "correct": False,
+     "feedback": "Not reliable: latest points to whatever version is newest when your colleague runs it."},
+    {"answer": "A screenshot of the running front-end.", "correct": False,
+     "feedback": "No. A screenshot documents what you saw, but nobody can run it."},
+    {"answer": "Nothing; everybody gets the same setup from dracor.org anyway.", "correct": False,
+     "feedback": "No. dracor.org changes over time; a local setup is shared through the Compose file."}
   ]
 }]
 display_quiz(q7, max_width=1000)
@@ -191,17 +205,17 @@ display_quiz(q7, max_width=1000)
 from jupyterquiz import display_quiz
 
 q8 = [{
-  "question": "What is the difference between a Docker image and a Docker container?",
+  "question": "How do you load a corpus into your local DraCor instance?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "An image is a running service, whereas a container is the static file stored on Docker Hub.", "correct": False,
-     "feedback": "No. This reverses the distinction."},
-    {"answer": "An image is a read-only template or snapshot, whereas a container is a running instance created from that image.", "correct": True,
-     "feedback": "Correct. This is the basic distinction explained in the Docker section."},
-    {"answer": "An image is used only for databases, whereas a container is used only for front-end applications.", "correct": False,
-     "feedback": "No. The distinction is not based on application type."},
-    {"answer": "There is no practical difference; the two words are used interchangeably.", "correct": False,
-     "feedback": "Incorrect. The distinction is made quite clearly."}
+    {"answer": "Register the corpus by sending its corpus.xml to the API, then trigger the loading of the plays; both through admin endpoints.", "correct": True,
+     "feedback": "Correct. Locally you can use the admin endpoints, because you set the password yourself (section 5.4)."},
+    {"answer": "Copy the TEI files into the front-end folder.", "correct": False,
+     "feedback": "No. Corpora are loaded through the API, which stores them in eXist-db."},
+    {"answer": "Download the corpus from the dracor.org front-end and open it in the browser.", "correct": False,
+     "feedback": "No. That gives you files, but does not load them into your instance."},
+    {"answer": "It is not possible; a local instance can only show the corpora of dracor.org.", "correct": False,
+     "feedback": "No. You can load any DraCor-compatible corpus from GitHub, and your own TEI files."}
   ]
 }]
 display_quiz(q8, max_width=1000)
@@ -214,41 +228,18 @@ display_quiz(q8, max_width=1000)
 from jupyterquiz import display_quiz
 
 q9 = [{
-  "question": "What is the correct order for loading a corpus into a local DraCor instance, as described in the hands-on section?",
+  "question": "You put your own DraCor online on the EOSC EU Node and load a corpus from GitHub. What does this give you, and what not?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "First calculate network metrics manually, then upload the front-end, then create a GitHub issue.", "correct": False,
-     "feedback": "No. That is not the workflow described here."},
-    {"answer": "First register the corpus by posting its metadata, then trigger loading of the play data.", "correct": True,
-     "feedback": "Correct. Corpus loading is presented as a two-step process: register, then load."},
-    {"answer": "First open the front-end in the browser, then drag and drop TEI files, then restart Docker.", "correct": False,
-     "feedback": "No. Loading is described through admin API endpoints, not drag-and-drop through the interface."},
-    {"answer": "First send JSON metadata to the Metrics Service, then export RDF to the triple store.", "correct": False,
-     "feedback": "Incorrect. That does not match the described workflow."}
+    {"answer": "An instance others can access, useful for teaching, demos or sharing a custom corpus; but it holds the current state of the corpus and does not by itself freeze data and software.", "correct": True,
+     "feedback": "Correct. For reproducibility you still need to fix the versions, for example with a committed image (section 5.5)."},
+    {"answer": "A permanent, citable archive of the corpus.", "correct": False,
+     "feedback": "No. A running instance is not an archive; for a citable version, use a repository with a DOI."},
+    {"answer": "A copy of dracor.org that updates itself.", "correct": False,
+     "feedback": "No. Your instance has the data you loaded; it does not follow changes on dracor.org."},
+    {"answer": "Only a local instance that nobody else can reach.", "correct": False,
+     "feedback": "No. That is the difference to a local instance: an instance on the EU Node has a public address."}
   ]
 }]
 display_quiz(q9, max_width=1000)
-```
-
-## Question 10
-
-```{code-cell} ipython3
-:tags: [remove-input]
-from jupyterquiz import display_quiz
-
-q10 = [{
-  "question": "How is the front-end described in relation to the API?",
-  "type": "multiple_choice",
-  "answers": [
-    {"answer": "As an independent data source that does not rely on the API once the page has loaded.", "correct": False,
-     "feedback": "No. The front-end communicates with the API throughout its operations."},
-    {"answer": "As an API client: a React single-page application that sends requests to the DraCor API and displays the results.", "correct": True,
-     "feedback": "Correct. This directly matches the description of the front-end."},
-    {"answer": "As a replacement for the API, used only when the XML database is offline.", "correct": False,
-     "feedback": "Incorrect. The front-end depends on the API rather than replacing it."},
-    {"answer": "As a command-line tool that wraps curl requests for beginners.", "correct": False,
-     "feedback": "No. The front-end is a web application, not a command-line tool."}
-  ]
-}]
-display_quiz(q10, max_width=1000)
 ```
