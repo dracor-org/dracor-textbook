@@ -38,6 +38,13 @@ If you have access to the EOSC EU Node, use it. Otherwise, mybinder.org is the q
 
 1. Go to <https://open-science-cloud.ec.europa.eu/> and log in with your university account. The login runs through MyAccessID, which forwards you to the login page of your institution.
 2. After logging in, your name and your **access group** appear in the top right corner, for example "Investigator (AP-B)".
+
+```{figure} ../images/appendix/eu-node-overview.png
+:name: fig-eu-node-overview
+:alt: The overview page of the EOSC EU Node with the access group in the top right corner and tiles for the services.
+
+The overview of an EOSC EU Node account. The access group is shown in the top right corner (here *Investigator (AP-B)*); the tiles show which services you can use. Personal details have been removed.
+```
 3. The access group decides what you may use. It is derived from the affiliation your institution sends during login (for example faculty, staff or student). According to the [EU Node User Access Policy](https://open-science-cloud.ec.europa.eu/about/access-policy) (version 2.6), Interactive Notebooks and Binder are available to the groups *Collaborator* and *Investigator*. In other groups you can look around, but you cannot start services.
 4. If your access group does not match your role, contact the IT department of your institution, which controls the affiliation that is sent, and the [EU Node helpdesk](https://open-science-cloud.ec.europa.eu/support/helpdesk). Sorting this out can take a while; the blog post [*The Cloud, the Credits and a Coding Agent*](https://blog.dracor.org/posts/cloud-credits-coding-agent-own-dracor-eosc-eu-node/) tells one such story.
 
@@ -63,7 +70,21 @@ The Interactive Notebooks page of the EOSC EU Node (open-science-cloud.ec.europa
 
 1. Open the chapter or self-test in the textbook, click the rocket icon and choose **EOSC EU Node** (or **mybinder.org**).
 2. Log in if you are asked to. Binder then builds the environment. The first build takes several minutes; later launches are faster.
+
+```{figure} ../images/appendix/eu-node-binder-build.png
+:name: fig-eu-node-binder-build
+:alt: The EU Node Binder page while launching, with a progress bar showing the stages Waiting, Building, Pushing and Launching.
+
+Binder builds the environment and launches the server. The progress bar shows the stages; *Build Logs* shows the details.
+```
 3. JupyterLab opens and shows the page as a text file. In the file browser on the left, right-click the file and choose **Open With → Notebook**.
+
+```{figure} ../images/appendix/jupyterlab-open-with-notebook.png
+:name: fig-jupyterlab-open-with-notebook
+:alt: JupyterLab with the context menu of the chapter file and the submenu Open With, Notebook.
+
+In JupyterLab, right-click the chapter file and choose *Open With → Notebook* to get runnable code cells.
+```
 4. Run the cells one after another with *Shift + Enter*.
 
 Your changes are not saved back to the textbook. To keep your notebook, download it with *File → Download*.
@@ -73,6 +94,20 @@ Your changes are not saved back to the textbook. To keep your notebook, download
 The server contains the whole textbook. To work on another chapter or self-test, open it from the file browser of the running JupyterLab (in the folders `docs/chapters` and `docs/assessment`); you can have several open at the same time.
 
 On the EOSC EU Node you can run only one notebook server at a time. Before you launch notebooks from another repository or project, stop the running server: choose *File → Hub Control Panel* in JupyterLab, or open the [Hub Control Panel](https://binder.eu-2.notebooks.open-science-cloud.ec.europa.eu/hub/hub/home) directly, and click **Stop My Server**. Otherwise, a server stops by itself after one hour of inactivity.
+
+```{figure} ../images/appendix/jupyterlab-hub-control-panel-menu.png
+:name: fig-jupyterlab-hub-control-panel-menu
+:alt: The File menu of JupyterLab with the entry Hub Control Panel.
+
+*File → Hub Control Panel* in JupyterLab.
+```
+
+```{figure} ../images/appendix/eu-node-hub-control-panel.png
+:name: fig-eu-node-hub-control-panel
+:alt: The Hub Control Panel of the EU Node Binder with the buttons Stop My Server and My Server.
+
+The Hub Control Panel of the EU Node Binder. *Stop My Server* stops the running server.
+```
 
 A Small server uses 0.04 credits per hour. Credits are virtual and have no monetary value: every account with access to the services receives an allocation free of charge (1,000 credits for *Collaborators*, 2,000 for *Investigators*), which is reset every 90 days. An hour of notebook work therefore uses only a tiny fraction of your allocation.
 
@@ -87,6 +122,14 @@ On mybinder.org no account is needed: choose **mybinder.org** in the rocket menu
 - repository: `dracor-org/dracor-textbook`
 - branch: `main`
 - path to a file, for example: `docs/chapters/05-api-working-with-dracor-programmatically.md`
+
+
+```{figure} ../images/appendix/eu-node-binder-form.png
+:name: fig-eu-node-binder-form
+:alt: The start page of the EU Node Binder with the form Build and launch a repository, filled in with dracor-org/dracor-textbook.
+
+The start page of the EU Node Binder, reached via *View externally*. Enter the repository, the branch (*Git ref*) and the file to open, then click *launch*.
+```
 
 Then launch and continue with step 3 in A.4.
 
