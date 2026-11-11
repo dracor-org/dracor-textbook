@@ -4,10 +4,10 @@ myst:
   substitutions:
    chap_title: "Corpus Building in DraCor"
 authors: "Daniil Skorinkin; Julia Jennifer Beine"
-date: "2026-08-21"
+date: "2026-11-11"
 description: "In this chapter, we describe how the existing corpora in DraCor have been built. In most cases, the corpus building has started by inventorying available online resources while applying certain selection criteria. We elaborate on these selection criteria, illustrated by the resulting DraCor corpora."
 keywords: ["programmable corpora", "corpus building", "corpus archaeology"]
-license: "CC BY 4.0"
+licence: "CC BY 4.0"
 license link: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
@@ -22,9 +22,9 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 :class: tip    
 
 **Authors:** Daniil Skorinkin; Julia Jennifer Beine       
-**Version:** 0.2 (2026-09-02)      
+**Version:** 0.3 (2026-11-11)      
 **Review status:** in progress         
-**Planned reviewers:** Antonio Rojas Castro; Frank Fischer     
+**Reviewers:** Antonio Rojas Castro; Frank Fischer     
 ```
 
 ## 1. Overview
