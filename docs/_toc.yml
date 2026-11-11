@@ -31,3 +31,7 @@ parts:
         sections:
           - file: assessment/06-dracor-in-the-context-of-research-infrastructures-assessment
             title: "Self-test: Infrastructure"
+  - caption: "Appendix"
+    chapters:
+      - file: appendix/running-the-code
+        title: "A. Running the Code"
