@@ -7,6 +7,7 @@ second entry for the public mybinder.org, which needs no login.
 
 EU_NODE_BINDER = "https://binder.eu-2.notebooks.open-science-cloud.ec.europa.eu"
 MYBINDER = "https://mybinder.org"
+HELP_PAGE = "appendix/running-the-textbook-as-an-interactive-notebook"
 
 
 def add_mybinder_button(app, pagename, templatename, context, doctree):
@@ -20,7 +21,10 @@ def add_mybinder_button(app, pagename, templatename, context, doctree):
                 continue
             button.update(
                 text="EOSC EU Node",
-                tooltip="Launch on the EOSC EU Node Binder (institutional login)",
+                tooltip=(
+                    "Launch on the EOSC EU Node Binder (EU-2 cluster, "
+                    "institutional login). Not working? See Appendix A."
+                ),
                 icon="fas fa-cloud",
             )
             buttons.insert(
@@ -31,6 +35,16 @@ def add_mybinder_button(app, pagename, templatename, context, doctree):
                     "tooltip": "Launch on mybinder.org (no login)",
                     "icon": "_static/images/logo_binder.svg",
                     "url": MYBINDER + url[len(EU_NODE_BINDER):],
+                },
+            )
+            buttons.insert(
+                i + 2,
+                {
+                    "type": "link",
+                    "text": "How to launch (help)",
+                    "tooltip": "Appendix A: Running the Textbook as an Interactive Notebook",
+                    "icon": "fas fa-circle-question",
+                    "url": app.builder.get_relative_uri(pagename, HELP_PAGE),
                 },
             )
             return
