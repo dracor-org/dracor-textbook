@@ -195,7 +195,7 @@ Continue with chapter 2, “TEI Encoding: Preparing Texts for Programmable Corpo
 In chapters 4 and 5, Daniil Skorinkin used Claude Opus 4.6 in the process of literature review – literature search and systematisation, writing and editing – text generation, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
 
 ## 12. Author Contributions
-Daniil Skorinkin – investigation, writing – original draft 
+Daniil Skorinkin – investigation, writing – original draft
 Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing
 
 ## 13. References
@@ -205,6 +205,6 @@ Julia Jennifer Beine – conceptualisation, writing – original draft, writing 
 ```
 
 ## 14. Footnotes
-[^information]: The following paragraphs on the genesis of GerDraCor are closely based on the CLS INFRA D7.3 report {cite:p}`borner2024cls`, with the permission of the authors.  
-[^play-number]: Source distribution retrieved from the [DraCor API](https://dracor.org/api), 2 March 2026.  
-[^cb-definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025regular`. 
+[^information]: The following paragraphs on the genesis of GerDraCor are closely based on the CLS INFRA D7.3 report {cite:p}`borner2024cls`, with the permission of the authors.
+[^play-number]: Source distribution retrieved from the [DraCor API](https://dracor.org/api), 2 March 2026.
+[^cb-definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025regular`.
