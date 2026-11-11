@@ -69,7 +69,9 @@ Your changes are not saved back to the textbook. To keep your notebook, download
 
 ## A.5. Stopping the Server
 
-On the EOSC EU Node you can run only one notebook server at a time. A server stops by itself after one hour of inactivity. To stop it earlier, for example before launching another page, choose *File → Hub Control Panel* in JupyterLab and click **Stop My Server**.
+The server contains the whole textbook. To work on another chapter or self-test, open it from the file browser of the running JupyterLab (in the folders `docs/chapters` and `docs/assessment`); you can have several open at the same time.
+
+On the EOSC EU Node you can run only one notebook server at a time. Before you launch notebooks from another repository or project, stop the running server: choose *File → Hub Control Panel* in JupyterLab and click **Stop My Server**. Otherwise, a server stops by itself after one hour of inactivity.
 
 A Small server uses 0.04 credits per hour. Credits are virtual and have no monetary value: every account with access to the services receives an allocation free of charge (1,000 credits for *Collaborators*, 2,000 for *Investigators*), which is reset every 90 days. An hour of notebook work therefore uses only a tiny fraction of your allocation.
 
