@@ -1,4 +1,13 @@
 ---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 title: "API: Working with DraCor Programmatically"
 myst:
   substitutions:
@@ -36,6 +45,7 @@ In this chapter we learn what an API is, how the DraCor API is structured and ho
 * Familiarity with the DraCor front-end (Chapter 4) is helpful but not strictly required.
 * No programming experience is needed to explore the API in the browser (sections 5.1–5.4). These sections also include short Python snippets, which you can skip.
 * From section 5.5 onwards, a basic willingness to try Python is enough. We explain every step.
+* To run the Python examples, you can use your own Python environment or launch this chapter from the rocket icon at the top of the page: on the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/) Binder, which requires an EU Node account (currently available to staff and faculty at institutions in the EU and Horizon Europe associated countries), or on [mybinder.org](https://mybinder.org/), which needs no login but can be slower. The chapter opens as a notebook in JupyterLab; if it is shown as a text file, right-click it and choose *Open With → Notebook*. Step by step: see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md).
 
 ## 3. Learning Outcomes
 
@@ -212,7 +222,7 @@ The Swagger UI also displays response headers in a separate box after executing 
 
 **4. Python with `requests`** – the bridge to programmatic research:
 
-```python
+```{code-cell} ipython3
 import requests
 
 response = requests.get("https://dracor.org/api/v1/corpora", params={"include": "metrics"})
@@ -298,7 +308,7 @@ A 404 Not Found error in action. The corpus name is set to the Russian Drama Cor
 
 In Python, we can check the status code of a response and react accordingly:
 
-```python
+```{code-cell} ipython3
 import requests
 
 url = "https://dracor.org/api/v1/corpora/rus/plays/hamlet"
@@ -329,7 +339,7 @@ If we are browsing the DraCor front-end and find a play we want to analyse, we c
 
 The front-end URL contains the corpus name (`ger`) and the play name (`lessing-emilia-galotti`) in the same order. Converting between the two is straightforward and provides a useful bridge between the exploratory browsing of Chapter 4 and the programmatic access of this chapter.
 
-```python
+```{code-cell} ipython3
 # Converting a front-end URL to an API URL
 frontend_url = "https://dracor.org/ger/lessing-emilia-galotti"
 parts = frontend_url.replace("https://dracor.org/", "").split("/")
@@ -369,7 +379,7 @@ Once we have navigated to a specific play, a range of endpoints branch off from 
 
 Note that most endpoints return a single format. Two endpoints – `/characters` and `/spoken-text-by-character` – can return either JSON or CSV. How do we tell the API which format we want? Remember the library analogy: we hand over the call number and attach a note saying "photocopy, please." In API terms, this is called *content negotiation*: we include an `Accept` header in our request that specifies the desired format. For example, to request the character list as CSV instead of JSON:
 
-```python
+```{code-cell} ipython3
 import requests
 
 url = "https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/characters"
@@ -418,7 +428,7 @@ The endpoint `/corpora/{corpusname}/metadata` returns detailed metadata for ever
 
 The central data structure in pandas is the **DataFrame**: a table with rows and columns, similar to a spreadsheet or a CSV file. We can filter, sort, and plot data in a DataFrame with just a few lines of code.
 
-```python
+```{code-cell} ipython3
 # pandas needs to be installed: pip install pandas
 import requests
 import pandas as pd  # import pandas and use "pd" as a shorthand
@@ -455,7 +465,7 @@ The resulting table has one row per play and columns for metadata fields such as
 
 Now that we have the data in a DataFrame, we can work with it like a programmable spreadsheet. Here are two quick examples to get a feel for what pandas can do:
 
-```python
+```{code-cell} ipython3
 # How many plays are in the corpus?
 len(metadata_df)
 
@@ -463,12 +473,12 @@ len(metadata_df)
 metadata_df.columns
 ```
 
-```python
+```{code-cell} ipython3
 # Sort plays by word count (longest first) and show the top 5
 metadata_df.sort_values(by="wordCountText", ascending=False).head()
 ```
 
-```python
+```{code-cell} ipython3
 # Filter: only plays written after 1800
 plays_after_1800 = metadata_df[metadata_df["yearNormalized"] > 1800]
 print(f"Number of plays after 1800: {len(plays_after_1800)}")
@@ -485,7 +495,7 @@ The `/metadata` endpoint returns data for *all* plays in a corpus in a single re
 
 With the metadata in a DataFrame, corpus-level analyses become straightforward. For example, we can calculate the proportion of stage-direction tokens relative to the total word count for each play and plot it over time:
 
-```python
+```{code-cell} ipython3
 # Calculate the proportion of stage directions relative to total word count
 metadata_df["stageProportion"] = metadata_df["wordCountStage"] / metadata_df["wordCountText"]
 
@@ -507,7 +517,7 @@ This visualisation reveals how the proportion of stage directions in dramatic te
 
 Similarly, we can examine the proportion of female speakers across the corpus:
 
-```python
+```{code-cell} ipython3
 # Calculate the ratio of female speakers to all speakers
 metadata_df["femaleSpeakerRatio"] = metadata_df["numOfSpeakersFemale"] / metadata_df["numOfSpeakers"]
 
@@ -525,7 +535,7 @@ The `/characters` endpoint returns a list of characters for a single play, inclu
 
 Because this loop sends one request per play, we use a small corpus here: the German Shakespeare Drama Corpus (`gersh`, 38 plays), which takes less than a minute. The same code works for GerDraCor (`ger`), but with nearly 800 plays it sends nearly 800 requests and takes several minutes, or longer when the server is busy.
 
-```python
+```{code-cell} ipython3
 API_URL = "https://dracor.org/api/v1/"
 corpusname = "gersh"  # German Shakespeare Drama Corpus, 38 plays
 
@@ -590,7 +600,7 @@ Its main classes – `DraCorAPI`, `Corpus` and `Play` – mirror the structure o
 
 #### Getting Started
 
-```python
+```{code-cell} ipython3
 from pydracor import DraCorAPI
 
 # Initialise – points to dracor.org by default
@@ -601,7 +611,7 @@ Here, `DraCorAPI()` creates an *object* – an instance of the `DraCorAPI` class
 
 #### Listing Corpora and Getting a Corpus
 
-```python
+```{code-cell} ipython3
 # List corpora
 corpora = dracor.get_corpora()
 for corpus in corpora:
@@ -615,7 +625,7 @@ corpus = dracor.get_corpus("ger")
 
 #### Working with a Play
 
-```python
+```{code-cell} ipython3
 # Get a play – using the same two identifiers we learned earlier
 play = dracor.get_play("ger", "lessing-emilia-galotti")
 
@@ -627,7 +637,7 @@ text = play.get_spoken_text(sex="FEMALE")
 
 `play.get_spoken_text(sex="FEMALE")` is a *method* – a function that belongs to the `Play` object. Behind the scenes, it constructs the URL, adds the query parameter, sends the request, and returns the result. Compare this with the equivalent raw `requests` code:
 
-```python
+```{code-cell} ipython3
 # The same thing with requests – more explicit, more verbose
 url = "https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/spoken-text"
 response = requests.get(url, params={"sex": "FEMALE"})
@@ -639,7 +649,7 @@ The PyDraCor version is shorter: PyDraCor handles URL construction, HTTP request
 
 #### Metrics and Metadata
 
-```python
+```{code-cell} ipython3
 # Get network metrics
 metrics = play.get_metrics()
 print(metrics.average_degree)
