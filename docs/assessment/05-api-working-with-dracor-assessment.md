@@ -12,16 +12,16 @@ kernelspec:
 
 # Self-Test: API
 
-````{admonition} Note
+::::{admonition} Note
 :class: note
-This self-test supports Chapter 5 (*API: Working with DraCor Programmatically*). It checks key concepts and basic hands-on skills.
+This self-test helps you check your understanding of the chapter *API: Working with DraCor Programmatically*.
 
 - There is no grading and nothing is stored.
-- Multiple-choice questions provide feedback for every option.
-- Coding tasks are presented as (a) a student prompt, (b) a reference solution shown as code, and (c) an executed reference output.
+- Read the feedback for each option carefully, including when you answered correctly.
+- The exercises at the end contain code that you can run and change. Launch this page as a notebook from the rocket icon at the top (see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md)), or copy the code into your own Python environment.
 
-Estimated time: 25–40 minutes.
-````
+Estimated time: 20–30 minutes.
+::::
 
 ## Question 1
 
@@ -30,17 +30,17 @@ Estimated time: 25–40 minutes.
 from jupyterquiz import display_quiz
 
 q1 = [{
-  "question": "In the DraCor context, what does the API primarily do?",
+  "question": "In a REST API such as the DraCor API, what does the URL https://dracor.org/api/v1/corpora/gersh stand for?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It is the documentation website at https://swagger.dracor.org", "correct": False,
-     "feedback": "Not quite. That is the Swagger UI documentation *about* the API."},
-    {"answer": "It is the programmatic interface that returns data (e.g. JSON, CSV, TEI/XML) at https://dracor.org/api/v1/", "correct": True,
-     "feedback": "Correct. The API is the data and service interface, and the front-end is one client of it."},
-    {"answer": "It is only used for downloading GEXF files for Gephi", "correct": False,
-     "feedback": "No. Downloads are only one part. The API provides corpora, plays, text layers, characters, networks, and more."},
-    {"answer": "It is a local file repository of TEI documents", "correct": False,
-     "feedback": "No. TEI exists as a source layer, but the API is a web service that returns processed data from the backend."}
+    {"answer": "A resource: the German Shakespeare Drama Corpus, identified by its corpus name.", "correct": True,
+     "feedback": "Correct. REST APIs are organised around resources, things with URLs, such as a corpus or a play."},
+    {"answer": "A web page of the DraCor front-end that shows the corpus.", "correct": False,
+     "feedback": "Not quite. The front-end URL would be https://dracor.org/gersh. The URL with /api/v1/ returns data (JSON), not a web page."},
+    {"answer": "A function that has to be installed before it can be used.", "correct": False,
+     "feedback": "No. An endpoint is a URL on the server; nothing needs to be installed to call it."},
+    {"answer": "A database query written in XQuery.", "correct": False,
+     "feedback": "No. DraCor uses XQuery internally, but the API hides this: we only send a request to a URL."}
   ]
 }]
 display_quiz(q1, max_width=1000)
@@ -53,17 +53,17 @@ display_quiz(q1, max_width=1000)
 from jupyterquiz import display_quiz
 
 q2 = [{
-  "question": "What is the most accurate statement about Swagger UI for DraCor?",
+  "question": "You have just requested the corpus gersh. To get one of its plays, you still have to give the corpus name again in the URL. Why?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Swagger UI is the API itself", "correct": False,
-     "feedback": "No. Swagger UI is documentation and a testing interface, not the API."},
-    {"answer": "Swagger UI renders the OpenAPI specification as interactive documentation and lets you try requests", "correct": True,
-     "feedback": "Correct. It is a human-friendly interface to the OpenAPI specification."},
-    {"answer": "Swagger UI requires authentication for all endpoints", "correct": False,
-     "feedback": "No. Public endpoints can be used without authentication."},
-    {"answer": "Swagger UI returns TEI/XML only", "correct": False,
-     "feedback": "No. Swagger UI shows endpoints that return JSON, CSV, XML, and plain text (depending on endpoint)."}
+    {"answer": "Because REST interactions are stateless: each request is self-contained, and the server does not remember earlier requests.", "correct": True,
+     "feedback": "Correct. This is one of the REST principles described in section 4.1."},
+    {"answer": "Because the first request has expired after a few seconds.", "correct": False,
+     "feedback": "No. Nothing expires; the server simply does not keep track of what you requested before."},
+    {"answer": "Because play names are only unique across all of DraCor if combined with the API version.", "correct": False,
+     "feedback": "No. The version (v1) is part of every URL, but it is the corpus name together with the play name that identifies a play."},
+    {"answer": "Because the DraCor API does not follow REST.", "correct": False,
+     "feedback": "No. The DraCor API follows REST, with a few pragmatic exceptions (see Question 5)."}
   ]
 }]
 display_quiz(q2, max_width=1000)
@@ -76,17 +76,17 @@ display_quiz(q2, max_width=1000)
 from jupyterquiz import display_quiz
 
 q3 = [{
-  "question": "Which option correctly distinguishes path parameters and query parameters?",
+  "question": "In the front-end, you find a play at https://dracor.org/gersh/was-ihr-wollt. Which API URL returns its metadata?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Path parameters come after '?' and query parameters are inside the URL path", "correct": False,
-     "feedback": "No. That is inverted."},
-    {"answer": "Path parameters are required parts of the URL, e.g. `/corpora/{corpusname}`. Query parameters are optional key–value pairs after `?`, e.g. `?include=metrics`.", "correct": True,
-     "feedback": "Correct. In DraCor, both types are used."},
-    {"answer": "Both are always optional in DraCor", "correct": False,
-     "feedback": "No. Path parameters are typically required for play-level endpoints."},
-    {"answer": "Query parameters are used only for file formats (CSV/GEXF)", "correct": False,
-     "feedback": "No. DraCor often encodes formats in the path (e.g. /networkdata/gexf), but query parameters are also used for filters (e.g. sex=FEMALE)."}
+    {"answer": "https://dracor.org/api/v1/corpora/gersh/plays/was-ihr-wollt", "correct": True,
+     "feedback": "Correct. The front-end URL contains the corpus name and the play name in the same order as the API URL."},
+    {"answer": "https://dracor.org/api/v1/plays/was-ihr-wollt", "correct": False,
+     "feedback": "Not quite. A play is always addressed within its corpus: /corpora/{corpusname}/plays/{playname}."},
+    {"answer": "https://dracor.org/api/v1/gersh/was-ihr-wollt", "correct": False,
+     "feedback": "No. This mixes the front-end pattern with the API base path; the segments corpora and plays are missing."},
+    {"answer": "https://dracor.org/gersh/was-ihr-wollt.json", "correct": False,
+     "feedback": "No. The front-end does not serve data this way; data comes from URLs under /api/v1/."}
   ]
 }]
 display_quiz(q3, max_width=1000)
@@ -99,17 +99,17 @@ display_quiz(q3, max_width=1000)
 from jupyterquiz import display_quiz
 
 q4 = [{
-  "question": "You request https://dracor.org/api/v1/corpora/rus/plays/hamlet and receive status code 404. What is the most likely explanation?",
+  "question": "Your code prints \"Request failed with status code: 404\". What should you check first?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "The API server is down (server-side error)", "correct": False,
-     "feedback": "A server outage is more likely to yield 5xx codes. 404 usually indicates a missing resource."},
-    {"answer": "Your request is wrong because the play identifier does not exist in that corpus (client-side mismatch)", "correct": True,
-     "feedback": "Correct. Identifiers are scoped: a play slug must belong to the specified corpus."},
-    {"answer": "You forgot to add an Accept header", "correct": False,
-     "feedback": "Missing Accept headers do not typically cause 404; they affect formats when the endpoint supports negotiation."},
-    {"answer": "DraCor blocks programmatic access without authentication", "correct": False,
-     "feedback": "No. Public endpoints are designed for unauthenticated GET requests."}
+    {"answer": "Whether the corpus name and the play name in the URL are spelled correctly and exist.", "correct": True,
+     "feedback": "Correct. 404 means \"not found\": the server works, but there is no resource at this URL. A typo in an identifier is the most common cause."},
+    {"answer": "Whether you need an API key.", "correct": False,
+     "feedback": "No. The DraCor API is open and needs no key; a missing key would not result in 404."},
+    {"answer": "Whether the JSON response was parsed correctly.", "correct": False,
+     "feedback": "No. With 404 there is no data to parse. Check the status code before working with the response."},
+    {"answer": "Whether the request was successful; 404 is a variant of 200.", "correct": False,
+     "feedback": "No. 200 means success; codes starting with 4 indicate a problem with the request."}
   ]
 }]
 display_quiz(q4, max_width=1000)
@@ -122,17 +122,17 @@ display_quiz(q4, max_width=1000)
 from jupyterquiz import display_quiz
 
 q5 = [{
-  "question": "How do you request the character list as CSV from an endpoint that supports content negotiation (rather than path suffixes)?",
+  "question": "How do you get the co-occurrence network of a play in different formats (CSV, GEXF, GraphML) from the DraCor API?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "Add ?format=csv to the URL", "correct": False,
-     "feedback": "Not in this case. The chapter explains content negotiation via the Accept header."},
-    {"answer": "Send an HTTP header: `Accept: text/csv`", "correct": True,
-     "feedback": "Correct. This is the standard mechanism for requesting a specific representation, such as CSV, where supported."},
-    {"answer": "Replace /api/v1/ with /csv/", "correct": False,
-     "feedback": "No. That is not a DraCor convention."},
-    {"answer": "CSV is not available via the API", "correct": False,
-     "feedback": "CSV is available for specific endpoints (e.g. characters, spoken-text-by-character, metadata) via path or negotiation."}
+    {"answer": "The format is part of the URL path, e.g. /networkdata/csv or /networkdata/gexf.", "correct": True,
+     "feedback": "Correct. This is the \"pragmatic REST\" of the DraCor API: each format has its own URL, which makes it easy to link and share."},
+    {"answer": "Only through the Accept header; the URL is always the same.", "correct": False,
+     "feedback": "Not for the network data. The Accept header is used by two endpoints, /characters and /spoken-text-by-character; network formats are selected in the URL path."},
+    {"answer": "By downloading JSON and converting it yourself.", "correct": False,
+     "feedback": "Not necessary. The API offers these formats directly."},
+    {"answer": "Only through the front-end, not through the API.", "correct": False,
+     "feedback": "No. The download buttons of the front-end call exactly these API endpoints."}
   ]
 }]
 display_quiz(q5, max_width=1000)
@@ -145,17 +145,17 @@ display_quiz(q5, max_width=1000)
 from jupyterquiz import display_quiz
 
 q6 = [{
-  "question": "Which three-step identifier flow is correct when navigating the DraCor API?",
+  "question": "In https://dracor.org/api/v1/corpora/ger/plays/schiller-wilhelm-tell/spoken-text?sex=FEMALE, what is the role of sex=FEMALE?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "/plays → /corpora/{corpusname} → /corpora/{corpusname}/plays/{playname}", "correct": False,
-     "feedback": "No. DraCor is organised around corpora first."},
-    {"answer": "/corpora → /corpora/{corpusname} → /corpora/{corpusname}/plays/{playname}", "correct": True,
-     "feedback": "Correct. Outputs of one request provide identifiers for the next."},
-    {"answer": "/info → /tei → /characters", "correct": False,
-     "feedback": "No. Those are endpoints, but not the identifier cascade."},
-    {"answer": "/metrics → /networkdata → /corpora", "correct": False,
-     "feedback": "No. This inverts the typical navigation pattern."}
+    {"answer": "It is a query parameter that filters the result: only text spoken by female characters.", "correct": True,
+     "feedback": "Correct. Query parameters come after the ? and refine a request; the identifiers in the path select the resource."},
+    {"answer": "It is a path parameter that selects a different play.", "correct": False,
+     "feedback": "No. The play is selected by the path parameters (ger, schiller-wilhelm-tell); sex=FEMALE comes after the ?."},
+    {"answer": "It changes the format of the response to CSV.", "correct": False,
+     "feedback": "No. The format is unchanged (plain text); the parameter only filters the content."},
+    {"answer": "It is ignored by the API.", "correct": False,
+     "feedback": "No. Try both URLs in the browser and compare the results."}
   ]
 }]
 display_quiz(q6, max_width=1000)
@@ -163,246 +163,87 @@ display_quiz(q6, max_width=1000)
 
 ## Question 7
 
-Student exercise (copy into a notebook, fill in, run):
-
-```python
-import requests
-
-url = "https://dracor.org/api/v1/corpora"
-params = {"include": "metrics"}
-
-# TODO: send request with a timeout
-# TODO: check status code
-# TODO: parse JSON to a Python list
-# TODO: print the number of corpora
-# TODO: print the first 5 corpus identifiers and titles: "<name>: <title>"
-```
-
-Self-check:
-- You should see an integer number of corpora.
-- You should see 5 lines like `ger: German Drama Corpus` (exact titles vary).
-
-````{admonition} Reference solution (code)
-:class: tip dropdown
-```python
-import requests
-
-url = "https://dracor.org/api/v1/corpora"
-params = {"include": "metrics"}
-
-r = requests.get(url, params=params, timeout=30)
-if r.status_code != 200:
-    print(f"Request failed with status code: {r.status_code}")
-else:
-    corpora = r.json()
-    print(f"Number of corpora: {len(corpora)}")
-    for c in corpora[:5]:
-        print(f"{c.get('name')}: {c.get('title')}")
-```
-````
-
-Executed reference output:
-
 ```{code-cell} ipython3
 :tags: [remove-input]
-import requests
+from jupyterquiz import display_quiz
 
-url = "https://dracor.org/api/v1/corpora"
-params = {"include": "metrics"}
-
-try:
-    r = requests.get(url, params=params, timeout=30)
-    if r.status_code != 200:
-        print(f"Request failed with status code: {r.status_code}")
-    else:
-        corpora = r.json()
-        print(f"Number of corpora: {len(corpora)}")
-        for c in corpora[:5]:
-            print(f"{c.get('name')}: {c.get('title')}")
-except Exception as e:
-    print(f"Request failed with error: {e}")
+q7 = [{
+  "question": "What is the difference between dracor.get_play(\"ger\", \"lessing-emilia-galotti\") in PyDraCor and requests.get(...) with the corresponding URL?",
+  "type": "multiple_choice",
+  "answers": [
+    {"answer": "Both call the same API endpoint; PyDraCor builds the URL, sends the request and turns the JSON into Python objects for you.", "correct": True,
+     "feedback": "Correct. PyDraCor is an API wrapper: shorter code, same API underneath."},
+    {"answer": "PyDraCor reads the data from a local copy, requests from the server.", "correct": False,
+     "feedback": "No. PyDraCor also sends requests to dracor.org (or to another DraCor instance you point it to)."},
+    {"answer": "PyDraCor returns more data than the API provides.", "correct": False,
+     "feedback": "No. A wrapper can only return what the API provides."},
+    {"answer": "requests only works in the browser.", "correct": False,
+     "feedback": "No. requests is a Python library; the browser is a separate way to send a request."}
+  ]
+}]
+display_quiz(q7, max_width=1000)
 ```
 
-## Question 8
+## Exercise 1: From front-end URL to metadata
 
-Student exercise (copy into a notebook, fill in, run):
-
-```python
-import requests
-
-API_URL = "https://dracor.org/api/v1/"
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
-
-# TODO: send a GET request with a timeout
-# TODO: if status 200, parse the JSON response
-# TODO: print:
-#   - the play title
-#   - the normalised year
-#   - the number of characters
-# TODO: otherwise, print "Request failed with status code: <status>"
-```
-
-Self-check:
-- You should see basic play metadata for *Emilia Galotti*.
-- The output should contain the title, a year, and the number of characters.
-
-````{admonition} Reference solution (code)
-:class: tip dropdown
-```python
-import requests
-
-API_URL = "https://dracor.org/api/v1/"
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
-
-r = requests.get(url, timeout=15)
-
-if r.status_code != 200:
-    print(f"Request failed with status code: {r.status_code}")
-else:
-    data = r.json()
-    print(f"Title: {data.get('title')}")
-    print(f"Year: {data.get('yearNormalized')}")
-    print(f"Characters: {len(data.get('characters', []))}")
-```
-````
-
-Executed reference output:
+The following code turns a front-end URL into an API URL and prints some metadata of the play. Run it. Then find another play in the [German Shakespeare Drama Corpus](https://dracor.org/gersh) in the front-end, paste its URL and run the cell again.
 
 ```{code-cell} ipython3
-:tags: [remove-input]
 import requests
 
-API_URL = "https://dracor.org/api/v1/"
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"{API_URL}corpora/{corpusname}/plays/{playname}"
+frontend_url = "https://dracor.org/gersh/was-ihr-wollt"
 
-try:
-    r = requests.get(url, timeout=15)
-    if r.status_code != 200:
-        print(f"Request failed with status code: {r.status_code}")
-    else:
-        data = r.json()
-        print(f"Title: {data.get('title')}")
-        print(f"Year: {data.get('yearNormalized')}")
-        print(f"Characters: {len(data.get('characters', []))}")
-except Exception as e:
-    print(f"Request failed with error: {e}")
-```
+corpusname, playname = frontend_url.replace("https://dracor.org/", "").split("/")
+api_url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}"
 
-## Question 9
-
-Student exercise (copy into a notebook, run). The endpoint is intentionally wrong so that you can practise interpreting an error response:
-
-```python
-import requests
-
-url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
-r = requests.get(url, timeout=15)
-
-# TODO: if status 200, print the play title from JSON
-# TODO: otherwise, print "Request failed with status code: <status>"
-```
-
-Self-check:
-- You should get a non-200 status code, typically 404.
-- This shows that a play slug only works inside the correct corpus.
-
-````{admonition} Reference solution (code)
-:class: tip dropdown
-```python
-import requests
-
-url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
-r = requests.get(url, timeout=15)
-
-if r.status_code == 200:
-    data = r.json()
-    print(f"Play title: {data.get('title')}")
+response = requests.get(api_url, timeout=60)
+if response.status_code == 200:
+    play = response.json()
+    print(play["title"], play["yearNormalized"], len(play["characters"]), "characters")
 else:
-    print(f"Request failed with status code: {r.status_code}")
+    print(f"Request failed with status code: {response.status_code}")
 ```
-````
 
-Executed reference output:
+Now change one letter in the play name and run the cell again. Which status code do you get, and why?
+
+## Exercise 2: Corpus metadata as a table
+
+The following code loads the metadata of all plays in the German Shakespeare Drama Corpus as a table. Run it, then answer with one or two lines of code: **Which play has the most words (`wordCountText`)?**
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+import io
+import pandas as pd
 import requests
 
-url = "https://dracor.org/api/v1/corpora/rus/plays/lessing-emilia-galotti"
+url = "https://dracor.org/api/v1/corpora/gersh/metadata"
+response = requests.get(url, headers={"Accept": "text/csv"}, timeout=60)
+metadata_df = pd.read_csv(io.StringIO(response.text))
 
-try:
-    r = requests.get(url, timeout=15)
-    if r.status_code == 200:
-        data = r.json()
-        print(f"Play title: {data.get('title')}")
-    else:
-        print(f"Request failed with status code: {r.status_code}")
-except Exception as e:
-    print(f"Request failed with error: {e}")
+print(len(metadata_df), "plays")
+metadata_df[["title", "yearNormalized", "numOfSpeakers", "wordCountText"]].head()
 ```
 
-## Question 10
-
-Student exercise (copy into a notebook, fill in, run):
-
+:::{dropdown} Solution
 ```python
-import requests
-
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
-
-# TODO: request CSV using the Accept: text/csv header
-# TODO: print the first 5 non-empty lines of the response
+metadata_df.sort_values(by="wordCountText", ascending=False)[["title", "wordCountText"]].head(1)
 ```
+:::
 
-Self-check:
-- You should see a header row (CSV column names), then character rows.
+## Exercise 3: The same play with PyDraCor
 
-````{admonition} Reference solution (code)
-:class: tip dropdown
-```python
-import requests
-
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
-
-r = requests.get(url, headers={"Accept": "text/csv"}, timeout=15)
-
-if r.status_code != 200:
-    print(f"Request failed with status code: {r.status_code}")
-else:
-    lines = [ln for ln in r.text.splitlines() if ln.strip()]
-    for ln in lines[:5]:
-        print(ln)
-```
-````
-
-Executed reference output:
+Get the play from Exercise 1 with PyDraCor and print the number of its characters. Do you get the same number as with `requests`?
 
 ```{code-cell} ipython3
-:tags: [remove-input]
-import requests
+from pydracor import DraCorAPI
 
-corpusname = "ger"
-playname = "lessing-emilia-galotti"
-url = f"https://dracor.org/api/v1/corpora/{corpusname}/plays/{playname}/characters"
-
-try:
-    r = requests.get(url, headers={"Accept": "text/csv"}, timeout=15)
-    if r.status_code != 200:
-        print(f"Request failed with status code: {r.status_code}")
-    else:
-        lines = [ln for ln in r.text.splitlines() if ln.strip()]
-        for ln in lines[:5]:
-            print(ln)
-except Exception as e:
-    print(f"Request failed with error: {e}")
+dracor = DraCorAPI()
+play = dracor.get_play("gersh", "was-ihr-wollt")
+print(play.title)
 ```
+
+:::{dropdown} Solution
+```python
+print(len(play.characters), "characters")
+```
+Both numbers are the same: PyDraCor calls the same API endpoint as the `requests` code in Exercise 1.
+:::
