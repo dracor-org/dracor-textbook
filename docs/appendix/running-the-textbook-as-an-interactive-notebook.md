@@ -16,9 +16,9 @@ license: "CC BY 4.0"
 **Version:** 0.1 (2026-11-11)  
 ```
 
-Chapter 5 and the self-tests contain Python code that you can run yourself. You can copy the code into your own Python environment, or you can open a page as a Jupyter notebook in the browser, without installing anything. Pages with runnable code have a rocket icon at the top. It offers two services:
+Chapter 5 and the self-tests of the DraCor Textbook contain Python code that you can run yourself. You can copy the code into your own Python environment, or you can open a page as a Jupyter notebook in the browser, without installing anything. Pages with runnable code have a rocket icon at the top. It offers two services:
 
-- **EOSC EU Node**: the Binder service of the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/), the European Open Science Cloud. It requires an institutional login.
+- **EOSC EU Node**: the Binder service of the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/), of the European Open Science Cloud. It requires an institutional login.
 - **mybinder.org**: the free public [Binder](https://mybinder.org/) service. It requires no login.
 
 Both services build the same environment from the [textbook repository](https://github.com/dracor-org/dracor-textbook) and open the page in JupyterLab.
@@ -30,7 +30,7 @@ Both services build the same environment from the [textbook repository](https://
 | Login | institutional account | none |
 | Who can use it | depends on your access group (see A.2) | everyone |
 | Resources | guaranteed capacity (Small: 2 vCPUs, 4 GB RAM) | shared; can be slow or temporarily unavailable |
-| Cost | credits of your EU Node account | free |
+| Cost | free; uses the virtual credits of your EU Node account (no real money, see A.5) | free |
 
 If you have access to the EOSC EU Node, use it. Otherwise, mybinder.org is the quickest way to try the code.
 
@@ -71,7 +71,7 @@ Your changes are not saved back to the textbook. To keep your notebook, download
 
 On the EOSC EU Node you can run only one notebook server at a time. A server stops by itself after one hour of inactivity. To stop it earlier, for example before launching another page, choose *File → Hub Control Panel* in JupyterLab and click **Stop My Server**.
 
-A Small server costs 0.04 credits per hour. Credits are reset every 90 days.
+A Small server uses 0.04 credits per hour. Credits are virtual and have no monetary value: every account with access to the services receives an allocation free of charge (1,000 credits for *Collaborators*, 2,000 for *Investigators*), which is reset every 90 days. An hour of notebook work therefore uses only a tiny fraction of your allocation.
 
 ## A.6. Using mybinder.org
 
