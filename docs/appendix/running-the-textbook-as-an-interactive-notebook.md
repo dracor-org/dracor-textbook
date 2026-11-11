@@ -21,7 +21,7 @@ Chapter 5 and the self-tests of the DraCor Textbook contain Python code that you
 - **EOSC EU Node**: the Binder service of the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/), of the European Open Science Cloud. It requires an institutional login.
 - **mybinder.org**: the free public [Binder](https://mybinder.org/) service. It requires no login.
 
-Both services build the same environment from the [textbook repository](https://github.com/dracor-org/dracor-textbook) and open the page in JupyterLab.
+Both services build the same environment from the [textbook repository](https://github.com/dracor-org/dracor-textbook) and open the page in JupyterLab. You can also set up this environment on your own computer (see A.7).
 
 ## A.1. Which Option to Choose
 
@@ -57,7 +57,7 @@ Binder on the EU Node is part of the **Interactive Notebooks** service, which ha
 1. In the menu on the left, under *Services*, choose **Interactive Notebooks**.
 2. Under *Available EOSC EU Node servers*, request the **Small** server with **Get access**. Once it is active, its button changes to **Start**.
 3. The box **EOSC EU Node Binder** is now available. **View externally** opens the Binder start page.
-4. Note the **cluster** of your server, shown as a label (**EU-1** or **EU-2**). The EU Node runs on two clusters, and you are not always assigned the same one. The rocket button of the textbook uses the Binder on EU-2; if your server is on EU-1, see A.7.
+4. Note the **cluster** of your server, shown as a label (**EU-1** or **EU-2**). The EU Node runs on two clusters, and you are not always assigned the same one. The rocket button of the textbook uses the Binder on EU-2; if your server is on EU-1, see A.9.
 
 ```{figure} ../images/appendix/eu-node-interactive-notebooks.png
 :name: fig-eu-node-interactive-notebooks
@@ -77,7 +77,7 @@ The Interactive Notebooks page of the EOSC EU Node (open-science-cloud.ec.europa
 
 Binder builds the environment and launches the server. The progress bar shows the stages; *Build Logs* shows the details.
 ```
-3. JupyterLab opens the page as a notebook. If it is shown as a text file instead, right-click the file in the file browser on the left and choose **Open With → Notebook**. If JupyterLab opens in the top folder of the repository instead (for example after launching without a file, see A.7), double-click the folder `docs`, then `chapters` for the chapters or `assessment` for the self-tests.
+3. JupyterLab opens the page as a notebook. If it is shown as a text file instead, right-click the file in the file browser on the left and choose **Open With → Notebook**. If JupyterLab opens in the top folder of the repository instead (for example after launching without a file, see A.9), double-click the folder `docs`, then `chapters` for the chapters or `assessment` for the self-tests.
 
 ```{figure} ../images/appendix/jupyterlab-open-with-notebook.png
 :name: fig-jupyterlab-open-with-notebook
@@ -115,7 +115,55 @@ A Small server uses 0.04 credits per hour. Credits are virtual and have no monet
 
 On mybinder.org no account is needed: choose **mybinder.org** in the rocket menu, wait for the build and continue as in A.4. Its resources are shared by all users, so a launch may take longer or fail when the service is busy; in that case, try again later. A session ends after a short period of inactivity, and nothing is stored, so download your notebook if you want to keep it.
 
-## A.7. Troubleshooting
+## A.7. Running the Textbook on Your Own Computer
+
+You can also run the textbook on your own computer, in the same environment as on the EOSC EU Node and mybinder.org. You need [Python](https://www.python.org/) (version 3.11 or newer), [Git](https://git-scm.com/) and internet access, since the code cells call the DraCor API on dracor.org.
+
+1. Get a copy of the textbook repository:
+
+   ```bash
+   git clone https://github.com/dracor-org/dracor-textbook.git
+   cd dracor-textbook
+   ```
+
+2. Create a virtual environment and install the packages listed for Binder:
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate   # on Windows: .venv\Scripts\activate
+   pip install -r .binder/requirements.txt
+   ```
+
+3. Optionally, make JupyterLab open the pages as notebooks by default (macOS and Linux):
+
+   ```bash
+   bash .binder/postBuild
+   ```
+
+   Otherwise, right-click a page in JupyterLab and choose **Open With → Jupytext Notebook**.
+
+4. Start JupyterLab, which opens in your browser:
+
+   ```bash
+   jupyter lab
+   ```
+
+   The chapters are in the folder `docs/chapters`, the self-tests in `docs/assessment`.
+
+To stop JupyterLab, press *Ctrl + C* in the terminal. To work with a DraCor instance on your own computer instead of dracor.org, see Chapter 6.
+
+## A.8. Why Not Google Colab?
+
+[Google Colab](https://colab.research.google.com/) is a popular service for running Jupyter notebooks in the browser. The rocket menu does not offer it, for two reasons:
+
+- **Colab can only open notebooks in the `.ipynb` format**, from GitHub, Google Drive or a GitHub Gist. The pages of this textbook are written in MyST Markdown (`.md`) and only converted into notebooks when the book is built. A link that opens a page of the textbook directly in Colab is therefore not possible.
+- **Colab does not include all packages the textbook needs**, in particular PyDraCor, and the self-tests additionally depend on a helper file of the textbook repository. On the EOSC EU Node and on mybinder.org, these are installed automatically from the repository.
+
+In addition, Colab requires a Google account and is not part of the European Open Science Cloud.
+
+If you nevertheless want to use Colab for chapter 5, you can do so by hand: download the chapter as a notebook with the download button at the top of the page (*.ipynb*), upload it in Colab (*File → Upload notebook*), and add a cell at the beginning with `%pip install pydracor`. The self-tests cannot be run in Colab this way.
+
+## A.9. Troubleshooting
 
 **The rocket button does not work, or your server is on EU-1.** The button links to the Binder on the EU-2 cluster. Instead, open the Binder that belongs to your account: on the Interactive Notebooks page, click **View externally** in the box *EOSC EU Node Binder* and enter
 
