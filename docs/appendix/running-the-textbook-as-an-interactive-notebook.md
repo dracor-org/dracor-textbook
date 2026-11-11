@@ -77,13 +77,13 @@ The Interactive Notebooks page of the EOSC EU Node (open-science-cloud.ec.europa
 
 Binder builds the environment and launches the server. The progress bar shows the stages; *Build Logs* shows the details.
 ```
-3. JupyterLab opens and shows the page as a text file. In the file browser on the left, right-click the file and choose **Open With → Notebook**. If JupyterLab opens in the top folder of the repository instead (for example after launching without a file, see A.7), double-click the folder `docs`, then `chapters` for the chapters or `assessment` for the self-tests.
+3. JupyterLab opens the page as a notebook. If it is shown as a text file instead, right-click the file in the file browser on the left and choose **Open With → Notebook**. If JupyterLab opens in the top folder of the repository instead (for example after launching without a file, see A.7), double-click the folder `docs`, then `chapters` for the chapters or `assessment` for the self-tests.
 
 ```{figure} ../images/appendix/jupyterlab-open-with-notebook.png
 :name: fig-jupyterlab-open-with-notebook
 :alt: JupyterLab with the context menu of the chapter file and the submenu Open With, Notebook.
 
-In JupyterLab, right-click the chapter file and choose *Open With → Notebook* to get runnable code cells.
+If the page is shown as a text file: right-click the file in JupyterLab and choose *Open With → Notebook*.
 ```
 4. Run the cells one after another with *Shift + Enter*.
 

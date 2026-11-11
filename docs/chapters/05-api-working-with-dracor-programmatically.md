@@ -45,7 +45,7 @@ In this chapter we learn what an API is, how the DraCor API is structured and ho
 * Familiarity with the DraCor front-end (Chapter 4) is helpful but not strictly required.
 * No programming experience is needed to explore the API in the browser (sections 5.1–5.4). These sections also include short Python snippets, which you can skip.
 * From section 5.5 onwards, a basic willingness to try Python is enough. We explain every step.
-* To run the Python examples, you can use your own Python environment or launch this chapter from the rocket icon at the top of the page: on the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/) Binder, which requires an EU Node account (currently available to staff and faculty at institutions in the EU and Horizon Europe associated countries), or on [mybinder.org](https://mybinder.org/), which needs no login but can be slower. In JupyterLab, right-click the chapter file and choose *Open With → Notebook*. Step by step: see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md).
+* To run the Python examples, you can use your own Python environment or launch this chapter from the rocket icon at the top of the page: on the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/) Binder, which requires an EU Node account (currently available to staff and faculty at institutions in the EU and Horizon Europe associated countries), or on [mybinder.org](https://mybinder.org/), which needs no login but can be slower. The chapter opens as a notebook in JupyterLab; if it is shown as a text file, right-click it and choose *Open With → Notebook*. Step by step: see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md).
 
 ## 3. Learning Outcomes
 
