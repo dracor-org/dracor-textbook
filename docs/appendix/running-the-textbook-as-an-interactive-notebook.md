@@ -50,6 +50,7 @@ Binder on the EU Node is part of the **Interactive Notebooks** service, which ha
 1. In the menu on the left, under *Services*, choose **Interactive Notebooks**.
 2. Under *Available EOSC EU Node servers*, request the **Small** server with **Get access**. Once it is active, its button changes to **Start**.
 3. The box **EOSC EU Node Binder** is now available. **View externally** opens the Binder start page.
+4. Note the **cluster** of your server, shown as a label (**EU-1** or **EU-2**). The EU Node runs on two clusters, and you are not always assigned the same one. The rocket button of the textbook uses the Binder on EU-2; if your server is on EU-1, see A.7.
 
 ```{figure} ../images/appendix/eu-node-interactive-notebooks.png
 :name: fig-eu-node-interactive-notebooks
@@ -78,6 +79,20 @@ A Small server uses 0.04 credits per hour. Credits are virtual and have no monet
 ## A.6. Using mybinder.org
 
 On mybinder.org no account is needed: choose **mybinder.org** in the rocket menu, wait for the build and continue as in A.4. Its resources are shared by all users, so a launch may take longer or fail when the service is busy; in that case, try again later. A session ends after a short period of inactivity, and nothing is stored, so download your notebook if you want to keep it.
+
+## A.7. Troubleshooting
+
+**The rocket button does not work, or your server is on EU-1.** The button links to the Binder on the EU-2 cluster. Instead, open the Binder that belongs to your account: on the Interactive Notebooks page, click **View externally** in the box *EOSC EU Node Binder* and enter
+
+- repository: `dracor-org/dracor-textbook`
+- branch: `main`
+- path to a file, for example: `docs/chapters/05-api-working-with-dracor-programmatically.md`
+
+Then launch and continue with step 3 in A.4.
+
+**"You already have a running server".** Stop the running server first (see A.5) and launch again.
+
+**The launch still fails.** Contact the [EU Node helpdesk](https://open-science-cloud.ec.europa.eu/support/helpdesk), or use mybinder.org in the meantime (A.6).
 
 ## AI Use Declaration
 
