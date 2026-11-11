@@ -33,11 +33,11 @@ license: "CC BY 4.0"
 
 ## 1. Overview
 
-In the previous chapter we explored DraCor through its web front-end — browsing corpora, inspecting plays tab by tab and downloading files. Everything we saw there is powered by the DraCor API (Application Programming Interface). The API is the programmatic backbone of DraCor: the front-end sends requests to the API and displays the results. When we clicked on a GEXF download in the Downloads tab, we were — without knowing it — calling the API endpoint `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/networkdata/gexf`.
+In the previous chapter we explored DraCor through its web front-end – browsing corpora, inspecting plays tab by tab and downloading files. Everything we saw there is powered by the DraCor API (Application Programming Interface). The API is the programmatic backbone of DraCor: the front-end sends requests to the API and displays the results. When we clicked on a GEXF download in the Downloads tab, we were – without knowing it – calling the API endpoint `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/networkdata/gexf`.
 
 The API is also at the core of the "Programmable Corpora" concept that motivates DraCor (see Chapter 1). Programmable Corpora are "corpora that expose an open, transparently documented and (at least partly) research-driven API to make texts machine-actionable" {cite}`borner2023cls`. The API does not merely provide access to data; it stabilises how specific layers of a text (such as spoken text or stage directions) are extracted, and it standardises workflows (such as generating co-occurrence networks) so that different researchers work with comparable results {cite}`borner2023cls`.
 
-In this chapter we learn what an API is, how the DraCor API is structured and how to use it — first through the interactive documentation in the browser, then programmatically with Python. Along the way, we introduce general API concepts (requests, parameters, responses and status codes) through concrete DraCor examples. By the end of the chapter, we will be able to retrieve and analyse data from DraCor at a scale that the front-end alone cannot support, using the Python API wrapper for DraCor, PyDraCor.
+In this chapter we learn what an API is, how the DraCor API is structured and how to use it – first through the interactive documentation in the browser, then programmatically with Python. Along the way, we introduce general API concepts (requests, parameters, responses and status codes) through concrete DraCor examples. By the end of the chapter, we will be able to retrieve and analyse data from DraCor at a scale that the front-end alone cannot support, using the Python API wrapper for DraCor, PyDraCor.
 
 ## 2. Requirements and Competences
 
@@ -63,27 +63,27 @@ After completing this chapter, learners will be able to:
 
 ### 4.1. What Is an API?
 
-An API (Application Programming Interface) is a structured way for one piece of software to request data or services from another. Rather than navigating a website manually — clicking links, reading pages — an API allows us to send a precisely formatted request to a server and receive a precisely formatted response. The server exposes specific *endpoints* (URLs), each of which provides access to a particular resource or function.
+An API (Application Programming Interface) is a structured way for one piece of software to request data or services from another. Rather than navigating a website manually – clicking links, reading pages – an API allows us to send a precisely formatted request to a server and receive a precisely formatted response. The server exposes specific *endpoints* (URLs), each of which provides access to a particular resource or function.
 
-A common analogy used to explain APIs is the **library desk**: we do not walk into the stacks ourselves, but instead give the librarian a call number — the endpoint and its identifiers — and they bring us the material in the format we need. We do not need to know how the stacks are organised or where exactly the book is stored; we only need to know how to formulate our request. In the DraCor context, this maps quite naturally: the corpus name is like the section of the library, the play name is the call number, and the format we request (JSON, CSV, TEI, plain text) is like asking for the original, a photocopy, or a summary.
+A common analogy used to explain APIs is the **library desk**: we do not walk into the stacks ourselves, but instead give the librarian a call number – the endpoint and its identifiers – and they bring us the material in the format we need. We do not need to know how the stacks are organised or where exactly the book is stored; we only need to know how to formulate our request. In the DraCor context, this maps quite naturally: the corpus name is like the section of the library, the play name is the call number, and the format we request (JSON, CSV, TEI, plain text) is like asking for the original, a photocopy, or a summary.
 
-Another way to think about the DraCor API is as a **translator**: the data in DraCor is stored as TEI/XML in an eXist-db database and processed with XQuery — formats and technologies that most researchers do not work with directly. The API translates between what the database knows and what we need. We speak our language (Python, R or simply a browser) — in technical terms, our software acts as a *client* that sends requests — and the API, running on the *server*, speaks the language of the database, returning the results in a format we can work with. In this sense, the API is not just an access point but an intermediary that bridges the gap between the technical infrastructure and the researcher’s workflow. Anything that sends requests to the API is a client: a Python script, a browser or even the DraCor front-end itself.
+Another way to think about the DraCor API is as a **translator**: the data in DraCor is stored as TEI/XML in an eXist-db database and processed with XQuery – formats and technologies that most researchers do not work with directly. The API translates between what the database knows and what we need. We speak our language (Python, R or simply a browser) – in technical terms, our software acts as a *client* that sends requests – and the API, running on the *server*, speaks the language of the database, returning the results in a format we can work with. In this sense, the API is not just an access point but an intermediary that bridges the gap between the technical infrastructure and the researcher’s workflow. Anything that sends requests to the API is a client: a Python script, a browser or even the DraCor front-end itself.
 
-Most modern web APIs, including the DraCor API, follow the REST (Representational State Transfer) architectural style, introduced by Roy Fielding in 2000 {cite}`fielding2000architectural`. REST is not a protocol but a set of design principles {cite:p}`{for a practical guide see}masse2011rest`: APIs are organised around *resources* (things with URLs, such as a corpus or a play), interactions are *stateless* (each request is self-contained — the server does not track or remember what we requested before) and standard HTTP methods are used — these are verbs that tell the server what action we want to perform, much like commands in a conversation: GET means “give me this data”, POST means “create something new”, PUT means “update this” and DELETE means “remove this”. In practice, when working with the DraCor API as researchers, we almost exclusively use GET. Together, these principles — resources with stable URLs, stateless interactions and standard HTTP methods — form the conventions of RESTful API design. They make APIs predictable: once we understand the pattern, we can often guess how an unfamiliar endpoint works, even without reading its documentation first.
+Most modern web APIs, including the DraCor API, follow the REST (Representational State Transfer) architectural style, introduced by Roy Fielding in 2000 {cite}`fielding2000architectural`. REST is not a protocol but a set of design principles {cite:p}`{for a practical guide see}masse2011rest`: APIs are organised around *resources* (things with URLs, such as a corpus or a play), interactions are *stateless* (each request is self-contained – the server does not track or remember what we requested before) and standard HTTP methods are used – these are verbs that tell the server what action we want to perform, much like commands in a conversation: GET means “give me this data”, POST means “create something new”, PUT means “update this” and DELETE means “remove this”. In practice, when working with the DraCor API as researchers, we almost exclusively use GET. Together, these principles – resources with stable URLs, stateless interactions and standard HTTP methods – form the conventions of RESTful API design. They make APIs predictable: once we understand the pattern, we can often guess how an unfamiliar endpoint works, even without reading its documentation first.
 
-The DraCor API follows what we might call "pragmatic REST". It adheres to the core principles that Fielding laid out — resource-oriented design, stateless interactions, standard HTTP methods — but it occasionally departs from REST conventions where practicality demands it. For example, it places format information in the URL path (e.g. `/networkdata/csv` versus `/networkdata/gexf`) rather than relying solely on HTTP content negotiation — the mechanism by which a client and server agree on the format of the data to be exchanged. In a "pure" REST API, we would request the same URL and specify the desired format in a header (like saying "I would like this in CSV, please"), but in DraCor, the format is simply part of the URL itself, which makes it easier to share and bookmark specific formats. To return to our library analogy: in a "pure" REST scenario, we would hand the librarian a call number and attach a separate note saying "photocopy, please"; in DraCor, the call number itself already says "photocopy" — the format is written on the slip from the start. This makes endpoints more discoverable — the URL itself tells us what we are getting — even if a REST purist might prefer a different approach {cite:p}`{cf.}masse2011rest`.
+The DraCor API follows what we might call "pragmatic REST". It adheres to the core principles that Fielding laid out – resource-oriented design, stateless interactions, standard HTTP methods – but it occasionally departs from REST conventions where practicality demands it. For example, it places format information in the URL path (e.g. `/networkdata/csv` versus `/networkdata/gexf`) rather than relying solely on HTTP content negotiation – the mechanism by which a client and server agree on the format of the data to be exchanged. In a "pure" REST API, we would request the same URL and specify the desired format in a header (like saying "I would like this in CSV, please"), but in DraCor, the format is simply part of the URL itself, which makes it easier to share and bookmark specific formats. To return to our library analogy: in a "pure" REST scenario, we would hand the librarian a call number and attach a separate note saying "photocopy, please"; in DraCor, the call number itself already says "photocopy" – the format is written on the slip from the start. This makes endpoints more discoverable – the URL itself tells us what we are getting – even if a REST purist might prefer a different approach {cite:p}`{cf.}masse2011rest`.
 
 ### 4.2. Why an API for Literary Corpora?
 
 Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in GerDraCor, the front-end offers no way to do so.
 
-Without an API, the alternative would be to download the TEI/XML source files from GitHub and write our own scripts to parse them — extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see Chapter 3).
+Without an API, the alternative would be to download the TEI/XML source files from GitHub and write our own scripts to parse them – extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see Chapter 3).
 
 The API changes this by offering pre-built extraction and analysis as endpoints. As argued in the CLS INFRA report "On Programmable Corpora" {cite}`borner2023cls`, APIs for literary corpora serve several functions:
 
 - **Stabilising epistemic objects.** API endpoints provide stable, addressable references to specific layers of a text. If we are researching the stage directions in Lessing's *Emilia Galotti*, our research object is addressable at a URL: `https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/stage-directions`.
 - **Standardising workflows.** Operations such as extracting co-occurrence networks are implemented once in the API. Different researchers using the same endpoint work with the same extraction logic, making results comparable.
-- **Lowering technical barriers.** We can obtain network metrics as a CSV file — openable in Excel — without writing a single line of code, simply by calling the appropriate endpoint.
+- **Lowering technical barriers.** We can obtain network metrics as a CSV file – openable in Excel – without writing a single line of code, simply by calling the appropriate endpoint.
 - **Bootstrapping research.** Instead of starting from raw XML, we start from pre-processed, structured data. The API lets us decide at which level our research process begins {cite}`fischer2019programmable`.
 
 ### 4.3. The Front-end as an API Client
@@ -98,7 +98,7 @@ If you have the DraCor front-end open alongside this chapter, you can compare wh
 
 ### 5.1. Exploring the API Documentation (Swagger UI)
 
-Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://swagger.dracor.org](https://swagger.dracor.org).[^openapi-yaml]
+Before we make our first request, we need to know what the API offers. The DraCor API is documented using the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) – a standardised, machine-readable format for describing API endpoints, their parameters, and their responses {cite}`borner2025cls`. This specification is rendered as an interactive website using Swagger UI, accessible at [https://swagger.dracor.org](https://swagger.dracor.org).[^openapi-yaml]
 
 The DraCor front-end also links to an API documentation page at [dracor.org/doc/api](https://dracor.org/doc/api). From version 3 of the front-end, this page uses a different tool, [Scalar](https://scalar.com), which renders the same OpenAPI specification in a different layout. The Swagger UI at swagger.dracor.org remains available, and this chapter uses it throughout.
 
@@ -106,12 +106,12 @@ The DraCor front-end also links to an API documentation page at [dracor.org/doc/
 
 ```{admonition} Important distinction
 :class: warning
-The Swagger UI is the *documentation about* the API — it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
+The Swagger UI is the *documentation about* the API – it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
 ```
 
 Think of the OpenAPI specification as a *contract*: the developers of DraCor declare "we offer these endpoints, and if you use them the right way, you will get back data in this form." This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why tools like PyDraCor can be generated automatically from it.
 
-When we open the Swagger UI, we see the API endpoints grouped by *tags*: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints — these are the ones that return data without requiring authentication. The admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
+When we open the Swagger UI, we see the API endpoints grouped by *tags*: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints – these are the ones that return data without requiring authentication. The admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
 
 ```{figure} ../images/api/openapi-spec.png
 ---
@@ -135,10 +135,10 @@ Overview of all endpoint groups in the Swagger UI. The public endpoints at the t
 :class: tip
 The public endpoints of the DraCor API support four main capabilities:
 
-1. **Explore corpora and plays** — browse corpora, list plays, get metadata.
-2. **Retrieve text** — TEI/XML source, plain text, and specific text layers (spoken text, stage directions), with options to filter, e.g. by character or gender.
-3. **Extract structured data** — characters, social relations, co-occurrence networks, and network metrics.
-4. **Self-documentation** — version information about the API and its underlying components.
+1. **Explore corpora and plays** – browse corpora, list plays, get metadata.
+2. **Retrieve text** – TEI/XML source, plain text, and specific text layers (spoken text, stage directions), with options to filter, e.g. by character or gender.
+3. **Extract structured data** – characters, social relations, co-occurrence networks, and network metrics.
+4. **Self-documentation** – version information about the API and its underlying components.
 
 In the following examples, we explore these capabilities step by step, starting with the simplest request and building up to corpus-level analysis.
 ```
@@ -147,7 +147,7 @@ In the following examples, we explore these capabilities step by step, starting 
 
 Let us make our first API request. We want to find out which drama corpora are available in DraCor. In the Swagger UI, the first public endpoint listed is `/info`, which returns information about the API version and the underlying infrastructure. This is useful for documentation purposes, but the more interesting starting point is the second endpoint: **`/corpora`**, described as "List available corpora."
 
-In the Swagger UI, each endpoint is displayed as a collapsible box. To the left of the endpoint path, we see a coloured badge showing the HTTP method — in this case **GET**. GET is the HTTP method for retrieving data, and it is the method we use for virtually all public DraCor API requests. Importantly, GET requests do not change anything on the server: we can experiment freely without risk.
+In the Swagger UI, each endpoint is displayed as a collapsible box. To the left of the endpoint path, we see a coloured badge showing the HTTP method – in this case **GET**. GET is the HTTP method for retrieving data, and it is the method we use for virtually all public DraCor API requests. Importantly, GET requests do not change anything on the server: we can experiment freely without risk.
 
 When we click on the `/corpora` box to expand it, we see several sections:
 
@@ -159,11 +159,11 @@ width: 100%
 The `/corpora` endpoint expanded in Swagger UI. We can see the query parameter `include`, the expected response (status code 200, media type `application/json`) and an example value showing a corpus object.
 ```
 
-1. **Parameters.** The `/corpora` endpoint accepts one optional *query parameter* called `include`. If we set it to `metrics`, the response will contain additional statistical information about each corpus (number of plays, characters, word counts). Query parameters are appended to the URL after a `?` — for example: `https://dracor.org/api/v1/corpora?include=metrics`.
+1. **Parameters.** The `/corpora` endpoint accepts one optional *query parameter* called `include`. If we set it to `metrics`, the response will contain additional statistical information about each corpus (number of plays, characters, word counts). Query parameters are appended to the URL after a `?` – for example: `https://dracor.org/api/v1/corpora?include=metrics`.
 
-2. **Responses.** This section shows the possible HTTP status codes. If everything goes well, we receive a **200 OK** response. The response format (or *media type*) is `application/json` — meaning the data comes back as JSON (JavaScript Object Notation), the standard data format for web APIs.
+2. **Responses.** This section shows the possible HTTP status codes. If everything goes well, we receive a **200 OK** response. The response format (or *media type*) is `application/json` – meaning the data comes back as JSON (JavaScript Object Notation), the standard data format for web APIs.
 
-3. **Example value.** Before even executing a request, we can see what a typical response looks like. In this case, it is a JSON *array* — a list of objects, each representing one corpus. Each corpus object contains fields like `name` (the short identifier, e.g. `"ger"`), `title` (e.g. `"German Drama Corpus"`), and a link to the GitHub repository.
+3. **Example value.** Before even executing a request, we can see what a typical response looks like. In this case, it is a JSON *array* – a list of objects, each representing one corpus. Each corpus object contains fields like `name` (the short identifier, e.g. `"ger"`), `title` (e.g. `"German Drama Corpus"`), and a link to the GitHub repository.
 
 4. **Schema.** Clicking on the "Schema" tab shows a more formal description of the response structure, including which fields are mandatory (marked with a red asterisk).
 
@@ -177,16 +177,16 @@ The `/corpora` endpoint after clicking “Try it out” and selecting the Schema
 
 To actually execute the request, we click **"Try it out"**, optionally set the `include` parameter to `metrics`, and click **"Execute"**. The Swagger UI then shows us three things:
 
-- The **`curl` command** — a command-line instruction that performs the same request.
-- The **request URL** — the full URL that was called (e.g. `https://dracor.org/api/v1/corpora?include=metrics`).
-- The **server response** — the actual JSON data returned by the API, along with response headers.
+- The **`curl` command** – a command-line instruction that performs the same request.
+- The **request URL** – the full URL that was called (e.g. `https://dracor.org/api/v1/corpora?include=metrics`).
+- The **server response** – the actual JSON data returned by the API, along with response headers.
 
 ```{figure} ../images/api/swaggerui-corpora-endpoint-after-execution-numbered.png
 ---
-alt: "Swagger UI after executing the /corpora endpoint, with numbered annotations: (1) include parameter set to metrics, (2) curl command, (3) request URL, (4) server response with the name field highlighted — here the Alsatian Drama Corpus with the corpusname 'als'."
+alt: "Swagger UI after executing the /corpora endpoint, with numbered annotations: (1) include parameter set to metrics, (2) curl command, (3) request URL, (4) server response with the name field highlighted – here the Alsatian Drama Corpus with the corpusname 'als'."
 width: 100%
 ---
-The `/corpora` endpoint after execution. (1) The query parameter `include` is set to `metrics`. (2) The generated `curl` command. (3) The request URL. (4) The server response body — note the highlighted `name` field, which provides the corpus identifier (`corpusname`) needed for subsequent requests.
+The `/corpora` endpoint after execution. (1) The query parameter `include` is set to `metrics`. (2) The generated `curl` command. (3) The request URL. (4) The server response body – note the highlighted `name` field, which provides the corpus identifier (`corpusname`) needed for subsequent requests.
 ```
 
 ```{admonition} What is JSON?
@@ -194,17 +194,17 @@ The `/corpora` endpoint after execution. (1) The query parameter `include` is se
 JSON (JavaScript Object Notation) is a lightweight data format that uses two basic structures: **objects** (collections of key-value pairs, enclosed in `{ }`) and **arrays** (ordered lists, enclosed in `[ ]`). For example, `{"name": "ger", "title": "German Drama Corpus"}` is an object with two fields. An array of such objects looks like `[{"name": "ger", ...}, {"name": "rus", ...}]`. JSON is human-readable and supported by every programming language.
 ```
 
-The `name` field in each corpus object is the **identifier** — the "corpusname" — that we need for all further API calls. For example, the German Drama Corpus has the corpusname `"ger"`, the Russian Drama Corpus has `"rus"`. We will use these identifiers in the next section.
+The `name` field in each corpus object is the **identifier** – the "corpusname" – that we need for all further API calls. For example, the German Drama Corpus has the corpusname `"ger"`, the Russian Drama Corpus has `"rus"`. We will use these identifiers in the next section.
 
 #### Four Ways to Make the Same Request
 
 The Swagger UI is the most accessible way to explore the API, but it is not the only way. After executing a request, the Swagger UI shows us the request URL. We can use this URL in several ways, each progressively closer to programmatic research:
 
-**1. Swagger UI** — click-based, visual, no code needed.
+**1. Swagger UI** – click-based, visual, no code needed.
 
-**2. Browser address bar** — copy the request URL (e.g. `https://dracor.org/api/v1/corpora`) and paste it into the browser. We see the raw JSON response directly.
+**2. Browser address bar** – copy the request URL (e.g. `https://dracor.org/api/v1/corpora`) and paste it into the browser. We see the raw JSON response directly.
 
-**3. `curl` in a terminal** — the Swagger UI generates a `curl` command that we can run in a terminal:
+**3. `curl` in a terminal** – the Swagger UI generates a `curl` command that we can run in a terminal:
 
 ```bash
 curl -X 'GET' \
@@ -212,7 +212,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-With `curl`, we can also inspect the response headers — metadata about the response, such as the content type and server information. Just as a TEI document has a header (metadata about the text) and a body (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
+With `curl`, we can also inspect the response headers – metadata about the response, such as the content type and server information. Just as a TEI document has a header (metadata about the text) and a body (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
 
 ```bash
 curl -v 'https://dracor.org/api/v1/corpora'
@@ -220,7 +220,7 @@ curl -v 'https://dracor.org/api/v1/corpora'
 
 The Swagger UI also displays response headers in a separate box after executing a request.
 
-**4. Python with `requests`** — the bridge to programmatic research:
+**4. Python with `requests`** – the bridge to programmatic research:
 
 ```{code-cell} ipython3
 import requests
@@ -234,21 +234,21 @@ for corpus in corpora:
 
 Let us walk through this code line by line:
 
-- `import requests` — we import the `requests` library, a widely used Python package for making HTTP requests. It is not part of the standard library of Python, so it may need to be installed first with `pip install requests`.
-- `requests.get(...)` — this sends a GET request to the URL we provide, just like the Swagger UI or `curl` does. The `params={"include": "metrics"}` part adds the query parameter `?include=metrics` to the URL. The result is stored in the variable `response`.
-- `response.json()` — this parses the JSON data from the response body and converts it into Python data structures. JSON objects become Python **dictionaries** (key-value pairs accessed with `dict['key']`) and JSON arrays become Python **lists**. So the array of corpus objects returned by the API becomes a list of dictionaries, which we store in the variable `corpora`.
-- `for corpus in corpora:` — this loop iterates over each item in the list. In each iteration, `corpus` is a dictionary representing one corpus.
-- `print(f"{corpus['name']}: {corpus['title']}")` — for each corpus, we access the values of the fields `name` (the corpusname identifier) and `title` (the full name) and print them.
+- `import requests` – we import the `requests` library, a widely used Python package for making HTTP requests. It is not part of the standard library of Python, so it may need to be installed first with `pip install requests`.
+- `requests.get(...)` – this sends a GET request to the URL we provide, just like the Swagger UI or `curl` does. The `params={"include": "metrics"}` part adds the query parameter `?include=metrics` to the URL. The result is stored in the variable `response`.
+- `response.json()` – this parses the JSON data from the response body and converts it into Python data structures. JSON objects become Python **dictionaries** (key-value pairs accessed with `dict['key']`) and JSON arrays become Python **lists**. So the array of corpus objects returned by the API becomes a list of dictionaries, which we store in the variable `corpora`.
+- `for corpus in corpora:` – this loop iterates over each item in the list. In each iteration, `corpus` is a dictionary representing one corpus.
+- `print(f"{corpus['name']}: {corpus['title']}")` – for each corpus, we access the values of the fields `name` (the corpusname identifier) and `title` (the full name) and print them.
 
-If this is your first encounter with Python: congratulations, you have just read your first program. It does exactly what we did before in the Swagger UI and the browser — sends a request to the API and displays the result — but now in a form that can be extended, repeated, and automated. We will build on this pattern in the later sections of this chapter.
+If this is your first encounter with Python: congratulations, you have just read your first program. It does exactly what we did before in the Swagger UI and the browser – sends a request to the API and displays the result – but now in a form that can be extended, repeated, and automated. We will build on this pattern in the later sections of this chapter.
 
 ### 5.3. From Corpus to Play: The Identifier Flow
 
-Now that we have a list of corpora, we want to look at a specific corpus and find a play. The DraCor API is organised around two core entities — **corpora** and **plays** — and navigating between them requires understanding how identifiers flow from one request to the next.
+Now that we have a list of corpora, we want to look at a specific corpus and find a play. The DraCor API is organised around two core entities – **corpora** and **plays** – and navigating between them requires understanding how identifiers flow from one request to the next.
 
 #### Step 1: Getting a Single Corpus
 
-The endpoint `/corpora/{corpusname}` retrieves information about a single corpus. Notice the curly braces around `{corpusname}` — this is a **path parameter**, a variable part of the URL that we must replace with an actual value. Unlike the query parameter we saw earlier (`?include=metrics`), a path parameter is part of the URL structure itself and is required: without it, the endpoint does not work.
+The endpoint `/corpora/{corpusname}` retrieves information about a single corpus. Notice the curly braces around `{corpusname}` – this is a **path parameter**, a variable part of the URL that we must replace with an actual value. Unlike the query parameter we saw earlier (`?include=metrics`), a path parameter is part of the URL structure itself and is required: without it, the endpoint does not work.
 
 If we choose the English Drama Corpus, the request URL becomes: `https://dracor.org/api/v1/corpora/eng`.
 
@@ -257,12 +257,12 @@ If we choose the English Drama Corpus, the request URL becomes: `https://dracor.
 alt: "Swagger UI showing the /corpora/{corpusname} endpoint with the required path parameter corpusname, an examples dropdown (German Drama Corpus selected, value 'ger'), and the response section showing a 200 response with an example JSON object and a 404 'Unknown corpus' status."
 width: 100%
 ---
-The `/corpora/{corpusname}` endpoint. The path parameter `corpusname` is required (marked with a red asterisk). The description explains where to get valid values and the examples dropdown offers pre-filled corpus identifiers. Note also the 404 “Unknown corpus” response at the bottom — we get this when supplying an invalid corpus name.
+The `/corpora/{corpusname}` endpoint. The path parameter `corpusname` is required (marked with a red asterisk). The description explains where to get valid values and the examples dropdown offers pre-filled corpus identifiers. Note also the 404 “Unknown corpus” response at the bottom – we get this when supplying an invalid corpus name.
 ```
 
-In the Swagger UI, the parameter section shows a description: "Short name of the corpus as provided in the `name` property of the result objects from the `/corpora` endpoint." In other words, the output of our previous request (the `name` field) becomes the input of this request. This pattern — **the output of one request feeds as input into the next** — is not specific to DraCor but fundamental to working with REST APIs in general. Most APIs organise their resources hierarchically, and navigating that hierarchy means using identifiers obtained from one response to construct the next request. Once we grasp this pattern, we can apply it to any API we encounter.
+In the Swagger UI, the parameter section shows a description: "Short name of the corpus as provided in the `name` property of the result objects from the `/corpora` endpoint." In other words, the output of our previous request (the `name` field) becomes the input of this request. This pattern – **the output of one request feeds as input into the next** – is not specific to DraCor but fundamental to working with REST APIs in general. Most APIs organise their resources hierarchically, and navigating that hierarchy means using identifiers obtained from one response to construct the next request. Once we grasp this pattern, we can apply it to any API we encounter.
 
-The response this time is not an array but a single JSON **object**. It contains corpus-level metadata (title, description, repository link) and, importantly, a field called `plays` — an array of play objects, each with its own metadata including a `name` field (the play identifier, or "slug").
+The response this time is not an array but a single JSON **object**. It contains corpus-level metadata (title, description, repository link) and, importantly, a field called `plays` – an array of play objects, each with its own metadata including a `name` field (the play identifier, or "slug").
 
 #### Step 2: Getting a Single Play
 
@@ -282,7 +282,7 @@ The full identifier flow is therefore a three-step cascade:
 2. **`/corpora/ger`** → returns corpus details including plays; find the `name` field of a play (e.g. `"lessing-emilia-galotti"`)
 3. **`/corpora/ger/plays/lessing-emilia-galotti`** → returns metadata, characters and segments for that play
 
-What happens if we get the identifiers wrong? Every API response includes an HTTP **status code** — a three-digit number that tells us what happened. So far, all our requests returned **200 OK**, meaning the request was successful. But if we request `https://dracor.org/api/v1/corpora/rus/plays/hamlet`, we receive a **404 Not Found** error — because *Hamlet* is not in the Russian Drama Corpus. A play identifier only works within its own corpus.
+What happens if we get the identifiers wrong? Every API response includes an HTTP **status code** – a three-digit number that tells us what happened. So far, all our requests returned **200 OK**, meaning the request was successful. But if we request `https://dracor.org/api/v1/corpora/rus/plays/hamlet`, we receive a **404 Not Found** error – because *Hamlet* is not in the Russian Drama Corpus. A play identifier only works within its own corpus.
 
 The Swagger UI allows us to freely combine example values from different corpora (as we saw in the screenshot above), which can easily lead to such mismatches. We should always verify that the play we are requesting belongs to the corpus we specified.
 
@@ -290,11 +290,11 @@ To return to our library analogy: status codes are like the librarian's response
 
 Status codes are grouped by their first digit, which tells us the category of the response:[^status-codes]
 
-- **2xx — Success.** The request worked. The most common is **200 OK**.
-- **4xx — Client error.** Something is wrong with *our* request — a typo in the URL, a missing parameter, or a resource that does not exist. Common codes: **400 Bad Request**, **404 Not Found**.
-- **5xx — Server error.** The server encountered a problem — this is not our fault. Common code: **500 Internal Server Error**.
+- **2xx – Success.** The request worked. The most common is **200 OK**.
+- **4xx – Client error.** Something is wrong with *our* request – a typo in the URL, a missing parameter, or a resource that does not exist. Common codes: **400 Bad Request**, **404 Not Found**.
+- **5xx – Server error.** The server encountered a problem – this is not our fault. Common code: **500 Internal Server Error**.
 
-We do not need to memorise all status codes. The key insight is: if the first digit is 2, we are fine; if it is 4, we should check our request; if it is 5, the problem is on the server side. For each endpoint, the DraCor OpenAPI specification lists the possible status codes and their meaning — we can see them in the Responses section of the Swagger UI. This is a good place to check if something goes wrong with a request.
+We do not need to memorise all status codes. The key insight is: if the first digit is 2, we are fine; if it is 4, we should check our request; if it is 5, the problem is on the server side. For each endpoint, the DraCor OpenAPI specification lists the possible status codes and their meaning – we can see them in the Responses section of the Swagger UI. This is a good place to check if something goes wrong with a request.
 
 [^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
 
@@ -324,11 +324,11 @@ else:
 Let us walk through this:
 
 - We send a GET request to an endpoint that we suspect might not work (Hamlet in the Russian Drama Corpus).
-- `response.status_code` gives us the HTTP status code as a number (an integer) that we can compare — in this case, `404`.
+- `response.status_code` gives us the HTTP status code as a number (an integer) that we can compare – in this case, `404`.
 - The `if` statement checks whether the status code is `200` (success). This is a **conditional** in Python: the indented code after `if` only runs when the condition is true; otherwise, the code after `else` runs.
 - Since Hamlet is not in RusDraCor, we get the output: `Request failed with status code: 404`.
 
-This pattern — check the status code before processing the data — is good practice whenever we make API requests programmatically. It prevents our code from crashing when a request fails unexpectedly.
+This pattern – check the status code before processing the data – is good practice whenever we make API requests programmatically. It prevents our code from crashing when a request fails unexpectedly.
 
 #### From Front-end URL to API URL
 
@@ -352,14 +352,14 @@ print(api_url)
 
 This short example introduces some useful Python string manipulation:
 
-- `.replace("https://dracor.org/", "")` removes the base URL from the string, leaving just `"ger/lessing-emilia-galotti"`. The `.replace()` method substitutes one piece of text with another — here, we replace the base URL with an empty string, effectively stripping it away.
+- `.replace("https://dracor.org/", "")` removes the base URL from the string, leaving just `"ger/lessing-emilia-galotti"`. The `.replace()` method substitutes one piece of text with another – here, we replace the base URL with an empty string, effectively stripping it away.
 - `.split("/")` splits the remaining string at every `/` character, producing a list: `["ger", "lessing-emilia-galotti"]`. The `.split()` method breaks a string into parts based on a separator.
 - `corpusname, playname = parts[0], parts[1]` assigns the first and second elements of the list to two variables. In Python, `parts[0]` means "the first item" (indexing starts at 0).
 - The `f"..."` syntax is a formatted string (or "f-string"): the expressions inside `{corpusname}` and `{playname}` are replaced with the values of those variables, producing the final API URL.
 
 ### 5.4. What Data Can We Get for a Play?
 
-Once we have navigated to a specific play, a range of endpoints branch off from the play path. There is no single endpoint that returns everything about a play — instead, different endpoints provide different types of data. The following table summarises the most important play-level endpoints:
+Once we have navigated to a specific play, a range of endpoints branch off from the play path. There is no single endpoint that returns everything about a play – instead, different endpoints provide different types of data. The following table summarises the most important play-level endpoints:
 
 | Endpoint suffix | What it returns | Format(s) |
 |---|---|---|
@@ -377,7 +377,7 @@ Once we have navigated to a specific play, a range of endpoints branch off from 
 | `/networkdata/gexf` | Network data for Gephi | XML (GEXF) |
 | `/networkdata/graphml` | Network data in GraphML | XML (GraphML) |
 
-Note that most endpoints return a single format. Two endpoints — `/characters` and `/spoken-text-by-character` — can return either JSON or CSV. How do we tell the API which format we want? Remember the library analogy: we hand over the call number and attach a note saying "photocopy, please." In API terms, this is called *content negotiation*: we include an `Accept` header in our request that specifies the desired format. For example, to request the character list as CSV instead of JSON:
+Note that most endpoints return a single format. Two endpoints – `/characters` and `/spoken-text-by-character` – can return either JSON or CSV. How do we tell the API which format we want? Remember the library analogy: we hand over the call number and attach a note saying "photocopy, please." In API terms, this is called *content negotiation*: we include an `Accept` header in our request that specifies the desired format. For example, to request the character list as CSV instead of JSON:
 
 ```{code-cell} ipython3
 import requests
@@ -392,17 +392,17 @@ response_csv = requests.get(url, headers={"Accept": "text/csv"})
 print(response_csv.text)
 ```
 
-Let us unpack what is new here. We already know `requests.get(url)` from earlier, but this time we pass an additional keyword argument: `headers={"Accept": "text/csv"}`. In Python, keyword arguments (written as `name=value`) let us provide optional information to a function — a reusable block of code that performs a specific task. We have already been using functions: `requests.get()` is a function that sends an HTTP GET request, and `print()` is a function that displays text. Functions accept inputs (called *arguments*) and often return a result. Here, we are passing a dictionary of HTTP headers that will be sent along with our request.
+Let us unpack what is new here. We already know `requests.get(url)` from earlier, but this time we pass an additional keyword argument: `headers={"Accept": "text/csv"}`. In Python, keyword arguments (written as `name=value`) let us provide optional information to a function – a reusable block of code that performs a specific task. We have already been using functions: `requests.get()` is a function that sends an HTTP GET request, and `print()` is a function that displays text. Functions accept inputs (called *arguments*) and often return a result. Here, we are passing a dictionary of HTTP headers that will be sent along with our request.
 
-The value `"text/csv"` is a *MIME type* (also called *Internet media type*) — a standardised label that identifies the format of data on the internet. Common MIME types include `application/json` for JSON data, `text/csv` for CSV tables, `text/plain` for plain text, and `application/xml` for XML documents. When we set the `Accept` header to a specific MIME type, we are telling the server: "please send me the data in this format." This is our "photocopy, please" note from the library analogy.
+The value `"text/csv"` is a *MIME type* (also called *Internet media type*) – a standardised label that identifies the format of data on the internet. Common MIME types include `application/json` for JSON data, `text/csv` for CSV tables, `text/plain` for plain text, and `application/xml` for XML documents. When we set the `Accept` header to a specific MIME type, we are telling the server: "please send me the data in this format." This is our "photocopy, please" note from the library analogy.
 
 All of these endpoints require the same two path parameters (`{corpusname}` and `{playname}`) that we used in the previous section. The base path is always `/api/v1/corpora/{corpusname}/plays/{playname}/`.
 
-The network data endpoints illustrate a practical approach to **content negotiation**: the same network data is available in CSV, GEXF, and GraphML, but rather than using HTTP headers to select the format, the format appears in the URL path. This is a pragmatic design choice — it makes each format directly linkable and shareable.
+The network data endpoints illustrate a practical approach to **content negotiation**: the same network data is available in CSV, GEXF, and GraphML, but rather than using HTTP headers to select the format, the format appears in the URL path. This is a pragmatic design choice – it makes each format directly linkable and shareable.
 
 ```{admonition} How to find out what an endpoint returns
 :class: tip
-Rather than memorising the table above, we recommend learning to read the **schema** in the Swagger UI. For each endpoint, the response section shows both an example value and a formal schema describing the structure and types of all fields. The schema is the most reliable guide to what data is available from a given endpoint. For a comprehensive overview of all data points ("features") returned by the DraCor API — organised by corpus, play, segment, and character — see the feature tables in {cite}`borner2023cls{pp. 37–44}`, with updates in {cite}`borner2025cls`.
+Rather than memorising the table above, we recommend learning to read the **schema** in the Swagger UI. For each endpoint, the response section shows both an example value and a formal schema describing the structure and types of all fields. The schema is the most reliable guide to what data is available from a given endpoint. For a comprehensive overview of all data points ("features") returned by the DraCor API – organised by corpus, play, segment, and character – see the feature tables in {cite}`borner2023cls{pp. 37–44}`, with updates in {cite}`borner2025cls`.
 ```
 
 Rather than walking through each endpoint individually, let us see some of them in action. The following URLs can be pasted directly into a browser to retrieve different types of data for Schiller's *Wilhelm Tell* in GerDraCor:
@@ -418,13 +418,13 @@ The third example uses a **query parameter** on the `/spoken-text` endpoint: `?s
 
 ### 5.5. Research at Scale: Corpus Metadata Analysis
 
-So far, everything we have done with Python could also be done in the Swagger UI or the browser — we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the Swagger UI can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end — we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
+So far, everything we have done with Python could also be done in the Swagger UI or the browser – we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the Swagger UI can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end – we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
 
 [^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite}`sluyter-gathje2023cls`.
 
 #### Loading Corpus Metadata as a Table
 
-The endpoint `/corpora/{corpusname}/metadata` returns detailed metadata for every play in a corpus. By requesting it as CSV (using the `Accept` header we just learned about), we can load it directly into a table using the Python library **pandas**. Pandas is a widely used package for working with tabular data — think of it as a programmable spreadsheet. It can be installed with `pip install pandas`.
+The endpoint `/corpora/{corpusname}/metadata` returns detailed metadata for every play in a corpus. By requesting it as CSV (using the `Accept` header we just learned about), we can load it directly into a table using the Python library **pandas**. Pandas is a widely used package for working with tabular data – think of it as a programmable spreadsheet. It can be installed with `pip install pandas`.
 
 The central data structure in pandas is the **DataFrame**: a table with rows and columns, similar to a spreadsheet or a CSV file. We can filter, sort, and plot data in a DataFrame with just a few lines of code.
 
@@ -455,11 +455,11 @@ metadata_df.head()
 
 Let us walk through the new parts:
 
-- `import pandas as pd` — we import the pandas library and give it the shorthand name `pd`, which is a common convention.
-- `stream=True` — this tells `requests` to stream the response rather than loading it all into memory at once, which is needed so that pandas can read it directly as a file.
-- `response.raw.decode_content = True` — a technical detail that ensures the raw response data is decoded properly before pandas reads it.
-- `pd.read_csv(response.raw, sep=",", encoding="utf-8")` — this reads the CSV data from the response and creates a DataFrame. The `sep=","` specifies that columns are separated by commas, and `encoding="utf-8"` ensures that special characters (such as umlauts in German play titles) are handled correctly.
-- `metadata_df.head()` — displays the first five rows of the table, giving us a quick preview.
+- `import pandas as pd` – we import the pandas library and give it the shorthand name `pd`, which is a common convention.
+- `stream=True` – this tells `requests` to stream the response rather than loading it all into memory at once, which is needed so that pandas can read it directly as a file.
+- `response.raw.decode_content = True` – a technical detail that ensures the raw response data is decoded properly before pandas reads it.
+- `pd.read_csv(response.raw, sep=",", encoding="utf-8")` – this reads the CSV data from the response and creates a DataFrame. The `sep=","` specifies that columns are separated by commas, and `encoding="utf-8"` ensures that special characters (such as umlauts in German play titles) are handled correctly.
+- `metadata_df.head()` – displays the first five rows of the table, giving us a quick preview.
 
 The resulting table has one row per play and columns for metadata fields such as `yearNormalized`, `wordCountText`, `wordCountStage`, `numOfSpeakers`, `numOfSpeakersFemale`, `size` (number of characters), and many more.
 
@@ -484,11 +484,11 @@ plays_after_1800 = metadata_df[metadata_df["yearNormalized"] > 1800]
 print(f"Number of plays after 1800: {len(plays_after_1800)}")
 ```
 
-In the first example, `len()` gives us the number of rows (plays), and `.columns` lists all available fields — useful for discovering what data the API has provided. In the second, `.sort_values()` sorts the table by a column and `.head()` shows the first five rows — just like sorting a spreadsheet column and looking at the top entries. In the third, we filter rows using a condition inside square brackets: `metadata_df["yearNormalized"] > 1800` selects only the rows where the year is greater than 1800. These operations — sorting, filtering, counting — are the bread and butter of working with tabular data in pandas.
+In the first example, `len()` gives us the number of rows (plays), and `.columns` lists all available fields – useful for discovering what data the API has provided. In the second, `.sort_values()` sorts the table by a column and `.head()` shows the first five rows – just like sorting a spreadsheet column and looking at the top entries. In the third, we filter rows using a condition inside square brackets: `metadata_df["yearNormalized"] > 1800` selects only the rows where the year is greater than 1800. These operations – sorting, filtering, counting – are the bread and butter of working with tabular data in pandas.
 
 ```{admonition} A note on performance
 :class: warning
-The `/metadata` endpoint returns data for *all* plays in a corpus in a single response. For large corpora like FreDraCor (almost 2,000 plays), this can be slow. This is a known trade-off in the DraCor API design — convenient for quick analyses but costly for large datasets.
+The `/metadata` endpoint returns data for *all* plays in a corpus in a single response. For large corpora like FreDraCor (almost 2,000 plays), this can be slow. This is a known trade-off in the DraCor API design – convenient for quick analyses but costly for large datasets.
 ```
 
 #### Example Analysis: Stage Directions over Time
@@ -505,13 +505,13 @@ metadata_df.plot(x="yearNormalized", y="stageProportion", kind="scatter")
 
 Let us walk through this:
 
-- `metadata_df["wordCountStage"] / metadata_df["wordCountText"]` — this divides two columns element-wise: for each play, the number of words in stage directions is divided by the total number of words, giving us a ratio between 0 and 1. Pandas lets us perform mathematical operations on entire columns at once, just as a spreadsheet formula can be applied to a whole column.
-- `metadata_df["stageProportion"] = ...` — the result is stored in a new column called `"stageProportion"`, which is added to the DataFrame automatically.
-- `.plot(x="yearNormalized", y="stageProportion", kind="scatter")` — this creates a scatter plot using the built-in plotting functionality of pandas. The `x` and `y` parameters specify which columns to use for the horizontal and vertical axes. The `kind="scatter"` parameter tells pandas to draw individual points rather than a line. Each point represents one play, positioned by its year (x-axis) and its stage-direction proportion (y-axis).
+- `metadata_df["wordCountStage"] / metadata_df["wordCountText"]` – this divides two columns element-wise: for each play, the number of words in stage directions is divided by the total number of words, giving us a ratio between 0 and 1. Pandas lets us perform mathematical operations on entire columns at once, just as a spreadsheet formula can be applied to a whole column.
+- `metadata_df["stageProportion"] = ...` – the result is stored in a new column called `"stageProportion"`, which is added to the DataFrame automatically.
+- `.plot(x="yearNormalized", y="stageProportion", kind="scatter")` – this creates a scatter plot using the built-in plotting functionality of pandas. The `x` and `y` parameters specify which columns to use for the horizontal and vertical axes. The `kind="scatter"` parameter tells pandas to draw individual points rather than a line. Each point represents one play, positioned by its year (x-axis) and its stage-direction proportion (y-axis).
 
-This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically — a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
+This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically – a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
 
-[^stage-directions-showcase]: {cite}`borner2023cls{pp. 17–19}` demonstrates this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text — a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a "tendency towards epification" in German drama.
+[^stage-directions-showcase]: {cite}`borner2023cls{pp. 17–19}` demonstrates this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text – a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a "tendency towards epification" in German drama.
 
 #### Example Analysis: Female Speakers over Time
 
@@ -525,7 +525,7 @@ metadata_df["femaleSpeakerRatio"] = metadata_df["numOfSpeakersFemale"] / metadat
 metadata_df.plot(x="yearNormalized", y="femaleSpeakerRatio", kind="scatter")
 ```
 
-This follows the same pattern as before: we divide two columns to create a new ratio (`numOfSpeakersFemale / numOfSpeakers`), store it in a new column, and plot it over time. The result shows, for each play, what proportion of its speaking characters are female — a simple but revealing perspective on gender representation across centuries of dramatic writing.
+This follows the same pattern as before: we divide two columns to create a new ratio (`numOfSpeakersFemale / numOfSpeakers`), store it in a new column, and plot it over time. The result shows, for each play, what proportion of its speaking characters are female – a simple but revealing perspective on gender representation across centuries of dramatic writing.
 
 #### Iterating over Plays
 
@@ -571,15 +571,15 @@ Let us walk through the new elements:
 - The `for play in corpus_data["plays"]:` loop iterates over every play in the corpus. For each play, we build the URL to the `/characters` endpoint using its `name` field.
 - The response is a list of objects, one per character. Each character object contains, among other fields, `numOfWords` (how many words this character speaks) and `sex`.
 - We use `if/elif` to add the word count to either `words_female` or `words_male` depending on the character's `sex` field.
-- `+=` is a shorthand for "add this value to the existing total" — so `words_female += character["numOfWords"]` adds this character's word count to the running total.
+- `+=` is a shorthand for "add this value to the existing total" – so `words_female += character["numOfWords"]` adds this character's word count to the running total.
 
-Notice what we did *not* have to do: we did not download the TEI source files, parse the XML, identify which text belongs to which character, split it into tokens, and count them. The API has already done this work for us — the `numOfWords` value is pre-calculated and ready to use. This is the *bootstrapping* function of the API that we introduced in the Theoretical Background: it provides pre-processed, structured data so that our research can start at a higher level.
+Notice what we did *not* have to do: we did not download the TEI source files, parse the XML, identify which text belongs to which character, split it into tokens, and count them. The API has already done this work for us – the `numOfWords` value is pre-calculated and ready to use. This is the *bootstrapping* function of the API that we introduced in the Theoretical Background: it provides pre-processed, structured data so that our research can start at a higher level.
 
-This pattern — iterating over plays and calling an endpoint for each one — is common when working with the DraCor API. It illustrates both the power of programmatic access (we can process hundreds of plays automatically) and a practical consideration: making many individual requests can be slow, especially for large corpora.
+This pattern – iterating over plays and calling an endpoint for each one – is common when working with the DraCor API. It illustrates both the power of programmatic access (we can process hundreds of plays automatically) and a practical consideration: making many individual requests can be slow, especially for large corpora.
 
 ```{admonition} A note on API design: chunky vs. chatty
 :class: note
-The iteration pattern above raises a question of API design. To get character data for all plays in a corpus, we make one request per play — potentially hundreds of requests. This is what API designers call a "chatty" approach: many small, precise requests. The alternative would be a "chunky" approach: a single endpoint that returns all character data for an entire corpus in one response. The DraCor API tends towards the chunky style in some places — for example, the `/corpora/{corpusname}` endpoint returns corpus metadata *and* a list of all plays in one response. This is convenient but can lead to *overfetching*: we receive more data than we need. The `/metadata` endpoint we used earlier is another example — it returns detailed data for every play at once, which is why it can be slow for large corpora. There is no single right answer; both styles have trade-offs, and the DraCor API uses a pragmatic mix of both.
+The iteration pattern above raises a question of API design. To get character data for all plays in a corpus, we make one request per play – potentially hundreds of requests. This is what API designers call a "chatty" approach: many small, precise requests. The alternative would be a "chunky" approach: a single endpoint that returns all character data for an entire corpus in one response. The DraCor API tends towards the chunky style in some places – for example, the `/corpora/{corpusname}` endpoint returns corpus metadata *and* a list of all plays in one response. This is convenient but can lead to *overfetching*: we receive more data than we need. The `/metadata` endpoint we used earlier is another example – it returns detailed data for every play at once, which is why it can be slow for large corpora. There is no single right answer; both styles have trade-offs, and the DraCor API uses a pragmatic mix of both.
 ```
 
 ### 5.6. Using PyDraCor (and rdracor)
@@ -590,24 +590,24 @@ For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdrac
 
 #### PyDraCor
 
-[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje, is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API — corpora, plays, and characters — so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
+[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje, is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
 
 ```bash
 pip install pydracor
 ```
 
-Its main classes — `DraCorAPI`, `Corpus` and `Play` — mirror the structure of the API itself. Let us walk through them step by step.
+Its main classes – `DraCorAPI`, `Corpus` and `Play` – mirror the structure of the API itself. Let us walk through them step by step.
 
 #### Getting Started
 
 ```{code-cell} ipython3
 from pydracor import DraCorAPI
 
-# Initialise — points to dracor.org by default
+# Initialise – points to dracor.org by default
 dracor = DraCorAPI()
 ```
 
-Here, `DraCorAPI()` creates an *object* — an instance of the `DraCorAPI` class. This object, which we store in the variable `dracor`, knows how to communicate with the DraCor API. We no longer need to construct URLs or manage requests ourselves.
+Here, `DraCorAPI()` creates an *object* – an instance of the `DraCorAPI` class. This object, which we store in the variable `dracor`, knows how to communicate with the DraCor API. We no longer need to construct URLs or manage requests ourselves.
 
 #### Listing Corpora and Getting a Corpus
 
@@ -621,24 +621,24 @@ for corpus in corpora:
 corpus = dracor.get_corpus("ger")
 ```
 
-`dracor.get_corpora()` does the same thing as our earlier `requests.get(API_URL + "corpora")` — but we do not need to build the URL or parse the JSON. The result is a list of corpus objects, and we can access their properties directly with `corpus.name` and `corpus.title` (using dot notation instead of dictionary brackets).
+`dracor.get_corpora()` does the same thing as our earlier `requests.get(API_URL + "corpora")` – but we do not need to build the URL or parse the JSON. The result is a list of corpus objects, and we can access their properties directly with `corpus.name` and `corpus.title` (using dot notation instead of dictionary brackets).
 
 #### Working with a Play
 
 ```{code-cell} ipython3
-# Get a play — using the same two identifiers we learned earlier
+# Get a play – using the same two identifiers we learned earlier
 play = dracor.get_play("ger", "lessing-emilia-galotti")
 
 # Get spoken text by female characters
 text = play.get_spoken_text(sex="FEMALE")
 ```
 
-`dracor.get_play("ger", "lessing-emilia-galotti")` takes the same two identifiers — corpusname and playname — that we used throughout this chapter. PyDraCor handles the URL construction (`/api/v1/corpora/ger/plays/lessing-emilia-galotti`) internally. The result is a `Play` object that we can then query further.
+`dracor.get_play("ger", "lessing-emilia-galotti")` takes the same two identifiers – corpusname and playname – that we used throughout this chapter. PyDraCor handles the URL construction (`/api/v1/corpora/ger/plays/lessing-emilia-galotti`) internally. The result is a `Play` object that we can then query further.
 
-`play.get_spoken_text(sex="FEMALE")` is a *method* — a function that belongs to the `Play` object. Behind the scenes, it constructs the URL, adds the query parameter, sends the request, and returns the result. Compare this with the equivalent raw `requests` code:
+`play.get_spoken_text(sex="FEMALE")` is a *method* – a function that belongs to the `Play` object. Behind the scenes, it constructs the URL, adds the query parameter, sends the request, and returns the result. Compare this with the equivalent raw `requests` code:
 
 ```{code-cell} ipython3
-# The same thing with requests — more explicit, more verbose
+# The same thing with requests – more explicit, more verbose
 url = "https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/spoken-text"
 response = requests.get(url, params={"sex": "FEMALE"})
 response.raise_for_status()
@@ -663,7 +663,7 @@ metadata = corpus.get_metadata()
 metadata_df = pd.DataFrame([m.to_dict() for m in metadata])
 ```
 
-`metrics.average_degree` shows how PyDraCor makes API data feel like native Python: instead of navigating a dictionary (`data["averageDegree"]`), we access a property on an object. The filtering example uses a Python *list comprehension* — a compact way of writing a loop that selects items matching a condition.
+`metrics.average_degree` shows how PyDraCor makes API data feel like native Python: instead of navigating a dictionary (`data["averageDegree"]`), we access a property on an object. The filtering example uses a Python *list comprehension* – a compact way of writing a loop that selects items matching a condition.
 
 PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is auto-generated from the DraCor OpenAPI specification, helping it remain in sync with the API. The main `pydracor` package then wraps this core with convenience functions {cite}`borner2025cls`.
 
@@ -744,7 +744,7 @@ For advanced learners, the [DraCor Notebooks](https://github.com/dracor-org/drac
 | API wrapper | A programming library that simplifies working with an API from a specific programming language. |
 | Content negotiation | The mechanism by which a client and server agree on the format of the response data. |
 | MIME type (Internet media type) | A standardised label that identifies the format of data (e.g. `application/json`, `text/csv`, `text/plain`). Used in the `Accept` header to request a specific format. |
-| Client | Any software that sends requests to an API — a browser, a Python script, or a front-end application. |
+| Client | Any software that sends requests to an API – a browser, a Python script, or a front-end application. |
 | Server | The system that receives API requests, processes them, and sends back responses. |
 | Corpusname | The short identifier of a DraCor corpus (e.g. `"ger"` for the German Drama Corpus), used as a path parameter in API requests. |
 | Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. |
@@ -758,7 +758,7 @@ For advanced learners, the [DraCor Notebooks](https://github.com/dracor-org/drac
 
 ## 11. AI Use Declaration
 
-This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was transcribed and used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor — in particular the CLS INFRA reports D7.1 {cite}`borner2023cls`, D7.2 {cite}`sluyter-gathje2023cls` and D7.4 {cite}`borner2025cls` — was used to retrieve relevant passages and verify factual claims. The model also assisted with summarisation, spelling and grammar checking, code explanation and testing, as well as formatting for MyST Markdown. All content was reviewed and edited by the author. The revision for version 0.3 was carried out with a coding agent (Claude Code, Anthropic), which proposed changes, ran the code examples against the DraCor API and checked the links; each change was approved by the author. The Teaching Notes (section 7) and the self-test were written for version 0.3 with the same coding agent (Claude Opus 5.5): the Teaching Notes from the author's instructions, the self-test questions and exercises derived from the chapter; all questions and exercises were tested and approved by the author.
+This chapter was drafted with the assistance of a large language model (Claude, Anthropic). The author dictated content via voice input, which was transcribed and used as the basis for an interview-style dialogue with the LLM. The model structured and edited the spoken input into chapter prose. A retrieval-augmented generation (RAG) system containing key literature on DraCor – in particular the CLS INFRA reports D7.1 {cite}`borner2023cls`, D7.2 {cite}`sluyter-gathje2023cls` and D7.4 {cite}`borner2025cls` – was used to retrieve relevant passages and verify factual claims. The model also assisted with summarisation, spelling and grammar checking, code explanation and testing, as well as formatting for MyST Markdown. All content was reviewed and edited by the author. The revision for version 0.3 was carried out with a coding agent (Claude Code, Anthropic), which proposed changes, ran the code examples against the DraCor API and checked the links; each change was approved by the author. The Teaching Notes (section 7) and the self-test were written for version 0.3 with the same coding agent (Claude Opus 5.5): the Teaching Notes from the author's instructions, the self-test questions and exercises derived from the chapter; all questions and exercises were tested and approved by the author.
 
 ## 12. Author Contributions
 
