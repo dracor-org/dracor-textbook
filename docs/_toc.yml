@@ -33,5 +33,5 @@ parts:
             title: "Self-test: Infrastructure"
   - caption: "Appendix"
     chapters:
-      - file: appendix/running-the-code
-        title: "A. Running the Code"
+      - file: appendix/running-the-textbook-as-an-interactive-notebook
+        title: "A. Running the Textbook as an Interactive Notebook"

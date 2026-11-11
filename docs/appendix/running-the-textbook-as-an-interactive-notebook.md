@@ -1,5 +1,5 @@
 ---
-title: "Running the Code"
+title: "Running the Textbook as an Interactive Notebook"
 author: "Ingo Börner"
 date: "2026-11-11"
 description: "How to run the Python code of the DraCor Textbook on the EOSC EU Node Binder or on mybinder.org, without installing anything."
@@ -7,7 +7,7 @@ keywords: ["DraCor", "Binder", "Jupyter", "EOSC EU Node", "mybinder.org", "Inter
 license: "CC BY 4.0"
 ---
 
-# Appendix A: Running the Code
+# Appendix A: Running the Textbook as an Interactive Notebook
 
 ```{admonition} Appendix metadata
 :class: tip
