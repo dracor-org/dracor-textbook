@@ -35,8 +35,8 @@ sphinx:
         binderhub_url: https://binder.eu-2.notebooks.open-science-cloud.ec.europa.eu
         notebook_interface: jupyterlab
       extra_footer: |
-        <p>The DraCor Textbook has benefited from “DraCorOS. Fostering Open Science in Digital Humanities”.</p> 
-        <p>We acknowledge the OSCARS project, which has received funding from the European Commission’s Horizon Europe Research and Innovation programme under grant agreement Nº. 101129751.</p>
+        <p>The DraCor Textbook has been developed in the context of “<a href="https://oscars-project.eu/projects/dracoros-fostering-open-science-digital-humanities-connecting-dracor-ecosystem-eosc">DraCorOS. Fostering Open Science in Digital Humanities by connecting the ‘DraCor’ Ecosystem to EOSC</a>”, a project funded by <a href="https://oscars-project.eu/">OSCARS</a>.</p> 
+        <p>We acknowledge the <a href="https://oscars-project.eu/">OSCARS project</a>, which has received funding from the European Commission’s Horizon Europe Research and Innovation programme under grant agreement Nº. <a href="https://cordis.europa.eu/project/id/101129751">101129751</a>.</p>
         <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>.</p>
 
 parse:
