@@ -470,7 +470,7 @@ Continue with [Chapter 5, “API: Working with DraCor Programmatically”](05-ap
 
 ## 10. AI Use Declaration
 
-In chapter 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
+In sections 4.3.3., 4.3.4., 4.3.5., and 4.3.6., Daniil Skorinkin used Claude Opus 4.6 {cite:p}`anthropic2026introducingopus` in the process of writing and editing – text generation, writing and editing – summarising text, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
 
 ## 11. Author Contributions
 
