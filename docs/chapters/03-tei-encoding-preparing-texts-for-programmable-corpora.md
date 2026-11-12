@@ -150,7 +150,7 @@ Now we turn to the processing of TEI files. First of all, TEI/XML files may be p
 
 The dramatic texts that are encoded for DraCor may come from different sources and in different markup stages. Accordingly, different texts may suggest different encoding strategies.
 
-First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is the Ukrainian Drama Corpus (UDraCor) {cite}`tokarskyi2022ff.ukranian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
+First, an encoder may face a dramatic text without any markup, e.g., a plain text in TXT format from a PDF processed via Optical Character Recognition (OCR). In this case, they may encode the text manually in an XML editor. If they use the Oxygen XML Editor {cite}`oxygenxmleditoroxygen`, their encoding process may be supported by the DraCor Oxygen Framework {cite}`dracor2026dracoroxygen`. Nonetheless, the manual approach is quite time-consuming. Encoders may also use an intermediary markup tool, such as EzDrama (Easy Drama) {cite}`dracor2022ff.easy`, employing a semi-automatic approach. A showcase for this approach is the Ukrainian Drama Corpus (UDraCor) {cite}`tokarskyi2022ff.ukrainian`. Most recently, Invisible XML is emerging as a new intermediary markup procedure {cite}`pemberton2022invisible`.
 
 Second, an encoder may work with a dramatic text with some basic markup. This markup may be HTML markup when accessing texts on websites. Also, DOCX files may include markup in the form of a certain way of formatting, e.g. when speaker information is given in bold, stage directions in italics, or similar – the given markup can be as basic as that. In this case, the encoder may write a transformation script in a language of their preference, such as Python, R, or similar.
 
@@ -192,7 +192,7 @@ How do I use regular expressions here? Explain the elements of the regular expre
 Be aware that the answers of the LLM may not always work. Thus, a basic understanding of regular expressions is necessary to assess the LLM output.
 ```
 
-When encoding a drama for DraCor in the Oxygen XML Editor, the DraCor Oxygen Framework may be installed as an add-on {cite}`dracor2026oxygen`. It provides templates for DraCor TEI files that include the most common elements, which may be enriched by the encoders. During the encoding process, the Framework also gives information on DraCor-specific markup procedures and related API processing (see [chapter 5](05-api-working-with-dracor-programmatically)). Furthermore, the text file being encoded is regularly validated against the DraCor schema and sources of validation errors are highlighted. The DraCor Oxygen Framework, therefore, proves useful at all stages of the encoding process, e.g. also when checking a (semi-)automatically generated TEI file.
+When encoding a drama for DraCor in the Oxygen XML Editor, the DraCor Oxygen Framework may be installed as an add-on {cite}`dracor2026dracoroxygen`. It provides templates for DraCor TEI files that include the most common elements, which may be enriched by the encoders. During the encoding process, the Framework also gives information on DraCor-specific markup procedures and related API processing (see [chapter 5](05-api-working-with-dracor-programmatically)). Furthermore, the text file being encoded is regularly validated against the DraCor schema and sources of validation errors are highlighted. The DraCor Oxygen Framework, therefore, proves useful at all stages of the encoding process, e.g. also when checking a (semi-)automatically generated TEI file.
 
 #### 4.3.3. Semi-Automatic Encoding with a Regular Expression Transformation Script
 
@@ -443,7 +443,7 @@ Another teaching scenario after the present introduction could look as follows. 
 
 ## 7. Further Reading and Resources
 
-To further engage with XML, you may work through specific tutorials {cite}`hawkins2019introduction, w3schoolsxml`. If you would like to engage with TEI more intensively, you may consult more detailed introductions and tutorials {cite}`teiconsortium2026gentle, teiconsortiuminintroducing, teiconsortiumteach, terras2020tei`.
+To further engage with XML, you may work through specific tutorials {cite}`hawkins2019introduction, w3schoolsxml`. If you would like to engage with TEI more intensively, you may consult more detailed introductions and tutorials {cite}`teiconsortium2026gentle, teiconsortiumintroducing, teiconsortiumteach, terras2020tei`.
 
 ## 8. Glossary Entries
 | Term | Definition [^definition-info] |
