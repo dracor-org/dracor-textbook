@@ -74,13 +74,15 @@ As you may see, XML markups are enclosed in angle brackets to distinguish them f
 ```xml
 <markup>text</markup>
 ```
-In the markup area, so-called **tags** are given. There is always a start-tag (`<tag>`) and an end-tag (`</tag>`):
+In the markup area, so-called **tags** are given. There is usually a start-tag (`<tag>`) and an end-tag (`</tag>`):
 ```xml
 <tag>text</tag>
 ```
 In our example above, you may find the following tags: `<div>`, `<head>`, `<stage>`, `<sp>`, `<speaker>`, `<lg>`, and `<l>`.
 
 The unity of the start-tag, the contained text, and the end-tag is called an **element**. Elements can contain text or other elements. In our example, the first `<sp>` element contains 1 `<speaker>` element as well as 1 `<lg>` that includes 2 `<l>` elements, which themselves contain parts of the dramatic text.
+
+Note that there are some so-called empty elements that do not consist of a start-tag and an end-tag. These include milestone elements, such as `<pb/>` for page beginning.
 
 Elements may be further specified by so-called **attributes**, see the following example from Macropedius’ Neo-Latin play *Hecastus* (*Everyman*) {cite}`macropediushecastus`:
 ```xml
@@ -97,7 +99,7 @@ After describing the basics of the XML markup procedure, we would like to elabor
 
 The **TEI** is an international organisation, founded in 1987. In 1994, the TEI began to officially publish their Guidelines for Electronic Text Encoding and Interchange {cite}`teiconsortium2026these, teiconsortium2026tei`. XML files that follow these guidelines are also called TEI files. Thus, the abbreviation “TEI” may refer to three things: the organisation, the guidelines, and data files.
 
-The TEI Guidelines are structured in different modules {cite}`teiconsortium2026tei`. Since the TEI guidelines aim to cover as many text features as possible, the modules cover poetic texts, performance tests, dictionaries, manuscripts, figures, and more. Therefore, it is crucial to carefully select the modules relevant to the text(s) to be encoded. This process is called customisation. It may be supported by the Roma tool by the TEI {cite}`viglianti2026roma`. The customisation results in a specific validation schema. It provides rules for how to use all elements and attributes correctly. If all rules are followed, the TEI file validates against the validation schema, and the TEI file is valid.
+The TEI Guidelines are structured in different modules {cite}`teiconsortium2026tei`. Since the TEI guidelines aim to cover as many text features as possible, the modules cover poetic texts, performance texts, dictionaries, manuscripts, figures, and more. Therefore, it is crucial to carefully select the modules relevant to the text(s) to be encoded. This process is called customisation. It may be supported by the Roma tool by the TEI {cite}`viglianti2026roma`. The customisation results in a specific validation schema. It provides rules for how to use all elements and attributes correctly. If all rules are followed, the TEI file validates against the validation schema, and the TEI file is valid.
 
 In fact, the editorial team of DraCor has created such a validation schema by customising the TEI guidelines. The DraCor schema is not static, but is maintained and further developed by the DraCor editorial team in exchange with the whole DraCor community. The work on the DraCor schema is conducted on GitHub {cite}`dracor2026dracorschema`. Moreover, it is documented in the DraCor ODD, also accessible via the DraCor front-end {cite}`beine2026dracor`.
 
