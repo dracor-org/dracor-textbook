@@ -205,6 +205,6 @@ Julia Jennifer Beine – conceptualisation, writing – original draft, writing 
 ```
 
 ## 14. Footnotes
-[^information]: The following paragraphs on the genesis of GerDraCor are adapted from the CLS INFRA D7.3 report {cite:p}`borner2024cls` (CC BY 4.0).
+[^information]: The following paragraphs on the genesis of GerDraCor are adapted from the CLS INFRA D7.3 report {cite:p}`borner2024cls`.
 [^play-number]: Source distribution retrieved from the [DraCor API](https://dracor.org/doc/api), 2 March 2026.
 [^cb-definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025regular`.
