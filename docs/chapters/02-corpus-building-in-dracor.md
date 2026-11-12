@@ -195,7 +195,7 @@ Continue with [chapter 3](https://github.com/dracor-org/dracor-textbook/blob/mai
 In chapters 4 and 5, Daniil Skorinkin used Claude Opus 4.6 in the process of literature review – literature search and systematisation, writing and editing – text generation, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
 
 ## 12. Author Contributions
-Daniil Skorinkin – investigation, writing – original draft
+Daniil Skorinkin – investigation, writing – original draft  
 Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing
 
 ## 13. References
