@@ -104,7 +104,7 @@ The DraCor front-end also links to an API documentation page at [dracor.org/doc/
 
 ```{admonition} Important distinction
 :class: warning
-The Swagger UI is the documentation about the API – it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
+The Swagger UI is the documentation of the API – it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
 ```
 
 Think of the OpenAPI specification as a **contract**: the developers of DraCor declare “we offer these endpoints, and if you use them the right way, you will get back data in this form.” This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why tools like PyDraCor can be generated automatically from it.
