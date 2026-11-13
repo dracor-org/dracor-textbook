@@ -281,27 +281,27 @@ Such an alternative is the Cloud Container Platform of the EOSC EU Node (section
 
 | Term | Definition |
 | --- | --- |
-| Research infrastructure | A system of tools, services, data, and people that supports research activities. In the humanities, often a socio-technical system rather than a purely technical one. |
-| Tactical infrastructure | An approach to infrastructure that grows bottom-up from researcher needs, rather than being imposed as a centralised platform (term introduced by Sherratt 2015). |
-| eXist-db | An open-source XML database used as the core of the DraCor system. |
-| XQuery | A query and programming language for XML databases. The DraCor API is written in XQuery. |
-| Microservice | A small, specialised service that handles a specific task and communicates with other services via APIs. The DraCor Metrics Service is an example. |
-| Docker | A platform for building and running containers – lightweight, portable environments that bundle an application with its dependencies. |
 | Container | A running instance of a Docker image – an isolated environment containing an application and everything it needs to run. |
-| Image | A read-only template (blueprint) from which Docker containers are created. DraCor images are published on Docker Hub. |
-| Docker Compose | A tool for defining and running multi-container applications. DraCor uses it to orchestrate its services. |
-| Living corpus | A corpus that changes over time – plays are added, corrected, or re-encoded. This creates challenges for reproducibility. |
+| `curl` | A command-line tool for sending HTTP requests – used in this textbook to interact with the DraCor API. |
 | DevOps | A set of practices combining software development and IT operations, often involving containerisation and automated deployment. |
+| Docker | A platform for building and running containers – lightweight, portable environments that bundle an application with its dependencies. |
+| Docker Compose | A tool for defining and running multi-container applications. DraCor uses it to orchestrate its services. |
+| Docker Hub | A cloud-based registry for sharing Docker images. DraCor publishes its service images there. |
+| ERIC (European Research Infrastructure Consortium) | A legal framework for establishing and operating European research infrastructures. CLARIN and DARIAH are ERICs. |
+| eXist-db | An open-source XML database used as the core of the DraCor system. |
 | Git | A distributed version control system that tracks changes to files over time. The corpora and code of DraCor are managed with Git. |
 | GitHub | A web-based platform for hosting Git repositories. DraCor uses it for code, corpora, and community collaboration. Owned by Microsoft. |
-| Repository | A project folder managed by Git, containing files and their full change history. |
-| Terminal (command line) | A text-based interface for running commands on a computer. Called Terminal on macOS, and PowerShell or Command Prompt on Windows. |
-| `curl` | A command-line tool for sending HTTP requests – used in this textbook to interact with the DraCor API. |
-| SPARQL | A query language for querying RDF (Linked Data). DraCor provides a SPARQL endpoint but this is not covered in this textbook. |
-| RDF (Resource Description Framework) | A standard for representing data as linked triples (subject–predicate–object), used for connecting data to the Linked Open Data cloud. |
+| Image | A read-only template (blueprint) from which Docker containers are created. DraCor images are published on Docker Hub. |
+| Living corpus | A corpus that changes over time – plays are added, corrected, or re-encoded. This creates challenges for reproducibility. |
+| Microservice | A small, specialised service that handles a specific task and communicates with other services via APIs. The DraCor Metrics Service is an example. |
 | Open source | Software whose source code is publicly available and can be freely used, modified, and distributed. DraCor is an open-source project. |
-| ERIC (European Research Infrastructure Consortium) | A legal framework for establishing and operating European research infrastructures. CLARIN and DARIAH are ERICs. |
-| Docker Hub | A cloud-based registry for sharing Docker images. DraCor publishes its service images there. |
+| RDF (Resource Description Framework) | A standard for representing data as linked triples (subject–predicate–object), used for connecting data to the Linked Open Data cloud. |
+| Repository | A project folder managed by Git, containing files and their full change history. |
+| Research infrastructure | A system of tools, services, data, and people that supports research activities. In the humanities, often a socio-technical system rather than a purely technical one. |
+| SPARQL | A query language for querying RDF (Linked Data). DraCor provides a SPARQL endpoint but this is not covered in this textbook. |
+| Tactical infrastructure | An approach to infrastructure that grows bottom-up from researcher needs, rather than being imposed as a centralised platform (term introduced by Sherratt 2015). |
+| Terminal (command line) | A text-based interface for running commands on a computer. Called Terminal on macOS, and PowerShell or Command Prompt on Windows. |
+| XQuery | A query and programming language for XML databases. The DraCor API is written in XQuery. |
 
 ## 10. Next Steps
 

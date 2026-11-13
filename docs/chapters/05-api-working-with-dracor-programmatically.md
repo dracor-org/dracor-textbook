@@ -721,26 +721,26 @@ For advanced learners, the [DraCor Notebooks](https://github.com/dracor-org/drac
 | Term | Definition |
 | --- | --- |
 | API (Application Programming Interface) | A structured interface that allows software to request data or services from another system. |
-| REST (Representational State Transfer) | An architectural style for web APIs based on resources, HTTP methods, and stateless interactions. |
+| API wrapper | A programming library that simplifies working with an API from a specific programming language. |
+| Bootstrapping (in the API context) | The API provides pre-processed data (e.g. word counts, network metrics) so that research can start at a higher level without re-implementing extraction and calculation steps. |
+| Client | Any software that sends requests to an API – a browser, a Python script, or a front-end application. |
+| Content negotiation | The mechanism by which a client and server agree on the format of the response data. |
+| Corpusname | The short identifier of a DraCor corpus (e.g. `"ger"` for the German Drama Corpus), used as a path parameter in API requests. |
+| Data frame (`DataFrame`) | A tabular data structure in the Python library pandas, similar to a spreadsheet, with rows and columns. |
 | Endpoint | A specific URL where a particular resource or function of an API can be accessed. |
+| HTTP method (GET, POST, …) | The verb specifying what action to perform. GET retrieves data without changing anything on the server. |
+| JSON (JavaScript Object Notation) | A lightweight data format using key-value pairs and arrays, widely used in API responses. |
+| MIME type (Internet media type) | A standardised label that identifies the format of data (e.g. `application/json`, `text/csv`, `text/plain`). Used in the `Accept` header to request a specific format. |
+| OpenAPI / Swagger | A standard for describing REST APIs; Swagger UI renders the specification as interactive documentation. |
+| Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
+| Path parameter | A variable part of the URL that identifies a specific resource (e.g. `{corpusname}`). |
+| Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. |
+| Query parameter | A key-value pair appended after `?` in the URL to filter or modify the response. |
 | Request | A message sent to an API endpoint, specifying what data or action is wanted. |
 | Response | The data (body) and metadata (headers) returned by the API after a request. |
-| HTTP method (GET, POST, …) | The verb specifying what action to perform. GET retrieves data without changing anything on the server. |
-| Status code | A three-digit number indicating the result of a request (e.g. 200 = success, 404 = not found). |
-| JSON (JavaScript Object Notation) | A lightweight data format using key-value pairs and arrays, widely used in API responses. |
-| Path parameter | A variable part of the URL that identifies a specific resource (e.g. `{corpusname}`). |
-| Query parameter | A key-value pair appended after `?` in the URL to filter or modify the response. |
-| OpenAPI / Swagger | A standard for describing REST APIs; Swagger UI renders the specification as interactive documentation. |
-| API wrapper | A programming library that simplifies working with an API from a specific programming language. |
-| Content negotiation | The mechanism by which a client and server agree on the format of the response data. |
-| MIME type (Internet media type) | A standardised label that identifies the format of data (e.g. `application/json`, `text/csv`, `text/plain`). Used in the `Accept` header to request a specific format. |
-| Client | Any software that sends requests to an API – a browser, a Python script, or a front-end application. |
+| REST (Representational State Transfer) | An architectural style for web APIs based on resources, HTTP methods, and stateless interactions. |
 | Server | The system that receives API requests, processes them, and sends back responses. |
-| Corpusname | The short identifier of a DraCor corpus (e.g. `"ger"` for the German Drama Corpus), used as a path parameter in API requests. |
-| Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. |
-| Data frame (`DataFrame`) | A tabular data structure in the Python library pandas, similar to a spreadsheet, with rows and columns. |
-| Bootstrapping (in the API context) | The API provides pre-processed data (e.g. word counts, network metrics) so that research can start at a higher level without re-implementing extraction and calculation steps. |
-| Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
+| Status code | A three-digit number indicating the result of a request (e.g. 200 = success, 404 = not found). |
 
 ## 10. Next Steps
 
