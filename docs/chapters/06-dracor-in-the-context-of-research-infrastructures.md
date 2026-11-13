@@ -102,8 +102,6 @@ DraCor is built on what is sometimes called the "X technology stack" – a set o
 
 Infrastructure is not only technology – it is also the people who build, maintain, and use it. DraCor is maintained by a core team of editors and technical leads, and each corpus has its own editors and contributors – scholars who curate the TEI-encoded plays, often as part of their own research.[^credits]
 
-[^credits]: For the full list of contributors, see [dracor.org/doc/credits](https://dracor.org/doc/credits). DraCor's further development is currently supported by the **OSCARS** project (Open Science Clusters' Action for Research and Society, EU Horizon Europe) through the DraCorOS initiative.
-
 Infrastructure development in the humanities is inherently interdisciplinary, requiring expertise from humanists, technologists, and data curators alike. The role of the technical lead – in DraCor's case, Carsten Milling – deserves particular attention. Without continuous maintenance – updating dependencies, fixing bugs, adapting to new server environments, responding to community needs – the platform would quickly become unusable. This kind of work is often invisible but essential.
 
 DraCor is explicitly an open-source project – everybody is welcome to contribute. Community interaction happens through several channels: GitHub (for issues, pull requests, and technical discussions), a Mattermost server hosted by the University of Potsdam (for informal communication), social media (primarily Bluesky), and an email list. This community dimension is not incidental; it is what allows the corpora to grow organically, following the "natural growth" principle that Aaron Swartz described and that the Programmable Corpora concept embraces {cite:p}`borner2023cls`.
@@ -115,8 +113,6 @@ In the previous sections we looked at DraCor from the outside – its components
 ```{admonition} Technical note
 :class: warning
 The following sections involve working with the *terminal* (also called command line or shell) – a text-based interface for running commands on your computer. On macOS, this is the Terminal application; on Linux, a terminal emulator; on Windows, [PowerShell](https://learn.microsoft.com/en-us/powershell/) or the Command Prompt. Some commands shown here (particularly `curl`) may behave slightly differently on Windows. If you are on Windows and encounter issues, using the terminal inside [WSL 2 (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) – which you will need for Docker anyway – is recommended.[^dind]
-
-[^dind]: An alternative approach, used at the [ExploreCor training school](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies), is to work inside a Docker container that provides a complete Linux environment with JupyterLab – a "Docker in Docker" setup that gives all participants the same working environment regardless of their operating system. See the [dracor-explorecor repository](https://github.com/dracor-org/dracor-explorecor).
 ```
 
 ### 5.1. Why Run DraCor Locally?
@@ -160,13 +156,9 @@ Containerisation is not unique to DraCor or to Digital Humanities. It is a core 
 
 The [DraCor API repository on GitHub](https://github.com/dracor-org/dracor-api) contains everything we need to run DraCor locally.[^docker-notebook] The following steps assume that Docker is installed and running on your machine. On macOS and Linux, installation is usually straightforward. On Windows, Docker requires the Windows Subsystem for Linux (WSL 2) to be enabled, which can be an additional hurdle – consult the [Docker documentation](https://docs.docker.com/desktop/install/windows-install/) if you encounter issues.
 
-[^docker-notebook]: For a more detailed walkthrough, including running Docker from a Jupyter notebook and additional examples, see the [reproducible research notebook](https://github.com/dracor-org/dracor-notebooks/blob/main/reproducible-research-with-docker/reproducible-research-with-docker.ipynb).
-
 **Step 1: Clone the repository.**
 
 We need a local copy of the DraCor API code. For this, we use [Git](https://git-scm.com/) – a version control system that tracks changes to files over time. Git is widely used in software development and in Digital Humanities for managing both code and data (the corpora of DraCor are also managed with Git). If Git is not yet installed on your system, see the official installation guide.[^git-install] The command `git clone` creates a local copy of a repository on your machine. The `cd` command enters the newly created folder:
-
-[^git-install]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git 
 
 ```bash
 git clone https://github.com/dracor-org/dracor-api.git
@@ -330,3 +322,11 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 ```
 
 ## 14. Footnotes
+
+[^credits]: For the full list of contributors, see [dracor.org/doc/credits](https://dracor.org/doc/credits). DraCor's further development is currently supported by the **OSCARS** project (Open Science Clusters' Action for Research and Society, EU Horizon Europe) through the DraCorOS initiative.
+
+[^dind]: An alternative approach, used at the [ExploreCor training school](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies), is to work inside a Docker container that provides a complete Linux environment with JupyterLab – a "Docker in Docker" setup that gives all participants the same working environment regardless of their operating system. See the [dracor-explorecor repository](https://github.com/dracor-org/dracor-explorecor).
+
+[^docker-notebook]: For a more detailed walkthrough, including running Docker from a Jupyter notebook and additional examples, see the [reproducible research notebook](https://github.com/dracor-org/dracor-notebooks/blob/main/reproducible-research-with-docker/reproducible-research-with-docker.ipynb).
+
+[^git-install]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git

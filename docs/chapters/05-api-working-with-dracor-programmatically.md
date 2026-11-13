@@ -102,8 +102,6 @@ Before we make our first request, we need to know what the API offers. The DraCo
 
 The DraCor front-end also links to an API documentation page at [dracor.org/doc/api](https://dracor.org/doc/api). From version 3 of the front-end, this page uses a different tool, [Scalar](https://scalar.com), which renders the same OpenAPI specification in a different layout. The Swagger UI at swagger.dracor.org remains available, and this chapter uses it throughout.
 
-[^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
-
 ```{admonition} Important distinction
 :class: warning
 The Swagger UI is the *documentation about* the API – it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
@@ -128,8 +126,6 @@ width: 100%
 ---
 Overview of all endpoint groups in the Swagger UI. The public endpoints at the top are the focus of this chapter; the admin, DTS, Wikidata and webhook groups serve more specialised purposes.
 ```
-
-[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The Wikidata-tagged endpoints, although also using GET, support cross-corpora queries such as finding characters across different corpora via Wikidata identifiers. Both are beyond the scope of this chapter.
 
 ```{admonition} What the DraCor API can do
 :class: tip
@@ -296,8 +292,6 @@ Status codes are grouped by their first digit, which tells us the category of th
 
 We do not need to memorise all status codes. The key insight is: if the first digit is 2, we are fine; if it is 4, we should check our request; if it is 5, the problem is on the server side. For each endpoint, the DraCor OpenAPI specification lists the possible status codes and their meaning – we can see them in the Responses section of the Swagger UI. This is a good place to check if something goes wrong with a request.
 
-[^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
-
 ```{figure} ../images/api/swaggerui-corpora-corpusname-plays-playname-404.png
 ---
 alt: "Swagger UI showing a 404 error after requesting hamlet in the Russian Drama Corpus. The corpusname is set to 'rus' and the playname to 'hamlet', resulting in a 404 Not Found response."
@@ -420,8 +414,6 @@ The third example uses a **query parameter** on the `/spoken-text` endpoint: `?s
 
 So far, everything we have done with Python could also be done in the Swagger UI or the browser – we sent a request, received a response, and inspected the result. The real power of programmatic access emerges when we go beyond what the Swagger UI can do: loading data into tables, filtering and transforming it, iterating over hundreds of plays, and producing visualisations. This is the point where using the API becomes genuinely different from browsing the front-end – we can ask questions of an entire corpus, not just a single play.[^api-intro-notebook]
 
-[^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite:t}`sluyter-gathje2023cls`.
-
 #### Loading Corpus Metadata as a Table
 
 The endpoint `/corpora/{corpusname}/metadata` returns detailed metadata for every play in a corpus. By requesting it as CSV (using the `Accept` header we just learned about), we can load it directly into a table using the Python library **pandas**. Pandas is a widely used package for working with tabular data – think of it as a programmable spreadsheet. It can be installed with `pip install pandas`.
@@ -510,8 +502,6 @@ Let us walk through this:
 - `.plot(x="yearNormalized", y="stageProportion", kind="scatter")` – this creates a scatter plot using the built-in plotting functionality of pandas. The `x` and `y` parameters specify which columns to use for the horizontal and vertical axes. The `kind="scatter"` parameter tells pandas to draw individual points rather than a line. Each point represents one play, positioned by its year (x-axis) and its stage-direction proportion (y-axis).
 
 This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically – a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
-
-[^stage-directions-showcase]: {cite:t}`borner2023cls{pp. 17–19}` demonstrate this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite:t}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text – a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a "tendency towards epification" in German drama.
 
 #### Example Analysis: Female Speakers over Time
 
@@ -771,3 +761,13 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 ```
 
 ## 14. Footnotes
+
+[^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
+
+[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The Wikidata-tagged endpoints, although also using GET, support cross-corpora queries such as finding characters across different corpora via Wikidata identifiers. Both are beyond the scope of this chapter.
+
+[^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
+
+[^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite:t}`sluyter-gathje2023cls`.
+
+[^stage-directions-showcase]: {cite:t}`borner2023cls{pp. 17–19}` demonstrate this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite:t}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text – a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a "tendency towards epification" in German drama.
