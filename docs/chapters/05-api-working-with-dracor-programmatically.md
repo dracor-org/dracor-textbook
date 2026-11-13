@@ -208,7 +208,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-With `curl`, we can also inspect the response headers – metadata about the response, such as the content type and server information. Just as a TEI document has a header (metadata about the text) and a body (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
+With `curl`, we can also inspect the response headers – metadata about the response, such as the content type and server information. Just as a TEI document has a `<teiHeader>` (metadata about the text) and a `<body>` (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
 
 ```bash
 curl -v 'https://dracor.org/api/v1/corpora'
