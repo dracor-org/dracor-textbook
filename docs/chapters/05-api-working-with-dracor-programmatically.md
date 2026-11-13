@@ -75,7 +75,7 @@ The DraCor API follows what we might call “pragmatic REST”. It adheres to th
 
 ### 4.2. Why an API for Literary Corpora?
 
-Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in GerDraCor, the front-end offers no way to do so.
+Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in the German Drama Corpus (GerDraCor), the front-end offers no way to do so.
 
 Without an API, the alternative would be to download the TEI/XML source files from GitHub and write our own scripts to parse them – extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see [chapter 3, “TEI Encoding: Preparing Texts for Programmable Corpora”](03-tei-encoding-preparing-texts-for-programmable-corpora)).
 
@@ -190,7 +190,7 @@ The `/corpora` endpoint after execution. (1) The query parameter `include` is se
 JSON (JavaScript Object Notation) is a lightweight data format that uses two basic structures: **objects** (collections of key-value pairs, enclosed in `{ }`) and **arrays** (ordered lists, enclosed in `[ ]`). For example, `{"name": "ger", "title": "German Drama Corpus"}` is an object with two fields. An array of such objects looks like `[{"name": "ger", ...}, {"name": "rus", ...}]`. JSON is human-readable and supported by every programming language.
 ```
 
-The `name` field in each corpus object is the **identifier** – the “corpusname” – that we need for all further API calls. For example, the German Drama Corpus has the corpusname `"ger"`, the Russian Drama Corpus has `"rus"`. We will use these identifiers in the next section.
+The `name` field in each corpus object is the **identifier** – the “corpusname” – that we need for all further API calls. For example, the German Drama Corpus has the corpusname `"ger"`, the Russian Drama Corpus (RusDraCor) has `"rus"`. We will use these identifiers in the next section.
 
 #### Four Ways to Make the Same Request
 
@@ -246,7 +246,7 @@ Now that we have a list of corpora, we want to look at a specific corpus and fin
 
 The endpoint `/corpora/{corpusname}` retrieves information about a single corpus. Notice the curly braces around `{corpusname}` – this is a **path parameter**, a variable part of the URL that we must replace with an actual value. Unlike the query parameter we saw earlier (`?include=metrics`), a path parameter is part of the URL structure itself and is required: without it, the endpoint does not work.
 
-If we choose the English Drama Corpus, the request URL becomes: `https://dracor.org/api/v1/corpora/eng`.
+If we choose the English Drama Corpus (EngDraCor), the request URL becomes: `https://dracor.org/api/v1/corpora/eng`.
 
 ```{figure} ../images/api/swaggerui-corpora-corpusname-endpoint.png
 ---
@@ -523,7 +523,7 @@ Some analyses require data that is not in the metadata table. For example, if we
 
 The `/characters` endpoint returns a list of characters for a single play, including fields like `numOfWords` (the number of words spoken), `numOfSpeechActs`, `sex` (MALE, FEMALE, UNKNOWN, or `null` if no value is encoded), and network metrics. To aggregate this across a whole corpus, we iterate over all plays.
 
-Because this loop sends one request per play, we use a small corpus here: the German Shakespeare Drama Corpus (`gersh`, 38 plays), which takes less than a minute. The same code works for GerDraCor (`ger`), but with nearly 800 plays it sends nearly 800 requests and takes several minutes, or longer when the server is busy.
+Because this loop sends one request per play, we use a small corpus here: the German Shakespeare Drama Corpus (GerShDraCor, `gersh`, 38 plays), which takes less than a minute. The same code works for GerDraCor (`ger`), but with nearly 800 plays it sends nearly 800 requests and takes several minutes, or longer when the server is busy.
 
 ```{code-cell} ipython3
 API_URL = "https://dracor.org/api/v1/"
