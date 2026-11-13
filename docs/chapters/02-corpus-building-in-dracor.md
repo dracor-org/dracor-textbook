@@ -4,11 +4,11 @@ myst:
   substitutions:
    chap_title: "Corpus Building in DraCor"
 authors: "Daniil Skorinkin; Julia Jennifer Beine"
-date: "2026-11-11"
+date: "2026-11-12"
 description: "In this chapter, we describe how the existing corpora in DraCor have been built. In most cases, the corpus building has started by inventorying available online resources while applying certain selection criteria. We elaborate on these selection criteria, illustrated by the resulting DraCor corpora."
 keywords: ["programmable corpora", "corpus building", "corpus archaeology"]
 licence: "CC BY 4.0"
-license link: "https://creativecommons.org/licenses/by/4.0/"
+licence link: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
 
@@ -22,7 +22,7 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 :class: tip    
 
 **Authors:** Daniil Skorinkin; Julia Jennifer Beine       
-**Version:** 0.3 (2026-11-11)      
+**Version:** 0.4 (2026-11-12)      
 **Review status:** in progress         
 **Reviewers:** Antonio Rojas Castro; Frank Fischer     
 ```
@@ -195,7 +195,7 @@ Continue with [chapter 3](https://github.com/dracor-org/dracor-textbook/blob/mai
 In chapters 4 and 5, Daniil Skorinkin used Claude Opus 4.6 in the process of literature review – literature search and systematisation, writing and editing – text generation, and writing and editing – formulation of conclusions. In the other chapters, no generative AI was used.
 
 ## 12. Author Contributions
-Daniil Skorinkin – investigation, writing – original draft
+Daniil Skorinkin – investigation, writing – original draft  
 Julia Jennifer Beine – conceptualisation, writing – original draft, writing – review & editing
 
 ## 13. References
@@ -205,6 +205,6 @@ Julia Jennifer Beine – conceptualisation, writing – original draft, writing 
 ```
 
 ## 14. Footnotes
-[^information]: The following paragraphs on the genesis of GerDraCor are adapted from the CLS INFRA D7.3 report {cite:p}`borner2024cls` (CC BY 4.0).
+[^information]: The following paragraphs on the genesis of GerDraCor are adapted from the CLS INFRA D7.3 report {cite:p}`borner2024cls`.
 [^play-number]: Source distribution retrieved from the [DraCor API](https://dracor.org/doc/api), 2 March 2026.
 [^cb-definition-info]: For this glossary, we consulted the Oxford English Dictionary {cite:p}`oxfordenglishdictionary2023markup, oxfordenglishdictionary2025encode, oxfordenglishdictionary2025regular`.
