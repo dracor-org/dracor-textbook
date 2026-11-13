@@ -581,9 +581,7 @@ The iteration pattern above raises a question of API design. To get character da
 
 ### 5.6. Using PyDraCor (and rdracor)
 
-In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process. It wraps API calls into functions (reusable blocks of code, as we have seen) and **classes** that feel native to the programming language. A class is a blueprint for creating objects that bundle data and functionality together: for example, a `Play` class might hold the metadata of a play and offer methods like `.get_spoken_text()`.
-
-For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdracor** for R {cite:p}`sluyter-gathje2023cls`.
+In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process. It wraps API calls into functions (reusable blocks of code, as we have seen) and **classes** that feel native to the programming language. A class is a blueprint for creating objects that bundle data and functionality together: for example, a `Play` class might hold the metadata of a play and offer methods like `.get_spoken_text()`. For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdracor** for R {cite:p}`sluyter-gathje2023cls`.
 
 #### PyDraCor
 
