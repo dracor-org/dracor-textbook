@@ -56,8 +56,8 @@ q2 = [{
   "question": "For reproducible referencing, which identifier is more reliable than the play title?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "The play ID (slug) shown in the URL/header", "correct": True,
-     "feedback": "Correct. Titles vary across editions and corpora; the play ID is designed to be stable."},
+    {"answer": "The DraCor play ID shown in the header, such as cal000037", "correct": True,
+     "feedback": "Correct. The DraCor play ID is designed to be stable and can be copied using the clipboard icon beside it. It is distinct from the URL slug, such as la-vida-es-sueno, and does not identify a particular data version."},
     {"answer": "The approximate word count of the play", "correct": False,
      "feedback": "No. Word counts can change with encoding updates and are not identifiers."},
     {"answer": "The network diameter", "correct": False,
@@ -122,13 +122,13 @@ display_quiz(q4, max_width=1000)
 from jupyterquiz import display_quiz
 
 q5 = [{
-  "question": "What is the interpretive use of an 'All-in at segment n (at x%)' indicator?",
+  "question": "What does the ‘All-in at segment n (at x%)’ indicator tell us?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "It tells you at which point all characters have appeared in the segmentation", "correct": True,
-     "feedback": "Correct. It is a way to describe how quickly the network accumulates its nodes."},
-    {"answer": "It tells you which character has the highest degree", "correct": False,
-     "feedback": "No. Maximum degree is reported separately."},
+    {"answer": "It identifies the first segment by which every character referenced in &lt;sp who&gt; has appeared at least once", "correct": True,
+     "feedback": "Correct. The characters do not need to appear together. The percentage refers to the proportion of segments reached: segment 21 out of 23 is approximately 91%."},
+    {"answer": "It means that x% of all characters appear together in segment n", "correct": False,
+     "feedback": "No. All-in concerns cumulative appearances, not simultaneous presence. The percentage refers to segments, not characters."},
     {"answer": "It shows when stage directions become more frequent than dialogue", "correct": False,
      "feedback": "No. That would require token/layer analysis, not this indicator."},
     {"answer": "It indicates that the TEI encoding is complete", "correct": False,
@@ -233,8 +233,9 @@ display_quiz(q9, max_width=1000)
 ## Question 10
 
 Pick any play in any corpus and write a reproducible “record note” with:
+
 - corpus name and corpus ID
-- play ID (slug)
+- DraCor play ID from the header (optionally also record the URL slug)
 - tab used
 - relevant method, layer or setting, if applicable
 - one observation that can be verified
@@ -254,8 +255,9 @@ create_answer_box(
 
 ````{admonition} Example answer (for self-check)
 :class: tip dropdown
-Corpus: Calderón Drama Corpus (CalDraCor, `cal`)
-Play ID: la-vida-es-sueno  
+Corpus: Calderón Drama Corpus (CalDraCor, `cal`)  
+Play ID: `cal000037`  
+Slug (optional): `la-vida-es-sueno`  
 Tab: Network  
 Observation: The interface constructs edges by co-occurrence within segments; the summary panel reports the number of segments and basic network statistics (density, diameter, clustering), which can be documented alongside the selected play ID.
 ````
