@@ -266,7 +266,7 @@ To retrieve data about a specific play, we use the endpoint `/corpora/{corpusnam
 
 ```{figure} ../images/api/swaggerui-corpora-corpusname-plays-playname-endpoint-example-values-of-parameters.png
 ---
-alt: "Swagger UI showing the /corpora/{corpusname}/plays/{playname} endpoint with Russian Drama Corpus selected as corpusname and the playname examples dropdown open, highlighting Gogol: Revizor (RusDraCor)."
+alt: "Swagger UI showing the /corpora/{corpusname}/plays/{playname} endpoint with the values “Russian Drama Corpus” and “N. Gogol: Revizor (RusDraCor)” selected and the playname examples dropdown open."
 width: 100%
 ---
 The play endpoint with its two required path parameters. Here, the corpus name is set to the Russian Drama Corpus (`rus`) and the play-name dropdown shows example values from different corpora. The examples are not filtered by the selected corpus, so we must take care to choose a play that actually belongs to the corpus we specified.
