@@ -24,7 +24,7 @@ license: "CC BY 4.0"
 
 ## 1. Overview
 
-In the previous chapters we used DraCor through its front-end ([chapter 4, “Front-end: Navigating DraCor”](04-front-end-navigating-dracor)) and its API ([chapter 5, “API: Working with DraCor Programmatically”](05-api-working-with-dracor-programmatically)). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given – a service available at dracor.org that simply works. In this chapter, we open the box.
+In the previous chapters, we used DraCor through its front-end ([chapter 4, “Front-end: Navigating DraCor”](04-front-end-navigating-dracor)) and its API ([chapter 5, “API: Working with DraCor Programmatically”](05-api-working-with-dracor-programmatically)). We learned to browse corpora, retrieve data, and analyse plays programmatically. But we treated DraCor as a given – a service available at dracor.org that simply works. In this chapter, we open the box.
 
 What is DraCor, technically? Not a single application, but a system – a set of interconnected services, maintained by a community, funded by research projects, and embedded in a broader European infrastructure landscape. Understanding this matters for at least three reasons. First, it builds **trust**: if we base our research on a system, we should understand what it is and who keeps it running. Second, it enables **adaptation**: knowing the components means we can run DraCor locally, load our own corpora, and tailor it to our research needs. Third, it fosters **critical awareness**: the data and metrics we retrieve through the API are not simply “there” – they are produced by specific software components, from specific encodings, through specific processes. Understanding this makes us better researchers.
 
@@ -108,7 +108,7 @@ DraCor is explicitly an open-source project – everybody is welcome to contribu
 
 ## 5. Practical Examples: Running DraCor Locally
 
-In the previous sections we looked at DraCor from the outside – its components, its community, its place in the European infrastructure landscape. Now we turn to practice. Because DraCor is open source and its services are published as Docker images, we are not limited to using the production instance at dracor.org. We can run the entire system on our own machine – the same API, the same front-end, the same metrics service – and use it for our own purposes: testing a corpus we are building, working with custom data, or simply exploring how the system works from the inside.
+In the previous sections, we looked at DraCor from the outside – its components, its community, its place in the European infrastructure landscape. Now we turn to practice. Because DraCor is open source and its services are published as Docker images, we are not limited to using the production instance at dracor.org. We can run the entire system on our own machine – the same API, the same front-end, the same metrics service – and use it for our own purposes: testing a corpus we are building, working with custom data, or simply exploring how the system works from the inside.
 
 ```{admonition} Technical note
 :class: warning
