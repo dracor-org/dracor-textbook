@@ -107,7 +107,7 @@ The DraCor front-end also links to an API documentation page at [dracor.org/doc/
 The Swagger UI is the documentation of the API – it is not the API itself. The API lives at `https://dracor.org/api/v1/`. The documentation describes what the API can do and lets us try it out.
 ```
 
-Think of the OpenAPI specification as a **contract**: the developers of DraCor declare “we offer these endpoints, and if you use them the right way, you will get back data in this form.” This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why tools like PyDraCor can be generated automatically from it.
+Think of the OpenAPI specification as a **contract**: the developers of DraCor declare “we offer these endpoints, and if you use them the right way, you will get back data in this form.” This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why the core of PyDraCor (`pydracor-base`) can be generated automatically from it (see section 5.6).
 
 When we open the Swagger UI, we see the API endpoints grouped by **tags**: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints – these are the ones that return data without requiring authentication. The admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
 
