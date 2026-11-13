@@ -57,7 +57,7 @@ After completing this chapter, learners will be able to:
 4. Read an API response in JSON and interpret HTTP status codes.
 5. Make API requests using the browser, the terminal with `curl`, and Python (`requests`).
 6. Use PyDraCor to simplify programmatic access to DraCor data.
-7. Retrieve and analyse corpus-level data using the API (e.g. metadata as a Pandas DataFrame).
+7. Retrieve and analyse corpus-level data using the API (e.g. metadata as a pandas data frame (`DataFrame`)).
 
 ## 4. Theoretical Background
 
@@ -418,7 +418,7 @@ So far, everything we have done with Python could also be done in the Swagger UI
 
 The endpoint `/corpora/{corpusname}/metadata` returns detailed metadata for every play in a corpus. By requesting it as CSV (using the `Accept` header we just learned about), we can load it directly into a table using the Python library **pandas**. Pandas is a widely used package for working with tabular data – think of it as a programmable spreadsheet. It can be installed with `pip install pandas`.
 
-The central data structure in pandas is the **DataFrame**: a table with rows and columns, similar to a spreadsheet or a CSV file. We can filter, sort, and plot data in a DataFrame with just a few lines of code.
+The central data structure in pandas is the **data frame** (the class `DataFrame`): a table with rows and columns, similar to a spreadsheet or a CSV file. We can filter, sort, and plot data in a data frame with just a few lines of code.
 
 ```{code-cell} ipython3
 # pandas needs to be installed: pip install pandas
@@ -450,12 +450,12 @@ Let us walk through the new parts:
 - `import pandas as pd` – we import the pandas library and give it the shorthand name `pd`, which is a common convention.
 - `stream=True` – this tells `requests` to stream the response rather than loading it all into memory at once, which is needed so that pandas can read it directly as a file.
 - `response.raw.decode_content = True` – a technical detail that ensures the raw response data is decoded properly before pandas reads it.
-- `pd.read_csv(response.raw, sep=",", encoding="utf-8")` – this reads the CSV data from the response and creates a DataFrame. The `sep=","` specifies that columns are separated by commas, and `encoding="utf-8"` ensures that special characters (such as umlauts in German play titles) are handled correctly.
+- `pd.read_csv(response.raw, sep=",", encoding="utf-8")` – this reads the CSV data from the response and creates a data frame. The `sep=","` specifies that columns are separated by commas, and `encoding="utf-8"` ensures that special characters (such as umlauts in German play titles) are handled correctly.
 - `metadata_df.head()` – displays the first five rows of the table, giving us a quick preview.
 
 The resulting table has one row per play and columns for metadata fields such as `yearNormalized`, `wordCountText`, `wordCountStage`, `numOfSpeakers`, `numOfSpeakersFemale`, `size` (number of characters), and many more.
 
-Now that we have the data in a DataFrame, we can work with it like a programmable spreadsheet. Here are two quick examples to get a feel for what pandas can do:
+Now that we have the data in a data frame, we can work with it like a programmable spreadsheet. Here are two quick examples to get a feel for what pandas can do:
 
 ```{code-cell} ipython3
 # How many plays are in the corpus?
@@ -485,7 +485,7 @@ The `/metadata` endpoint returns data for *all* plays in a corpus in a single re
 
 #### Example Analysis: Stage Directions over Time
 
-With the metadata in a DataFrame, corpus-level analyses become straightforward. For example, we can calculate the proportion of stage-direction tokens relative to the total word count for each play and plot it over time:
+With the metadata in a data frame, corpus-level analyses become straightforward. For example, we can calculate the proportion of stage-direction tokens relative to the total word count for each play and plot it over time:
 
 ```{code-cell} ipython3
 # Calculate the proportion of stage directions relative to total word count
@@ -498,7 +498,7 @@ metadata_df.plot(x="yearNormalized", y="stageProportion", kind="scatter")
 Let us walk through this:
 
 - `metadata_df["wordCountStage"] / metadata_df["wordCountText"]` – this divides two columns element-wise: for each play, the number of words in stage directions is divided by the total number of words, giving us a ratio between 0 and 1. Pandas lets us perform mathematical operations on entire columns at once, just as a spreadsheet formula can be applied to a whole column.
-- `metadata_df["stageProportion"] = ...` – the result is stored in a new column called `"stageProportion"`, which is added to the DataFrame automatically.
+- `metadata_df["stageProportion"] = ...` – the result is stored in a new column called `"stageProportion"`, which is added to the data frame automatically.
 - `.plot(x="yearNormalized", y="stageProportion", kind="scatter")` – this creates a scatter plot using the built-in plotting functionality of pandas. The `x` and `y` parameters specify which columns to use for the horizontal and vertical axes. The `kind="scatter"` parameter tells pandas to draw individual points rather than a line. Each point represents one play, positioned by its year (x-axis) and its stage-direction proportion (y-axis).
 
 This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically – a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
@@ -738,7 +738,7 @@ For advanced learners, the [DraCor Notebooks](https://github.com/dracor-org/drac
 | Server | The system that receives API requests, processes them, and sends back responses. |
 | Corpusname | The short identifier of a DraCor corpus (e.g. `"ger"` for the German Drama Corpus), used as a path parameter in API requests. |
 | Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. |
-| DataFrame | A tabular data structure in the Python library pandas, similar to a spreadsheet, with rows and columns. |
+| Data frame (`DataFrame`) | A tabular data structure in the Python library pandas, similar to a spreadsheet, with rows and columns. |
 | Bootstrapping (in the API context) | The API provides pre-processed data (e.g. word counts, network metrics) so that research can start at a higher level without re-implementing extraction and calculation steps. |
 | Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
 
