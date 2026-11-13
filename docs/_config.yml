@@ -21,6 +21,9 @@ sphinx:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
     bibtex_reference_style: author_year
+    # Generate anchors for headings up to level 3, so that links such as
+    # `file.md#exercise-1-...` can be checked by MyST.
+    myst_heading_anchors: 3
     bibtex_bibfiles:
       - references.bib
     # These html_theme_options replace the ones Jupyter Book generates from
