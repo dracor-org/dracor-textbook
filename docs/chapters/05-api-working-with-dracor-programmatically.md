@@ -75,7 +75,7 @@ The DraCor API follows what we might call “pragmatic REST”. It adheres to th
 
 ### 4.2. Why an API for Literary Corpora?
 
-Working with the front-end, we can explore one play at a time: select a corpus, click on a play, inspect tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in the German Drama Corpus (GerDraCor), the front-end offers no way to do so.
+Working with the front-end, we can explore one play at a time: select a corpus, click on a play, look through its tabs. This is valuable for close exploration, but it does not scale. If we want to compare the ratio of stage directions to spoken text across the nearly 800 plays in the German Drama Corpus (GerDraCor), the front-end offers no way to do so.
 
 Without an API, the alternative would be to download the TEI/XML source files from GitHub and write our own scripts to parse them – extracting spoken text, stage directions, or character lists by navigating the XML structure. This requires detailed knowledge of the TEI encoding conventions used in DraCor (see [chapter 3, “TEI Encoding: Preparing Texts for Programmable Corpora”](03-tei-encoding-preparing-texts-for-programmable-corpora)).
 
