@@ -686,7 +686,7 @@ The DraCor API moved from version 0 to version 1 in December 2023. All examples 
 :class: warning
 
 - **Data depends on encoding quality.** The API extracts from the TEI source. If the encoding is inconsistent or incomplete (e.g. missing gender attributes on characters), the API results reflect that. The API does not add information that is not in the source.
-- **DraCor is a living system.** Corpora are updated, plays added or corrected. Results from today may differ from results in six months. For reproducible research, consider using a local DraCor instance with pinned data (see [chapter 6](06-dracor-in-the-context-of-research-infrastructures)).
+- **DraCor is a living system.** Corpora are updated, plays added or corrected. Results from today may differ from results in six months. For reproducible research, consider using a local DraCor instance with pinned data, i.e. data fixed at a specific version (see [chapter 6](06-dracor-in-the-context-of-research-infrastructures)).
 - **No search endpoint.** There is currently no way to search across plays by criteria (e.g. “all plays with more than 20 characters”). We must fetch metadata and filter on the client side.
 - **Network metrics are pre-calculated.** They are computed when a play is loaded into the database, based on the segmentation of the text. They are not recalculated on each request.
 ```
