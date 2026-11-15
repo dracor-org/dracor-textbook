@@ -16,7 +16,7 @@ license: "CC BY 4.0"
 **Version:** 0.1 (2026-11-11)  
 ```
 
-Chapter 5 and the self-tests of the DraCor Textbook contain Python code that you can run yourself. You can copy the code into your own Python environment, or you can open a page as a Jupyter notebook in the browser, without installing anything. Pages with runnable code have a rocket icon at the top. It offers two services:
+Chapters 3 and 5 and the self-tests of the DraCor Textbook contain Python code that you can run yourself. You can copy the code into your own Python environment, or you can open a page as a Jupyter notebook in the browser, without installing anything. Pages with runnable code have a rocket icon at the top. It offers two services:
 
 - **EOSC EU Node**: the Binder service of the [EOSC EU Node](https://open-science-cloud.ec.europa.eu/), of the European Open Science Cloud. It requires an institutional login.
 - **mybinder.org**: the free public [Binder](https://mybinder.org/) service. It requires no login.
