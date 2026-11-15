@@ -485,6 +485,34 @@ A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it
 ```
 
 Convert the encoded text to TEI/XML using one of the methods suggested in the EzDrama repository {cite}`dracor2022ff.easy`. Look at the resulting TEI/XML file. Given your current understanding of TEI/XML, does it look correct? Are there things that need to be corrected manually? If so, where would it make more sense to introduce a correction in each case: the EzDrama input, or the TEI/XML output?
+
+If you have launched this self-test as a notebook from the rocket icon at the top of the page (see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md)), you can also do the exercise in the following cell: add the EzDrama markers to the passage and run the cell. It shows the `<listPerson>` and `<body>` elements of the resulting TEI/XML; with `ezdrama_to_tei(ezdrama, full=True)`, it shows the complete TEI document.
+
+```{code-cell} ipython3
+:tags: [skip-execution]
+import sys
+sys.path.append("..")
+from ezdrama_tei import ezdrama_to_tei
+
+ezdrama = """
+ACT I. SCENE I.
+Enter Mrs. Rich with Betty, her Maid.
+Betty.
+What's the matter, Madam? What has happen'd to you? What has any body done to you?
+Mrs. Rich.
+An Affront? ... Ah! I die: An affront! ... I faint: I cannot speak. A Chair quickly.
+Betty.
+[Giving a Chair.] An affront! to you, Madam, an affront! Is it possible!
+Mrs. Rich.
+But too true, my poor Betty. Oh! I shall dye. To disrespect me in the open Street! What Insolence!
+Betty.
+How, Madam! Not to show respect to such a person as you? Madam Rich; the Widow of an honest Banker, who got Two Hundred Thousand Pounds in the King's service? Pray, Madam, who has been thus insolent?
+Mrs. Rich.
+A Dutchess; who had the confidence to thrust my Coach from the Wall, and make it run back above twenty yards.
+"""
+
+print(ezdrama_to_tei(ezdrama))
+```
 ````{admonition} Possible solution
 :class: solution dropdown
 Possible solution:  

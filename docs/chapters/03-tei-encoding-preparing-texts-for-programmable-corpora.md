@@ -1,9 +1,18 @@
 ---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 title: "TEI Encoding: Preparing Texts for Programmable Corpora"
 myst:
   substitutions:
    chap_title: "TEI Encoding"
-authors: "Julia Jennifer Beine; Daniil Skorinkin"
+authors: ["Julia Jennifer Beine", "Daniil Skorinkin"]
 date: "2026-11-12"
 description: "In this chapter, we introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI)."
 keywords: ["TEI Encoding", "TEI", "XML", "programmable corpora", "DraCor schema"]
@@ -394,6 +403,29 @@ The parser also automatically generates the `<teiHeader>` element, including a `
 ```
 
 The speaker identifiers (`barnardo`, `francisco`) are generated automatically from the speaker line in the text: lowercased, with punctuation stripped. The `@who` attribute on each `<sp>` element is constructed as a `#`-prefixed reference to the corresponding `@xml:id`, exactly as the encoding conventions of DraCor require. 
+
+```{admonition} Try it yourself
+:class: tip
+This chapter can be launched as a notebook from the rocket icon at the top of the page (see [Appendix A](../appendix/running-the-textbook-as-an-interactive-notebook.md)). There, the following cell converts the EzDrama example above with the EzDrama parser {cite:p}`dracor2022ff.easy` and shows the `<listPerson>` and `<body>` elements of the result. Change the markup, for example by removing a marker or adding a speech, and run the cell again to see how the TEI/XML changes. With `ezdrama_to_tei(ezdrama, full=True)`, the cell shows the complete TEI document, including the generated `<teiHeader>` element.
+```
+
+```{code-cell} ipython3
+import sys
+sys.path.append("..")
+from ezdrama_tei import ezdrama_to_tei
+
+ezdrama = """
+#ACT 1
+##Scene 1
+$Enter Barnardo and Francisco, two sentinels.
+@BARNARDO
+Who's there?
+@FRANCISCO
+Nay, answer me. Stand and unfold yourself.
+"""
+
+print(ezdrama_to_tei(ezdrama))
+```
 
 Regarding the **limitations of EzDrama**, the conversion is purely rule-based, and like any automated procedure, the resulting XML will need adjustments before it is ready for DraCor. The most common issue is speaker name variation. If a character is referred to as “BARNARDO” in some scenes and “BERNARDO” in others (as actually happens in early editions of _Hamlet_), the parser will generate two separate identifiers and two separate entries in the `<listPerson>` element. These must be resolved to a single identifier manually, or with a simple search-and-replace action in the EzDrama file, before conversion, which is one of the advantages of working in the intermediary format rather than directly in XML. Other elements that typically require manual post-processing include metadata in the `<teiHeader>` element (source descriptions, dates, licence information), the `@sex` attribute on `<person>` elements, and any encoding features that go beyond basic dramatic structure (such as character relations or genre classification).
 
