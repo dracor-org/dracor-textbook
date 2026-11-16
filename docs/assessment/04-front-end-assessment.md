@@ -14,7 +14,7 @@ kernelspec:
 
 ````{admonition} Note
 :class: note
-This self-test helps you check your understanding of the chapter *Front-end: Navigating DraCor*.
+This self-test helps you check your understanding of [Chapter 4, Front-end: Navigating DraCor](../chapters/04-front-end-navigating-dracor).
 
 - There is no grading and nothing is stored.
 - Read the feedback for each option carefully, including when you answered correctly.
