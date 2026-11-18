@@ -1,0 +1,18 @@
+name: Deploy to production
+
+# There is no staging site yet, so every push to main goes to
+# textbook.dracor.org directly.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  production:
+    uses: ./.github/workflows/deployment.yml
+    # environment secrets only reach the reusable workflow this way
+    secrets: inherit
+    with:
+      environment: production
+      host: textbook.dracor.org
