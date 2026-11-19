@@ -17,10 +17,27 @@ sphinx:
     - sphinxcontrib.bibtex
   local_extensions:
     launch_buttons_extra: _ext/
+    epub_build: _ext/
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
     bibtex_reference_style: author_year
+    # EPUB build: jupyter-book build docs --builder custom --custom-builder epub
+    project: DraCor Textbook
+    epub_basename: dracor-textbook
+    epub_uid: dracor-textbook
+    epub_identifier: https://textbook.dracor.org/
+    epub_scheme: URL
+    # as in CITATION.cff
+    epub_author: "Antonio Rojas Castro, Ingo Börner, Julia Jennifer Beine, Daniil Skorinkin, Peer Trilcke, Frank Fischer"
+    epub_publisher: DraCor
+    epub_contributor: DraCor
+    epub_description: >-
+      The DraCor Textbook is a curated, pedagogically structured Open
+      Educational Resource (OER) for working with the programmable drama
+      corpora of DraCor. This book covers corpus building, TEI encoding, the
+      DraCor front-end, the DraCor API and the DraCor infrastructure.
+    epub_copyright: "2026, DraCorOS Team. CC BY 4.0"
     bibtex_bibfiles:
       - references.bib
     # These html_theme_options replace the ones Jupyter Book generates from
