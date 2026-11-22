@@ -6,7 +6,7 @@ myst:
 authors: "Julia Jennifer Beine; Daniil Skorinkin"
 date: "2026-11-12"
 description: "In this chapter, we introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI)."
-keywords: ["TEI Encoding", "TEI", "XML", "programmable corpora", "DraCor schema"]
+keywords: ["TEI Encoding", "TEI", "XML", "Programmable Corpora", "DraCor schema"]
 licence: "CC BY 4.0"
 licence link: "https://creativecommons.org/licenses/by/4.0/"
 ---
@@ -28,7 +28,7 @@ This chapter is a **draft**. It has not yet been proofread or formally reviewed.
 
 ## 1. Overview
 
-In this chapter, we elaborate on the individual parts of the DraCor corpora, the encoded text files. We introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI). Subsequently, we discuss various methods of supporting and automating the encoding process. Moreover, we show how TEI encoding is central to the concept of programmable corpora.[^background-info]
+In this chapter, we elaborate on the individual parts of the DraCor corpora, the encoded text files. We introduce the basics of encoding dramatic texts in eXtensible Markup Language (XML) for DraCor, following the Guidelines for Electronic Text Encoding and Interchange by the Text Encoding Initiative (TEI). Subsequently, we discuss various methods of supporting and automating the encoding process. Moreover, we show how TEI encoding is central to the concept of Programmable Corpora.[^background-info]
 
 ## 2. Requirements and Competences
 
