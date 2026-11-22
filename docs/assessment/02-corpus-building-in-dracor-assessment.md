@@ -20,7 +20,6 @@ This assessment helps you check your understanding of the chapter *Corpus Buildi
 - Read the feedback for each option carefully, even if you answered correctly.
 - If you are unsure, return to the relevant section of the chapter (or the interface/tool) and verify what you see.
 
-<!-- TODO: the following information needs to be checked. -->
 Estimated time: 10–20 minutes.
 ````
 
