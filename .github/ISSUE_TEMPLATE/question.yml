@@ -14,7 +14,7 @@ body:
     attributes:
       label: Page / chapter
       description: Which page is this about? Paste the URL of the rendered page or the path in the repository.
-      placeholder: "https://dracor-org.github.io/dracor-textbook/... or docs/chapters/03-front-end-navigating-dracor.md"
+      placeholder: "https://textbook.dracor.org/... or docs/chapters/03-front-end-navigating-dracor.md"
     validations:
       required: true
 
