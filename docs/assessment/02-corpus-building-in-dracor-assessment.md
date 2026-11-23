@@ -20,15 +20,12 @@ This assessment helps you check your understanding of the chapter *Corpus Buildi
 - Read the feedback for each option carefully, even if you answered correctly.
 - If you are unsure, return to the relevant section of the chapter (or the interface/tool) and verify what you see.
 
-<!-- TODO: the following information needs to be checked. -->
 Estimated time: 10–20 minutes.
 ````
 
-## Exercise 1: Imported and In-house Corpora
+## Exercise 1: Imported and In-House Corpora
 
 Determine if a corpus has been imported, built in-house, or follows a mixed approach as of 2026.
-
-<!-- TODO: Discuss corpus type of German Drama Corpus – mixed/in-house (feedback: It started as an imported corpus, but is now extended in-house.)-->
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -182,6 +179,24 @@ q8 = [
 display_quiz(q8, max_width=1000)
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input]
+from jupyterquiz import display_quiz
+
+q9 = [
+  {
+    "question": "German Drama Corpus",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "imported", "correct": False, "feedback": "Incorrect."},
+      {"answer": "in-house", "correct": False,  "feedback": "Incorrect."},
+      {"answer": "mixed", "correct": True, "feedback": "Correct!"}
+    ]
+  }
+]
+
+display_quiz(q9, max_width=1000)
+```
 ## Exercise 2: Selection Criteria in Corpus Building
 
 Assign the corpus building criteria to the DraCor corpora. Select the **primary selection criterion** for each corpus. You may select up to two primary selection criteria per corpus.
