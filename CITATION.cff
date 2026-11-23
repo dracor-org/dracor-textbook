@@ -25,7 +25,7 @@ authors:
   - family-names: "Fischer"
     given-names: "Frank"
     orcid: "https://orcid.org/0000-0003-2419-6629"
-url: "https://dracor-org.github.io/dracor-textbook/"
+url: "https://textbook.dracor.org/"
 repository-code: "https://github.com/dracor-org/dracor-textbook"
 license: CC-BY-4.0
 keywords:
