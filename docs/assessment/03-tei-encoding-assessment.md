@@ -37,7 +37,7 @@ from jupyterquiz import display_quiz
 
 q1 = [
   {
-    "question": "manual encoding in an XML editor",
+    "question": "Manual encoding in an XML editor",
     "type": "multiple_choice",
     "answers": [
       {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": True, "feedback": "Correct!"},
@@ -58,7 +58,7 @@ from jupyterquiz import display_quiz
 
 q2 = [
   {
-    "question": "semi-automatic encoding with a regular expression transformation script",
+    "question": "Semi-automatic encoding with a regular expression transformation script",
     "type": "multiple_choice",
     "answers": [
       {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need basic programming skills to encode a text with a regular expression transformation script."},
@@ -79,7 +79,7 @@ from jupyterquiz import display_quiz
 
 q3 = [
   {
-    "question": "semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)",
+    "question": "Semi-automatic encoding with a transformation script (R, Python, XSLT, XQuery)",
     "type": "multiple_choice",
     "answers": [
       {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You need advanced programming skills for this kind of transformation script."},
@@ -100,7 +100,7 @@ from jupyterquiz import display_quiz
 
 q4 = [
   {
-    "question": "semi-automatic encoding with EzDrama",
+    "question": "Semi-automatic encoding with EzDrama",
     "type": "multiple_choice",
     "answers": [
       {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You do not need to know TEI/XML in order to mark up a text with EzDrama."},
@@ -121,7 +121,7 @@ from jupyterquiz import display_quiz
 
 q5 = [
   {
-    "question": "semi-automatic encoding with a Large Language Model (LLM)",
+    "question": "Semi-automatic encoding with a Large Language Model (LLM)",
     "type": "multiple_choice",
     "answers": [
       {"answer": "knowledge of TEI/XML necessary during the encoding process itself, no programming skills necessary", "correct": False, "feedback": "Incorrect. You mainly need TEI/XML knowledge for evaluating and revising the generated file."},
@@ -138,7 +138,7 @@ display_quiz(q5, max_width=1000)
 
 ### Choosing an Encoding Strategy: Case 1
 
-**You want to encode a corpus of 50 texts from a digital text collection. The format is HTML. Core elements, such as the headings, speaker names, or stage directions, are marked up regularly.**
+**You want to encode a corpus of 50 texts from a digital text collection. The source format is HTML. Core elements, such as the headings, speaker names, or stage directions, are marked up regularly.**
 
 ```{code-cell} ipython3
 :tags: [remove-input]
