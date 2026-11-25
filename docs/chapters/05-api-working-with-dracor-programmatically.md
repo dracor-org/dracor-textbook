@@ -788,7 +788,7 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 
 [^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
 
-[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The Wikidata-tagged endpoints, although also using GET, support cross-corpora queries such as finding characters across different corpora via Wikidata identifiers. Both are beyond the scope of this chapter.
+[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The endpoints tagged “wikidata” return information on authors from Wikidata and support Wikidata’s Mix’n’match tool. Finding characters across corpora via their Wikidata identifiers is possible with the public endpoints `/character/{id}` and `/characters`. These endpoints are beyond the scope of this chapter.
 
 [^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
 
