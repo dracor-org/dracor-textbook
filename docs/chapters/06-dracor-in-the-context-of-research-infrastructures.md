@@ -268,7 +268,7 @@ Such an alternative is the Cloud Container Platform of the EOSC EU Node (section
 
 ## 8. Further Reading and Resources
 
-For the idea of tactical research infrastructures discussed in section 4.1, Tim Sherratt’s talk “[Towards a Manifesto for Tactical DH Research Infrastructure](https://www.youtube.com/watch?v=FL5pP2ysjU4)” (2015) is the starting point. Readers interested in reproducibility, the motivation for running DraCor locally in section 5.1, will find a conceptual space and terminology of replication, reproduction, reanalysis and related forms of repetitive research in {cite:t}`schoech2023repetitive`. Beyond DraCor, [DARIAH Campus](https://campus.dariah.eu/) offers training materials for the Digital Humanities, and the [SSH Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the social sciences and humanities.
+For the current state of the DraCor system, the System Documentation in the DraCor Technical Reports {cite:p}`borner2026dracor` describes the components introduced in section 4.2 one by one, with their current versions, and where DraCor runs; its [overview](https://dracor-org.github.io/dracor-tech-reports/docs/overview/) shows how the components fit together. For the idea of tactical research infrastructures discussed in section 4.1, Tim Sherratt’s talk “[Towards a Manifesto for Tactical DH Research Infrastructure](https://www.youtube.com/watch?v=FL5pP2ysjU4)” (2015) is the starting point. Readers interested in reproducibility, the motivation for running DraCor locally in section 5.1, will find a conceptual space and terminology of replication, reproduction, reanalysis and related forms of repetitive research in {cite:t}`schoech2023repetitive`. Beyond DraCor, [DARIAH Campus](https://campus.dariah.eu/) offers training materials for the Digital Humanities, and the [SSH Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the social sciences and humanities.
 
 
 ## 9. Glossary Entries
@@ -317,7 +317,7 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 
 ## 14. Footnotes
 
-[^credits]: For the full list of contributors, see [dracor.org/doc/credits](https://dracor.org/doc/credits). The further development of DraCor is currently supported by the **OSCARS** project (Open Science Clusters’ Action for Research and Society, EU Horizon Europe) through the DraCorOS initiative.
+[^credits]: The core team maintaining DraCor is listed at [dracor.org/doc/credits](https://dracor.org/doc/credits), the editors of the individual corpora in the [corpus registry](https://dracor.org/doc/corpora). The further development of DraCor is currently supported by the **OSCARS** project (Open Science Clusters’ Action for Research and Society, EU Horizon Europe) through the DraCorOS initiative.
 
 [^dind]: An alternative approach, used at the [ExploreCor training school](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies), is to work inside a Docker container that provides a complete Linux environment with JupyterLab – a “Docker in Docker” setup that gives all participants the same working environment regardless of their operating system. See the [dracor-explorecor repository](https://github.com/dracor-org/dracor-explorecor).
 
