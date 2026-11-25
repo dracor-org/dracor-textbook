@@ -128,7 +128,7 @@ q5 = [{
     {"answer": "The format is part of the URL path, e.g. /networkdata/csv or /networkdata/gexf.", "correct": True,
      "feedback": "Correct. This is the \"pragmatic REST\" of the DraCor API: each format has its own URL, which makes it easy to link and share."},
     {"answer": "Only through the Accept header; the URL is always the same.", "correct": False,
-     "feedback": "Not for the network data. The Accept header is used by two endpoints, /characters and /spoken-text-by-character; network formats are selected in the URL path."},
+     "feedback": "Not for the network data; network formats are selected in the URL path."},
     {"answer": "By downloading JSON and converting it yourself.", "correct": False,
      "feedback": "Not necessary. The API offers these formats directly."},
     {"answer": "Only through the front-end, not through the API.", "correct": False,
