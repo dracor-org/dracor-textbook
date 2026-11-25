@@ -268,14 +268,8 @@ Such an alternative is the Cloud Container Platform of the EOSC EU Node (section
 
 ## 8. Further Reading and Resources
 
-- DraCor API repository and setup instructions: [https://github.com/dracor-org/dracor-api](https://github.com/dracor-org/dracor-api)
-- Reproducible research with Docker notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks/blob/main/reproducible-research-with-docker/reproducible-research-with-docker.ipynb)
-- Running your own DraCor on the EOSC EU Node, step-by-step guide: [dracor-eosc-eu-node-deploy on GitHub](https://github.com/dracor-org/dracor-eosc-eu-node-deploy/blob/main/docs/guide-eosc-eu-node.md)
-- Börner, I. (2026). “The Cloud, the Credits and a Coding Agent: Your Own DraCor on the EOSC EU Node.” [DraCor Blog](https://blog.dracor.org/posts/cloud-credits-coding-agent-own-dracor-eosc-eu-node/)
-- Docker documentation: [https://docs.docker.com/](https://docs.docker.com/)
-- Sherratt, T. (2015). “Towards a Manifesto for Tactical DH Research Infrastructure.” [YouTube](https://www.youtube.com/watch?v=FL5pP2ysjU4)
-- DARIAH Campus: [https://campus.dariah.eu/](https://campus.dariah.eu/)
-- SSH Open Marketplace: [https://marketplace.sshopencloud.eu/](https://marketplace.sshopencloud.eu/)
+For the idea of tactical research infrastructures discussed in section 4.1, Tim Sherratt’s talk “[Towards a Manifesto for Tactical DH Research Infrastructure](https://www.youtube.com/watch?v=FL5pP2ysjU4)” (2015) is the starting point. Readers interested in reproducibility, the motivation for running DraCor locally in section 5.1, will find a conceptual space and terminology of replication, reproduction, reanalysis and related forms of repetitive research in {cite:t}`schoech2023repetitive`. Beyond DraCor, [DARIAH Campus](https://campus.dariah.eu/) offers training materials for the Digital Humanities, and the [SSH Open Marketplace](https://marketplace.sshopencloud.eu/) catalogues tools and workflows for the social sciences and humanities.
+
 
 ## 9. Glossary Entries
 
