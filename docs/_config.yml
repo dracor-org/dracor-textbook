@@ -18,6 +18,7 @@ sphinx:
   local_extensions:
     launch_buttons_extra: _ext/
     bibtex_round: _ext/
+    bibtex_year_suffix: _ext/  # 2026a, 2026b (#84)
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
