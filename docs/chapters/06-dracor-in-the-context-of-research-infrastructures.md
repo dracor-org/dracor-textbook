@@ -112,7 +112,7 @@ In the previous sections, we looked at DraCor from the outside – its component
 
 ```{admonition} Technical note
 :class: warning
-The following sections involve working with the **terminal** (also called command line or shell) – a text-based interface for running commands on your computer. On macOS, this is the Terminal application; on Linux, a terminal emulator; on Windows, [PowerShell](https://learn.microsoft.com/en-us/powershell/) or the Command Prompt. Some commands shown here (particularly `curl`) may behave slightly differently on Windows. If you are on Windows and encounter issues, using the terminal inside [WSL 2 (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) – which you will need for Docker anyway – is recommended.[^dind]
+The following sections involve working with the **terminal** (also called command line or shell) – a text-based interface for running commands on your computer. On macOS, this is the Terminal application; on Linux, a terminal emulator such as GNOME Terminal or Konsole; on Windows, [PowerShell](https://learn.microsoft.com/en-us/powershell/) or the Command Prompt. Some commands shown here (particularly `curl`) may behave slightly differently on Windows. If you are on Windows and encounter issues, using the terminal inside [WSL 2 (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) – which you will need for Docker anyway – is recommended.[^dind]
 ```
 
 ### 5.1. Why Run DraCor Locally?
