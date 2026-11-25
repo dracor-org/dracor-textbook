@@ -417,7 +417,7 @@ The value `"text/csv"` is a **MIME type** (also called **Internet media type**) 
 
 All of these endpoints require the same two path parameters (`{corpusname}` and `{playname}`) that we used in the previous section. The base path is always `/api/v1/corpora/{corpusname}/plays/{playname}/`.
 
-The network data endpoints illustrate a practical approach to **content negotiation**: the same network data is available in CSV, GEXF, and GraphML, but rather than using HTTP headers to select the format, the format appears in the URL path. This is a pragmatic design choice – it makes each format directly linkable and shareable.
+The network data endpoints illustrate a practical approach to **content negotiation**: the network of a play is available in CSV, GEXF and GraphML, but rather than using HTTP headers to select the format, the format appears in the URL path. This is a pragmatic design choice – it makes each format directly linkable and shareable. Note, however, that the formats do not contain the same data: the CSV file is a plain edge list (`Source`, `Type`, `Target`, `Weight`) with the character IDs only, while GEXF and GraphML also describe the characters themselves – their names, sex, whether they are a group, and their number of spoken words.
 
 ```{admonition} How to find out what an endpoint returns
 :class: tip
