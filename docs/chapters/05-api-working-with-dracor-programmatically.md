@@ -215,11 +215,29 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-With `curl`, we can also inspect the response headers – metadata about the response, such as the content type and server information. Just as a TEI document has a `<teiHeader>` (metadata about the text) and a `<body>` (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers alongside the response, we can use `curl` with the `-v` (verbose) flag:
+With `curl`, we can also inspect the response headers – metadata about the response, such as the content type and server information. Just as a TEI document has a `<teiHeader>` (metadata about the text) and a `<body>` (the text itself), an HTTP response has headers (metadata about the transmission) and a body (the actual data). To see the headers above the response body, we can use `curl` with the `-i` (include) flag:
 
 ```bash
-curl -v 'https://dracor.org/api/v1/corpora'
+curl -i 'https://dracor.org/api/v1/corpora'
 ```
+
+The output begins like this (shortened):
+
+```text
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=utf-8
+…
+
+[ {
+  "description" : "Edited by Pablo Ruiz Fabo …",
+  …
+  "title" : "Alsatian Drama Corpus",
+  …
+  "name" : "als",
+  …
+```
+
+The first line contains the **status code** (`200 OK`; see section 5.3), and `Content-Type` tells us that the body is JSON. We will return to the content type in section 5.4, where we request data in other formats.
 
 The Swagger UI also displays response headers in a separate box after executing a request.
 
