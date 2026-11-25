@@ -194,7 +194,7 @@ The `/corpora` endpoint after execution. (1) The query parameter `include` is se
 
 ```{admonition} What is JSON?
 :class: tip
-JSON (JavaScript Object Notation) is a lightweight data format that uses two basic structures: **objects** (collections of key-value pairs, enclosed in `{ }`) and **arrays** (ordered lists, enclosed in `[ ]`). For example, `{"name": "ger", "title": "German Drama Corpus"}` is an object with two fields. An array of such objects looks like `[{"name": "ger", ...}, {"name": "rus", ...}]`. JSON is human-readable and supported by every programming language.
+JSON (JavaScript Object Notation) is a lightweight data format that uses two basic structures: **objects** (collections of key-value pairs, enclosed in `{ }`) and **arrays** (ordered lists, enclosed in `[ ]`). For example, `{"name": "ger", "title": "German Drama Corpus"}` is an object with two fields. An array of such objects looks like `[{"name": "ger", ...}, {"name": "rus", ...}]`. JSON is human-readable and independent of any programming language: libraries for reading and writing it exist for virtually every language in use today, and Python includes one in its standard library (the module `json`).
 ```
 
 The `name` field in each corpus object is the **identifier** – the “corpusname” – that we need for all further API calls. For example, the German Drama Corpus has the corpusname `"ger"`, the Russian Drama Corpus (RusDraCor) has `"rus"`. We will use these identifiers in the next section.
