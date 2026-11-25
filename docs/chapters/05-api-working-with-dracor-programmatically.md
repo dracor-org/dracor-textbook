@@ -528,19 +528,23 @@ Let us walk through this:
 
 This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically – a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
 
-#### Example Analysis: Female Speakers over Time
+#### Example Analysis: Female Characters over Time
 
-Similarly, we can examine the proportion of female speakers across the corpus:
+Similarly, we can examine the proportion of female characters across the corpus:
 
 ```{code-cell} ipython3
-# Calculate the ratio of female speakers to all speakers
-metadata_df["femaleSpeakerRatio"] = metadata_df["numOfSpeakersFemale"] / metadata_df["numOfSpeakers"]
+# Calculate the ratio of female characters to all characters
+metadata_df["femaleRatio"] = metadata_df["numOfSpeakersFemale"] / (
+    metadata_df["numOfSpeakersMale"]
+    + metadata_df["numOfSpeakersFemale"]
+    + metadata_df["numOfSpeakersUnknown"]
+)
 
 # Plot the result
-metadata_df.plot(x="yearNormalized", y="femaleSpeakerRatio", kind="scatter")
+metadata_df.plot(x="yearNormalized", y="femaleRatio", kind="scatter")
 ```
 
-This follows the same pattern as before: we divide two columns to create a new ratio (`numOfSpeakersFemale / numOfSpeakers`), store it in a new column, and plot it over time. The result shows, for each play, what proportion of its speaking characters are female – a simple but revealing perspective on gender representation across centuries of dramatic writing.
+This follows the same pattern as before: we divide the number of female characters by the sum of the male, female and unknown ones to create a new ratio, store it in a new column, and plot it over time. The result shows, for each play, what proportion of its characters are female – a simple but revealing perspective on gender representation across centuries of dramatic writing.
 
 #### Iterating over Plays
 
