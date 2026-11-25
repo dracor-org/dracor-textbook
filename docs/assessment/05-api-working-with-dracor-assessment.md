@@ -184,7 +184,7 @@ q7 = [{
 display_quiz(q7, max_width=1000)
 ```
 
-## Exercise 1: From front-end URL to metadata
+## Exercise 1: From Front-end URL to Metadata
 
 The following code turns a front-end URL into an API URL and prints some metadata of the play. Run it. Then find another play in the [German Shakespeare Drama Corpus](https://dracor.org/gersh) in the front-end, paste its URL and run the cell again.
 
@@ -206,7 +206,7 @@ else:
 
 Now change one letter in the play name and run the cell again. Which status code do you get, and why?
 
-## Exercise 2: Corpus metadata as a table
+## Exercise 2: Corpus Metadata as a Table
 
 The following code loads the metadata of all plays in the German Shakespeare Drama Corpus as a table. Run it, then answer with one or two lines of code: **Which play has the most words (`wordCountText`)?**
 
@@ -229,7 +229,7 @@ metadata_df.sort_values(by="wordCountText", ascending=False)[["title", "wordCoun
 ```
 :::
 
-## Exercise 3: The same play with PyDraCor
+## Exercise 3: The Same Play with PyDraCor
 
 Get the play from Exercise 1 with PyDraCor and print the number of its characters. Do you get the same number as with `requests`?
 
