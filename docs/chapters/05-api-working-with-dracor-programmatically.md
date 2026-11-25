@@ -607,7 +607,7 @@ In the previous sections, we built API URLs manually, sent requests with `reques
 
 #### PyDraCor
 
-[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje, is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
+[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje,[^pydracor] is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
 
 ```bash
 pip install pydracor
@@ -682,7 +682,7 @@ metadata_df = pd.DataFrame([m.to_dict() for m in metadata])
 
 `metrics.average_degree` shows how PyDraCor makes API data feel like native Python: instead of navigating a dictionary (`data["averageDegree"]`), we access a property on an object. The filtering example uses a Python **list comprehension** – a compact way of writing a loop that selects items matching a condition.
 
-PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is auto-generated from the DraCor OpenAPI specification, helping it remain in sync with the API. The main `pydracor` package then wraps this core with convenience functions {cite:p}`borner2025cls`.
+PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is generated from the DraCor OpenAPI specification; changes to the API reach PyDraCor when this core is generated again. The main `pydracor` package then wraps this core with convenience functions {cite:p}`borner2025cls`.
 
 This was only a brief introduction to PyDraCor. For more examples and the full list of available methods, see the [PyDraCor README on GitHub](https://github.com/dracor-org/pydracor).
 
@@ -795,3 +795,5 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 [^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite:t}`sluyter-gathje2023cls`.
 
 [^stage-directions-showcase]: {cite:t}`borner2023cls{pp. 17–19}` demonstrate this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite:t}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text – a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a “tendency towards epification” in German drama.
+
+[^pydracor]: Preliminary work on the wrapper was done by Eduard Grigoriev.
