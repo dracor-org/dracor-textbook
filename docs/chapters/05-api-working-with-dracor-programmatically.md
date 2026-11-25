@@ -713,12 +713,9 @@ For advanced learners, the [DraCor Notebooks](https://github.com/dracor-org/drac
 
 ## 8. Further Reading and Resources
 
-- DraCor API documentation (Swagger UI): [https://swagger.dracor.org](https://swagger.dracor.org)
-- Henny Sluyter-Gäthje’s API tutorial notebook: [dracor-notebooks on GitHub](https://github.com/dracor-org/dracor-notebooks)
-- Spadini, Elena and Peter Dängeli. “Introduction to APIs (for DH).” Presentation at the RESED Workshop, Zurich, January 2026.
-- Hall, Mark. “Introduction to APIs.” DARIAH Campus, 2021. [https://campus.dariah.eu/resources/hosted/introduction-to-apis](https://campus.dariah.eu/resources/hosted/introduction-to-apis)
-- Massé, Mark. *REST API Design Rulebook*. O’Reilly Media, 2011. A practical guide to REST API design principles and conventions.
-- ExploreCor: Using Programmable Corpora in Computational Literary Studies (CLS INFRA Training School). [DARIAH Campus](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies)
+The DraCor API is documented interactively in the [Swagger UI](https://swagger.dracor.org), the place to look up endpoints, parameters and response formats while working with the API. For a hands-on continuation in Python, the API tutorial notebook by Henny Sluyter-Gäthje in the [DraCor Notebooks](https://github.com/dracor-org/dracor-notebooks), on which the examples in section 5.5 are based, walks through further requests. Readers looking for a general introduction to APIs in the Digital Humanities may turn to the recorded webinar “[Introduction to APIs](https://campus.dariah.eu/resources/hosted/introduction-to-apis)” by Mark Hall (DARIAH Friday Frontiers, 2021) on DARIAH Campus, which demonstrates working with the APIs of cultural heritage collections (OAI-PMH, Europeana), and to the slides of the presentation “[Introduction to APIs (for DH)](https://doi.org/10.5281/zenodo.19237835)” by Peter Dängeli and Elena Spadini at the ReSED workshop “Re-use of editions and text collections: The role of APIs” (Zurich, January 2026).
+
+Those interested in how REST APIs are designed will find the principles and conventions in {cite:t}`masse2011rest`. The DraCor API is specific to DraCor. DraCor also implements Distributed Text Services (DTS), a community-developed standard API for publishing and retrieving text collections. The [DTS notebook](https://dracor-org.github.io/dracor-notebooks/dts/dts.html) in the DraCor Notebooks introduces the DTS endpoints with examples and compares what can be retrieved through DTS and through the DraCor API {cite:p}`borner2025cls{pp. 56–94}`. Finally, the materials of the CLS INFRA training school [ExploreCor](https://campus.dariah.eu/resources/events/explore-cor-using-programmable-corpora-in-computational-literary-studies) on DARIAH Campus show Programmable Corpora such as DraCor in use in Computational Literary Studies.
 
 
 ## 9. Glossary Entries
