@@ -98,7 +98,7 @@ The API changes this by offering pre-built extraction and analysis as endpoints.
 It is worth emphasising that the DraCor front-end is itself a client of the API. The React-based web application (see the [front-end repository on GitHub](https://github.com/dracor-org/dracor-frontend); for a deeper look at the technical architecture of DraCor, see [chapter 6, “DraCor in the Context of Research Infrastructures”](06-dracor-in-the-context-of-research-infrastructures)) sends requests to the same endpoints that we will use in this chapter. The Downloads tab on a play page, for example, provides links that resolve to API endpoints: clicking “GEXF” triggers a request to `/api/v1/corpora/{corpusname}/plays/{playname}/networkdata/gexf`. Understanding the API therefore also means understanding what the front-end does behind the scenes. For a detailed mapping of which API endpoints are used by which front-end page and tab, see the overview table in {cite:t}`borner2023cls{p. 55}`.
 
 ```{admonition} Tip for learners
-If you have the DraCor front-end open alongside this chapter, you can compare what you see in the browser with what the API returns. The front-end URL `https://dracor.org/ger/lessing-emilia-galotti` contains the same identifiers (`ger` and `lessing-emilia-galotti`) that we use in API requests.
+If you have the DraCor front-end open alongside this chapter, you can compare what you see in the browser with what the API returns. The front-end URL `https://dracor.org/ger/lessing-emilia-galotti` contains the same two identifiers that we use in API requests: the corpus name (`ger`) and the play name (`lessing-emilia-galotti`), also called slug. The header of the play page shows a third identifier, the DraCor play ID (`ger000088`; see [chapter 4](04-front-end-navigating-dracor)).
 ```
 
 ## 5. Practical Examples: The DraCor API
@@ -265,11 +265,11 @@ The `/corpora/{corpusname}` endpoint. The path parameter `corpusname` is require
 
 In the Swagger UI, the parameter section shows a description: “Short name of the corpus as provided in the `name` property of the result objects from the `/corpora` endpoint.” In other words, the output of our previous request (the `name` field) becomes the input of this request. This pattern – **the output of one request feeds as input into the next** – is not specific to DraCor but fundamental to working with REST APIs in general. Most APIs organise their resources hierarchically, and navigating that hierarchy means using identifiers obtained from one response to construct the next request. Once we grasp this pattern, we can apply it to any API we encounter.
 
-The response this time is not an array but a single JSON **object**. It contains corpus-level metadata (title, description, repository link) and, importantly, a field called `plays` – an array of play objects, each with its own metadata including a `name` field (the play identifier, or “slug”).
+The response this time is not an array but a single JSON **object**. It contains corpus-level metadata (title, description, repository link) and, importantly, a field called `plays` – an array of play objects, each with its own metadata, including a `name` field – the play name or slug, which identifies the play within its corpus – and an `id` field, the DraCor play ID, which identifies it across all corpora.
 
 #### Step 2: Getting a Single Play
 
-To retrieve data about a specific play, we use the endpoint `/corpora/{corpusname}/plays/{playname}`. This endpoint has **two required path parameters**: the corpus name and the play name. Both must be valid, and the play must belong to the specified corpus.
+To retrieve data about a specific play, we use the endpoint `/corpora/{corpusname}/plays/{playname}`. This endpoint has **two required path parameters**: the corpus name and the play name. Both must be valid, and the play must belong to the specified corpus. The play name alone is not enough: it is unique only within its corpus, not across DraCor. For example, `seneca-medea` exists both in the English Drama Corpus (`eng`) and in the Roman Drama Corpus (`rom`). The play name therefore always has to be combined with the corpus name.
 
 ```{figure} ../images/api/swaggerui-corpora-corpusname-plays-playname-endpoint-example-values-of-parameters.png
 ---
@@ -736,7 +736,7 @@ Those interested in how REST APIs are designed will find the principles and conv
 | OpenAPI / Swagger | A standard for describing REST APIs; Swagger UI renders the specification as interactive documentation. |
 | Overfetching | Receiving more data in an API response than is needed for a specific task, typically a trade-off of convenience endpoints. |
 | Path parameter | A variable part of the URL that identifies a specific resource (e.g. `{corpusname}`). |
-| Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. |
+| Playname (slug) | The short identifier of a play within a DraCor corpus (e.g. `"lessing-emilia-galotti"`), used as a path parameter in API requests. It is unique only within its corpus and therefore always used together with the corpusname. The DraCor play ID (e.g. `ger000088`) identifies a play across all corpora. |
 | Query parameter | A key-value pair appended after `?` in the URL to filter or modify the response. |
 | Request | A message sent to an API endpoint, specifying what data or action is wanted. |
 | Response | The data (body) and metadata (headers) returned by the API after a request. |
