@@ -4,3 +4,5 @@ _build/
 .venv/
 .mcp.json
 notes/
+__pycache__/
+*.pyc
