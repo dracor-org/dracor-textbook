@@ -27,7 +27,7 @@ The book source lives in `docs/`:
 
 Prerequisites:
 
-- Python 3.11 (recommended)
+- Python 3.12 (as in the CI build and `.binder/runtime.txt`)
 - `pip`
 
 Install dependencies:

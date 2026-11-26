@@ -794,7 +794,7 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 
 [^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls{pp. 55–93}`. The endpoints tagged “wikidata” return information on authors from Wikidata and support Wikidata’s Mix’n’match tool. Finding characters across corpora via their Wikidata identifiers is possible with the public endpoints `/character/{id}` and `/characters`. These endpoints are beyond the scope of this chapter.
 
-[^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes) {cite:p}`fielding2022http`.
+[^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes) {cite:p}`fielding2022http`.
 
 [^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [DraCor Notebooks](https://dracor-org.github.io/dracor-notebooks/) {cite:p}`borner2026dracornotebooks` and {cite:t}`sluyter-gathje2023cls{pp. 9–11}`.
 
