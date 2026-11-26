@@ -694,7 +694,7 @@ dracor = DraCorAPI(host="http://localhost:8088/api/v1")
 
 #### rdracor for R
 
-[rdracor](https://github.com/dracor-org/rdracor) is an R wrapper for the DraCor API, developed by Ivan Pozdniakov. It is published on [CRAN](https://cran.r-project.org/package=rdracor) and can be installed with `install.packages("rdracor")`. Like PyDraCor, it provides functions that map to the API endpoints, making it easy to retrieve corpora, plays, character data and network information directly from within R. The following example loads the metadata for GerDraCor and plots the proportion of stage directions over time:
+[rdracor](https://github.com/dracor-org/rdracor) {cite:p}`pozdniakov2026rdracor` is an R wrapper for the DraCor API. It is published on [CRAN](https://cran.r-project.org/package=rdracor) and can be installed with `install.packages("rdracor")`. Like PyDraCor, it provides functions that map to the API endpoints, making it easy to retrieve corpora, plays, character data and network information directly from within R. The following example loads the metadata for GerDraCor and plots the proportion of stage directions over time:
 
 ```r
 library(rdracor)
