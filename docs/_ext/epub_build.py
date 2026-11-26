@@ -38,6 +38,9 @@ def configure_epub(app):
     # Links stay clickable in e-readers; Sphinx would otherwise add the URL
     # in brackets after every external link.
     config.epub_show_urls = "no"
+    # Not in _static: Jupyter Book links every CSS file there into the
+    # website as well.
+    config.html_static_path = [*config.html_static_path, "_epub_static"]
     app.add_css_file("epub-extra.css")
 
 
