@@ -702,7 +702,11 @@ metadata <- get_dracor("ger")
 plot(metadata$yearNormalized, metadata$wordCountStage / metadata$wordCountText)
 ```
 
-Both API libraries demonstrate a key point: because the DraCor API follows REST conventions and is documented with OpenAPI, it can be accessed from any programming language. The API is the shared interface; the wrapper is a convenience layer on top.
+#### scratchDraCor for Scratch
+
+[scratchDraCor](https://github.com/dracor-org/scratchdracor) brings the DraCor API to block-based programming. It is an extension for [TurboWarp](https://turbowarp.org), a Scratch editor that runs in the browser and can load extensions. Its blocks ask the API for the title, authors or year of a play, its characters, its network metrics or its spoken text, and the answers can be combined with the usual Scratch blocks – for example, to let a sprite say how many characters a play has. Nothing needs to be installed: a [link](https://turbowarp.org/editor?extension=https://dracor-org.github.io/scratchdracor/scratchdracor.js) opens TurboWarp with the DraCor blocks already loaded. scratchDraCor is meant for learners who have never programmed, including school students.
+
+PyDraCor, rdracor and scratchDraCor demonstrate a key point: because the DraCor API follows REST conventions and is documented with OpenAPI, it can be accessed from any programming language. The API is the shared interface; the wrapper is a convenience layer on top.
 
 ```{admonition} API versioning
 :class: note
