@@ -116,7 +116,7 @@ q4 = [{
   "question": "When are the network metrics of a play (for example density or diameter) calculated?",
   "type": "multiple_choice",
   "answers": [
-    {"answer": "When the play is loaded: the API sends the network to the Metrics Service, and the results are stored in the database.", "correct": True,
+    {"answer": "When the play is loaded: the API sends the segments and their speakers to the Metrics Service, and the results are stored in the database.", "correct": True,
      "feedback": "Correct. The metrics are pre-calculated during the ingest and then served by the API."},
     {"answer": "Each time someone requests the /metrics endpoint.", "correct": False,
      "feedback": "No. The metrics are calculated once, when the play is loaded, and then stored."},

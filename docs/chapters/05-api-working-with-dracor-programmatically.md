@@ -116,7 +116,7 @@ The Swagger UI is the documentation of the API – it is not the API itself. The
 
 Think of the OpenAPI specification as a **contract**: the developers of DraCor declare “we offer these endpoints, and if you use them the right way, you will get back data in this form.” This contract is both human-readable (through the Swagger UI) and machine-readable (the underlying YAML file), which is why the core of PyDraCor (`pydracor-base`) can be generated automatically from it (see section 5.6).
 
-When we open the Swagger UI, we see the API endpoints grouped by **tags**: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints – these are the ones that return data without requiring authentication. The admin endpoints are used for managing corpora on a local DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
+When we open the Swagger UI, we see the API endpoints grouped by **tags**: **public**, **admin**, **DTS**, **Wikidata**, and **webhook**. For this chapter, we focus on the **public** endpoints – these are the ones that return data without requiring authentication. The admin endpoints are used for managing the corpora of a DraCor instance and require authentication; we will not need them here. The DTS and Wikidata endpoints are also publicly accessible but serve more specialised purposes that go beyond this introduction.[^additional_get_endpoints]
 
 ```{figure} ../images/api/openapi-spec.png
 ---
@@ -478,7 +478,7 @@ Let us walk through the new parts:
 - `pd.read_csv(response.raw, sep=",", encoding="utf-8")` – this reads the CSV data from the response and creates a data frame. The `sep=","` specifies that columns are separated by commas, and `encoding="utf-8"` ensures that special characters (such as umlauts in German play titles) are handled correctly.
 - `metadata_df.head()` – displays the first five rows of the table, giving us a quick preview.
 
-The resulting table has one row per play and columns for metadata fields such as `yearNormalized`, `wordCountText`, `wordCountStage`, `numOfSpeakers`, `numOfSpeakersFemale`, `size` (number of characters), and many more.
+The resulting table has one row per play and columns for metadata fields such as `yearNormalized`, `wordCountText`, `wordCountStage`, `numOfSpeakers`, `numOfSpeakersFemale`, `size` (number of character nodes in the network), and many more.
 
 Now that we have the data in a data frame, we can work with it like a programmable spreadsheet. Here are two quick examples to get a feel for what pandas can do:
 
@@ -528,19 +528,23 @@ Let us walk through this:
 
 This visualisation reveals how the proportion of stage directions in dramatic texts has evolved historically – a question that would be impractical to answer by inspecting plays one by one in the front-end. The DraCor API makes it straightforward to extract stage directions for further analysis.[^stage-directions-showcase]
 
-#### Example Analysis: Female Speakers over Time
+#### Example Analysis: Female Characters over Time
 
-Similarly, we can examine the proportion of female speakers across the corpus:
+Similarly, we can examine the proportion of female characters across the corpus:
 
 ```{code-cell} ipython3
-# Calculate the ratio of female speakers to all speakers
-metadata_df["femaleSpeakerRatio"] = metadata_df["numOfSpeakersFemale"] / metadata_df["numOfSpeakers"]
+# Calculate the ratio of female characters to all characters
+metadata_df["femaleRatio"] = metadata_df["numOfSpeakersFemale"] / (
+    metadata_df["numOfSpeakersMale"]
+    + metadata_df["numOfSpeakersFemale"]
+    + metadata_df["numOfSpeakersUnknown"]
+)
 
 # Plot the result
-metadata_df.plot(x="yearNormalized", y="femaleSpeakerRatio", kind="scatter")
+metadata_df.plot(x="yearNormalized", y="femaleRatio", kind="scatter")
 ```
 
-This follows the same pattern as before: we divide two columns to create a new ratio (`numOfSpeakersFemale / numOfSpeakers`), store it in a new column, and plot it over time. The result shows, for each play, what proportion of its speaking characters are female – a simple but revealing perspective on gender representation across centuries of dramatic writing.
+This follows the same pattern as before: we divide the number of female characters by the sum of the male, female and unknown ones to create a new ratio, store it in a new column, and plot it over time. The result shows, for each play, what proportion of its characters are female – a simple but revealing perspective on gender representation across centuries of dramatic writing.
 
 #### Iterating over Plays
 
@@ -603,7 +607,7 @@ In the previous sections, we built API URLs manually, sent requests with `reques
 
 #### PyDraCor
 
-[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje, is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
+[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje,[^pydracor] is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
 
 ```bash
 pip install pydracor
@@ -678,7 +682,7 @@ metadata_df = pd.DataFrame([m.to_dict() for m in metadata])
 
 `metrics.average_degree` shows how PyDraCor makes API data feel like native Python: instead of navigating a dictionary (`data["averageDegree"]`), we access a property on an object. The filtering example uses a Python **list comprehension** – a compact way of writing a loop that selects items matching a condition.
 
-PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is auto-generated from the DraCor OpenAPI specification, helping it remain in sync with the API. The main `pydracor` package then wraps this core with convenience functions {cite:p}`borner2025cls`.
+PyDraCor 3.x has a two-layer architecture: a core package (`pydracor-base`) is generated from the DraCor OpenAPI specification; changes to the API reach PyDraCor when this core is generated again. The main `pydracor` package then wraps this core with convenience functions {cite:p}`borner2025cls`.
 
 This was only a brief introduction to PyDraCor. For more examples and the full list of available methods, see the [PyDraCor README on GitHub](https://github.com/dracor-org/pydracor).
 
@@ -784,10 +788,12 @@ Ingo Börner – Conceptualisation, Methodology, Software, Writing – original 
 
 [^openapi-yaml]: The OpenAPI specification file of the DraCor API (`api.yaml`) can be found at [https://github.com/dracor-org/dracor-api/blob/main/api.yaml](https://github.com/dracor-org/dracor-api/blob/main/api.yaml).
 
-[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The Wikidata-tagged endpoints, although also using GET, support cross-corpora queries such as finding characters across different corpora via Wikidata identifiers. Both are beyond the scope of this chapter.
+[^additional_get_endpoints]: The DTS (Distributed Text Services) endpoints provide standardised access to textual data; for an introduction see the [DTS notebook](https://github.com/dracor-org/dracor-notebooks/tree/main/dts) and the corresponding chapter in {cite:t}`borner2025cls`. The endpoints tagged “wikidata” return information on authors from Wikidata and support Wikidata’s Mix’n’match tool. Finding characters across corpora via their Wikidata identifiers is possible with the public endpoints `/character/{id}` and `/characters`. These endpoints are beyond the scope of this chapter.
 
 [^status-codes]: For a complete list of HTTP status codes, see [MDN Web Docs: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). The codes are formally defined in [RFC 9110, Section 15](https://httpwg.org/specs/rfc9110.html#status.codes).
 
 [^api-intro-notebook]: The following examples are adapted from the DraCor API tutorial notebook by Henny Sluyter-Gäthje. See the API tutorial in the [dracor-notebooks repository](https://github.com/dracor-org/dracor-notebooks) and {cite:t}`sluyter-gathje2023cls`.
 
 [^stage-directions-showcase]: {cite:t}`borner2023cls{pp. 17–19}` demonstrate this in a showcase that retrieves stage directions and spoken text separately via the API, then uses the NLP library spaCy to compare average sentence lengths between the two text layers across all plays in GerDraCor. For a dedicated quantitative study of stage directions using GerDraCor, see {cite:t}`trilcke2020opening`, which analyses 384 German plays and finds that stage directions constitute on average about 7.48% of the total text – a ratio that increases significantly over time, with stage directions becoming longer and more narrative, supporting the hypothesis of a “tendency towards epification” in German drama.
+
+[^pydracor]: Preliminary work on the wrapper was done by Eduard Grigoriev.
