@@ -607,7 +607,7 @@ In the previous sections, we built API URLs manually, sent requests with `reques
 
 #### PyDraCor
 
-[PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje,[^pydracor] is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
+[PyDraCor](https://github.com/dracor-org/pydracor) {cite:p}`sluytergathje2026pydracor`[^pydracor] is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
 
 ```bash
 pip install pydracor
