@@ -1,0 +1,44 @@
+# Builds the EPUB of the textbook and attaches it to a GitHub release.
+# Zenodo archives only the source code of a release, not attached files.
+name: release-epub
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag of an existing release to attach the EPUB to"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  epub:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"  # as in .binder/runtime.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build the EPUB
+        run: jupyter-book build docs --builder custom --custom-builder epub
+
+      - name: Attach the EPUB to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp docs/_build/epub/dracor-textbook.epub "dracor-textbook-${TAG}.epub"
+          gh release upload "$TAG" "dracor-textbook-${TAG}.epub" --clobber
