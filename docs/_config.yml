@@ -19,11 +19,13 @@ sphinx:
     launch_buttons_extra: _ext/
     bibtex_round: _ext/
     bibtex_year_suffix: _ext/  # 2026a, 2026b (#84)
+    bibtex_keep_case: _ext/  # titles as in references.bib (#30)
     epub_build: _ext/
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
     bibtex_reference_style: author_year_round  # round brackets, see _ext/bibtex_round.py
+    bibtex_default_style: alpha_keep_case  # titles as in references.bib, see _ext/bibtex_keep_case.py
     # Generate anchors for headings up to level 3, so that links such as
     # `file.md#exercise-1-...` can be checked by MyST.
     myst_heading_anchors: 3
