@@ -154,7 +154,7 @@ Containerisation is not unique to DraCor or to Digital Humanities. It is a core 
 
 ### 5.3. Setting Up a Local DraCor Instance
 
-The [DraCor API repository on GitHub](https://github.com/dracor-org/dracor-api) contains everything we need to run DraCor locally.[^docker-notebook] The following steps assume that Docker is installed and running on your machine. On macOS and Linux, installation is usually straightforward. On Windows, Docker requires the Windows Subsystem for Linux (WSL 2) to be enabled, which can be an additional hurdle – consult the [Docker documentation](https://docs.docker.com/desktop/install/windows-install/) if you encounter issues.
+The [DraCor API repository on GitHub](https://github.com/dracor-org/dracor-api) contains everything we need to run DraCor locally.[^docker-notebook] The following steps assume that Docker is installed and running on your machine. On macOS and Linux, installation is usually straightforward. On Windows, Docker requires the Windows Subsystem for Linux (WSL 2) to be enabled, which can be an additional hurdle – consult the [Docker documentation](https://docs.docker.com/desktop/setup/install/windows-install/) if you encounter issues.
 
 **Step 1: Clone the repository.**
 
