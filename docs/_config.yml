@@ -31,6 +31,10 @@ sphinx:
     project: DraCor Textbook
     epub_basename: dracor-textbook
     epub_uid: dracor-textbook
+    epub_tocscope: includehidden
+    epub_use_index: false
+    # Cover image (source: epub-cover/cover.html) and the cover page template of Sphinx
+    epub_cover: [_static/figures/epub-cover.png, epub-cover.html]
     epub_identifier: https://textbook.dracor.org/
     epub_scheme: URL
     # as in CITATION.cff
