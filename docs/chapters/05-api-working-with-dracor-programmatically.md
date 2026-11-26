@@ -601,11 +601,9 @@ This pattern – iterating over plays and calling an endpoint for each one – i
 The iteration pattern above raises a question of API design. To get character data for all plays in a corpus, we make one request per play – potentially hundreds of requests. This is what API designers call a “chatty” approach: many small, precise requests. The alternative would be a “chunky” approach: a single endpoint that returns all character data for an entire corpus in one response. The DraCor API tends towards the chunky style in some places – for example, the `/corpora/{corpusname}` endpoint returns corpus metadata and a list of all plays in one response. This is convenient but can lead to **overfetching**: we receive more data than we need. The `/metadata` endpoint we used earlier is another example – it returns detailed data for every play at once, which is why it can be slow for large corpora. There is no single right answer; both styles have trade-offs, and the DraCor API uses a pragmatic mix of both.
 ```
 
-### 5.6. Using PyDraCor (and rdracor)
+### 5.6. API Wrappers: PyDraCor, rdracor and scratchDraCor
 
-In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process. It wraps API calls into functions (reusable blocks of code, as we have seen) and **classes** that feel native to the programming language. A class is a blueprint for creating objects that bundle data and functionality together: for example, a `Play` class might hold the metadata of a play and offer methods like `.get_spoken_text()`. For the DraCor API, two such wrappers exist: **PyDraCor** for Python and **rdracor** for R {cite:p}`sluyter-gathje2023cls{pp. 6–11}`.
-
-#### PyDraCor
+In the previous sections, we built API URLs manually, sent requests with `requests.get()`, and parsed the JSON responses ourselves. This works well for learning and for understanding what happens at the HTTP level, but it can become repetitive. An **API wrapper** is a programming library that simplifies this process. It wraps API calls into functions (reusable blocks of code, as we have seen) and **classes** that feel native to the programming language. A class is a blueprint for creating objects that bundle data and functionality together: for example, a `Play` class might hold the metadata of a play and offer methods like `.get_spoken_text()`. For the DraCor API, there are **PyDraCor** for Python and **rdracor** for R {cite:p}`sluyter-gathje2023cls{pp. 6–11}`, and **scratchDraCor** brings the API to the block-based programming environment Scratch.
 
 [PyDraCor](https://github.com/dracor-org/pydracor), developed by Henny Sluyter-Gäthje,[^pydracor] is the official Python wrapper for the DraCor API. It provides a set of Python classes that map directly to the core entities of the API – corpora, plays, and characters – so that we can work with DraCor data using familiar Python patterns instead of constructing URLs and parsing JSON manually. PyDraCor can be installed with:
 
@@ -615,7 +613,7 @@ pip install pydracor
 
 Its main classes – `DraCorAPI`, `Corpus` and `Play` – mirror the structure of the API itself. Let us walk through them step by step.
 
-#### Getting Started
+#### Getting Started with PyDraCor
 
 ```{code-cell} ipython3
 from pydracor import DraCorAPI
