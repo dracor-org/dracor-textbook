@@ -69,7 +69,7 @@ CLS INFRA identified three core challenges facing the resources of the field: **
 
 ### 4.2. DraCor as a System: The Components
 
-Whether we want to work **with** DraCor – using it for our research – or work **on** DraCor – contributing to its development, adapting it for new corpora or new research questions – it helps to understand how the system works on the inside. DraCor is not a single application but a multi-component system. For a detailed technical description of all components, see {cite:t}`borner2023cls`. The following diagram, adapted from {cite:t}`borner2023cls`, shows how the components fit together:
+Whether we want to work **with** DraCor – using it for our research – or work **on** DraCor – contributing to its development, adapting it for new corpora or new research questions – it helps to understand how the system works on the inside. DraCor is not a single application but a multi-component system. For a detailed technical description of all components, see {cite:t}`borner2023cls` and, for the current state, the DraCor System Documentation {cite:p}`borner2026dracor`. The following diagram, adapted from {cite:t}`borner2023cls`, shows how the components fit together:
 
 ```{figure} ../images/infrastructure/dracor-infrastructure-drawing.png
 ---
