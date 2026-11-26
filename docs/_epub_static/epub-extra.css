@@ -1,0 +1,37 @@
+/* Only in the EPUB (added by _ext/epub_build.py from _epub_static). */
+
+/* Bibliography: the author-year citations do not need the label
+   ([BornerT23]); the back-references go after the entry. */
+div.citation > span.label {
+    display: none;
+}
+div.citation {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8em;
+}
+div.citation > p {
+    order: 1;
+    margin: 0;
+}
+div.citation > span.backrefs {
+    order: 2;
+    font-size: 0.8em;
+}
+
+/* Footnotes: the number ([1], linking back to the text) on the same line
+   as the footnote text. */
+aside.footnote {
+    display: block;
+    margin-bottom: 0.8em;
+}
+aside.footnote > span.label {
+    float: left;
+    padding-right: 0.4em;
+}
+aside.footnote > p {
+    margin: 0;
+}
+aside.footnote > p + p {
+    margin-top: 0.4em;
+}

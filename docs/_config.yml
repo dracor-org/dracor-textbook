@@ -18,6 +18,8 @@ sphinx:
   local_extensions:
     launch_buttons_extra: _ext/
     bibtex_round: _ext/
+    bibtex_year_suffix: _ext/  # 2026a, 2026b (#84)
+    epub_build: _ext/
   config:
     html_logo: _static/figures/logo.png
     html_favicon: _static/figures/favicon.png
@@ -25,6 +27,26 @@ sphinx:
     # Generate anchors for headings up to level 3, so that links such as
     # `file.md#exercise-1-...` can be checked by MyST.
     myst_heading_anchors: 3
+    # EPUB build: jupyter-book build docs --builder custom --custom-builder epub
+    project: DraCor Textbook
+    epub_basename: dracor-textbook
+    epub_uid: dracor-textbook
+    epub_tocscope: includehidden
+    epub_use_index: false
+    # Cover image (source: epub-cover/cover.html) and the cover page template of Sphinx
+    epub_cover: [_static/figures/epub-cover.png, epub-cover.html]
+    epub_identifier: https://textbook.dracor.org/
+    epub_scheme: URL
+    # as in CITATION.cff
+    epub_author: "Antonio Rojas Castro, Ingo Börner, Julia Jennifer Beine, Daniil Skorinkin, Peer Trilcke, Frank Fischer"
+    epub_publisher: DraCor
+    epub_contributor: DraCor
+    epub_description: >-
+      The DraCor Textbook is a curated, pedagogically structured Open
+      Educational Resource (OER) for working with the programmable drama
+      corpora of DraCor. This book covers corpus building, TEI encoding, the
+      DraCor front-end, the DraCor API and the DraCor infrastructure.
+    epub_copyright: "2026, DraCorOS Team. CC BY 4.0"
     bibtex_bibfiles:
       - references.bib
     # These html_theme_options replace the ones Jupyter Book generates from
