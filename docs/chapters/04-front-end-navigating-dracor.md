@@ -223,7 +223,7 @@ Continue with [Chapter 5](05-api-working-with-dracor-programmatically) to unders
 
 ## 11. AI Use Declaration
 
-The author used ChatGPT to receive feedback on the structure, language and editorial consistency of this chapter. The author reviewed, revised and approved the final text. No AI-generated output was used without human revision.
+The author used Codex in ChatGPT Work Mode (OpenAI, GPT‑6) to receive feedback on the structure, language and editorial consistency of this chapter. The author reviewed, revised and approved the final text. No AI-generated output was used without human revision.
 
 ## 12. Author Contributions
 
