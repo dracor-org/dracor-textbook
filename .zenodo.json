@@ -29,6 +29,13 @@
       "orcid": "0000-0003-2419-6629"
     }
   ],
+  "contributors": [
+    {
+      "name": "Milling, Carsten",
+      "orcid": "0000-0003-0553-7512",
+      "type": "Other"
+    }
+  ],
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
