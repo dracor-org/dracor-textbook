@@ -227,7 +227,7 @@ The author used ChatGPT to receive feedback on the structure, language and edito
 
 ## 12. Author Contributions
 
-Antonio Rojas Castro: conceptualisation, writing – original draft, methodology, visualisation, writing – review and editing.
+Antonio Rojas Castro – conceptualisation, writing – original draft, methodology, visualisation, writing – review and editing.
 
 ## 13. References
 
