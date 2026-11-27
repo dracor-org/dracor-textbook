@@ -77,7 +77,7 @@ Together, these use cases guide learners from the preparation of structured text
 
 ## 6. The Textbook as a Living Resource
 
-We welcome suggestions for corrections, examples and teaching activities. Readers may [open an issue on GitHub](https://github.com/dracor-org/dracor-textbook/issues/new/choose) or share their experiences of teaching and learning with DraCor through the [DraCor Blog](https://dracor.hypotheses.org/) {cite:p}`dracor2026-presentdracor`.
+We welcome suggestions for corrections, examples and teaching activities. Readers may [open an issue on GitHub](https://github.com/dracor-org/dracor-textbook/issues/new/choose) or share their experiences of teaching and learning with DraCor through the [DraCor Blog](https://blog.dracor.org/) {cite:p}`dracor2026-presentdracor`.
 
 ## 7. Use of AI in the DraCor Textbook
 
